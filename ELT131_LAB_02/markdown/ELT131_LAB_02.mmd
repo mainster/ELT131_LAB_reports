@@ -1,0 +1,371 @@
+Title:      Report ELT131 LAB 02
+Author:     Del Basso, Manuel
+Date:       18-03-2017
+Location:   WHZ
+Footicon:   ./pics/whz.png
+
+ELT131 - Lab 02 report 
+============================== 
+[TOC]
+
+# Introduction #
+A first project based on TI-RTOS is created in this lab exercise. At the same time should deepen the knowledge and skills in CCSv6/7. Discuss the most important configuration settings of a TI-RTOS projects is also one of the key elements. 
+
+__Used components:__
+
+ - Hardware
+     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino
+ - Software
+     - Code Composer Studio Version: 7.1.0.00015 (CCS7)
+     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
+     - SYS/BIOS 
+         + Version: 6.33.4.39
+     - TI-RTOS for C2000
+         + Version: 2.16.1.14
+ - Development Plattform
+     + ```lsb_release -d``` <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span>
+     + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
+
+
+# Add an Idle - Thread to your project #
+>You are now ready to edit this file to implement the ledToggle() function as an Idle thread in TI-RTOS. 
+But first, think about what we’re trying to accomplish. TI-RTOS is an operating system that controls the scheduling of your threads. A while() loop in main() doesn’t work any longer...
+>15) Now answer a few questions:
+
+__Q:__ Should you keep the while(1) loop in main() in a TI-RTOS program? Why/why not?
+__A:__ Doesn't matter which kind of RTOS is being used, an "pseudo"-Idle endless _NOP_ loop never makes sence as long as no scheduler function has been initialized and "daemonized". After an IRQ driven scheduler has been started, 
+
+__Q:__ Which thread takes the place of the while(1) loop in a BIOS program?
+__A:__ Idle loop thread or "Idle thread". 
+
+__The four major types of threads in a SYS/BIOS program are:__
+
+1. Hardware interrupt threads (_Hwi_)
+2. Software interrupt threads (_Swi_)
+3. Task threads (_Task_)
+4. Idle loop threads (_Idle_)
+
+The idle thread runs in an endless loop except when it is preempted by higher-priority threads (Hwi, Swi, Task). 
+
+__Q:__ Who calls ledToggle()?
+__A:__ The function or method _ledToggle()_ could be registered to the scheduler as periodically processed task. A better solution is to process the ledToggle() calls within idle loop, e. g. make the ledToggle() function to become an idle thread. This could be reached by configurung TI-RTOSs idle manager (Append functions to the Idle Loop means "make them idle threads") .
+
+__Q:__ When ledToggle() becomes an Idle thread, there is no direct call (that the compiler can see) to ledToggle(). If you turn on higher forms of optimization, what might happen to the ledToggle() function in file "main.c"?
+__A:__ Indirectly accessed functions (dereferenced via function pointer) are always endangered to get optimized away, never ignore compiler warnings (_... has been declared but is not used ..._).
+
+
+
+__Q:__ Which call in main() is still missing to start the TI_RTOS Scheduler?
+__A:__ A BIOS module API call to pass control of program flow to the SYS/BIOS thread Scheduler. A BIOS_start() call never returns!   
+
+>17) Some more questions:
+
+__Q:__ Without BIOS_start(), NOTHING works. When BIOS starts, it will always run the highest priority pending thread in the system. If we have no Hwi, Swi or Tasks in the system, which thread will run immediately? 
+__A:__ The 4th major thread type, Idle thread. After all higher prioritized threads has been serviced, the scheduler returns into idle loop where all idle threads where called periodically.
+
+__Q:__ And when Idle runs, which function will it call? 
+
+__Q:__ When ledToggle() returns, which thread will run?
+__A:__ Idle thread, what in this simple case means that ledToggle() becomes active again. 
+
+# Explore the RTOS Object Viewer (ROV) #
+>23) Inspect the contents of the ROV tool.
+The RTOS Object Viewer (ROV) is an additional debug tool to provide visibility into the state of the scheduler, BIOS threads and memory objects. We will use ROV throughout the labs and you can also use ROV to debug your own programs.
+
+>(...) Let’s look at (click on) a few in particular to answer some questions. Please note that this exercise is all about just perusing the contents of ROV - there is really no wrong answers - just click around and see what is there. All future labs will use ROV as well, so this is not the last time you’ll see it...
+
+## ROV-BIOS ##
+__Q:__ Are clocks, Swis and Tasks enabled? 
+__A:__ clockEnabled = true, swiEnabled = true, taskEnabled = true
+<mBox class="l">Viewable Modules</mBox><mBox>BIOS</mBox><mBox>Module</mBox> 
+
+
+__Q:__ What is the frequency this processor is running at? 
+__A:__ $150\si{MHz}$ 
+<mBox class="l">Viewable Modules</mBox><mBox>BIOS</mBox><mBox>Module</mBox><mBox>cpuFreqLow</mBox>
+
+## ROV-Hwi (Module and Basic tabs) ##
+__Q:__ What is the current size of the stack? What was the peak used? 
+__A:__ stackBase: 0x400, stackSize: 0x0ff, stackPeak: 0x03f
+<mBox class="l">Viewable Modules</mBox><mBox>Task</mBox><mBox>Detailed</mBox>
+
+__Q:__ How many Hwi’s are configured in your system? 
+__A:__ 2 threads with hardware interrupt support.
+
+>FYI - the "minimal" app.cfg services include the BIOS Clock Module implicitly. This uses a timer and sets up an interrupt (Hwi) for you (that’s one of them). Also, inherent in every BIOS application is the service Timestamp which also requires a timer and an interrupt. That’s the second one. We will deal with these more in a later chapter
+
+## ROV-Idle ##
+__Q:__ How many Idle functions are there?
+__A:__ 2, the explicit registered ```&ledToggle``` and a guard function for stack depth ```&ti_sysbios_hal_Hwi_checkStack``` 
+>We will use ROV to debug and analyze many items in future labs. The point here is to introduce you to the tool, provide a basic overview and show how to access its information. MUCH more on this in future labs...
+
+# UIA - Build, Load and Run #
+>30) Use the RTOS Analyzer to view the UIA results
+Add your actual screenshot of the live session to your Lab – report!
+
+<a href="./pics/ROV_UIA_screen.png" target="_blank"><figure style=""> <img src="./pics/ROV_UIA_screen.png" title="Screenshot of live session" class="noborder"><figcaption>Screenshot of live session</figcaption> </figure></a>
+
+>►Inspect the CPU Load Graph
+Press down the button "C28xx". A red line will show the CPU-Load (that is the time __NOT__ spend in Idle). 
+
+__Q:__ How big is your CPU - Load?
+__A:__ From a first view, the CPU is not loaded so CPU-Load leads to be 0%. But the 700000 times branched delay() loop is not no-load, from the CPUs point of view it is quite a lot of work to decrement and compare a ```long integer``` variable 700000 times?! Should be tested but probably idle threads never charged as CPU-Load and since delay()'s parent function toggleLED() has become an idle thread, theire subprocedures also becomes executed as idle thread.   
+
+>► Inspect the Execution Graph
+This view shows the schedulers activity over time, e.g. the preemptive thread-switches forced by the scheduler.
+
+__Q:__ How many threads are shown, What are their names?
+__A:__ With priority 0, one single task (_ti.sysbios.knl.Task.IdleTask_) is registered to the scheduler. Within the module _Idle_, a stack monitoring function (ti_sysbios_hal_Hwi_checkStack()) is visible to be run as idle thread.
+
+---
+
+# Sources #
+<details markdown=1>
+    <summary>main.c</summary>
+```c
+/**
+ * @file        main.c
+ * @project     ELT131_LAB_02
+ *
+ * @date        23 Mar 2017
+ * @author      Manuel Del Basso (mainster)
+ * @email       manuel.delbasso@gmail.com
+ *
+ * @ide         Code Composer Studio Version: 7.1.0.00015
+ * @license     GNU GPL v3
+ *
+   @verbatim
+
+    ------------------------------------------------------------------------
+
+    Copyright (C) 2016  Manuel Del Basso
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    ------------------------------------------------------------------------
+
+   @endverbatim
+ *
+ */
+#include <stdio.h>
+#include <stdlib.h>     //!< malloc()
+#include <stdint.h>
+
+/**
+ * BIOS header files
+ */
+#include <xdc/std.h>
+#include <xdc/runtime/System.h>
+#include <xdc/runtime/Log.h>
+#include <xdc/cfg/global.h>
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+/**
+ * F28335 controlSUITE board support header files
+ */
+#include "DSP28x_Project.h"
+#include <DSP2833x_Gpio.h>
+
+/**
+ * Externals
+ */
+extern uint16_t RamfuncsLoadSize;
+
+/**
+ * Prototypes
+ */
+void ledToggle(void);
+void delay500m(void);
+void bubbleSort(uint16_t *pList, uint16_t n);
+void sortRandomRam(void);
+void queryKey();
+void infDelay(void);
+
+/**
+ * Global variables
+ */
+volatile uint16_t i16ToggleCount = 0;
+
+/**
+ * Macro defines
+ */
+#define _ledToggle() GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1
+
+#define getKey1 (GpioDataRegs.GPADAT.bit.GPIO17)
+
+/*
+ * ===================== main of ELT131_LAB_02 =====================
+ */
+void main(void) {
+    InitSysCtrl();
+#ifdef FLASH
+    memcpy(&RamfuncsRunStart, &RamfuncsLoadStart, (unsigned long)(&RamfuncsLoadSize));
+    InitFlash();
+#endif
+
+    EALLOW;
+    GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0;
+    GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;
+    EDIS;
+
+    BIOS_start();
+}
+
+/**
+ * @brief   Led toggle function
+ */
+void ledToggle(void) {
+    GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;  //!< LD2 toggle
+    delay500m();
+    i16ToggleCount++;
+    Log_info1("Toggle LED the %u time", i16ToggleCount);
+}
+
+/**
+ * @brief      Queries key 1.
+ *
+ *             If key 1 pressed, this task creates dynamically a child task of
+ *             sortRandomRam(). TODO: Is reentrant?
+ */
+void queryKey() {
+    if (! getKey1) {
+        Task_Params taskParams;
+        Task_Handle taskHndl;
+        Task_Params_init(&taskParams);
+        taskParams.stackSize = 512;
+        taskParams.priority = 15;
+
+        taskHndl = Task_create((Task_FuncPtr)sortRandomRam, &taskParams, NULL);
+        if (taskHndl == NULL)
+            System_abort("Task create failed");
+        delay500m();            //!< Debounce
+    }
+}
+
+#define nWords 100
+
+/**
+ * @brief      Sorts a uninitialized ram array of size nWords
+ */
+void sortRandomRam(void) {
+    uint16_t *pMem = malloc(sizeof(uint16_t) * nWords);
+    bubbleSort(pMem, nWords);
+}
+
+/**
+ * @brief      Bubble sort algorithm.
+ *
+ * @param      pList   Pointer to an array which contents should be sorted.
+ * @param[in]  n       sizeof array
+ */
+void bubbleSort(uint16_t *pList, uint16_t n) {
+    long c, d, t;
+
+    for (c = 0 ; c < ( n - 1 ); c++) {
+        for (d = 0 ; d < n - c - 1; d++) {
+            if (pList[d] > pList[d + 1]) {
+                t         = pList[d];
+                pList[d]   = pList[d + 1];
+                pList[d + 1] = t;
+            }
+        }
+    }
+}
+
+/**
+ * @brief   Never ending delay function
+ */
+void infDelay(void) {
+    while (1)
+        delay500m();
+}
+
+/**
+ * @brief   Delay function
+ */
+void delay500m(void) {
+    for (uint32_t li = 0; li < 700000; li++)
+        asm("  NOP");
+}
+```
+</details>
+
+<details>   
+<summary>app.cfg</summary>
+```c
+var Defaults = xdc.useModule('xdc.runtime.Defaults');
+var Diags = xdc.useModule('xdc.runtime.Diags');
+var Error = xdc.useModule('xdc.runtime.Error');
+var Log = xdc.useModule('xdc.runtime.Log');
+var LoggerBuf = xdc.useModule('xdc.runtime.LoggerBuf');
+var Main = xdc.useModule('xdc.runtime.Main');
+var Memory = xdc.useModule('xdc.runtime.Memory')
+var SysMin = xdc.useModule('xdc.runtime.SysMin');
+var System = xdc.useModule('xdc.runtime.System');
+var Load = xdc.useModule('ti.sysbios.utils.Load');
+var Task = xdc.useModule('ti.sysbios.knl.Task');
+  System.extendedFormats += "%f";                   // @@@MDB float format support 
+var Text = xdc.useModule('xdc.runtime.Text');
+var BIOS = xdc.useModule('ti.sysbios.BIOS');
+var Hwi = xdc.useModule('ti.sysbios.family.c28.Hwi');
+var Boot = xdc.useModule('ti.catalog.c2800.init.Boot');
+var Idle = xdc.useModule('ti.sysbios.knl.Idle');
+var LoggingSetup = xdc.useModule('ti.uia.sysbios.LoggingSetup');
+// Configure LoggerBuf to flush logs
+LoggerBuf.enableFlush = true;
+ 
+Program.argSize = 0x0;
+Defaults.common$.namedModule = false;
+System.maxAtexitHandlers = 4;       
+ 
+Error.raiseHook = null;
+ 
+Text.isLoaded = false;
+SysMin.flushAtExit = false;
+ 
+BIOS.heapSize = 512;
+ System stack size (used by ISRs and Swis)Program.stack = 1024;
+ Circular buffer size for System_printf()SysMin.bufSize = 128;
+ 
+var loggerBufParams = new LoggerBuf.Params();
+//loggerBufParams.numEntries = 4;                   // @@@MDB
+//var logger0 = LoggerBuf.create(loggerBufParams);  // @@@MDB
+//Defaults.common$.logger = logger0;                // @@@MDB
+Main.common$.diags_INFO = Diags.ALWAYS_ON;          // @@@MDB
+System.SupportProxy = SysMin;
+
+BIOS.libType = BIOS.LibType_Custom;
+//BIOS.logsEnabled = false;                         // @@@MDB
+BIOS.assertsEnabled = true;
+BIOS.cpuFreq.lo = 150000000;
+Boot.pllOSCCLK = 30;
+
+/* Idle thread to toggle LED */
+Idle.idleFxns[0] = "&ledToggle";
+
+/* Idle thread to query hardware key 1 */
+Idle.idleFxns[1] = "&queryKey";
+
+Load.taskEnabled = true;
+Load.swiEnabled = false;
+Task.defaultStackSize = 256;
+Task.deleteTerminatedTasks = false;
+var task0Params = new Task.Params();
+task0Params.instance.name = "task0";
+Program.global.task0 = Task.create("&delay500m", task0Params);
+
+```
+
+</details>
+

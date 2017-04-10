@@ -1,0 +1,46 @@
+{
+    "folders": [{
+        "path": ".",
+
+        "folder_exclude_patterns": [
+            "*ebug",
+            "*oxygen",
+            "*uild",
+            "._d", 
+            ".git",
+            ".hg",
+            ".metadata", 
+            ".settings",
+            ".svn",
+            ".svn", 
+            "CVS",
+            "node_modules"
+        ],
+
+        "file_exclude_patterns": [
+            "*.sublime-workspace",
+            "*.db",
+            "*.pyc", 
+            "*.pyo", 
+            "bpm", 
+            "*.1",
+            "*.zip"
+        ]
+    }],
+
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"/usr/bin/python3.5\" -u \"$file\""
+		}
+	],
+
+    "settings": {
+        "font_size": 8,
+        "highlight_line": true,
+        // "dictionary": "Packages/User/Dictionaries/German_de_DE.dic"
+    }
+}

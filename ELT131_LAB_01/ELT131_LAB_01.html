@@ -1,0 +1,2076 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="date" content="16-03-2017">
+<meta name="footicon" content="./pics/whz.png">
+<meta name="location" content="WHZ">
+<meta name="author" content="Del Basso, Manuel"><style>body {
+	border: 1px solid #ddd;
+	margin: 16px auto;
+	outline: 1300px solid #fff;
+	width: 55em;
+}
+body .markdown-body
+{
+	/*max-width: 1900px*/		/*Defines the html page width*/
+	padding: 30px;
+}
+@font-face {
+	font-family: fontawesome-mini;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+@font-face {
+	font-family: octicons-anchor;
+	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+.markdown-body {
+	-ms-text-size-adjust: 		100%;
+	-webkit-text-size-adjust: 	100%;
+	color: 			#333333;
+	overflow: 		hidden;
+	font-family: 	"Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	font-size: 		16px;
+	line-height: 	1.4em;
+	overflow: 		hidden;
+	text-align: 	justify;	/*Force text-align attribute to justify text blocks*/
+	padding-top: 	1.3em;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	/*word-wrap: 		break-word;*/
+}
+.markdown-body b,
+.markdown-body strong {
+	font-weight: bold;
+}
+.markdown-body mark {
+	background: #ff0;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+.markdown-body sub,
+.markdown-body sup {
+	/*background-color: yellow;*/
+	/*font-weight: bold;*/
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+	font-style: italic;
+}
+
+.titleHeader {
+    width: 1300px;
+    height: 120px;
+
+    font-family:Helvetica, Arial, sans-serif;
+}
+.logo {
+    float: left;
+    padding: 10px 20px;
+    background: #004B35;
+    height: 55px;
+    width: 700px;
+}
+.logoWhz {
+    height:100px;
+    width: 100px;	
+}
+.footer {
+	font-size: 7;
+	font-style: italic;
+	color: #404040;
+}
+/*title, meta {
+	display: block !important;
+}
+*/
+
+/*.header{
+    width: 950px;
+    font-family:Helvetica, Arial, sans-serif;
+}
+.logo {
+    float: left;
+    height: 55px;
+    padding: 10px 20px;
+    background: #004B35;
+    width: 700px;
+}
+.logoClient {
+    float: right;
+    height: 55px;
+    line-height: 55px;
+    padding: 10px 0px;
+    margin:0px -10px 0px 0px;
+    font-size: 30px;
+    color: #004B35;
+    overflow:hidden;
+    font-weight: bold;
+    width: 200px;
+    text-align: right;
+}
+.logoClient img {
+    max-height: 40px;
+    max-width:200px;
+    margin: 0px;
+}
+.clear {
+    clear: both;
+}*/
+
+/*footer {
+	display: inline-block;
+	font-size: 8;
+	color: red;
+}
+head, title, link[href][rel], meta {
+	display: block;
+}
+link[href][rel]::after {
+	content: attr(rel);
+	text-transform: capitalize;
+}
+
+meta[charset]::after {
+	content: 'Charset: ' attr(charset);
+}
+
+meta[name][content]::after {
+	content: attr(name) ': ' attr(content);
+	text-transform: capitalize;
+}*/
+/****************************************
+ * Spec sheet headers
+ ***************************************/
+.markdown-body boxed {
+	display: 			block;
+	border: 			2px solid red;
+	-webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
+	-moz-box-shadow: 	6px 7px 5px 0px rgba(56,56,56,0.38);
+	box-shadow: 		6px 7px 5px 0px rgba(56,56,56,0.38);
+	text-align: 		center;
+	padding: 			2px .3em 2px .3em;
+	margin: 			1.5em 0 1.5em 0;
+	/*padding-top: 		10em;*/
+}
+.markdown-body mBox {
+	display: 			inline-block;
+	font-size: 			95%;
+	background-color: 	#DBDBDB;
+	font-family: monospace, monospace;
+	border: 			0px solid #C8C8C8;
+	-webkit-box-shadow: 2px 3px 2px 0px rgba(56,56,56,0.38);
+	-moz-box-shadow: 	2px 3px 2px 0px rgba(56,56,56,0.38);
+	box-shadow: 		2px 3px 2px 0px rgba(56,56,56,0.38);
+	text-align: 		center;
+	padding: 			2px 5px 2px 5px;
+	margin: 			.5em .2em .5em .2em;
+	border-radius: 		5px;
+}
+.markdown-body mBox.l {
+	margin-left: 2.5em;
+}
+
+.markdown-body specs {
+	/* Sections for spec sheet */
+	background-color: 	#fcfcfc;
+	border-bottom: 		1px solid #d8d8d8;
+	font-size: 			100%;
+	font-weight: 		bold;
+	line-height: 		200%;
+	margin-top: 		1.4em;
+	text-align: 		top;
+	/*background-color: 	yellow;*/
+}
+/*
+ * Horizontal centered line in header texts
+ */
+.markdown-body h4.sphd,
+.markdown-body h4.sp {
+	margin:			44px 0 22px 0;
+	vertical-align: middle;
+	text-align: 	center;
+}
+/*
+ * Spec sheet header
+ */
+.markdown-body h4.sphd {
+	background: 	#d8d8d8; 	/* For browsers that do not support gradients */
+    background:		-webkit-linear-gradient(left, white, #d8d8d8, white); 	/* For Safari 5.1 to 6.0 */
+    background:		-o-linear-gradient(left, white, #d8d8d8, white); 		/* For Opera 11.1 to 12.0 */
+    background:	 	-moz-linear-gradient(left, white, #d8d8d8, white); 		/* For Firefox 3.6 to 15 */
+    background: 	linear-gradient(left, white, #d8d8d8, white); 			/* Standard syntax */
+	line-height: 	1px;
+	font-size: 		120%;
+}
+/*
+ * Spec sheet subheader
+ */
+.markdown-body h4.sp 	{
+	background: 	#E6E6E6; 	/* For browsers that do not support gradients */
+    background:		-webkit-linear-gradient(left, white, #E6E6E6, white); 	/* For Safari 5.1 to 6.0 */
+    background:		-o-linear-gradient(left, white, #E6E6E6, white); 		/* For Opera 11.1 to 12.0 */
+    background:	 	-moz-linear-gradient(left, white, #E6E6E6, white); 		/* For Firefox 3.6 to 15 */
+    background: 	linear-gradient(left, white, #E6E6E6, white); 			/* Standard syntax */
+	line-height: 	1px;
+	font-size: 		100%;
+	text-align: 		left;
+	/*margin-right: 	50%*/
+}
+.markdown-body h4.sphd span,
+.markdown-body h4.sp span {
+    padding-right: 		10px;
+}
+.markdown-body h4.sphd span {
+    background-color: 	#FCFCFC;
+	border:				1px solid #d8d8d8;
+    padding-left: 		10px;
+	/*margin-left: 		0px; */
+}
+.markdown-body h4.sp span {
+    background-color: 	white;
+	border:				none;
+	padding-left: 		none;
+}
+
+/****************************************
+ * For all images and figures
+ ***************************************/
+/*.markdown-body figure {
+	background: 	white;
+	border: 		1px solid gainsboro;
+	margin: 		0;
+	padding:		0;
+	position: 		relative;
+}
+.markdown-body img {
+	-moz-box-sizing: border-box;
+	border: 		3px solid #e6e6e6;
+	box-shadow: 	0px 0px 10px #d3d3d3;
+	box-sizing: 	border-box;
+	margin-bottom: 	1.5em;
+	margin-top: 	1em;
+	max-width: 		100% !important;
+	padding: 		1em;
+}
+.markdown-body figcaption {
+  padding: 			10px;
+  text-align: 		center;
+}*/
+
+/****************************************
+ * For pictures of class f1
+ ***************************************/
+/*.markdown-body figure.f1 {
+	-moz-box-sizing: border-box;
+	border: 		3px solid #e6e6e6;
+	box-shadow: 	0px 0px 10px #d3d3d3;
+	box-sizing: 	border-box;
+	margin-bottom: 	1.5em;
+	margin-top: 	1em;
+	max-width: 		100% !important;
+	padding: 		0em;
+	position: 		relative;
+}
+.markdown-body img.f1 {
+	-moz-box-sizing: border-box;
+	width:			inherit;
+	border: 		none;
+	box-shadow: 	none;
+	box-sizing: 	border-box;
+	margin: 		0;
+	padding: 		1em 1em 0 1em;
+}
+.markdown-body figcaption.f1 {
+	border-top: 	1px solid #DEDEDE;
+	padding: 		20px;
+	text-align: 	center;
+	width:			inherit;
+}*/
+
+
+ /****************************************
+ * Declaring variables
+ ***************************************/
+:root {
+  --figure-to-img-margin-top: 	1em;
+  --figure-to-img-padding: 		1em;
+  --floatbox-text-margin: 		1.5em;
+}
+/****************************************
+ * Include paragraph numbering:
+ * In the generated html file, append this class to body as follows:
+ *
+ * <article class="markdown-body">;
+ * <article class="markdown-body paragraphNum">
+ *
+ ***************************************/
+.paragraphNum {
+    counter-reset: paragraph;
+    padding-left: 10px;
+}
+.paragraphNum p:before {
+    position: absolute;
+    margin-left: -30px;
+    color: #A4A4FF;
+    font-size:	8pt;
+    content: counter(paragraph);
+    counter-increment: paragraph;
+}
+.paragraphNum p:before:hover {
+    color:		red;
+}
+/****************************************
+ * Different styles/layouts for images:
+ ****************************************
+ 	+ Simple image
+ 		- no border, no caption, may float
+	+ Simple boxed image
+		- Border box and shadow, may float
+	+ Figure including a caption
+		- Image with border box and shadow
+	+ Boxed Figure including a caption
+		- Image, no border
+ ***************************************/
+.markdown-body img {
+	max-width: 		100%;
+	margin-bottom: 	1.5em;
+	margin-top: 	1em;
+	padding: 		1em;
+	border: 		none !important;
+}
+.markdown-body img.box {
+	-moz-box-sizing: border-box;
+	box-sizing: 	border-box;
+	border: 		3px solid #e6e6e6;
+	box-shadow: 	0px 0px 10px #d3d3d3;
+}
+
+.markdown-body div.fig {
+    text-align: 	center;
+    font-style: 	italic;
+    font-size: 		90%;
+    /*line-height: 	90%;*/
+}
+.markdown-body div.fig,
+.markdown-body figure {
+	/*position: 		relative;*/
+	max-width: 		100%;
+	margin-bottom: 	1.5 * var(--figure-to-img-margin-top);
+	margin-top: 	var(--figure-to-img-margin-top);
+}
+.markdown-body div.fig.box,
+.markdown-body figure.box {
+	-moz-box-sizing: border-box;
+	box-sizing: 	border-box;
+	border: 		3px solid #e6e6e6;
+	box-shadow: 	0px 0px 10px #d3d3d3;
+	padding: 		var(--figure-to-img-padding);
+}
+
+img.topal, div.topal, figure.topal { margin-top: 0 !important; }
+img.botal, div.botal, figure.botal { margin-bottom: 0 !important; }
+
+img.floatr, div.floatr, figure.floatr {
+	float: 			right;
+	margin: 		0.2em 0 0 var(--floatbox-text-margin);
+}
+img.floatl, div.floatl,	figure.floatl {
+	float: 			left;
+	margin: 		0.2em var(--floatbox-text-margin) 0 0;
+}
+.markdown-body div.fig img,
+.markdown-body figure img {
+	/*background-color: #FFFFCA;*/
+	-moz-box-sizing: border-box;
+	width:			inherit !important;
+	height: 		inherit !important;
+	box-sizing: 	border-box;
+	border: 		3px solid #e6e6e6;
+	box-shadow: 	0px 0px 10px #d3d3d3;
+	margin-bottom: 	0em;
+	margin-top: 	0em;
+}
+
+/*.markdown-body div.fig.nobox img,
+.markdown-body figure.nobox img {
+	border: 		none !important;
+	box-shadow: 	none !important;
+}*/
+
+/*
+ * An image inside a figure of class="box"
+ * should NOT draw any border and remove padding
+ */
+.markdown-body div.fig.box img,
+.markdown-body figure.box img {
+	/*background-color: yellow;*/
+	border:			none !important;
+	box-shadow: 	none !important;
+	padding: 		0em;
+}
+
+
+.markdown-body div.fig figcaption,
+.markdown-body figure figcaption {
+	/*background-color: #E7FFE7;*/
+	width:			inherit - 2*var(--figure-to-img-margin-top);
+	color: 			#595959;
+	text-align: 	center;
+	font-style: 	italic;
+    font-size: 		95%;
+	margin:			3px;
+	border: 		none;
+}
+
+.markdown-body div.fig figcaption.la,
+.markdown-body figure figcaption.la {
+	/*color:				red !important; */
+	text-align: 		left;
+}
+.markdown-body div.fig figcaption.just,
+.markdown-body figure figcaption.just {
+	/*color:				red !important; */
+	text-align: 		justify;
+}
+
+.markdown-body div.fig.box figcaption,
+.markdown-body figure.box figcaption {
+	border-top: 	1px solid #DEDEDE !important;
+	padding-top: 	5px;
+}
+.markdown-body table.noborder th,
+.markdown-body table.noborder tr,
+.markdown-body table.noborder td {
+	border-width: 0 !important;
+}
+/* View spaced lists:
+	<div class="spaced" markdown=1>
+	1. jjj
+	2. spaced from jjj
+	</div>*/
+.spaced li {
+
+	/* Abstand nach Aufzälungs/Listenzeile */
+	padding-bottom: .75em;
+
+	/* Abstand zu Aufzählungszeichen/Nummer */
+	padding-left: .65em;
+}
+/* Linked Keywords */
+.markdown-body lkey {
+	display: 			inline;
+	font-size: 			100%;
+	/*color: 				#000;*/
+	font-weight: 		bold;
+	/*font-style:		italic;*/
+	line-height: 		font-size;
+    background-color: 	#FCFCFC;
+	border-bottom: 		1px solid #D4D4D4;
+	margin-left:		1px;
+	margin-right:		1px;
+}
+/* Left aligned mathjax paragraph */
+.markdown-body lmjx {
+	padding-left: 6em;
+}
+/* A href inside custom class lkey */
+.markdown-body lkey a {
+	padding-left: 		3px;
+	padding-right: 		3px;
+	color: 				#2E70B1;
+	text-decoration: 	none;
+}
+.markdown-body lkey:hover,
+.markdown-body lkey:focus,
+.markdown-body lkey:active {
+	/*padding-left: 		2px;*/
+	/*padding-right: 		2px;*/
+	margin-left:		0px;
+	margin-right:		0px;
+	border: 			1px solid red;
+}
+.markdown-body lkey a:hover,
+.markdown-body lkey a:focus,
+.markdown-body lkey a:active {
+	text-decoration: 	none !important;
+	border:				none !important;
+}
+.markdown-body yelBg {
+	background-color: yellow;
+	color: red !important;
+	padding-left: 6px;
+	padding-right: 6px;
+	border: 0px solid #C2C2C2;
+}
+.markdown-body yelBg:hover {
+	font-weight: bold;
+}
+.markdown-body yelBg:hover.scale {
+	font-size: 150% !important;
+}
+div.centered {
+	text-align: center;
+}
+div.centered table {
+	margin: 0 auto;
+	text-align: left;
+}
+.markdown-body sup {
+	background-color: yellow;
+	font-weight: bold;
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+	font-style: italic;
+}
+.markdown-body sup {
+	top: -0.5em;
+}
+.markdown-body sub {
+	bottom: -0.25em;
+}
+.scale75 {
+	width: 75%;
+}
+.noborder {
+	/*border-color: none !important; */
+	box-shadow: none !important;
+	border-width: 0px !important;
+}
+.markdown-body hr {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+}
+.markdown-body pre {
+	overflow: auto;
+}
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+.markdown-body input {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+.markdown-body html input[disabled] {
+	cursor: default;
+}
+.markdown-body input[type="checkbox"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+.markdown-body table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+.markdown-body table[class=caption] {
+	padding-bottom: 0em;
+}
+.markdown-body td,
+.markdown-body th {
+	padding: 0;
+}
+.markdown-body .codehilitetable {
+	border: 0;
+	border-spacing: 0;
+}
+.markdown-body .codehilitetable tr {
+	border: 0;
+}
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+	margin: 0;
+}
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+	border: 0;
+	padding: 0;
+}
+.markdown-body td:not(.linenos) .linenodiv {
+	padding: 0 !important;
+}
+.markdown-body .code {
+	width: 100%;
+}
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+	border: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.markdown-body .code div pre,
+.markdown-body .code div {
+	border: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.markdown-body * {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.markdown-body input {
+	font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height: normal;
+}
+.markdown-body a {
+	color: #4183c4;
+	text-decoration: none;
+}
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+	text-decoration: underline;
+}
+.markdown-body hr {
+	height: 0;
+	margin: 15px 0;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #ddd;
+}
+.markdown-body hr:before,
+.markdown-body hr:after {
+	display: table;
+	content: " ";
+}
+.markdown-body hr:after {
+	clear: both;
+}
+.markdown-body blockquote {
+	padding: 0px 15px;
+	margin-left: 0.1em;
+	margin-right: 1.5em;
+	color: #777;
+	border-left: 4px solid #ddd;
+	font-style: italic;
+	/*margin: 1.25em;*/
+}
+.markdown-body blockquote>:first-child {
+	margin-top: 2em;
+}
+.markdown-body blockquote>:last-child {
+	margin-bottom: 2em;
+}
+.markdown-body ul,
+.markdown-body ol {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.markdown-body ol ol,
+.markdown-body ul ol {
+	list-style-type: lower-roman;
+}
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+	list-style-type: lower-alpha;
+}
+.markdown-body dd {
+	margin-left: 0;
+}
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 12px;
+}
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.markdown-body kbd {
+	background-color: #e7e7e7;
+	background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+	background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+	background-image: linear-gradient(#fefefe, #e7e7e7);
+	background-repeat: repeat-x;
+	border-radius: 2px;
+	border: 1px solid #cfcfcf;
+	color: #000;
+	padding: 3px 5px;
+	line-height: 10px;
+	font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	display: inline-block;
+}
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+.markdown-body .headeranchor-link {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+.markdown-body .headeranchor-link:focus {
+	outline: none;
+}
+/* ------- Headers ------- */
+/* ----------------------- */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	/*background-color: #fcfcfc;*/
+	/*border-top: 		1px solid #d8d8d8;*/
+	/*border-bottom: 	1px solid #f0f0f0;*/
+	font-size: 			2em;
+	font-weight: 		bold;
+	line-height: 		100%;
+	position: 			relative;
+	text-anchor: 		middle;
+	margin-bottom: 		.6em;
+}
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+	display: none;
+	color: #000;
+	vertical-align: left;
+}
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+	height: 1em;
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+	display: inline-block;
+}
+.markdown-body h1 {
+	background-color: 	#fcfcfc;
+	border-bottom: 		1px solid #d8d8d8;
+	border-top: 		1px solid #d8d8d8;
+	font-size: 			200%;
+	line-height: 		140%;
+	/*margin-bottom: 		.6em;*/
+	margin-top: 		1.4em;
+	/*padding-bottom: 	0.1em;*/
+}
+.markdown-body h2 {
+	/*background-color: 	#fcfcfc;*/
+	/*border-top: 		1px solid #d8d8d8;*/
+	border-bottom: 		1px solid #d8d8d8;
+	font-size: 			175%;
+	line-height: 		140%;
+	/*margin-bottom: 		.5em;*/
+	margin-top: 		1em;
+	/*padding-bottom: 	0.1em;*/
+}
+.markdown-body h3 {
+	/*background-color: 	#fcfcfc;*/
+	/*border-top: 		1px solid #d8d8d8;*/
+	border-bottom: 		1px solid #f0f0f0;
+	font-size: 			150%;
+	line-height: 		font-size;
+	margin-bottom: 		.5em;
+	margin-top: 		1em;
+	/*padding-bottom: 	0.1em;*/
+}
+.markdown-body h4 {
+	/*background-color: #fcfcfc;*/
+	/*border-top: 		1px solid #d8d8d8;*/
+	/*border-bottom: 	1px solid #f0f0f0;*/
+	font-size: 			125%;
+	line-height: 		font-size;
+	padding-bottom: 	0.1em;
+	margin-top: 		1.5em;
+	/*margin-bottom: 		.4em;*/
+	/*padding-bottom: 	0.1em;*/
+}
+.markdown-body h5 {
+	/*background-color: #fcfcfc;*/
+	/*border-top: 		1px solid #d8d8d8;*/
+	/*border-bottom: 	1px solid #f0f0f0;*/
+	font-size: 			110%;
+	line-height: 		font-size;
+	padding-bottom: 	0.1em;*/
+	margin-top: 		.8em;
+	/*margin-bottom: 		.4em;*/
+	/*padding-bottom: 	0.1em;*/
+}
+.markdown-body h6 {
+	font-size: .8em;
+	color: #777;
+}
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+	margin-top: 0;
+	margin-bottom: 18px;
+	/*background-color: purple;*/
+}
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+.markdown-body ul,
+.markdown-body ol {
+	/* Absatzformat listen */
+	padding-left: 2em;
+	/*margin-bottom: 2em;*/
+	color: #555;
+	font-style: italic;
+	background-color: #fefefe;
+	/*line-height: 1.8em*/
+	/*background-color: green;*/
+}
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.markdown-body li>p {
+	/*margin-top: 16px;*/
+	margin-top: 2em;
+
+	/* Absatzformat Fußnoten */
+	/*background-color: red;*/
+}
+.markdown-body dl {
+	padding: 0;
+}
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+.markdown-body table th {
+	font-weight: bold;
+	background-color: #E6E6E6;
+	border: 1px solid #8F8F8F;
+}
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+.markdown-body table.noalter tr:nth-child(2n) {
+	background-color: #fff !important;
+}
+.markdown-body code,
+.markdown-body samp {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+.markdown-body code:before,
+.markdown-body code:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+.markdown-body .codehilite {
+	margin-bottom: 16px;
+}
+.markdown-body .codehilite pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+.markdown-body .codehilite pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+.markdown-body pre {
+	word-wrap: normal;
+}
+.markdown-body pre code {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+	content: normal;
+}
+/* Ermahnung */
+.markdown-body .admonition {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	position: relative;
+	border-radius: 3px;
+	border: 1px solid #e0e0e0;
+	border-left: 6px solid #333;
+	padding: 10px 10px 10px 30px;
+}
+.markdown-body .admonition table {
+	color: #333;
+}
+.markdown-body .admonition p {
+	padding: 0;
+}
+.markdown-body .admonition-title {
+	font-weight: bold;
+	margin: 0;
+}
+.markdown-body .admonition>.admonition-title {
+	color: #333;
+}
+.markdown-body .attention>.admonition-title {
+	color: #a6d796;
+}
+.markdown-body .caution>.admonition-title {
+	color: #d7a796;
+}
+.markdown-body .hint>.admonition-title {
+	color: #96c6d7;
+}
+.markdown-body .danger>.admonition-title {
+	color: #c25f77;
+}
+.markdown-body .question>.admonition-title {
+	color: #96a6d7;
+}
+.markdown-body .note>.admonition-title {
+	color: #d7c896;
+}
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+	font: normal normal 16px fontawesome-mini;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 1.5;
+	color: #333;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.markdown-body .admonition:before {
+	content: "\f056\00a0";
+	color: 333;
+}
+.markdown-body .attention:before {
+	content: "\f058\00a0";
+	color: #a6d796;
+}
+.markdown-body .caution:before {
+	content: "\f06a\00a0";
+	color: #d7a796;
+}
+.markdown-body .hint:before {
+	content: "\f05a\00a0";
+	color: #96c6d7;
+}
+.markdown-body .danger:before {
+	content: "\f057\00a0";
+	color: #c25f77;
+}
+.markdown-body .question:before {
+	content: "\f059\00a0";
+	color: #96a6d7;
+}
+.markdown-body .note:before {
+	content: "\f040\00a0";
+	color: #d7c896;
+}
+.markdown-body .admonition::after {
+	content: normal;
+}
+.markdown-body .attention {
+	border-left: 6px solid #a6d796;
+}
+.markdown-body .caution {
+	border-left: 6px solid #d7a796;
+}
+.markdown-body .hint {
+	border-left: 6px solid #96c6d7;
+}
+.markdown-body .danger {
+	border-left: 6px solid #c25f77;
+}
+.markdown-body .question {
+	border-left: 6px solid #96a6d7;
+}
+.markdown-body .note {
+	border-left: 6px solid #d7c896;
+}
+.markdown-body .admonition>*:first-child {
+	margin-top: 0 !important;
+}
+.markdown-body .admonition>*:last-child {
+	margin-bottom: 0 !important;
+}
+/* progress bar*/
+.markdown-body .progress {
+	display: block;
+	width: 300px;
+	margin: 10px 0;
+	height: 24px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #ededed;
+	position: relative;
+	box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+.markdown-body .progress-label {
+	position: absolute;
+	text-align: center;
+	font-weight: bold;
+	width: 100%; margin: 0;
+	line-height: 24px;
+	color: #333;
+	text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+	-webkit-font-smoothing: antialiased !important;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.markdown-body .progress-bar {
+	height: 24px;
+	float: left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #96c6d7;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+	background-size: 30px 30px;
+	background-image: -webkit-linear-gradient(
+		135deg, rgba(255, 255, 255, .4) 27%,
+		transparent 27%,
+		transparent 52%, rgba(255, 255, 255, .4) 52%,
+		rgba(255, 255, 255, .4) 77%,
+		transparent 77%, transparent
+		);
+	background-image: -moz-linear-gradient(
+		135deg,
+		rgba(255, 255, 255, .4) 27%, transparent 27%,
+		transparent 52%, rgba(255, 255, 255, .4) 52%,
+		rgba(255, 255, 255, .4) 77%, transparent 77%,
+		transparent
+		);
+	background-image: -ms-linear-gradient(
+		135deg,
+		rgba(255, 255, 255, .4) 27%, transparent 27%,
+		transparent 52%, rgba(255, 255, 255, .4) 52%,
+		rgba(255, 255, 255, .4) 77%, transparent 77%,
+		transparent
+		);
+	background-image: -o-linear-gradient(
+		135deg,
+		rgba(255, 255, 255, .4) 27%, transparent 27%,
+		transparent 52%, rgba(255, 255, 255, .4) 52%,
+		rgba(255, 255, 255, .4) 77%, transparent 77%,
+		transparent
+		);
+	background-image: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, .4) 27%, transparent 27%,
+		transparent 52%, rgba(255, 255, 255, .4) 52%,
+		rgba(255, 255, 255, .4) 77%, transparent 77%,
+		transparent
+		);
+}
+.markdown-body .progress-100plus .progress-bar {
+	background-color: #a6d796;
+}
+.markdown-body .progress-80plus .progress-bar {
+	background-color: #c6d796;
+}
+.markdown-body .progress-60plus .progress-bar {
+	background-color: #d7c896;
+}
+.markdown-body .progress-40plus .progress-bar {
+	background-color: #d7a796;
+}
+.markdown-body .progress-20plus .progress-bar {
+	background-color: #d796a6;
+}
+.markdown-body .progress-0plus .progress-bar {
+	background-color: #c25f77;
+}
+.markdown-body .candystripe-animate .progress-bar{
+	-webkit-animation: animate-stripes 3s linear infinite;
+	-moz-animation: animate-stripes 3s linear infinite;
+	animation: animate-stripes 3s linear infinite;
+}
+@-webkit-keyframes animate-stripes {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 60px 0;
+	}
+}
+@-moz-keyframes animate-stripes {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 60px 0;
+	}
+}
+@keyframes animate-stripes {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 60px 0;
+	}
+}
+.markdown-body .gloss .progress-bar {
+	box-shadow:
+	inset 0 4px 12px rgba(255, 255, 255, .7),
+	inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+	background: #ff0;
+}
+.markdown-body .critic_delete {
+	color: #c82829;
+	text-decoration: line-through;
+}
+.markdown-body .critic_insert {
+	color: #718c00 ;
+	text-decoration: underline;
+}
+.markdown-body .critic_comment {
+	color: #8e908c;
+	font-style: italic;
+}
+.markdown-body .headeranchor {
+	font: normal normal 16px octicons-anchor;
+	line-height: 1;
+	display: inline-block;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.headeranchor:before {
+	content: '\f05c';
+}
+.markdown-body .task-list-item {
+	list-style-type: none;
+}
+.markdown-body .task-list-item+.task-list-item {
+	margin-top: 3px;
+}
+.markdown-body .task-list-item input {
+	margin: 0 4px 0.25em -20px;
+	vertical-align: middle;
+}
+/* Media */
+@media only screen and (min-width: 480px) {
+	.markdown-body {
+		font-size:14px;
+	}
+}
+@media only screen and (min-width: 768px) {
+	.markdown-body {
+		font-size:16px;
+	}
+}
+@media print {
+	.markdown-body * {
+		background: transparent !important;
+		color: black !important;
+		filter:none !important;
+		-ms-filter: none !important;
+	}
+	.markdown-body {
+		font-size:12pt;
+		max-width:100%;
+		outline:none;
+		border: 0;
+	}
+	.markdown-body a,
+	.markdown-body a:visited {
+		text-decoration: underline;
+	}
+	.markdown-body .headeranchor-link {
+		display: none;
+	}
+	.markdown-body a[href]:after {
+		content: " (" attr(href) ")";
+	}
+	.markdown-body abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+	.markdown-body .ir a:after,
+	.markdown-body a[href^="javascript:"]:after,
+	.markdown-body a[href^="#"]:after {
+		content: "";
+	}
+	.markdown-body pre {
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+	.markdown-body pre,
+/*	.markdown-body blockquote {
+		border: 1px solid #999;
+		padding-right: 1em;
+		page-break-inside: avoid;
+		}*/
+		.markdown-body .progress,
+		.markdown-body .progress-bar {
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+		.markdown-body .progress {
+			border: 1px solid #ddd;
+		}
+		.markdown-body .progress-bar {
+			height: 22px;
+			border-right: 1px solid #ddd;
+		}
+		.markdown-body tr,
+		.markdown-body img {
+			page-break-inside: avoid;
+		}
+		.markdown-body p,
+		.markdown-body h2,
+		.markdown-body h3 {
+			orphans: 3;
+			widows: 3;
+		}
+		.markdown-body h2,
+		.markdown-body h3 {
+			page-break-after: avoid;
+		}
+	}
+</style><style>/*github*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js","[Contrib]/siunitx/siunitx.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true,
+    // processEnvironments: true,
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js", "sinuitx.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",      
+    },
+    unicode: {
+    },
+    Macros: {
+      RR: '{\\bf R}',
+      bold: ['{\\bf #1}', 1],
+      ital: ['{\\it #1}', 1],
+      bfit: ['{\\bf{\\it #1}}', 1],
+      varsp: ['{\\style{font-size:#1}{#2}}',2],
+      alenv: ['{\\begin{align*} #1 \\end{align*}}', 1],
+      eqlbl: ['{\\begin{equation} #1 \\end{equation}\\label{#2}}', 2],
+      eq: ['{\\begin{equation} #1 \\end{equation}\\nonumber}', 1],
+      Si: ['{\\large\\si[per-mode=fraction]{#1}}', 1],
+      sI: ['{\\si[per-mode=symbol]{#1}}', 1],
+    },
+  },
+  showProcessingMessages: false
+});
+</script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+<script type="text/javascript">// flowchart, v1.3.4
+// Copyright (c)2014 Adriano Raiano (adrai).
+// Distributed under MIT license
+// http://adrai.github.io/flowchart.js
+!function(){function a(b,c){if(!b||"function"==typeof b)return c;var d={};for(var e in c)d[e]=c[e];for(e in b)b[e]&&(d[e]="object"==typeof d[e]?a(d[e],b[e]):b[e]);return d}function b(a,b){if("function"==typeof Object.create)a.super_=b,a.prototype=Object.create(b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}});else{a.super_=b;var c=function(){};c.prototype=b.prototype,a.prototype=new c,a.prototype.constructor=a}}function c(a,b,c){var d,e,f="M{0},{1}";for(d=2,e=2*c.length+2;e>d;d+=2)f+=" L{"+d+"},{"+(d+1)+"}";var g=[b.x,b.y];for(d=0,e=c.length;e>d;d++)g.push(c[d].x),g.push(c[d].y);var h=a.paper.path(f,g);h.attr("stroke",a.options["element-color"]),h.attr("stroke-width",a.options["line-width"]);var i=a.options.font,j=a.options["font-family"],k=a.options["font-weight"];return i&&h.attr({font:i}),j&&h.attr({"font-family":j}),k&&h.attr({"font-weight":k}),h}function d(a,b,c,d){var e,f;"[object Array]"!==Object.prototype.toString.call(c)&&(c=[c]);var g="M{0},{1}";for(e=2,f=2*c.length+2;f>e;e+=2)g+=" L{"+e+"},{"+(e+1)+"}";var h=[b.x,b.y];for(e=0,f=c.length;f>e;e++)h.push(c[e].x),h.push(c[e].y);var i=a.paper.path(g,h);i.attr({stroke:a.options["line-color"],"stroke-width":a.options["line-width"],"arrow-end":a.options["arrow-end"]});var j=a.options.font,k=a.options["font-family"],l=a.options["font-weight"];if(j&&i.attr({font:j}),k&&i.attr({"font-family":k}),l&&i.attr({"font-weight":l}),d){var m=!1,n=a.paper.text(0,0,d),o=!1,p=c[0];b.y===p.y&&(o=!0);var q=0,r=0;m?(q=b.x>p.x?b.x-(b.x-p.x)/2:p.x-(p.x-b.x)/2,r=b.y>p.y?b.y-(b.y-p.y)/2:p.y-(p.y-b.y)/2,o?(q-=n.getBBox().width/2,r-=a.options["text-margin"]):(q+=a.options["text-margin"],r-=n.getBBox().height/2)):(q=b.x,r=b.y,o?(q+=a.options["text-margin"]/2,r-=a.options["text-margin"]):(q+=a.options["text-margin"]/2,r+=a.options["text-margin"])),n.attr({"text-anchor":"start","font-size":a.options["font-size"],fill:a.options["font-color"],x:q,y:r}),j&&n.attr({font:j}),k&&n.attr({"font-family":k}),l&&n.attr({"font-weight":l})}return i}function e(a,b,c,d,e,f,g,h){var i,j,k,l,m,n={x:null,y:null,onLine1:!1,onLine2:!1};return i=(h-f)*(c-a)-(g-e)*(d-b),0===i?n:(j=b-f,k=a-e,l=(g-e)*j-(h-f)*k,m=(c-a)*j-(d-b)*k,j=l/i,k=m/i,n.x=a+j*(c-a),n.y=b+j*(d-b),j>0&&1>j&&(n.onLine1=!0),k>0&&1>k&&(n.onLine2=!0),n)}function f(a,b){b=b||{},this.paper=new Raphael(a),this.options=r.defaults(b,q),this.symbols=[],this.lines=[],this.start=null}function g(a,b,c){this.chart=a,this.group=this.chart.paper.set(),this.symbol=c,this.connectedTo=[],this.symbolType=b.symbolType,this.flowstate=b.flowstate||"future",this.next_direction=b.next&&b.direction_next?b.direction_next:void 0,this.text=this.chart.paper.text(0,0,b.text),b.key&&(this.text.node.id=b.key+"t"),this.text.node.setAttribute("class",this.getAttr("class")+"t"),this.text.attr({"text-anchor":"start",x:this.getAttr("text-margin"),fill:this.getAttr("font-color"),"font-size":this.getAttr("font-size")});var d=this.getAttr("font"),e=this.getAttr("font-family"),f=this.getAttr("font-weight");d&&this.text.attr({font:d}),e&&this.text.attr({"font-family":e}),f&&this.text.attr({"font-weight":f}),b.link&&this.text.attr("href",b.link),b.target&&this.text.attr("target",b.target);var g=this.getAttr("maxWidth");if(g){for(var h=b.text.split(" "),i="",j=0,k=h.length;k>j;j++){var l=h[j];this.text.attr("text",i+" "+l),i+=this.text.getBBox().width>g?"\n"+l:" "+l}this.text.attr("text",i.substring(1))}if(this.group.push(this.text),c){var m=this.getAttr("text-margin");c.attr({fill:this.getAttr("fill"),stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),width:this.text.getBBox().width+2*m,height:this.text.getBBox().height+2*m}),c.node.setAttribute("class",this.getAttr("class")),b.link&&c.attr("href",b.link),b.target&&c.attr("target",b.target),b.key&&(c.node.id=b.key),this.group.push(c),c.insertBefore(this.text),this.text.attr({y:c.getBBox().height/2}),this.initialize()}}function h(a,b){var c=a.paper.rect(0,0,0,0,20);b=b||{},b.text=b.text||"Start",g.call(this,a,b,c)}function i(a,b){var c=a.paper.rect(0,0,0,0,20);b=b||{},b.text=b.text||"End",g.call(this,a,b,c)}function j(a,b){var c=a.paper.rect(0,0,0,0);b=b||{},g.call(this,a,b,c)}function k(a,b){var c=a.paper.rect(0,0,0,0);b=b||{},g.call(this,a,b,c),c.attr({width:this.text.getBBox().width+4*this.getAttr("text-margin")}),this.text.attr({x:2*this.getAttr("text-margin")});var d=a.paper.rect(0,0,0,0);d.attr({x:this.getAttr("text-margin"),stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),width:this.text.getBBox().width+2*this.getAttr("text-margin"),height:this.text.getBBox().height+2*this.getAttr("text-margin"),fill:this.getAttr("fill")}),b.key&&(d.node.id=b.key+"i");var e=this.getAttr("font"),f=this.getAttr("font-family"),h=this.getAttr("font-weight");e&&d.attr({font:e}),f&&d.attr({"font-family":f}),h&&d.attr({"font-weight":h}),b.link&&d.attr("href",b.link),b.target&&d.attr("target",b.target),this.group.push(d),d.insertBefore(this.text),this.initialize()}function l(a,b){b=b||{},g.call(this,a,b),this.textMargin=this.getAttr("text-margin"),this.text.attr({x:3*this.textMargin});var d=this.text.getBBox().width+4*this.textMargin,e=this.text.getBBox().height+2*this.textMargin,f=this.textMargin,h=e/2,i={x:f,y:h},j=[{x:f-this.textMargin,y:e},{x:f-this.textMargin+d,y:e},{x:f-this.textMargin+d+2*this.textMargin,y:0},{x:f-this.textMargin+2*this.textMargin,y:0},{x:f,y:h}],k=c(a,i,j);k.attr({stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),fill:this.getAttr("fill")}),b.link&&k.attr("href",b.link),b.target&&k.attr("target",b.target),b.key&&(k.node.id=b.key),k.node.setAttribute("class",this.getAttr("class")),this.text.attr({y:k.getBBox().height/2}),this.group.push(k),k.insertBefore(this.text),this.initialize()}function m(a,b){b=b||{},g.call(this,a,b),this.textMargin=this.getAttr("text-margin"),this.yes_direction="bottom",this.no_direction="right",b.yes&&b.direction_yes&&b.no&&!b.direction_no?"right"===b.direction_yes?(this.no_direction="bottom",this.yes_direction="right"):(this.no_direction="right",this.yes_direction="bottom"):b.yes&&!b.direction_yes&&b.no&&b.direction_no?"right"===b.direction_no?(this.yes_direction="bottom",this.no_direction="right"):(this.yes_direction="right",this.no_direction="bottom"):(this.yes_direction="bottom",this.no_direction="right"),this.yes_direction=this.yes_direction||"bottom",this.no_direction=this.no_direction||"right",this.text.attr({x:2*this.textMargin});var d=this.text.getBBox().width+3*this.textMargin;d+=d/2;var e=this.text.getBBox().height+2*this.textMargin;e+=e/2,e=Math.max(.5*d,e);var f=d/4,h=e/4;this.text.attr({x:f+this.textMargin/2});var i={x:f,y:h},j=[{x:f-d/4,y:h+e/4},{x:f-d/4+d/2,y:h+e/4+e/2},{x:f-d/4+d,y:h+e/4},{x:f-d/4+d/2,y:h+e/4-e/2},{x:f-d/4,y:h+e/4}],k=c(a,i,j);k.attr({stroke:this.getAttr("element-color"),"stroke-width":this.getAttr("line-width"),fill:this.getAttr("fill")}),b.link&&k.attr("href",b.link),b.target&&k.attr("target",b.target),b.key&&(k.node.id=b.key),k.node.setAttribute("class",this.getAttr("class")),this.text.attr({y:k.getBBox().height/2}),this.group.push(k),k.insertBefore(this.text),this.initialize()}function n(a){function b(a){var b=a.indexOf("(")+1,c=a.indexOf(")");return b>=0&&c>=0?d.symbols[a.substring(0,b-1)]:d.symbols[a]}function c(a){var b="next",c=a.indexOf("(")+1,d=a.indexOf(")");return c>=0&&d>=0&&(b=D.substring(c,d),b.indexOf(",")<0&&"yes"!==b&&"no"!==b&&(b="next, "+b)),b}a=a||"",a=a.trim();for(var d={symbols:{},start:null,drawSVG:function(a,b){function c(a){if(g[a.key])return g[a.key];switch(a.symbolType){case"start":g[a.key]=new h(e,a);break;case"end":g[a.key]=new i(e,a);break;case"operation":g[a.key]=new j(e,a);break;case"inputoutput":g[a.key]=new l(e,a);break;case"subroutine":g[a.key]=new k(e,a);break;case"condition":g[a.key]=new m(e,a);break;default:return new Error("Wrong symbol type!")}return g[a.key]}var d=this;this.diagram&&this.diagram.clean();var e=new f(a,b);this.diagram=e;var g={};!function n(a,b,f){var g=c(a);return d.start===a?e.startWith(g):b&&f&&!b.pathOk&&(b instanceof m?(f.yes===a&&b.yes(g),f.no===a&&b.no(g)):b.then(g)),g.pathOk?g:(g instanceof m?(a.yes&&n(a.yes,g,a),a.no&&n(a.no,g,a)):a.next&&n(a.next,g,a),g)}(this.start),e.render()},clean:function(){this.diagram.clean()}},e=[],g=0,n=1,o=a.length;o>n;n++)if("\n"===a[n]&&"\\"!==a[n-1]){var p=a.substring(g,n);g=n+1,e.push(p.replace(/\\\n/g,"\n"))}g<a.length&&e.push(a.substr(g));for(var q=1,r=e.length;r>q;){var s=e[q];s.indexOf(": ")<0&&s.indexOf("(")<0&&s.indexOf(")")<0&&s.indexOf("->")<0&&s.indexOf("=>")<0?(e[q-1]+="\n"+s,e.splice(q,1),r--):q++}for(;e.length>0;){var t=e.splice(0,1)[0];if(t.indexOf("=>")>=0){var u,v=t.split("=>"),w={key:v[0],symbolType:v[1],text:null,link:null,target:null,flowstate:null};if(w.symbolType.indexOf(": ")>=0&&(u=w.symbolType.split(": "),w.symbolType=u[0],w.text=u[1]),w.text&&w.text.indexOf(":>")>=0?(u=w.text.split(":>"),w.text=u[0],w.link=u[1]):w.symbolType.indexOf(":>")>=0&&(u=w.symbolType.split(":>"),w.symbolType=u[0],w.link=u[1]),w.symbolType.indexOf("\n")>=0&&(w.symbolType=w.symbolType.split("\n")[0]),w.link){var x=w.link.indexOf("[")+1,y=w.link.indexOf("]");x>=0&&y>=0&&(w.target=w.link.substring(x,y),w.link=w.link.substring(0,x-1))}if(w.text&&w.text.indexOf("|")>=0){var z=w.text.split("|");w.text=z[0],w.flowstate=z[1].trim()}d.symbols[w.key]=w}else if(t.indexOf("->")>=0)for(var A=t.split("->"),B=0,C=A.length;C>B;B++){var D=A[B],E=b(D),F=c(D),G=null;if(F.indexOf(",")>=0){var H=F.split(",");F=H[0],G=H[1].trim()}if(d.start||(d.start=E),C>B+1){var I=A[B+1];E[F]=b(I),E["direction_"+F]=G,G=null}}}return d}Array.prototype.indexOf||(Array.prototype.indexOf=function(a){"use strict";if(null===this)throw new TypeError;var b=Object(this),c=b.length>>>0;if(0===c)return-1;var d=0;if(arguments.length>0&&(d=Number(arguments[1]),d!=d?d=0:0!==d&&1/0!=d&&d!=-1/0&&(d=(d>0||-1)*Math.floor(Math.abs(d)))),d>=c)return-1;for(var e=d>=0?d:Math.max(c-Math.abs(d),0);c>e;e++)if(e in b&&b[e]===a)return e;return-1}),Array.prototype.lastIndexOf||(Array.prototype.lastIndexOf=function(a){"use strict";if(null===this)throw new TypeError;var b=Object(this),c=b.length>>>0;if(0===c)return-1;var d=c;arguments.length>1&&(d=Number(arguments[1]),d!=d?d=0:0!==d&&d!=1/0&&d!=-(1/0)&&(d=(d>0||-1)*Math.floor(Math.abs(d))));for(var e=d>=0?Math.min(d,c-1):c-Math.abs(d);e>=0;e--)if(e in b&&b[e]===a)return e;return-1}),String.prototype.trim||(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")});var o=this,p={};"undefined"!=typeof module&&module.exports?module.exports=p:o.flowchart=o.flowchart||p;var q={x:0,y:0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black",fill:"white","yes-text":"yes","no-text":"no","arrow-end":"block","class":"flowchart",symbols:{start:{},end:{},condition:{},inputoutput:{},operation:{},subroutine:{}}},r={defaults:a,inherits:b};f.prototype.handle=function(a){this.symbols.indexOf(a)<=-1&&this.symbols.push(a);var b=this;return a instanceof m?(a.yes=function(c){return a.yes_symbol=c,a.no_symbol&&(a.pathOk=!0),b.handle(c)},a.no=function(c){return a.no_symbol=c,a.yes_symbol&&(a.pathOk=!0),b.handle(c)}):a.then=function(c){return a.next=c,a.pathOk=!0,b.handle(c)},a},f.prototype.startWith=function(a){return this.start=a,this.handle(a)},f.prototype.render=function(){var a,b=0,c=0,d=0,e=0,f=0,g=0;for(d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.width>b&&(b=a.width),a.height>c&&(c=a.height);for(d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.shiftX(this.options.x+(b-a.width)/2+this.options["line-width"]),a.shiftY(this.options.y+(c-a.height)/2+this.options["line-width"]);for(this.start.render(),d=0,e=this.symbols.length;e>d;d++)a=this.symbols[d],a.renderLines();for(f=this.maxXFromLine,d=0,e=this.symbols.length;e>d;d++){a=this.symbols[d];var h=a.getX()+a.width,i=a.getY()+a.height;h>f&&(f=h),i>g&&(g=i)}this.paper.setSize(f+this.options["line-width"],g+this.options["line-width"])},f.prototype.clean=function(){if(this.paper){var a=this.paper.canvas;a.parentNode.removeChild(a)}},g.prototype.getAttr=function(a){if(!this.chart)return void 0;var b,c=this.chart.options?this.chart.options[a]:void 0,d=this.chart.options.symbols?this.chart.options.symbols[this.symbolType][a]:void 0;return this.chart.options.flowstate&&this.chart.options.flowstate[this.flowstate]&&(b=this.chart.options.flowstate[this.flowstate][a]),b||d||c},g.prototype.initialize=function(){this.group.transform("t"+this.getAttr("line-width")+","+this.getAttr("line-width")),this.width=this.group.getBBox().width,this.height=this.group.getBBox().height},g.prototype.getCenter=function(){return{x:this.getX()+this.width/2,y:this.getY()+this.height/2}},g.prototype.getX=function(){return this.group.getBBox().x},g.prototype.getY=function(){return this.group.getBBox().y},g.prototype.shiftX=function(a){this.group.transform("t"+(this.getX()+a)+","+this.getY())},g.prototype.setX=function(a){this.group.transform("t"+a+","+this.getY())},g.prototype.shiftY=function(a){this.group.transform("t"+this.getX()+","+(this.getY()+a))},g.prototype.setY=function(a){this.group.transform("t"+this.getX()+","+a)},g.prototype.getTop=function(){var a=this.getY(),b=this.getX()+this.width/2;return{x:b,y:a}},g.prototype.getBottom=function(){var a=this.getY()+this.height,b=this.getX()+this.width/2;return{x:b,y:a}},g.prototype.getLeft=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX();return{x:b,y:a}},g.prototype.getRight=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.group.getBBox().width;return{x:b,y:a}},g.prototype.render=function(){if(this.next){var a=this.getAttr("line-length");if("right"===this.next_direction){var b=this.getRight();if(this.next.getLeft(),!this.next.isPositioned){this.next.setY(b.y-this.next.height/2),this.next.shiftX(this.group.getBBox().x+this.width+a);var c=this;!function e(){for(var b,d=!1,f=0,g=c.chart.symbols.length;g>f;f++){b=c.chart.symbols[f];var h=Math.abs(b.getCenter().x-c.next.getCenter().x);if(b.getCenter().y>c.next.getCenter().y&&h<=c.next.width/2){d=!0;break}}d&&(c.next.setX(b.getX()+b.width+a),e())}(),this.next.isPositioned=!0,this.next.render()}}else{var d=this.getBottom();this.next.getTop(),this.next.isPositioned||(this.next.shiftY(this.getY()+this.height+a),this.next.setX(d.x-this.next.width/2),this.next.isPositioned=!0,this.next.render())}}},g.prototype.renderLines=function(){this.next&&(this.next_direction?this.drawLineTo(this.next,"",this.next_direction):this.drawLineTo(this.next))},g.prototype.drawLineTo=function(a,b,c){this.connectedTo.indexOf(a)<0&&this.connectedTo.push(a);var f,g=this.getCenter().x,h=this.getCenter().y,i=(this.getTop(),this.getRight()),j=this.getBottom(),k=this.getLeft(),l=a.getCenter().x,m=a.getCenter().y,n=a.getTop(),o=a.getRight(),p=(a.getBottom(),a.getLeft()),q=g===l,r=h===m,s=m>h,t=h>m,u=g>l,v=l>g,w=0,x=this.getAttr("line-length"),y=this.getAttr("line-width");if(c&&"bottom"!==c||!q||!s)if(c&&"right"!==c||!r||!v)if(c&&"left"!==c||!r||!u)if(c&&"right"!==c||!q||!t)if(c&&"right"!==c||!q||!s)if(c&&"bottom"!==c||!u)if(c&&"bottom"!==c||!v)if(c&&"right"===c&&u)f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else if(c&&"right"===c&&v)f=d(this.chart,i,[{x:n.x,y:i.y},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else if(c&&"bottom"===c&&q&&t)f=d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:i.x+x/2,y:j.y+x/2},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+x/2;else if("left"===c&&q&&t){var z=k.x-x/2;p.x<k.x&&(z=p.x-x/2),f=d(this.chart,k,[{x:z,y:k.y},{x:z,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.leftStart=!0,a.topEnd=!0,w=k.x}else"left"===c&&(f=d(this.chart,k,[{x:n.x+(k.x-n.x)/2,y:k.y},{x:n.x+(k.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.leftStart=!0,a.topEnd=!0,w=k.x);else f=d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+(j.x-n.x)/2;else f=this.leftEnd&&t?d(this.chart,j,[{x:j.x,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:j.y+x/2},{x:j.x+(j.x-n.x)/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b):d(this.chart,j,[{x:j.x,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.bottomStart=!0,a.topEnd=!0,w=j.x+(j.x-n.x)/2;else f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else f=d(this.chart,i,[{x:i.x+x/2,y:i.y},{x:i.x+x/2,y:n.y-x/2},{x:n.x,y:n.y-x/2},{x:n.x,y:n.y}],b),this.rightStart=!0,a.topEnd=!0,w=i.x+x/2;else f=d(this.chart,k,o,b),this.leftStart=!0,a.rightEnd=!0,w=o.x;else f=d(this.chart,i,p,b),this.rightStart=!0,a.leftEnd=!0,w=p.x;else f=d(this.chart,j,n,b),this.bottomStart=!0,a.topEnd=!0,w=j.x;if(f){for(var A=0,B=this.chart.lines.length;B>A;A++)for(var C,D=this.chart.lines[A],E=D.attr("path"),F=f.attr("path"),G=0,H=E.length-1;H>G;G++){var I=[];I.push(["M",E[G][1],E[G][2]]),I.push(["L",E[G+1][1],E[G+1][2]]);for(var J=I[0][1],K=I[0][2],L=I[1][1],M=I[1][2],N=0,O=F.length-1;O>N;N++){var P=[];P.push(["M",F[N][1],F[N][2]]),P.push(["L",F[N+1][1],F[N+1][2]]);var Q=P[0][1],R=P[0][2],S=P[1][1],T=P[1][2],U=e(J,K,L,M,Q,R,S,T);if(U.onLine1&&U.onLine2){var V;R===T?Q>S?(V=["L",U.x+2*y,R],F.splice(N+1,0,V),V=["C",U.x+2*y,R,U.x,R-4*y,U.x-2*y,R],F.splice(N+2,0,V),f.attr("path",F)):(V=["L",U.x-2*y,R],F.splice(N+1,0,V),V=["C",U.x-2*y,R,U.x,R-4*y,U.x+2*y,R],F.splice(N+2,0,V),f.attr("path",F)):R>T?(V=["L",Q,U.y+2*y],F.splice(N+1,0,V),V=["C",Q,U.y+2*y,Q+4*y,U.y,Q,U.y-2*y],F.splice(N+2,0,V),f.attr("path",F)):(V=["L",Q,U.y-2*y],F.splice(N+1,0,V),V=["C",Q,U.y-2*y,Q+4*y,U.y,Q,U.y+2*y],F.splice(N+2,0,V),f.attr("path",F)),N+=2,C+=2}}}this.chart.lines.push(f)}(!this.chart.maxXFromLine||this.chart.maxXFromLine&&w>this.chart.maxXFromLine)&&(this.chart.maxXFromLine=w)},r.inherits(h,g),r.inherits(i,g),r.inherits(j,g),r.inherits(k,g),r.inherits(l,g),l.prototype.getLeft=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.textMargin;return{x:b,y:a}},l.prototype.getRight=function(){var a=this.getY()+this.group.getBBox().height/2,b=this.getX()+this.group.getBBox().width-this.textMargin;return{x:b,y:a}},r.inherits(m,g),m.prototype.render=function(){this.yes_direction&&(this[this.yes_direction+"_symbol"]=this.yes_symbol),this.no_direction&&(this[this.no_direction+"_symbol"]=this.no_symbol);var a=this.getAttr("line-length");if(this.bottom_symbol){var b=this.getBottom();this.bottom_symbol.getTop(),this.bottom_symbol.isPositioned||(this.bottom_symbol.shiftY(this.getY()+this.height+a),this.bottom_symbol.setX(b.x-this.bottom_symbol.width/2),this.bottom_symbol.isPositioned=!0,this.bottom_symbol.render())}if(this.right_symbol){var c=this.getRight();if(this.right_symbol.getLeft(),!this.right_symbol.isPositioned){this.right_symbol.setY(c.y-this.right_symbol.height/2),this.right_symbol.shiftX(this.group.getBBox().x+this.width+a);var d=this;!function e(){for(var b,c=!1,f=0,g=d.chart.symbols.length;g>f;f++){b=d.chart.symbols[f];var h=Math.abs(b.getCenter().x-d.right_symbol.getCenter().x);if(b.getCenter().y>d.right_symbol.getCenter().y&&h<=d.right_symbol.width/2){c=!0;break}}c&&(d.right_symbol.setX(b.getX()+b.width+a),e())}(),this.right_symbol.isPositioned=!0,this.right_symbol.render()}}},m.prototype.renderLines=function(){this.yes_symbol&&this.drawLineTo(this.yes_symbol,this.getAttr("yes-text"),this.yes_direction),this.no_symbol&&this.drawLineTo(this.no_symbol,this.getAttr("no-text"),this.no_direction)},p.parse=n}();
+</script>
+<script type="text/javascript">
+(function (win, doc) {
+  function onReady(fn) {
+    if (doc.addEventListener) {
+      doc.addEventListener('DOMContentLoaded', fn);
+    } else {
+      doc.attachEvent('onreadystatechange', function() {
+        if (doc.readyState === 'interactive')
+          fn();
+      });
+    }
+  }
+
+  win.convertUML = function(className, converter, settings) {
+    var charts = doc.querySelectorAll("pre." + className),
+        arr = [],
+        i, j, maxItem, diagaram, text, curNode;
+
+    // Is there a settings object?
+    if (settings === void 0) {
+        settings = {};
+    }
+
+    // Make sure we are dealing with an array
+    for(i = 0, maxItem = charts.length; i < maxItem; i++) arr.push(charts[i])
+
+    // Find the UML source element and get the text
+    for (i = 0, maxItem = arr.length; i < maxItem; i++) {
+        childEl = arr[i].firstChild;
+        parentEl = childEl.parentNode;
+        text = "";
+        for (j = 0; j < childEl.childNodes.length; j++) {
+            curNode = childEl.childNodes[j];
+            whitespace = /^\s*$/;
+            if (curNode.nodeName === "#text" && !(whitespace.test(curNode.nodeValue))) {
+                text = curNode.nodeValue;
+                break;
+            }
+        }
+
+        // Do UML conversion and replace source
+        el = doc.createElement('div');
+        el.className = className;
+        parentEl.parentNode.insertBefore(el, parentEl);
+        parentEl.parentNode.removeChild(parentEl);
+        diagram = converter.parse(text);
+        diagram.drawSVG(el, settings);
+    }
+  }
+
+  onReady(function(){convertUML('uml-flowchart', flowchart);});
+  onReady(function(){convertUML('uml-sequence-diagram', Diagram, {theme: 'simple'});});
+})(window, document)
+</script>
+<title>Report ELT131 LAB 01</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 01</td>
+<td style="text-align: center;">Del Basso, Manuel</td>
+<td style="text-align: center;">16-03-2017</td>
+<td style="text-align: center;">WHZ</td>
+<td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
+</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-01-report"><a name="user-content-elt131-lab-01-report" href="#elt131-lab-01-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 01 report</h1>
+<div class="toc">
+<ul>
+<li><a href="#elt131-lab-01-report">ELT131 - Lab 01 report</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#part-ram">Part RAM</a><ul>
+<li><a href="#function-test-and-measurement">Function Test and Measurement</a><ul>
+<li><a href="#use-the-ccs-clock-profiler">Use the CCS clock profiler</a></li>
+<li><a href="#increaese-of-cpu-load">Increaese of CPU - Load</a></li>
+</ul>
+</li>
+<li><a href="#disassembly">Disassembly</a></li>
+<li><a href="#precision-of-the-isr-repetition-rate">Precision of the ISR - Repetition rate</a></li>
+<li><a href="#interrupt-latency">Interrupt Latency</a></li>
+<li><a href="#irq-response-jitters">IRQ response jitters</a></li>
+<li><a href="#code">Code</a></li>
+</ul>
+</li>
+<li><a href="#part-flash">Part FLASH</a><ul>
+<li><a href="#function-test-and-measurement_1">Function Test and Measurement</a></li>
+</ul>
+</li>
+<li><a href="#sources">Sources</a></li>
+</ul>
+</div>
+<h1 id="introduction"><a name="user-content-introduction" href="#introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Introduction</h1>
+<p>The goal of Lab01 is to use different methods to determine the runtime between two debugger breakpoints as well as the accuracy of periodically activities like timer based IRQs. </p>
+<p><strong>Used components:</strong></p>
+<ul>
+<li>Hardware<ul>
+<li>TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino</li>
+<li>Oscilloscope: PC-USB Scope <em>PCSU1000, velleman</em></li>
+</ul>
+</li>
+<li>Software<ul>
+<li>Code Composer Studio Version: 7.1.0.00015 (CCS7)</li>
+<li>Board support via ti&rsquo;s <a href="http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&amp;HQS=controlsuite"><strong>controlSUITE</strong></a> v3.4.5</li>
+</ul>
+</li>
+<li>Development Plattform<ul>
+<li><code>lsb_release -d</code> <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span></li>
+<li><code>uname -rpo</code> <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span></li>
+</ul>
+</li>
+</ul>
+<p>Due to bandwidth limitations in measuring equipment (PC-USB Scope &ldquo;PCSU1000, velleman&rdquo;, 1Gs/s 2x60MHz), the <em>SYSCLKOUT</em> has been lowered by 5 from $150\si{MHz}$ to $30\si{MHz}$.</p>
+<h1 id="part-ram"><a name="user-content-part-ram" href="#part-ram" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part RAM</h1>
+<h2 id="function-test-and-measurement"><a name="user-content-function-test-and-measurement" href="#function-test-and-measurement" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Function Test and Measurement</h2>
+<blockquote>
+<p>Use an Oscilloscope and measure the time interval between pulses at signal ePWM1A (GPIO0):</p>
+</blockquote>
+<p><a href="pics/50us_irq2irq.bmp" target="_blank"><figure style=""> <img src="pics/50us_irq2irq.png" title="IRQ periode: 50us" class="noborder"><figcaption>IRQ periode: $\,50\si{us}$</figcaption> </figure></a></p>
+<blockquote>
+<p>As you can see, most of the time the signal is at 0V-level. The CPU-&ldquo;workload&rdquo; is the time spent between rising and falling edge of GPIO0, which seems to be negligible compared to the time, in which the processor is waiting for the next interrupt. Try to make a more precise measurement of the CPU - load: Measure the pulse width of GPIO0!</p>
+</blockquote>
+<hr />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * Macros</span>
+<span class="cm"> */</span>
+<span class="cp">#define testPinLvl(x)   GpioDataRegs.GPADAT.bit.GPIO0 = x</span>
+<span class="cp">#define testPinTgl      GpioDataRegs.GPATOGGLE.bit.GPIO0 = 1;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * SYSCLKOUT = 30MHz * PLLCR_DIV / PLLSTS_DIVSEL(=2) = 30MHz</span>
+<span class="cm"> */</span>
+<span class="n">SysCtrlRegs</span><span class="p">.</span><span class="n">PLLCR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">DIV</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// SysCtrlRegs.PLLCR.bit.DIV = 10;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @brief      Timer0 IRQ callback</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">cpu_timer0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">testPinLvl</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>                  <span class="c1">//!&lt; Rising edge</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">all</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Acknowledge PIE group 1</span>
+
+<span class="c1">//   for (int i = 0; i &lt; LOAD; i++)   //!&lt; CPU load</span>
+<span class="c1">//       asm(&quot;  NOP&quot;);</span>
+    <span class="n">testPinLvl</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>                  <span class="c1">//!&lt; Falling edge</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><a href="pics/166us_hi2lo.bmp" target="_blank"><figure style=""> <img src="pics/166us_hi2lo.png" title="IRQ handler active time: 166 ns" class="noborder"></a><figcaption>IRQ handler active time: $\,166\si{ns}$</figcaption> </figure></p>
+<blockquote>
+<p>The F28335 runs at a speed of 150 MHz, e.g. each instruction cycle is 1/150MHz = 6.67 ns long. The disassembly window shows 5 instructions between rising edge (instruction at address 00954a) and falling edge (instruction at address 009552).</p>
+</blockquote>
+<div class="codehilite"><pre>MOVB ACC,#8bit Load Accumulator With 8-bit value:   CYC 1   (2x)
+MOVW DP, #16bit Load the Entire Data Page:          CYC 1   (2x)
+MOVL ACC,loc32 Load Accumulator With 32 Bits:       CYC 1
+</pre></div>
+
+
+<p><lmjx>$ \eqlbl{t_{high}=5\cdot\frac{1}{30\si{MHz}}\approx 166\si{ns}}{eq_thigh1}$</lmjx></p>
+<hr />
+<h3 id="use-the-ccs-clock-profiler"><a name="user-content-use-the-ccs-clock-profiler" href="#use-the-ccs-clock-profiler" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use the CCS clock profiler</h3>
+<p><a href="pics/clockProfiler.png" target="_blank"><figure style=""> <img src="pics/clockProfiler.png" title="The clock profiler counts 105 clock cycles (LOAD=10) between rising and falling edge." class="noborder"></a><figcaption>The clock profiler counts 105 clock cycles (LOAD=10) between rising and falling edge.</figcaption> </figure></p>
+<hr />
+<h3 id="increaese-of-cpu-load"><a name="user-content-increaese-of-cpu-load" href="#increaese-of-cpu-load" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Increaese of CPU - Load</h3>
+<p><a href="pics/7_1_perc.bmp" target="_blank"><figure style=""> <img src="pics/7_1_perc.png" title="Load by 10x NOP results in 7.1% CPU load." class="noborder"></a><figcaption>Load by 10x NOP results in 7.1% CPU load.</figcaption> </figure></p>
+<p><a href="pics/37_perc.bmp" target="_blank"><figure style=""> <img src="pics/37_perc.png" title="Load by 55x NOP results in 37.0% CPU load." class="noborder"></a><figcaption>Load by 55x NOP results in 37.0% CPU load.</figcaption> </figure></p>
+<p><a href="pics/73_8_perc.bmp" target="_blank"><figure style=""> <img src="pics/73_8_perc.png" title="Load by 110x NOP results in 73.8% CPU load." class="noborder"></a><figcaption>Load by 110x NOP results in 73.8% CPU load.</figcaption> </figure></p>
+<h2 id="disassembly"><a name="user-content-disassembly" href="#disassembly" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Disassembly</h2>
+<p><div class="codehilite"><pre><span class="mi">135</span>     <span class="kt">void</span> <span class="nf">cpu_timer0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>                                <span class="c1">//!&lt; Cycles</span>
+        <span class="n">cpu_timer0_isr</span><span class="p">()</span><span class="o">:</span>
+<span class="mo">00</span><span class="mi">9596</span><span class="o">:</span>   <span class="mi">761</span><span class="n">B</span>        <span class="n">ASP</span>                                          <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">9597</span><span class="o">:</span>   <span class="n">FFF0</span>        <span class="n">PUSH</span>         <span class="n">RB</span>                              <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">9598</span><span class="o">:</span>   <span class="n">E20000BD</span>    <span class="n">MOV32</span>        <span class="o">*</span><span class="n">SP</span><span class="o">++</span><span class="p">,</span> <span class="n">STF</span>                      <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">959</span><span class="nl">a</span><span class="p">:</span>   <span class="n">E6300600</span>    <span class="n">SETFLG</span>       <span class="n">RNDF32</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">RNDF64</span><span class="o">=</span><span class="mi">1</span>               <span class="c1">//!&lt;    ?</span>
+<span class="mo">00</span><span class="mi">959</span><span class="nl">c</span><span class="p">:</span>   <span class="n">FE02</span>        <span class="n">ADDB</span>         <span class="n">SP</span><span class="p">,</span> <span class="err">#</span><span class="mi">2</span>                          <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">959</span><span class="nl">d</span><span class="p">:</span>   <span class="mi">2942</span>        <span class="n">CLRC</span>         <span class="n">OVM</span><span class="o">|</span><span class="n">PAGE0</span>                       <span class="c1">//!&lt;    ?</span>
+<span class="mo">00</span><span class="mi">959</span><span class="nl">e</span><span class="p">:</span>   <span class="mi">5616</span>        <span class="n">CLRC</span>         <span class="n">AMODE</span>                           <span class="c1">//!&lt;    ?</span>
+
+<span class="mi">136</span>         <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Rising edge</span>
+<span class="mf">00959f</span><span class="o">:</span>   <span class="mo">0201</span>        <span class="n">MOVB</span>         <span class="n">ACC</span><span class="p">,</span> <span class="err">#</span><span class="mi">1</span>                         <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a0</span><span class="p">:</span>   <span class="mf">761F</span><span class="mo">01</span><span class="n">BF</span>    <span class="n">MOVW</span>         <span class="n">DP</span><span class="p">,</span> <span class="err">#</span><span class="mh">0x1bf</span>                      <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a2</span><span class="p">:</span>   <span class="mf">1E00</span>        <span class="n">MOVL</span>         <span class="mh">@0x0</span><span class="p">,</span> <span class="n">ACC</span>                       <span class="c1">//!&lt;   1</span>
+
+<span class="mi">137</span>         <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">all</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Ack PIE group 1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a3</span><span class="p">:</span>   <span class="mf">761F</span><span class="mo">0033</span>    <span class="n">MOVW</span>         <span class="n">DP</span><span class="p">,</span> <span class="err">#</span><span class="mh">0x33</span>                       <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a5</span><span class="p">:</span>   <span class="mi">56</span><span class="n">BF0121</span>    <span class="n">MOVB</span>         <span class="mh">@0x21</span><span class="p">,</span> <span class="err">#</span><span class="mh">0x01</span><span class="p">,</span> <span class="n">UNC</span>               <span class="c1">//!&lt;   1</span>
+<span class="o">-----------------------------------------------------------------------------</span> <span class="mi">2</span> <span class="n">cyc</span>
+<span class="mi">139</span>         <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LOAD</span><span class="p">;</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a7</span><span class="p">:</span>   <span class="mf">761F</span><span class="mo">0300</span>    <span class="n">MOVW</span>         <span class="n">DP</span><span class="p">,</span> <span class="err">#</span><span class="mh">0x300</span>                      <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">a9</span><span class="p">:</span>   <span class="mi">921</span><span class="n">E</span>        <span class="n">MOV</span>          <span class="n">AL</span><span class="p">,</span> <span class="mh">@0x1e</span>                       <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">aa</span><span class="p">:</span>   <span class="mi">9641</span>        <span class="n">MOV</span>          <span class="o">*-</span><span class="n">SP</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">AL</span>                     <span class="c1">//!&lt;   1</span>
+<span class="o">-----------------------------------------------------------------------------</span> <span class="mi">3</span> <span class="n">cyc</span>
+<span class="mi">141</span>             <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  NOP&quot;</span><span class="p">);</span>
+        <span class="n">C</span><span class="err">$</span><span class="nl">L2</span><span class="p">:</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">ab</span><span class="p">:</span>   <span class="mi">7700</span>        <span class="n">NOP</span>                                          <span class="c1">//!&lt;   1</span>
+<span class="mi">140</span>         <span class="k">do</span> <span class="p">{</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">ac</span><span class="p">:</span>   <span class="mi">9</span><span class="n">CFF</span>        <span class="n">ADDB</span>         <span class="n">AL</span><span class="p">,</span> <span class="err">#</span><span class="o">-</span><span class="mi">1</span>                         <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">ad</span><span class="p">:</span>   <span class="mi">9641</span>        <span class="n">MOV</span>          <span class="o">*-</span><span class="n">SP</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">AL</span>                     <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">ae</span><span class="p">:</span>   <span class="mf">60F</span><span class="n">D</span>        <span class="n">SB</span>           <span class="n">C</span><span class="err">$</span><span class="n">L2</span><span class="p">,</span> <span class="n">NEQ</span>                       <span class="c1">//!&lt;  4/7</span>
+<span class="o">-----------------------------------------------------------------------------</span> <span class="p">(</span><span class="n">LOAD</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">7</span>
+<span class="mi">144</span>        <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">//!&lt; Falling edge</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">af</span><span class="p">:</span>   <span class="mo">0200</span>        <span class="n">MOVB</span>         <span class="n">ACC</span><span class="p">,</span> <span class="err">#</span><span class="mi">0</span>                         <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b0</span><span class="p">:</span>   <span class="mf">761F</span><span class="mo">01</span><span class="n">BF</span>    <span class="n">MOVW</span>         <span class="n">DP</span><span class="p">,</span> <span class="err">#</span><span class="mh">0x1bf</span>                      <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b2</span><span class="p">:</span>   <span class="mf">1E00</span>        <span class="n">MOVL</span>         <span class="mh">@0x0</span><span class="p">,</span> <span class="n">ACC</span>                       <span class="c1">//!&lt;   1</span>
+<span class="o">-----------------------------------------------------------------------------</span> <span class="mi">3</span> <span class="n">cyc</span>
+<span class="o">--------------------------------------------------------------------------------------------</span>
+                                                        <span class="n">busyCyc</span><span class="p">(</span><span class="n">LOAD</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">LOAD</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="o">+</span><span class="mi">7</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">5</span>
+<span class="mi">145</span>     <span class="p">}</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b3</span><span class="p">:</span>   <span class="n">FE82</span>        <span class="n">SUBB</span>         <span class="n">SP</span><span class="p">,</span> <span class="err">#</span><span class="mi">2</span>                          <span class="c1">//!&lt;    ?</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b4</span><span class="p">:</span>   <span class="n">E28000BE</span>    <span class="n">MOV32</span>        <span class="n">STF</span><span class="p">,</span> <span class="o">*--</span><span class="n">SP</span>                      <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b6</span><span class="p">:</span>   <span class="mi">3</span><span class="n">B30</span>        <span class="n">SETC</span>         <span class="n">INTM</span><span class="o">|</span><span class="n">DBGM</span>                       <span class="c1">//!&lt;    ?</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b7</span><span class="p">:</span>   <span class="n">FFF1</span>        <span class="n">POP</span>          <span class="n">RB</span>                              <span class="c1">//!&lt;    ?</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b8</span><span class="p">:</span>   <span class="mi">7617</span>        <span class="n">NASP</span>                                         <span class="c1">//!&lt;   1</span>
+<span class="mo">00</span><span class="mi">95</span><span class="nl">b9</span><span class="p">:</span>   <span class="mi">7602</span>        <span class="n">IRET</span>                                         <span class="c1">//!&lt;    ?</span>
+</pre></div>
+<br />
+</p>
+
+<p>The total cycles between rising and falling GPIO edge could be determined by:</p>
+<p>\begin{align}<br />
+\mathrm{cyc_{IRQ}(LOAD)} &amp;\,=\, 10\cdot (LOAD - 1)+15 \\<br />
+\mathrm{t_{IRQ}(LOAD)} &amp;\,=\, \frac{10}{30\si{MHz}} \cdot (LOAD - 1)+15 \\<br />
+\mathrm{CPU_{load[\%]}(LOAD)} &amp;\,=\, 100\cdot \frac{t_{IRQ}}{50\si{us}} \,=\, \frac{2}{3} \cdot ((LOAD - 1)+1.5) \\<br />
+                            &amp;\,=\, \frac{2}{3} \cdot (LOAD + 0.5) \\<br />
+\end{align}</p>
+<p>For calculating the <code>LOAD</code> value as a function of the <em>desired CPU load in percentage</em>, the macro function<br />
+<div class="codehilite"><pre><span class="cp">#define _cpuLoad(loadInPercent) ((uint16_t) ((float)loadInPercent * 3/2 - .5))</span>
+</pre></div>
+<br />
+has been defined at global namespace.</p>
+<p><center><div></p>
+<table>
+<thead>
+<tr>
+<th align="center">LOAD</th>
+<th align="center">cyc_irq</th>
+<th align="center">t_irq<br>in [us]</th>
+<th align="center">CPU load<br>in [%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">15</td>
+<td align="center">0.50</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">25</td>
+<td align="center">0.83</td>
+<td align="center">1.7</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">35</td>
+<td align="center">1.17</td>
+<td align="center">2.4</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">55</td>
+<td align="center">1.83</td>
+<td align="center">3.7</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">105</td>
+<td align="center">3.50</td>
+<td align="center">7.0</td>
+</tr>
+<tr>
+<td align="center">30</td>
+<td align="center">305</td>
+<td align="center">10.17</td>
+<td align="center">20.3</td>
+</tr>
+<tr>
+<td align="center">45</td>
+<td align="center">455</td>
+<td align="center">15.17</td>
+<td align="center">30.3</td>
+</tr>
+<tr>
+<td align="center">55</td>
+<td align="center">555</td>
+<td align="center">18.50</td>
+<td align="center">37.0</td>
+</tr>
+<tr>
+<td align="center">110</td>
+<td align="center">1105</td>
+<td align="center">36.83</td>
+<td align="center">73.7</td>
+</tr>
+<tr>
+<td align="center">145</td>
+<td align="center">1455</td>
+<td align="center">48.00</td>
+<td align="center">97.0</td>
+</tr>
+</tbody>
+</table>
+<p></div></center></p>
+<h2 id="precision-of-the-isr-repetition-rate"><a name="user-content-precision-of-the-isr-repetition-rate" href="#precision-of-the-isr-repetition-rate" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Precision of the ISR - Repetition rate</h2>
+<blockquote>
+<p>Next, a test will be performed to measure the precision of the repetition rate (“Jitter”) of<br />
+the Interrupt Service Routine.</p>
+<p>For Digital Control Systems it is very important to have a very stable time base, because all<br />
+theoretical derivations from time continuous systems to time discrete systems rely on the 1st<br />
+assumption, that let’s say a sample frequency of 20 kHz is all the time constant.<br />
+- Remove all breakpoints from previous tests.<br />
+- Run the code from with a CPU – load in the region of 40-60 %.<br />
+- Change the code in the ISR, so that we just toggle the pin GPIO0 on each entry of the ISR (Hint: Use Register “GPATOGGLE”).</p>
+<p>To measure any differences in the repetition rate of the interrupt services, set the &ldquo;persist&rdquo; function of your oscilloscope to &ldquo;infinity&rdquo;, trigger the signal at the rising edge and display the position of the falling edge.</p>
+</blockquote>
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @brief      Timer0 IRQ callback</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">cpu_timer0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifndef JITTER</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">//!&lt; Rising edge</span>
+<span class="cp">#else</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPATOGGLE</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Toggle rising edge</span>
+<span class="cp">#endif</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">all</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">//!&lt; Acknowledge PIE group 1</span>
+
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LOAD</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  NOP&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="n">i</span><span class="p">);</span>
+
+<span class="cp">#ifndef JITTER</span>
+   <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">//!&lt; Falling edge</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<blockquote>
+<p>Add a graphical display of your jitter measurement to your Lab-report!<br />
+If you were able to see a jitter, fine. If not, add a 2nd asm(&rdquo;  NOP&rdquo;) instruction into the while(1)-loop.</p>
+</blockquote>
+<p><a href="pics/jitter.bmp" target="_blank"><figure style=""> <img src="pics/jitter.bmp" title="Interrupt jitter" class="noborder"></a><figcaption>Interrupt jitter approx. $130\si{ns}$ ($\frac{4}{30\si{MHz}}\,\approx\,133\si{ns}$) </figcaption> </figure></p>
+<blockquote>
+<p>Now try to explain the jitter. Hint: inspect the disassembly code at the end of the main function.</p>
+</blockquote>
+<p><u>From document <strong>C28x Assembly Language Instructions</strong></u><sup id="fnref:fnAssembly"><a class="footnote-ref" href="#fn:fnAssembly" rel="footnote">1</a></sup></p>
+<blockquote>
+<p>SB Short conditional branch:<br />
+If the specified condition is true, then branch by adding the signed 8-bit constant value to the current PC value; otherwise continue execution without branching:<br />
+If (COND = true) PC = PC + signed 8-bit offset;<br />
+If (COND = false) PC = PC + 1;</p>
+</blockquote>
+<p><boxed>Note: If (COND = true) then the instruction takes 7 cycles.<br />
+If (COND = false) then the instruction takes 4 cycles.<br />
+If (<strong>COND = UNC</strong>) then the instruction takes <strong>4 cycles</strong>.</boxed></p>
+<h2 id="interrupt-latency"><a name="user-content-interrupt-latency" href="#interrupt-latency" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Interrupt Latency</h2>
+<p>The term <em>interrupt latency</em> describes the number of CPU clock cycles required for a processor to respond to an interrupt request (<strong>IRQ</strong>). In the domain of continuous time signals, most interrupt requests occur in a synchron manner related to the $f_ {CPU}$ signal since the clock of most interrupt requesting modules is derived from $f_ {CPU}$.</p>
+<h2 id="irq-response-jitters"><a name="user-content-irq-response-jitters" href="#irq-response-jitters" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IRQ response jitters</h2>
+<p>For many architectures, the exact interrupt latency depends on what type of mnemonic the processor is executing at the time the interrupt occurs. The processor responds to a interrupt request only when the current executing instruction completes, which can add a number of extra clock cycles. This variation results in jitters of IRQ responses, which could be problematic in applications like audio processing (signal distortions) and motor control (harmonics or vibrations).</p>
+<h2 id="code"><a name="user-content-code" href="#code" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Code</h2>
+<p><details Markdown="1"><summary>main.c</summary></p>
+<p></details></p>
+<h1 id="part-flash"><a name="user-content-part-flash" href="#part-flash" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part FLASH</h1>
+<h2 id="function-test-and-measurement_1"><a name="user-content-function-test-and-measurement_1" href="#function-test-and-measurement_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Function Test and Measurement</h2>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">LOAD</th>
+<th align="center">cyc_irq</th>
+<th align="center">t_irq<br>in [us]</th>
+<th align="center">CPU load<br>in [%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">31</td>
+<td align="center">0.50</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">166</td>
+<td align="center">6.08</td>
+<td align="center">12.7</td>
+</tr>
+<tr>
+<td align="center">45</td>
+<td align="center">800</td>
+<td align="center">27.1</td>
+<td align="center">54.1</td>
+</tr>
+<tr>
+<td align="center">55</td>
+<td align="center">897</td>
+<td align="center">33.1</td>
+<td align="center">66.2</td>
+</tr>
+<tr>
+<td align="center">110</td>
+<td align="center">1667</td>
+<td align="center">66.2</td>
+<td align="center">97.2</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p><a href="pics/jitter_flash.bmp" target="_blank"><figure style=""> <img src="pics/jitter_flash.bmp" title="Interrupt jitter - Part Flash" class="noborder"></a><figcaption>Interrupt jitter - Part Flash - approx. $330\si{ns}$ ($\frac{4}{30\si{MHz}}\,\approx\,133\si{ns}$) </figcaption> </figure></p>
+<h1 id="sources"><a name="user-content-sources" href="#sources" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sources</h1>
+<p><details markdown=1><br />
+    <summary>main.c</summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        main.c</span>
+<span class="cm"> * @project     ELT131_LAB_01</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        21 Mar 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2016  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="cp">#include &quot;DSP28x_Project.h&quot;</span>
+<span class="cp">#include &lt;stdint.h&gt;</span>
+<span class="cp">#include &lt;stdbool.h&gt;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Prototypes</span>
+<span class="cm"> */</span>
+<span class="n">interrupt</span> <span class="kt">void</span> <span class="nf">cpu_timer0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">delaySamps</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">samps</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">MD_InitSysCtrl</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">MD_DSP28_PLLCR</span><span class="p">);</span>
+<span class="kt">uint16_t</span> <span class="nf">cpuLoad</span><span class="p">(</span><span class="kt">float</span> <span class="n">load_in_percent</span><span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Virtual GPIO</span>
+<span class="cm"> */</span>
+<span class="kt">bool</span> <span class="n">vGPIO</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Macros</span>
+<span class="cm"> */</span>
+<span class="cp">#define testPinLvl(pinLevel)    GpioDataRegs.GPADAT.bit.GPIO0 = pinLevel</span>
+<span class="cp">#define testPinTgl              GpioDataRegs.GPATOGGLE.bit.GPIO0 = 1;</span>
+<span class="c1">//#define testPinLvl(x)   vGPIO = x</span>
+<span class="c1">//#define testPinTgl()    vGPIO ^= 0x01</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * t_irq = (10*(LOAD-1)+15)/30e6</span>
+<span class="cm"> * CPU_load[%] = 100* t_irq/50us</span>
+<span class="cm"> *             = 100*(10*(LOAD-1)+15)/(30e6 * 50e-6)</span>
+<span class="cm"> *             = 1e3/1.5e3*((LOAD-1)+1.5)</span>
+<span class="cm"> *             = 2/3*((LOAD-1)+1.5)</span>
+<span class="cm"> */</span>
+<span class="cp">#define _cpuLoad(loadInPercent) ((uint16_t) ((float)loadInPercent * 3/2 - .5))</span>
+
+<span class="cm">/* BSP related */</span>
+<span class="cp">#define ledInit     GpioCtrlRegs.GPADIR.bit.GPIO9 = 1; \</span>
+<span class="cp">                    GpioCtrlRegs.GPADIR.bit.GPIO11 = 1</span>
+
+<span class="cp">#define led1Lvl(x) GpioDataRegs.GPADAT.bit.GPIO9 = x        </span><span class="c1">//!&lt; GPA</span>
+<span class="cp">#define led1Tgl() GpioDataRegs.GPATOGGLE.bit.GPIO9 = 1      </span><span class="c1">//!&lt; GPA</span>
+
+<span class="cp">#define led2Lvl(x) GpioDataRegs.GPATOGGLE.bit.GPIO11 = x    </span><span class="c1">//!&lt; GPA</span>
+<span class="cp">#define led2Tgl() GpioDataRegs.GPATOGGLE.bit.GPIO11 = 1     </span><span class="c1">//!&lt; GPA</span>
+
+<span class="cp">#define MD_SYSCLKOUT 30     </span><span class="c1">//!&lt; [MHz]</span>
+
+<span class="cp">#undef      FLASH</span>
+<span class="cp">#undef      JITTER</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * Global variables</span>
+<span class="cm"> */</span>
+<span class="kt">uint16_t</span> <span class="n">LOAD</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * ===================== main of ELT131_LAB_01 =====================</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * MCU frequency = crystal frequency * PLL multiplier {set by PLLCR.bit.DIV}</span>
+<span class="cm">     *                  / PLL divider {set by PLLSTS.bit.DIVSEL}</span>
+<span class="cm">     * For example:</span>
+<span class="cm">     *      150MHz = 30MHz * 10 / 2</span>
+<span class="cm">     *      30MHz = 30MHz * 2 / 2</span>
+<span class="cm">     */</span>
+    <span class="n">MD_InitSysCtrl</span><span class="p">(</span> <span class="mi">2</span> <span class="p">);</span>
+
+    <span class="cp">#ifdef FLASH</span>
+    <span class="n">memcpy</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">RamfuncsRunStart</span><span class="p">,</span>
+            <span class="o">&amp;</span><span class="n">RamfuncsLoadStart</span><span class="p">,</span>
+            <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">RamfuncsLoadEnd</span> <span class="o">-</span> <span class="o">&amp;</span><span class="n">RamfuncsLoadStart</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="p">);</span>
+    <span class="n">InitFlash</span><span class="p">();</span>
+    <span class="cp">#endif</span>
+
+    <span class="n">InitPieCtrl</span><span class="p">();</span>
+    <span class="n">InitPieVectTable</span><span class="p">();</span>
+
+    <span class="n">EALLOW</span><span class="p">;</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPADIR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPAPUD</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPACLEAR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">PieVectTable</span><span class="p">.</span><span class="n">TINT0</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cpu_timer0_isr</span><span class="p">;</span>   <span class="c1">//!&lt;  Re-map vector table</span>
+    <span class="n">ledInit</span><span class="p">;</span>
+    <span class="n">EDIS</span><span class="p">;</span>
+
+    <span class="n">InitCpuTimers</span><span class="p">();</span>
+    <span class="n">ConfigCpuTimer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">CpuTimer0</span><span class="p">,</span> <span class="n">MD_SYSCLKOUT</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEIER1</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">INTx7</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="n">IER</span> <span class="o">|=</span> <span class="n">M_INT1</span><span class="p">;</span>
+    <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  PUSH IER&quot;</span><span class="p">);</span>
+    <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  POP DBGIER&quot;</span><span class="p">);</span>
+    <span class="n">EINT</span><span class="p">;</span>                           <span class="c1">//!&lt; Enable global interrupt intm</span>
+    <span class="n">ERTM</span><span class="p">;</span>                           <span class="c1">//!&lt; Enable global real time debug module</span>
+
+    <span class="kt">float</span> <span class="n">loadInPercent</span> <span class="o">=</span> <span class="mf">50.3</span><span class="p">;</span>
+    <span class="n">LOAD</span> <span class="o">=</span> <span class="n">_cpuLoad</span><span class="p">(</span><span class="n">loadInPercent</span><span class="p">);</span>
+
+    <span class="n">CpuTimer0Regs</span><span class="p">.</span><span class="n">TCR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">TSS</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">//!&lt; Timer Start/Stop</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  NOP&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief      Timer0 IRQ callback</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">cpu_timer0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifndef JITTER</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">//!&lt; Rising edge</span>
+<span class="cp">#else</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPATOGGLE</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span><span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Toggle rising edge</span>
+<span class="cp">#endif</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">all</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">//!&lt; Acknowledge PIE group 1</span>
+
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">LOAD</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  NOP&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="n">i</span><span class="p">);</span>
+
+<span class="cp">#ifndef JITTER</span>
+   <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">//!&lt; Falling edge</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief      InitSysCtrl = f(MD_DSP28_PLLCR)</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param[in]  MD_DSP28_PLLCR   The md dsp 28 pllcr</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">MD_InitSysCtrl</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">MD_DSP28_PLLCR</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// Disable the watchdog</span>
+   <span class="n">DisableDog</span><span class="p">();</span>
+
+   <span class="c1">// Initialize the PLL control: PLLCR and DIVSEL</span>
+   <span class="c1">// DSP28_PLLCR and DSP28_DIVSEL are defined in DSP2833x_Examples.h</span>
+   <span class="n">InitPll</span><span class="p">(</span><span class="n">MD_DSP28_PLLCR</span><span class="p">,</span> <span class="n">DSP28_DIVSEL</span><span class="p">);</span>
+
+   <span class="c1">// Initialize the peripheral clocks</span>
+   <span class="n">InitPeripheralClocks</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+</details></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:fnAssembly">
+<p><strong>SPRU430F–August 2001–Revised April 2015</strong> <a href="http://www.ti.com/lit/ug/spru430f/spru430f.pdf&#160;"><a href="http://www.ti.com/lit/ug/spru430f/spru430f.pdf&#160;"><a href="http://www.ti.com/lit/ug/spru430f/spru430f.pdf&#160;">http://www.ti.com/lit/ug/spru430f/spru430f.pdf&#160;</a></a></a><a class="footnote-backref" href="#fnref:fnAssembly" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 01</td>
+<td style="text-align: center;">Del Basso, Manuel</td>
+<td style="text-align: center;">16-03-2017</td>
+<td style="text-align: center;">WHZ</td>
+<td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
+</tr></table></div></center></body></html>
