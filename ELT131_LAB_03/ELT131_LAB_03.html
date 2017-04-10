@@ -5,7 +5,7 @@
 	border: 1px solid #ddd;
 	margin: 16px auto;
 	outline: 1300px solid #fff;
-	width: 55em;
+	width: 67em;
 }
 body .markdown-body
 {
@@ -343,7 +343,7 @@ meta[name][content]::after {
 	max-width: 		100%;
 	margin-bottom: 	1.5em;
 	margin-top: 	1em;
-	padding: 		1em;
+	padding: 		0em;
 	border: 		none !important;
 }
 .markdown-body img.box {
@@ -376,6 +376,8 @@ meta[name][content]::after {
 }
 .markdown-body figure.oszi {
 	padding: 		var(--figure-to-img-padding-oszi) !important;
+	width: 			100% !important;
+	margin-left: 	0 !important;
 }
 
 img.topal, div.topal, figure.topal { margin-top: 0 !important; }
@@ -1544,21 +1546,19 @@ MathJax.Hub.Config({
 </ul>
 </li>
 <li><a href="#non-os-setup-running-from-flash-part-2">Non-OS setup running from FLASH (Part 2)</a><ul>
-<li><a href="#measure-interrupt-latency-and-jitter_1">Measure Interrupt Latency and jitter</a></li>
+<li><a href="#measure-interrupt-latency-and-jitter-flash">Measure Interrupt Latency and jitter (FLASH)</a></li>
 <li><a href="#measurement-results-documentation_1">Measurement results documentation</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#interrupt-latency-and-jitter-rtos">Interrupt latency and jitter (RTOS)</a><ul>
-<li><a href="#ti-rtos-hwi-setup-part-3">TI-RTOS HWI setup (Part 3)</a></li>
-<li><a href="#ti-rtos-swi-setup-part-4">TI-RTOS SWI setup (Part 4)</a></li>
-<li><a href="#ti-rtos-zero-latency-interrupt-part-5">TI-RTOS zero latency interrupt (Part 5)</a><ul>
+<li><a href="#ti-rtos-hardware-interrupt-setup-hwi-part-3">TI-RTOS - Hardware interrupt setup (HWI, Part 3)</a></li>
+<li><a href="#ti-rtos-software-interrupt-setup-swi-part-4">TI-RTOS - Software interrupt setup (SWI, Part 4)</a></li>
+<li><a href="#ti-rtos-zero-latency-interrupt-setup-zli-part-5">TI-RTOS - Zero latency interrupt setup (ZLI, Part 5)</a></li>
+</ul>
+</li>
 <li><a href="#comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash">Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH)</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><a href="#open-questions">Open questions</a></li>
 </ul>
 </div>
@@ -1577,10 +1577,10 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </ul>
 </li>
 <li>Software<ul>
-<li>Code Composer Studio Version: 7.1.0.00015 (CCS7)</li>
+<li>Code Composer Studio Version: 7.1.0.00016 (CCS7)</li>
 <li>Board support via ti&rsquo;s <a href="http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&amp;HQS=controlsuite"><strong>controlSUITE</strong></a> v3.4.5</li>
 <li>SYS/BIOS <ul>
-<li>Version: 6.33.4.39</li>
+<li>Version: 6.45.02.31</li>
 </ul>
 </li>
 <li>TI-RTOS for C2000<ul>
@@ -1595,8 +1595,6 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </ul>
 </li>
 </ul>
-<h4 class="sphd"><span>Non-OS setup</span></h4>
-
 <h1 id="interrupt-latency-and-jitter-non-os"><a name="user-content-interrupt-latency-and-jitter-non-os" href="#interrupt-latency-and-jitter-non-os" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Interrupt latency and jitter (Non-OS)</h1>
 <h2 id="non-os-setup-running-from-ram-part-1"><a name="user-content-non-os-setup-running-from-ram-part-1" href="#non-os-setup-running-from-ram-part-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Non-OS setup running from RAM (Part 1)</h2>
 <blockquote>
@@ -1759,6 +1757,134 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <span class="cm">     */</span>
     <span class="n">EPwm1Regs</span><span class="p">.</span><span class="n">TBPRD</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">_F_CPU</span><span class="o">/</span><span class="p">(</span><span class="n">eDIV</span> <span class="o">*</span> <span class="n">f_ePwm1</span><span class="p">);</span>
 <span class="p">}</span>
+</pre></div>
+</p>
+<p></details></p>
+<p><details markdown=1><br />
+<summary><h4 class="sphd foldable"><span class="codehd">md_epwm.h</span></h4></summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        md_epwm.h</span>
+<span class="cm"> * @project     ELT131_LAB_03_RTOS_v2</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        31 Mar 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief       Provides initialisation and configuration methods for ePWM.</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2017  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="cp">#ifndef _EPWM1_h_</span>
+<span class="cp">#define _EPWM1_h_</span>
+
+<span class="cm">/* -------------------------------  Includes  ------------------------------ */</span>
+<span class="cp">#include &lt;stdint.h&gt;</span>
+<span class="cp">#include &quot;DSP28x_Project.h&quot;</span>
+<span class="cp">#include &quot;md_bsp_explorer.h&quot;</span>
+<span class="cp">#include &quot;md_globals_TEMPLATE.h&quot;</span>
+<span class="cm">/* ----------------------------  Configuration  ---------------------------- */</span>
+<span class="cm">/* ---------------------------  Private typedefs  -------------------------- */</span>
+<span class="cm">/* --------------------------  Private functions  -------------------------- */</span>
+<span class="cm">/* --------------------------  Private variables  -------------------------- */</span>
+<span class="cm">/* ----------------------------  Private defines  -------------------------- */</span>
+
+<span class="cm">/* ----------------------------  Private macros  --------------------------- */</span>
+<span class="cp">#define F_EPWM_MIN(_eDIV, _F_CPU)     ((uint32_t)(_F_CPU/_eDIV)/((uint32_t)2*0xffff))</span>
+
+<span class="cm">/* ---------------------  Private function prototypes  --------------------- */</span>
+<span class="kt">void</span> <span class="nf">MD_EPWM1_Init</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">f_ePwm1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_F_CPU</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">MD_EPWM1_freqConfig</span><span class="p">(</span><span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">f_ePwm1</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">_F_CPU</span><span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * ePWM Submodule Configuration Parameters</span>
+<span class="cm"> *</span>
+<span class="cm"> * Submodule       Configuration Parameter or Option</span>
+<span class="cm"> * Time-base (TB)  • Scale the time-base clock (TBCLK) relative to the system clock (SYSCLKOUT).</span>
+<span class="cm"> *                 • Configure the PWM time-base counter (TBCTR) frequency or period.</span>
+<span class="cm"> *                 • Set the mode for the time-base counter:</span>
+<span class="cm"> *                     – count-up mode: used for asymmetric PWM</span>
+<span class="cm"> *                     – count-down mode: used for asymmetric PWM</span>
+<span class="cm"> *                     – count-up-and-down mode: used for symmetric PWM</span>
+<span class="cm"> *                 • Configure the time-base phase relative to another ePWM module.</span>
+<span class="cm"> *                 • Synchronize the time-base counter between modules through hardware or software.</span>
+<span class="cm"> *                 • Configure the direction (up or down) of the time-base counter after a synchronization event.</span>
+<span class="cm"> *                 • Configure how the time-base counter will behave when the device is halted by an emulator.</span>
+<span class="cm"> *                 • Specify the source for the synchronization output of the ePWM module:</span>
+<span class="cm"> *                     – Synchronization input signal</span>
+<span class="cm"> *                     – Time-base counter equal to zero</span>
+<span class="cm"> *                     – Time-base counter equal to counter-compare B (CMPB)</span>
+<span class="cm"> *                     – No output synchronization signal generated.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Counter-compare (CC)    • Specify the PWM duty cycle for output EPWMxA and/or output EPWMxB</span>
+<span class="cm"> *                         • Specify the time at which switching events occur on the EPWMxA or EPWMxB output</span>
+<span class="cm"> *</span>
+<span class="cm"> * Action- (AQ)    • Specify the type of action taken when a time-base or counter-compare submodule event occurs:</span>
+<span class="cm"> * qualifier           – No action taken</span>
+<span class="cm"> *                     – Output EPWMxA and/or EPWMxB switched high</span>
+<span class="cm"> *                     – Output EPWMxA and/or EPWMxB switched low</span>
+<span class="cm"> *                     – Output EPWMxA and/or EPWMxB toggled</span>
+<span class="cm"> *                 • Force the PWM output state through software control</span>
+<span class="cm"> *                 • Configure and control the PWM dead-band through software</span>
+<span class="cm"> *</span>
+<span class="cm"> * Dead-band (DB)      • Control of traditional complementary dead-band relationship between upper and lower switches</span>
+<span class="cm"> *                     • Specify the output rising-edge-delay value</span>
+<span class="cm"> *                     • Specify the output falling-edge delay value</span>
+<span class="cm"> *                     • Bypass the dead-band module entirely. In this case the PWM waveform is passed through </span>
+<span class="cm"> *                       without modification.</span>
+<span class="cm"> *</span>
+<span class="cm"> * PWM-chopper (PC)    • Create a chopping (carrier) frequency.</span>
+<span class="cm"> *                     • Pulse width of the first pulse in the chopped pulse train.</span>
+<span class="cm"> *                     • Duty cycle of the second and subsequent pulses.</span>
+<span class="cm"> *                     • Bypass the PWM-chopper module entirely. In this case the PWM waveform is passed through </span>
+<span class="cm"> *                       without modification.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Trip-zone (TZ)      • Configure the ePWM module to react to one, all, or none of the trip-zone pins .</span>
+<span class="cm"> *                     • Specify the tripping action taken when a fault occurs:</span>
+<span class="cm"> *                         – Force EPWMxA and/or EPWMxB high</span>
+<span class="cm"> *                         – Force EPWMxA and/or EPWMxB low</span>
+<span class="cm"> *                         – Force EPWMxA and/or EPWMxB to a high-impedance state</span>
+<span class="cm"> *                         – Configure EPWMxA and/or EPWMxB to ignore any trip condition.</span>
+<span class="cm"> *                     • Configure how often the ePWM will react to each trip-zone pins :</span>
+<span class="cm"> *                         – One-shot</span>
+<span class="cm"> *                         – Cycle-by-cycle</span>
+<span class="cm"> *                     • Enable the trip-zone to initiate an interrupt.</span>
+<span class="cm"> *                     • Bypass the trip-zone module entirely.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Event-trigger (ET)  • Enable the ePWM events that will trigger an interrupt.</span>
+<span class="cm"> *                     • Enable ePWM events that will trigger an ADC start-of-conversion event.</span>
+<span class="cm"> *                     • Specify the rate at which events cause triggers (every occurrence or every second or third occurrence)</span>
+<span class="cm"> *                     • Poll, set, or clear event flags</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *  EALLOW-Protected ePWMx Registers</span>
+<span class="cm"> *  TZSEL TZCTL TZEINT TZCLR TZFRC HRCNFG</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="cp">#endif</span>
 </pre></div>
 </p>
 <p></details></p>
@@ -2044,11 +2170,14 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency to your report.</p>
 </blockquote>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_30.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_30.png" title="Interrupt jitter @30Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{30Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_200.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_200.png" title="Interrupt jitter @200Hz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_2e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_2e3.png" title="Interrupt jitter @2kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_20e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_20e3.png" title="Interrupt jitter @20kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_200e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_at_200e3.png" title="Interrupt jitter @200kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><img width="982" src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__"></p>
+<figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{100Hz}\;$</figcaption> </figure>
+
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_100Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_200Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_200Hz_20ns.png" title="Interrupt latency and jitter @200Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_2kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_2kHz_20ns.png" title="Interrupt latency and jitter @2kHz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_20kHz_20ns.png" title="Interrupt latency and jitter @20kHz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_200kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_ram_jitter_200kHz_20ns.png" title="Interrupt latency and jitter @200kHz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter <strong>non-OS</strong> setup running from <strong>RAM</strong> @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
 <div style="height: 1em;"></div>
 
 <h3 id="measurement-results-documentation"><a name="user-content-measurement-results-documentation" href="#measurement-results-documentation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Measurement results documentation</h3>
@@ -2067,29 +2196,29 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </thead>
 <tbody>
 <tr>
-<td align="center">$\si{30Hz}$</td>
-<td align="center">$\si{500 ns}$</td>
-<td align="center">$\si{54 ns}$</td>
+<td align="center">$\si{100Hz}$</td>
+<td align="center">$\si{220 ns}$</td>
+<td align="center">$\si{26 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{500 ns}$</td>
-<td align="center">$\si{52 ns}$</td>
+<td align="center">$\si{220 ns}$</td>
+<td align="center">$\si{26 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{500 ns}$</td>
-<td align="center">$\si{51 ns}$</td>
+<td align="center">$\si{220 ns}$</td>
+<td align="center">$\si{26 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{494 ns}$</td>
-<td align="center">$\si{49 ns}$</td>
+<td align="center">$\si{220 ns}$</td>
+<td align="center">$\si{26 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
-<td align="center">$\si{490 ns}$</td>
-<td align="center">$\si{61 ns}$</td>
+<td align="center">$\si{220 ns}$</td>
+<td align="center">$\si{26 ns}$</td>
 </tr>
 </tbody>
 </table>
@@ -2374,15 +2503,15 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <p></details></p>
 <!-- Please refer to source code of [Part 1](#non-os-setup-sources). -->
 
-<h3 id="measure-interrupt-latency-and-jitter_1"><a name="user-content-measure-interrupt-latency-and-jitter_1" href="#measure-interrupt-latency-and-jitter_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Measure Interrupt Latency and jitter</h3>
+<h3 id="measure-interrupt-latency-and-jitter-flash"><a name="user-content-measure-interrupt-latency-and-jitter-flash" href="#measure-interrupt-latency-and-jitter-flash" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Measure Interrupt Latency and jitter (FLASH)</h3>
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.</p>
 </blockquote>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_30.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_30.png" title="Interrupt jitter @30Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{30Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_200.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_200.png" title="Interrupt jitter @200Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_2e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_2e3.png" title="Interrupt jitter @2kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_20e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_20e3.png" title="Interrupt jitter @20kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_200e3.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_200e3.png" title="Interrupt jitter @200kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_100Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_100Hz_50ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_200Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_200Hz_50ns.png" title="Interrupt latency and jitter @200Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_2kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_2kHz_50ns.png" title="Interrupt latency and jitter @2kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_20kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_20kHz_50ns.png" title="Interrupt latency and jitter @20kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_200kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_200kHz_50ns.png" title="Interrupt latency and jitter @200kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of <strong>non-OS</strong> setup running from <strong>FLASH</strong> @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
 <div style="height: 1em;"></div>
 
 <h3 id="measurement-results-documentation_1"><a name="user-content-measurement-results-documentation_1" href="#measurement-results-documentation_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Measurement results documentation</h3>
@@ -2401,45 +2530,45 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </thead>
 <tbody>
 <tr>
-<td align="center">$\si{30Hz}$</td>
-<td align="center">$\si{890 ns}$</td>
-<td align="center">$\si{110 ns}$</td>
+<td align="center">$\si{100Hz}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{870 ns}$</td>
-<td align="center">$\si{76 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{870 ns}$</td>
-<td align="center">$\si{76 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{870 ns}$</td>
-<td align="center">$\si{76 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
-<td align="center">$\si{870 ns}$</td>
-<td align="center">$\si{76 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
 <h1 id="interrupt-latency-and-jitter-rtos"><a name="user-content-interrupt-latency-and-jitter-rtos" href="#interrupt-latency-and-jitter-rtos" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Interrupt latency and jitter (RTOS)</h1>
 <p>All TI-RTOS projects are run from FLASH.</p>
-<h2 id="ti-rtos-hwi-setup-part-3"><a name="user-content-ti-rtos-hwi-setup-part-3" href="#ti-rtos-hwi-setup-part-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS HWI setup (Part 3)</h2>
+<h2 id="ti-rtos-hardware-interrupt-setup-hwi-part-3"><a name="user-content-ti-rtos-hardware-interrupt-setup-hwi-part-3" href="#ti-rtos-hardware-interrupt-setup-hwi-part-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS - Hardware interrupt setup (HWI, Part 3)</h2>
 <blockquote>
 <p>Add the final code of file &ldquo;ELT131_03_03.c&rdquo; to your report.</p>
 </blockquote>
 <p>Some basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.</p>
 <p>The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt <strong>latency</strong>, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.</p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_latency_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup including an <strong>idle task</strong> to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_latency_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_jitter_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_jitter_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_latency_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup including an <strong>idle task</strong> to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_latency_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_jitter_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_jitter_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
 <p><details markdown=1><br />
 <summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.c</span></h4></summary><br />
 <div class="codehilite"><pre><span class="cm">/**</span>
@@ -3211,11 +3340,258 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <span class="cp">#endif</span>
 </pre></div>
 </p>
-<p></details><br />
-<div style="height: 1em;"></div></p>
+<p></details></p>
+<p><details markdown=1><br />
+<summary><h4 class="sphd foldable"><span class="codehd">md_bsp_explorer.c</span></h4></summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        md_bsp_explorer.c</span>
+<span class="cm"> * @project     MD_BSP_EXPLORER_F28335</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        28 Mar 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief       DESCRIPTION</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2016  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="c1">//#include &lt;DSP2833x_Gpio.h&gt;</span>
+<span class="cp">#include &lt;stdint.h&gt;</span>
+<span class="cp">#include &quot;md_bsp_explorer.h&quot;</span>
+
+<span class="k">volatile</span> <span class="k">struct</span> <span class="n">GPAENC_DATA_REGS</span> <span class="n">EncDataReg</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Global value of last encoder query.</span>
+<span class="cm"> */</span>
+<span class="k">volatile</span> <span class="kt">uint16_t</span>  <span class="n">encVal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">XINT2_EncLsb_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">encVal</span> <span class="o">=</span> <span class="n">MD_BSP_EncValue</span><span class="p">();</span>         <span class="c1">//!&lt; Read-in actual encoder value</span>
+    <span class="n">onEncLsb_changed</span><span class="p">();</span>                 <span class="c1">//!&lt; Invoke hook function for XINT2</span>
+
+<span class="cp">#if !defined(RTOS) || (defined(RTOS) &amp;&amp; !defined(RTOS_ENC_XINT))</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ACK5</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>    <span class="c1">//!&lt; Ack interrupt service</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">MD_BSP_EncInit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPADIR</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="o">~</span><span class="mh">0xf000</span><span class="p">;</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPAPUD</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mh">0xf000</span><span class="p">;</span>
+    <span class="n">MD_BSP_XINT_EncInit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">uint16_t</span> <span class="nf">MD_BSP_EncValue</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">EncDataReg</span><span class="p">.</span><span class="n">GPAENC</span><span class="p">.</span><span class="n">all</span> <span class="o">=</span> <span class="mh">0x0000000f</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPADAT</span><span class="p">.</span><span class="n">all</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)</span> <span class="n">EncDataReg</span><span class="p">.</span><span class="n">GPAENC</span><span class="p">.</span><span class="n">all</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">MD_BSP_XINT_EncInit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Enable XINT2 in the PIE: Group 1 interrupt 5</span>
+<span class="cm">     */</span>
+<span class="cp">#if !defined(RTOS) || (defined(RTOS) &amp;&amp; !defined(RTOS_ENC_XINT))</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIECTRL</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENPIE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c1">//!&lt; Enable the PIE block</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEIER1</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">INTx5</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c1">//!&lt; Enable PIE Group 1 INT5</span>
+    <span class="n">IER</span> <span class="o">|=</span> <span class="n">M_INT2</span><span class="p">;</span>                              <span class="c1">//!&lt; Enable CPU int2</span>
+    <span class="n">EALLOW</span><span class="p">;</span>
+    <span class="n">PieVectTable</span><span class="p">.</span><span class="n">XINT2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">XINT2_EncLsb_isr</span><span class="p">;</span>     <span class="c1">//!&lt; Register callback handler</span>
+<span class="cp">#endif</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Configure GPIO</span>
+<span class="cm">     */</span>
+    <span class="n">EALLOW</span><span class="p">;</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPADIR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENC_Bit0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>       <span class="c1">//!&lt; Set to input</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPAPUD</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENC_Bit0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>       <span class="c1">//!&lt; Enable pullup</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPAMUX1</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENC_Bit0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="c1">//!&lt; Mux as GPIO</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPAQSEL1</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENC_Bit0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">//!&lt; Xint1 Synch to SYSCLKOUT only</span>
+    <span class="cm">/**</span>
+<span class="cm">     * QUALPRDx [8-bit]</span>
+<span class="cm">     * The sampling period is specified by the qualification period (QUALPRDn) bits in</span>
+<span class="cm">     * the GPxCTRL register. The sampling period is configurable in groups of 8 input</span>
+<span class="cm">     * signals. For example,</span>
+<span class="cm">     * GPIO0 to GPIO7 use GPACTRL[QUALPRD0] setting and</span>
+<span class="cm">     * GPIO8 to GPIO15 use GPACTRL[QUALPRD1]</span>
+<span class="cm">     *</span>
+<span class="cm">     * SamplingPeriod = 2 × GPxCTRL[QUALPRDn] × TSYSCLKOUT</span>
+<span class="cm">     */</span>
+    <span class="n">GpioCtrlRegs</span><span class="p">.</span><span class="n">GPACTRL</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">QUALPRD1</span> <span class="o">=</span> <span class="mh">0xff</span><span class="p">;</span>   <span class="c1">//!&lt; Qual period = 2*0xff/F_CPU=3.4us</span>
+    <span class="n">GpioIntRegs</span><span class="p">.</span><span class="n">GPIOXINT2SEL</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIOSEL</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>  <span class="c1">//!&lt; XINT2 is GPIO12</span>
+    <span class="n">EDIS</span><span class="p">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Configure edges and enable XINT2</span>
+<span class="cm">     */</span>
+    <span class="n">XIntruptRegs</span><span class="p">.</span><span class="n">XINT2CR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">POLARITY</span> <span class="o">=</span> <span class="mh">0x03</span><span class="p">;</span>   <span class="c1">//!&lt; Edge interrupt</span>
+    <span class="n">XIntruptRegs</span><span class="p">.</span><span class="n">XINT2CR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ENABLE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">//!&lt; Enable XINT2</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+<p></details></p>
+<p><details markdown=1><br />
+<summary><h4 class="sphd foldable"><span class="codehd">md_bsp_explorer.h</span></h4></summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        md_bsp_explorer.h</span>
+<span class="cm"> * @project     MD_BSP_EXPLORER_F28335</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        28 Mar 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief       Provides basic boardsupport for ti&#39;s explorer kit F28335.</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2016  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="cp">#ifndef MD_BSP_EXPLORER_H_</span>
+<span class="cp">#define MD_BSP_EXPLORER_H_</span>
+
+<span class="cm">/* -------------------------------  Includes  ------------------------------ */</span>
+<span class="cp">#include &lt;stdint.h&gt;</span>
+<span class="cp">#include &lt;stdbool.h&gt;</span>
+<span class="cp">#include &lt;DSP28x_Project.h&gt;</span>
+<span class="cp">#include &quot;md_globals.h&quot;</span>
+
+<span class="cm">/* ----------------------------  Private defines  -------------------------- */</span>
+<span class="cm">/* Pin-out definitions */</span>
+<span class="cp">#define LED1        GPIO9</span>
+<span class="cp">#define LED2        GPIO11</span>
+<span class="cp">#define LED3        GPIO34</span>
+<span class="cp">#define LED4        GPIO49</span>
+<span class="cp">#define LED_ERR     GPIO34</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Hex Encoder</span>
+<span class="cm"> * The position of the 4-bit hex encoder</span>
+<span class="cm"> * sets the values of GPIOs 12-15</span>
+<span class="cm"> */</span>
+<span class="cp">#define ENC_Bit0    GPIO12</span>
+<span class="cp">#define ENC_Bit1    GPIO13</span>
+<span class="cp">#define ENC_Bit2    GPIO14</span>
+<span class="cp">#define ENC_Bit3    GPIO15</span>
+
+<span class="cp">#define PB1         GPIO17</span>
+<span class="cp">#define PB2         GPIO48</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 4 bits to read hex encoded switch</span>
+<span class="cm"> */</span>
+<span class="k">struct</span> <span class="n">GPAENC_BITS</span> <span class="p">{</span>
+   <span class="kt">uint16_t</span> <span class="nl">ENC0</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>            <span class="c1">// 0      GPIO12</span>
+   <span class="kt">uint16_t</span> <span class="nl">ENC1</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>            <span class="c1">// 1      GPIO13</span>
+   <span class="kt">uint16_t</span> <span class="nl">ENC2</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>            <span class="c1">// 2      GPIO14</span>
+   <span class="kt">uint16_t</span> <span class="nl">ENC3</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>            <span class="c1">// 3      GPIO15</span>
+<span class="p">};</span>
+
+<span class="k">union</span> <span class="n">GPAENC_REG</span> <span class="p">{</span>
+    <span class="kt">uint16_t</span>             <span class="n">all</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">GPAENC_BITS</span>  <span class="n">bit</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">GPAENC_DATA_REGS</span> <span class="p">{</span>
+    <span class="k">union</span> <span class="n">GPAENC_REG</span> <span class="n">GPAENC</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">extern</span> <span class="k">volatile</span> <span class="k">struct</span> <span class="n">GPAENC_DATA_REGS</span> <span class="n">EncDataReg</span><span class="p">;</span>
+<span class="k">extern</span> <span class="k">volatile</span> <span class="kt">uint16_t</span> <span class="n">encVal</span><span class="p">;</span>
+
+<span class="cm">/* ---------------------  Private function prototypes  --------------------- */</span>
+<span class="cp">#if defined(RTOS) || !defined(RTOS_ENC_XINT)</span>
+<span class="n">__interrupt</span>
+<span class="cp">#endif</span>
+<span class="kt">void</span> <span class="n">XINT2_EncLsb_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">ledLvl</span><span class="p">(</span><span class="k">struct</span> <span class="n">GPIO_DATA_REGS</span> <span class="n">dataReg</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">MD_BSP_EncInit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">MD_BSP_XINT_EncInit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">uint16_t</span> <span class="nf">MD_BSP_EncValue</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cm">/* ----------------------------  Private macros  --------------------------- */</span>
+<span class="cp">#define MD_BSP_LedInit()     EALLOW; \</span>
+<span class="cp">    GpioCtrlRegs.GPADIR.bit.LED1 = 1; \</span>
+<span class="cp">    GpioCtrlRegs.GPADIR.bit.LED2 = 1; \</span>
+<span class="cp">    GpioCtrlRegs.GPBDIR.bit.LED3 = 1; \</span>
+<span class="cp">    GpioCtrlRegs.GPBDIR.bit.LED4 = 1; \</span>
+<span class="cp">    _ledLvlA(LED1, 0); \</span>
+<span class="cp">    _ledLvlA(LED2, 0); \</span>
+<span class="cp">    _ledLvlB(LED3, 0); \</span>
+<span class="cp">    _ledLvlB(LED4, 0); \</span>
+<span class="cp">    EDIS</span>
+
+<span class="cp">#define _ledLvlA(LEDx, LVL)   GpioDataRegs.GPADAT.bit.LEDx = LVL</span>
+<span class="cp">#define _ledTglA(LEDx)        GpioDataRegs.GPATOGGLE.bit.LEDx = 1</span>
+<span class="cp">#define _ledLvlB(LEDx, LVL)   GpioDataRegs.GPBDAT.bit.LEDx = LVL</span>
+<span class="cp">#define _ledTglB(LEDx)        GpioDataRegs.GPBTOGGLE.bit.LEDx = 1</span>
+<span class="cp">#define errorLed(LVL)         _ledLvlB(LED_ERR, ~LVL)</span>
+<span class="cp">#define errorLed_on()         _ledLvlB(LED_ERR, 1)</span>
+<span class="cp">#define errorLed_off()        _ledLvlB(LED_ERR, 1)</span>
+
+<span class="cm">/* TODO: GPA/GPB */</span>
+<span class="cp">#define getButton(PBx) (GpioDataRegs.GPADAT.bit.PBx)</span>
+
+
+<span class="cm">/* ---------------------------  Private typedefs  -------------------------- */</span>
+<span class="cm">/* --------------------------  Private functions  -------------------------- */</span>
+<span class="cm">/* --------------------------  Private variables  -------------------------- */</span>
+
+<span class="cp">#endif </span><span class="cm">/* MD_BSP_EXPLORER_H_ */</span><span class="cp"></span>
+</pre></div>
+</p>
+<p></details></p>
+<div style="height: 1em;"></div>
+
 <blockquote>
 <p>Copy the final version of the cfg-script &ldquo;app.cfg&rdquo; to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.</p>
 </blockquote>
+<p>In order not to miss the teaching goal, all measurements were carried out without any idle task. In order to be able to quickly switch between the different PWM frequencies, the value of the hex encoder is polled during initialization. As part of a layout correction (FTDI TTL232 SCIA interface swapped Rx &lt;=&gt; Tx) the TMDSPREX28335 has been extended by a reset button. </p>
 <p><details markdown=1><br />
 <summary><h4 class="sphd foldable"><span class="codehd">app.cfg</span></h4></summary><br />
 <div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
@@ -3293,16 +3669,16 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.</p>
 </blockquote>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_100Hz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_100Hz_idle_is_NONE_100ns.png" title="Interrupt jitter @100Hz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200Hz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200Hz_idle_is_NONE_100ns.png" title="Interrupt jitter @200Hz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_2kHz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_2kHz_idle_is_NONE_100ns.png" title="Interrupt jitter @2kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_20kHz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_20kHz_idle_is_NONE_100ns.png" title="Interrupt jitter @20kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200kHz_idle_is_NONE_200ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200kHz_idle_is_NONE_200ns.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup <strong>without</strong> any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_100Hz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_100Hz_idle_is_enc_100ns.png" title="Interrupt jitter @100Hz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200Hz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200Hz_idle_is_enc_100ns.png" title="Interrupt jitter @200Hz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_2kHz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_2kHz_idle_is_enc_100ns.png" title="Interrupt jitter @2kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_20kHz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_20kHz_idle_is_enc_100ns.png" title="Interrupt jitter @20kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200kHz_idle_is_enc_200ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_200kHz_idle_is_enc_200ns.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of <strong>RTOS</strong> setup including an <strong>idle task</strong> @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_100Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_100Hz_100ns.png" title="Interrupt latency @100Hz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of HWI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_200Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_200Hz_100ns.png" title="Interrupt latency @200Hz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of HWI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_2kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_2kHz_100ns.png" title="Interrupt latency @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of HWI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_20kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_20kHz_100ns.png" title="Interrupt latency @20kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of HWI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_200kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_latency_200kHz_100ns.png" title="Interrupt latency @200kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of HWI <strong>RTOS</strong> setup @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_100Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_100Hz_20ns.png" title="Interrupt jitter @100Hz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of HWI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_200Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_200Hz_20ns.png" title="Interrupt jitter @200Hz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of HWI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_2kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_2kHz_20ns.png" title="Interrupt jitter @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of HWI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_20kHz_20ns.png" title="Interrupt jitter @20kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of HWI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_200kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_hwi_jitter_200kHz_20ns.png" title="Interrupt jitter @200kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of HWI <strong>RTOS</strong> setup @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
 <blockquote>
 <p>Fill in Table 3.8. and add it to the report.</p>
 </blockquote>
@@ -3319,33 +3695,33 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <tbody>
 <tr>
 <td align="center">$\si{100Hz}$</td>
-<td align="center">$\si{1.65 µs}$</td>
-<td align="center">$\si{90 ns}$</td>
+<td align="center">$\si{1.64 µs}$</td>
+<td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{1.65 µs}$</td>
-<td align="center">$\si{130 ns}$</td>
+<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{85 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{1.65 µs}$</td>
-<td align="center">$\si{130 ns}$</td>
+<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{57 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{1.65 µs}$</td>
-<td align="center">$\si{110 ns}$</td>
+<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{89 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
-<td align="center">$\si{1.65 µs}$</td>
-<td align="center">$\si{170 ns}$</td>
+<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{120 ns}$</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<h2 id="ti-rtos-swi-setup-part-4"><a name="user-content-ti-rtos-swi-setup-part-4" href="#ti-rtos-swi-setup-part-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS SWI setup (Part 4)</h2>
+<h2 id="ti-rtos-software-interrupt-setup-swi-part-4"><a name="user-content-ti-rtos-software-interrupt-setup-swi-part-4" href="#ti-rtos-software-interrupt-setup-swi-part-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS - Software interrupt setup (SWI, Part 4)</h2>
 <blockquote>
 <p>Add the final code of file &ldquo;ELT131_03_04.c&rdquo; to your report.</p>
 </blockquote>
@@ -3773,12 +4149,20 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.</p>
 </blockquote>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_100Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_100Hz_100ns.png" title="SWI Interrupt jitter @100Hz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_200Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_200Hz_100ns.png" title="SWI Interrupt jitter @200Hz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_2kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_2kHz_100ns.png" title="SWI Interrupt jitter @2kHz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_20kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_jitter_swi_20kHz_100ns.png" title="SWI Interrupt jitter @20kHz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<h4 class="sp"><span>Latency measurements</span></h4>
+
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_100Hz_500ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_100Hz_500ns.png" title="Interrupt latency @100Hz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of SWI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_200Hz_500ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_200Hz_500ns.png" title="Interrupt latency @200Hz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of SWI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_2kHz_500ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_2kHz_500ns.png" title="Interrupt latency @2kHz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of SWI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_20kHz_500ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_latency_20kHz_500ns.png" title="Interrupt latency @20kHz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of SWI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
 <p>According to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\;=\;\si{200kHz}$ and TI-RTOS is configured for SWI.  </p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_no_200kHz_100ns_v2_because.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_no_200kHz_100ns_v2_because.png" title="Overall SWI IRQ service time @20kHz, __RTOS__ setup" class="noborder"><figcaption>Overall SWI IRQ service time of <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png" title="Overall IRQ service time @20kHz, SWI __RTOS__ setup" class="noborder"><figcaption>Overall IRQ service time of SWI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<h4 class="sp"><span>Jitter measurements</span></h4>
+
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_100Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_100Hz_100ns.png" title="Interrupt jitter @100Hz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of SWI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_200Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_200Hz_100ns.png" title="Interrupt jitter @200Hz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of SWI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_2kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_2kHz_100ns.png" title="Interrupt jitter @2kHz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of SWI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_20kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_jitter_20kHz_100ns.png" title="Interrupt jitter @20kHz of SWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of SWI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
 <blockquote>
 <p>Fill in Table 4.5. and add it to the report.</p>
 </blockquote>
@@ -3795,23 +4179,23 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <tbody>
 <tr>
 <td align="center">$\si{100Hz}$</td>
-<td align="center">$\si{3.92 µs}$</td>
-<td align="center">$\si{40 ns}$</td>
+<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{150 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{3.92 µs}$</td>
-<td align="center">$\si{100 ns}$</td>
+<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{130 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{3.92 µs}$</td>
+<td align="center">$\si{3.76 µs}$</td>
 <td align="center">$\si{130 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{3.92 µs}$</td>
-<td align="center">$\si{90 ns}$</td>
+<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{150 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
@@ -3821,7 +4205,7 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </tbody>
 </table>
 <p></center></p>
-<h2 id="ti-rtos-zero-latency-interrupt-part-5"><a name="user-content-ti-rtos-zero-latency-interrupt-part-5" href="#ti-rtos-zero-latency-interrupt-part-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS zero latency interrupt (Part 5)</h2>
+<h2 id="ti-rtos-zero-latency-interrupt-setup-zli-part-5"><a name="user-content-ti-rtos-zero-latency-interrupt-setup-zli-part-5" href="#ti-rtos-zero-latency-interrupt-setup-zli-part-5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TI-RTOS - Zero latency interrupt setup (ZLI, Part 5)</h2>
 <blockquote>
 <p>Add the final code of file &ldquo;ELT131_03_05.c&rdquo; to your report.</p>
 </blockquote>
@@ -3925,7 +4309,6 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <span class="cm">     */</span>
     <span class="n">gpioInit</span><span class="p">();</span>
     <span class="n">gpioXintInit</span><span class="p">();</span>
-    <span class="n">MD_UART_SciaInit</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">115200</span><span class="p">);</span>
 
     <span class="n">MD_BSP_LedInit</span><span class="p">();</span>
     <span class="n">MD_BSP_EncInit</span><span class="p">();</span>
@@ -3936,42 +4319,79 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
     <span class="n">encVal</span> <span class="o">=</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">epwmFreqs</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">MD_BSP_EncValue</span><span class="p">())</span>
             <span class="o">?</span> <span class="n">MD_BSP_EncValue</span><span class="p">()</span> <span class="o">:</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">//!&lt; Read in initial encoder value</span>
 
-    <span class="n">MD_EPWM1_Init</span><span class="p">(</span><span class="n">epwmFreqs</span><span class="p">[</span><span class="n">encVal</span><span class="p">],</span> <span class="mf">150e6</span><span class="p">);</span>    <span class="c1">//!&lt; Init/Start signal ePWM1A</span>
-<span class="c1">//    CpuTimer0Regs.TCR.bit.TSS = 0;            //!&lt; Timer Start/Stop</span>
+    <span class="n">MD_EPWM1_Init</span><span class="p">(</span><span class="n">epwmFreqs</span><span class="p">[</span><span class="n">encVal</span><span class="p">],</span> <span class="mf">150e6</span><span class="p">);</span>    <span class="c1">//!&lt; Configure/Start signal ePWM1A</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * From http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/</span>
+<span class="cm">     * sysbios/6_45_01_29/exports/bios_6_45_01_29/docs/cdoc/index.html</span>
+<span class="cm">     *</span>
+<span class="cm">     * DETAILS:</span>
+<span class="cm">     * plug hooks up the specified function as the branch target for a hardware</span>
+<span class="cm">     * interrupt (fielded by the CPU) at the vector address corresponding to intNum.</span>
+<span class="cm">     * plug does not enable the interrupt. Use Hwi_enableIER to enable specific</span>
+<span class="cm">     * interrupts. This API can plug the full set of vectors supported by the PIE (0-127)</span>
+<span class="cm">     */</span>
+    <span class="n">Hwi_plug</span><span class="p">(</span><span class="mi">35</span><span class="p">,(</span><span class="n">Hwi_PlugFuncPtr</span><span class="p">)</span> <span class="n">ZLI_XINT1_fxn</span><span class="p">);</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Enable interrupts in a PIE group</span>
+<span class="cm">     * DETAILS:</span>
+<span class="cm">     * Atomically enable PIE interrupts in a single PIE group according to supplied PIEIER bitmask</span>
+<span class="cm">     *</span>
+<span class="cm">     * Bits16 Hwi_enablePIEIER(UInt groupNum, Bits16 pieMask);</span>
+<span class="cm">     *</span>
+<span class="cm">     * groupNum - PIE group number</span>
+<span class="cm">     * pieMask - PIEIER enable mask for group</span>
+<span class="cm">     *</span>
+<span class="cm">     * RETURNS</span>
+<span class="cm">     * Previous PIEIER settings bitmask</span>
+<span class="cm">     *</span>
+<span class="cm">     * (Referenced from sprufb0b)</span>
+<span class="cm">     * Step a. Disable global interrupts (INTM = 1).</span>
+<span class="cm">     * Step b. Set the PIEIERx.y bits</span>
+<span class="cm">     * Step c. Wait 5 cycles (see explanation in code)</span>
+<span class="cm">     * Step d. Clear the CPU IFRx bits for the peripheral group</span>
+<span class="cm">     * Step e. Clear the PIEACKx bit for the peripheral group.</span>
+<span class="cm">     * Step f. Enable global interrupts (INTM = 0).</span>
+<span class="cm">     */</span>
+    <span class="n">Hwi_enablePIEIER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+    <span class="n">Hwi_enableInterrupt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
     <span class="n">errorLed_off</span><span class="p">();</span>
     <span class="n">BIOS_start</span><span class="p">();</span>                               <span class="c1">//!&lt; ENI and start SYS/BIOS idle</span>
 <span class="p">}</span>
 
-
-<span class="cp">#if defined(RTOS) &amp;&amp; defined(RTOS_DYNAMIC_TASK)</span>
-<span class="kt">void</span> <span class="nf">uartPutsByTask</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">Task_Params</span> <span class="n">taskParams</span><span class="p">;</span>
-    <span class="n">Task_Handle</span> <span class="n">tskUartBusy</span><span class="p">;</span>
-    <span class="n">Error_Block</span> <span class="n">eb</span><span class="p">;</span>
-    <span class="n">Error_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">eb</span><span class="p">);</span>
+<span class="cm">/**</span>
+<span class="cm"> * @brief      Zero-latency interrupt callback handler for external IRQ.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @note       From ELT131_Praktikum.pdf page 61:</span>
+<span class="cm"> *             &quot;Zero latency IER mask = 1 will allow all interrupts from Group INT1</span>
+<span class="cm"> *             to bypass SYSBIOS.&quot;</span>
+<span class="cm"> */</span>
+<span class="n">interrupt</span> <span class="kt">void</span> <span class="nf">ZLI_XINT1_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPASET</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c1">//!&lt; Rising edge at GPIO2</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">asm</span><span class="p">(</span><span class="s">&quot; NOP&quot;</span><span class="p">);</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPACLEAR</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">//!&lt; Falling edge at GPIO2</span>
 
     <span class="cm">/**</span>
-<span class="cm">     * Create a task with priority 10.</span>
+<span class="cm">     * SYS/BIOS expects to manage all the interrupt related hardware initializations.</span>
+<span class="cm">     * User code should not manipulate the PIE registers, nor initialize the PIE vector</span>
+<span class="cm">     * table. Furthermore, the user should not manually manipulate the IER and IFR</span>
+<span class="cm">     * registers. Interrupts are globally enabled within the BIOS_start() function</span>
+<span class="cm">     * called at the end of main(). Enabling global interrupts prior to that can</span>
+<span class="cm">     * lead to fatal application behavior!</span>
+<span class="cm">     *</span>
+<span class="cm">     * In case of bypassing SYS/BIOS...</span>
+<span class="cm">     *     Hwi_enablePIEIER(1,8);</span>
+<span class="cm">     *     Hwi_enableInterrupt(1);</span>
+<span class="cm">     *</span>
+<span class="cm">     * ... the BIOS interrupt dispatcher doesn&#39;t take care about</span>
+<span class="cm">     *      a) ... this specific IRQ?</span>
+<span class="cm">     *      b) ... all IRQs generated from this GROUP?</span>
 <span class="cm">     */</span>
-    <span class="n">Task_Params_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">taskParams</span><span class="p">);</span>
-    <span class="n">taskParams</span><span class="p">.</span><span class="n">stackSize</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
-    <span class="n">taskParams</span><span class="p">.</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-
-    <span class="n">tskUartBusy</span> <span class="o">=</span> <span class="n">Task_create</span><span class="p">((</span><span class="n">Task_FuncPtr</span><span class="p">)</span><span class="n">tskUartPuts</span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">taskParams</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">eb</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">tskUartBusy</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-        <span class="n">System_abort</span><span class="p">(</span><span class="s">&quot;Task create failed&quot;</span><span class="p">);</span>
+    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ACK1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-
-<span class="n">retVal_t</span> <span class="nf">tskUartPuts</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* DEADLOCK */</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">_uartPuts</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ret_ok</span><span class="p">);;</span>
-<span class="p">}</span>
-
-<span class="cp">#endif</span>
-
-<span class="cm">/**</span>
-<span class="cm"> * sizeof(epwmFreqs) = 5 so mask out encVal &gt; 4:    encVal &amp; 0x04</span>
-<span class="cm"> */</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * @brief      Idle task.</span>
@@ -4034,6 +4454,10 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <span class="cp">#endif</span>
 <span class="p">}</span>
 
+<span class="cm">/**</span>
+<span class="cm"> * @brief       Hook function to implement private method that is invoked by</span>
+<span class="cm"> *              MD_BSP_EXPLORER IRQ handler XINT2_EncLsb_isr</span>
+<span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">onEncLsb_changed</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">MD_EPWM1_freqConfig</span><span class="p">(</span><span class="n">epwmFreqs</span><span class="p">[</span><span class="n">encVal</span><span class="p">],</span> <span class="n">F_CPU</span><span class="p">);</span>
 <span class="p">}</span>
@@ -4046,7 +4470,6 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
     <span class="k">do</span> <span class="n">asm</span><span class="p">(</span><span class="s">&quot;  NOP&quot;</span><span class="p">);</span>
     <span class="k">while</span> <span class="p">(</span><span class="o">--</span><span class="n">i</span><span class="p">);</span>
 
-    <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ACK7</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">//!&lt; Ack interrupt service</span>
 <span class="cp">#ifndef RTOS_DISPATCHER</span>
     <span class="n">PieCtrlRegs</span><span class="p">.</span><span class="n">PIEACK</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">ACK7</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>        <span class="c1">//!&lt; Ack interrupt service</span>
 <span class="cp">#endif</span>
@@ -4149,6 +4572,8 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <span class="cp">#endif</span>
 <span class="kt">void</span> <span class="n">CPU_TIM0_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
+<span class="n">interrupt</span> <span class="kt">void</span> <span class="nf">ZLI_XINT1_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
 <span class="cm">/* --------------------------  External variables  ------------------------- */</span>
 <span class="k">extern</span> <span class="kt">uint32_t</span> <span class="n">hbTicks</span><span class="p">;</span>
 
@@ -4236,11 +4661,20 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.</p>
 </blockquote>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_100Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_100Hz_50ns.png" title="Zero latency interrupt jitter @100Hz of __RTOS__ setup" class="noborder"><figcaption>Zero latency interrupt jitter of <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200Hz_50ns.png" title="__Zero latency__ interrupt jitter @200Hz of __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt jitter of <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_2kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_2kHz_50ns.png" title="__Zero latency__ interrupt jitter @2kHz of __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt jitter of <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_20kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_20kHz_50ns.png" title="__Zero latency__ interrupt jitter @20kHz of __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt jitter of <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200kHz_50ns.png" title="__Zero latency__ interrupt jitter @200kHz of __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt jitter of <strong>RTOS</strong> setup @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<h4 class="sp"><span>Latency measurements</span></h4>
+
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_100Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_100Hz_50ns.png" title="Zero latency interrupt latency @100Hz of ZLI __RTOS__ setup" class="noborder"><figcaption>Zero latency interrupt latency of ZLI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_200Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_200Hz_50ns.png" title="__Zero latency__ interrupt latency @200Hz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt latency of ZLI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_2kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_2kHz_50ns.png" title="__Zero latency__ interrupt latency @2kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt latency of ZLI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_20kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_20kHz_50ns.png" title="__Zero latency__ interrupt latency @20kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt latency of ZLI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_200kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_latency_200kHz_50ns.png" title="__Zero latency__ interrupt latency @200kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero latency</strong> interrupt latency of ZLI <strong>RTOS</strong> setup @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
+<h4 class="sp"><span>Jitter measurements</span></h4>
+
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_100Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_100Hz_20ns.png" title="Zero jitter interrupt jitter @100Hz of ZLI __RTOS__ setup" class="noborder"><figcaption>Zero jitter interrupt jitter of ZLI <strong>RTOS</strong> setup @$\;\si{100Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200Hz_20ns.png" title="__Zero jitter__ interrupt jitter @200Hz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero jitter</strong> interrupt jitter of ZLI <strong>RTOS</strong> setup @$\;\si{200Hz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_2kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_2kHz_20ns.png" title="__Zero jitter__ interrupt jitter @2kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero jitter</strong> interrupt jitter of ZLI <strong>RTOS</strong> setup @$\;\si{2kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_20kHz_20ns.png" title="__Zero jitter__ interrupt jitter @20kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero jitter</strong> interrupt jitter of ZLI <strong>RTOS</strong> setup @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_zli_jitter_200kHz_20ns.png" title="__Zero jitter__ interrupt jitter @200kHz of ZLI __RTOS__ setup" class="noborder"><figcaption><strong>Zero jitter</strong> interrupt jitter of ZLI <strong>RTOS</strong> setup @$\;\si{200kHz}\;$</figcaption> </figure></a></p>
 <blockquote>
 <p>Fill in Table 5.5. and add it to the report.</p>
 </blockquote>
@@ -4257,38 +4691,38 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <tbody>
 <tr>
 <td align="center">$\si{100Hz}$</td>
-<td align="center">$\si{350 ns}$</td>
-<td align="center">$\si{51 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{122 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{350 ns}$</td>
-<td align="center">$\si{85 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{96 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{350 ns}$</td>
-<td align="center">$\si{65 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{84 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{350 ns}$</td>
-<td align="center">$\si{44 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{20 ns !!!}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
-<td align="center">$\si{350 ns}$</td>
-<td align="center">$\si{87 ns}$</td>
+<td align="center">$\si{330 ns}$</td>
+<td align="center">$\si{78 ns}$</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<h3 id="comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash"><a name="user-content-comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash" href="#comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH)</h3>
+<h1 id="comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash"><a name="user-content-comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash" href="#comparing-non-os-setup-ram-vs-ti-rtos-zero-latency-flash" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH)</h1>
 <p>Zero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. <em>minimum-latency-interrupt</em>. Compared to interrupt latencys in <a href="#ti-rtos-hwi-setup-part-3">part 3 (HWI)</a> and <a href="#ti-rtos-swi-setup-part-4">part 4 (SWI)</a>, <em>zero latency</em> configuration results in <em>most smallest latency</em> of the TI-RTOS setups.<br />
 Contrary to expectations, <br />
 From ti SYSBIOS documentation, chapter <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask">C28x Hardware Interrupt Manager</a> </p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_latency_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_latency_20kHz_20ns.png" title="Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>non-OS</strong> setup running from <strong>RAM</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
-<p><a href="./pics/os_latency_zli_20kHz_50ns.png " target="_blank"><figure class="oszi"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_latency_zli_20kHz_50ns.png" title="Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup running from <strong>FLASH</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="./pics/non-os_latency_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_latency_20kHz_20ns.png" title="Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>non-OS</strong> setup running from <strong>RAM</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
+<p><a href="./pics/os_latency_zli_20kHz_50ns.png " target="_blank"><figure class="oszi"> <img src="./pics/os_latency_zli_20kHz_50ns.png" title="Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup running from <strong>FLASH</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a></p>
 <h1 id="open-questions"><a name="user-content-open-questions" href="#open-questions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Open questions</h1>
 <p>When to preceed ISR prototypes by the preprocessor/linker directive/keyword <strong>__interrupt</strong> ?</p>
 <p>From <a href="http://www.ti.com/lit/ug/spruex3q/spruex3q.pdf"><em>SYS/BIOS (TI-RTOS Kernel) v6.46 User&rsquo;s Guide</em> </a>, page 57, chapter: <br />

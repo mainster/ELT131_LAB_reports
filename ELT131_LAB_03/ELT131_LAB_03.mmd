@@ -20,18 +20,16 @@ __Used components:__
      - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino
      - Oscilloscope: PC-USB Scope _PCSU1000, velleman_
  - Software
-     - Code Composer Studio Version: 7.1.0.00015 (CCS7)
+     - Code Composer Studio Version: 7.1.0.00016 (CCS7)
      - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
      - SYS/BIOS 
-         + Version: 6.33.4.39
+         + Version: 6.45.02.31
      - TI-RTOS for C2000
          + Version: 2.16.1.14
  - Development Plattform
      + ```lsb_release -d``` <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span>
      + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
 
-
-<h4 class="sphd"><span>Non-OS setup</span></h4>
 # Interrupt latency and jitter (Non-OS) #
 ## Non-OS setup running from RAM (Part 1) ##
 
@@ -44,7 +42,7 @@ __Used components:__
 </details>
 
 <details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">md_epwm.c</span></h4></summary>
+<summary><h4 class="sphd foldable"><span class="codehd">md_epwm.h</span></h4></summary>
 @codeimport: "./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.h"
 </details>
 
@@ -67,6 +65,10 @@ __Used components:__
 
 >Add the oscilloscope screenshots for the interrupt latency to your report.
 
+<img width="982" src="./pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__">
+
+<figure class="oszi"> <img src="./pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{100Hz}\;$</figcaption> </figure>
+
 <a href="./pics/non-os_ram_jitter_100Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_100Hz_20ns.png" title="Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{100Hz}\;$</figcaption> </figure></a>
 
 <a href="./pics/non-os_ram_jitter_200Hz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_200Hz_20ns.png" title="Interrupt latency and jitter @200Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{200Hz}\;$</figcaption> </figure></a>
@@ -76,6 +78,7 @@ __Used components:__
 <a href="./pics/non-os_ram_jitter_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_20kHz_20ns.png" title="Interrupt latency and jitter @20kHz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{20kHz}\;$</figcaption> </figure></a>
 
 <a href="./pics/non-os_ram_jitter_200kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_200kHz_20ns.png" title="Interrupt latency and jitter @200kHz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt latency and jitter __non-OS__ setup running from __RAM__ @$\;\si{200kHz}\;$</figcaption> </figure></a>
+
 
 <div style="height: 1em;"></div>
 
@@ -148,20 +151,20 @@ Latency and jitter table running __non-OS__ setup from __FLASH__.
 # Interrupt latency and jitter (RTOS) #
 All TI-RTOS projects are run from FLASH.
 
-## TI-RTOS HWI setup (Part 3) ##
+## TI-RTOS - Hardware interrupt setup (HWI, Part 3) ##
 >Add the final code of file "ELT131_03_03.c" to your report.
 
 Some basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.
 
 The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt __latency__, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.
 
-<a href="./picsTry1/os_irq_latency_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./picsTry1/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
+<a href="./pics/picsTry1/os_irq_latency_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./pics/picsTry1/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
 
-<a href="./picsTry1/os_irq_latency_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./picsTry1/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
+<a href="./pics/picsTry1/os_irq_latency_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./pics/picsTry1/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
 
-<a href="./picsTry1/os_irq_jitter_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./picsTry1/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
+<a href="./pics/picsTry1/os_irq_jitter_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./pics/picsTry1/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
 
-<a href="./picsTry1/os_irq_jitter_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./picsTry1/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
+<a href="./pics/picsTry1/os_irq_jitter_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./pics/picsTry1/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
 
 <details markdown=1>
 <summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.c</span></h4></summary>
@@ -247,7 +250,7 @@ Latency and jitter table running __RTOS__ setup from FLASH __without__ any idle 
 
 </center>
 
-## TI-RTOS SWI setup (Part 4) ##
+## TI-RTOS - Software interrupt setup (SWI, Part 4) ##
 >Add the final code of file "ELT131_03_04.c" to your report.
 
 <details markdown=1>
@@ -284,7 +287,7 @@ Latency and jitter table running __RTOS__ setup from FLASH __without__ any idle 
 
 According to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\;=\;\si{200kHz}$ and TI-RTOS is configured for SWI.  
 
-<a href="./picsTry1/os_swi_no_200kHz_100ns_v2_because.png" target="_blank"><figure class="oszi"> <img src="./picsTry1/os_swi_no_200kHz_100ns_v2_because.png" title="Overall IRQ service time @20kHz, SWI __RTOS__ setup" class="noborder"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure></a>
+<a href="./pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png" target="_blank"><figure class="oszi"> <img src="./pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png" title="Overall IRQ service time @20kHz, SWI __RTOS__ setup" class="noborder"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure></a>
 
 <h4 class="sp"><span>Jitter measurements</span></h4>
 
@@ -312,7 +315,7 @@ Latency and jitter table running __RTOS SWI__  setup from FLASH.
 
 </center>
 
-## TI-RTOS zero latency interrupt (Part 5) ##
+## TI-RTOS - Zero latency interrupt setup (ZLI, Part 5) ##
 >Add the final code of file "ELT131_03_05.c" to your report.
 
 <details markdown=1>
@@ -377,7 +380,7 @@ Latency and jitter table running RTOS __zero latency__ interrupt setup from FLAS
 
 </center>
 
-### Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH) ###
+# Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH) #
 Zero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. _minimum-latency-interrupt_. Compared to interrupt latencys in [part 3 (HWI)](#ti-rtos-hwi-setup-part-3) and [part 4 (SWI)](#ti-rtos-swi-setup-part-4), _zero latency_ configuration results in _most smallest latency_ of the TI-RTOS setups.
 Contrary to expectations, 
 From ti SYSBIOS documentation, chapter [C28x Hardware Interrupt Manager](http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask) 
