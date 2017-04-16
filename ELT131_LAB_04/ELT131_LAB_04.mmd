@@ -3,9 +3,9 @@ Author:     Del Basso, Manuel
 Date:       02-04-2017
 Location:   WHZ
 Footicon:   ./pics/whz.png
- 
-ELT131 - Lab 04 report 
-============================== 
+
+ELT131 - Lab 04 report
+==============================
 [TOC]
 
 ## Introduction ##
@@ -19,7 +19,7 @@ __Used components:__
  - Software
      - Code Composer Studio Version: 7.1.0.00015 (CCS7)
      - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
-     - SYS/BIOS 
+     - SYS/BIOS
          + Version: 6.33.4.39
      - TI-RTOS for C2000
          + Version: 2.16.1.14
@@ -28,347 +28,127 @@ __Used components:__
      + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
 
 
-
-
 ## Explore the RTOS Object Viewer (ROV) (Part 1) ##
 >Answer the questions from procedure step 2.
 
 <h4 class="sp"><span>ROV-Hwi (Module/Basic tabs)</span></h4>
-__Q:__ What is the current size of the stack?
-__Q:__ What was the peak used? 
-__Q:__ How many Hwi’s are configured in your system? 
-__Q:__ What is the name of your own HWI?
-__Q:__ Which interrupt number is associated with it?
+<span class="quest">What is the current size of the stack? What was the peak used?</span>
+The overall available stack size for TI-RTOS (soft-) IRQ-handlers can be configured via the app.cfg. As configured, the stack memory allocated is 1 kByte.
 
-<h4 class="sp"><span>ROV-Swi (Basic tab)</span></h4>
-__Q:__ How many Swi’s are configured in your system? 
-__Q:__ What is the Swi’s function name? 
-__Q:__ What is the priority of your Swi? 
+<span class="quest">What is the current size of the stack? What was the peak used?</span>
+The overall available stack size for TI-RTOS (soft-) IRQ-handlers can be configured via the app.cfg. As configured, the stack memory allocated is 1 kByte.
+
+
+```java
+/*
+ * The BIOS module will create the default heap for the system.
+ * Specify the size of this default heap.
+ */
+BIOS.heapSize = 256;
+/* System stack size (used by ISRs and Swis) */
+Program.stack = 1024;
+/* Circular buffer size for System_printf() */
+SysMin.bufSize = 128;
+```
+
+The stack __peak__ (or max. stack depth) is showed to be only 72 Bytes from the 1024 Bytes available. Since the stack (program stack) is only used to handle (soft-) IRQs (the OS-heap memory is BIOS.heapSize = 256;), the 72 Bytes are mostly charged for context save operations when the interrupt callback handlers (hwi and swi) are invoked.
+
+In the ROV under module _HeapMemory_, the configured ```BIOS.heapSize = 256;``` could be inspected and is viewed to be 0x100 = 0xff + 1.
+
+<span class="quest">How many Hwi’s are configured in your system?</span>
+Only 1 Hwi object is explicitly configured in the actual app.cfg.
+
+<span class="quest">What is the name of your own HWI? Which interrupt number is associated with it?</span>
+It's handle is Hwi2_XINT and the registered callback handler is &XINT1_GPIO1_isr. The unique interrupt identifier is 35 since the XINTx IRQs are in PIE group 1 (INT1.y) and the XINT1 IRQ is mapped to CPU interrupt number 4 (INTx.4). The equation to calculate an unique interrupt ID (__UIID__) can be pointed out as:
+
+<lmjx>$\begin{aligned}
+UIID(x, y) \,&=\, 8\cdot(x-1) + 31 + y \nonumber \\\
+x\,&=\,PIEGROUP \nonumber \\\
+y\,&=\,CPUINT \nonumber
+\end{aligned}$</lmjx>
+
+A second Hwi instance is viewed in ROV Hwi basic tab. An OS-built-in function is registered as it's callback handler (**ti_sysbios_family_c28_TimestampProvider_rolloverFunc__E**).
+
+<span class="quest">How many Swi’s are configured in your system?</span>
+Only 1 Swi object is configured in the app.cfg.
+
+<span class="quest">What is the Swi’s function name? What is the priority of your Swi?</span>
+It's handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_fxn. The priority level is viewed to be 3 as pointed out in ELT131_LAB_03_RTOS_4.
 
 ## Logging setup (Part 2) ##
->Copy the final version of the cfg-script "app.cfg" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection
+>Copy the final version of the cfg-script "app.cfg" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_04_01/app.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
 
 ## UIA Results (Part 3) ##
->Add the oscilloscope screenshots for the interrupt latency and jitter (see page 4-5) to your report.
+>Add the oscilloscope screen shots for the interrupt latency and jitter (see page 4-5) to your report.
 
->Add a screenshot of the execution graph and the CPU – load (see page 4-6) to your report.
+<figure class="oszi" markdown=1> <img src="./pics/after_uia_api.png" title="Interrupt latency influence of the UIA setup" class="noborder"><figcaption>Interrupt latency influence of the UIA setup</figcaption> </figure>
+
+>Add a screen shot of the execution graph and the CPU – load (see page 4-6) to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/exec_graph_times.png" title="Execution graph and CPU load screenshot" class=""><figcaption>Screen shot of execution graph and CPU load monitor</figcaption> </figure>
 
 >Answer the questions in procedure step 3.4. at page 4-6.
 
-## SWI duration (Part 4) ##
->Answer the question in procedure step 4 (page 4-7).
+__"Read" the graph results__
 
->Fill in the table page 4-7 and add it to your report.
+<span class="quest">How big is your CPU - load?</span>
+$\si{9\%}$
 
+<span class="quest">What is the time interval of your HWI's?</span>
+$X2 - X1 \,=\,\si{11 us}$
 
-<!-- <details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.c"
-</details>
- -->
+<span class="quest">What is the time interval of your SWI's?</span>
+$X4 - X3 \,=\,\si{6 us}$
 
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_04_01/ELT131_04_01.c"
-</details>
+<span class="quest">How long is the delay between the HWI and the SWI? </span>
+$X3 - X2 \,=\,\si{9 us}$
 
+<span class="quest">How does it correspond to the Oscilloscope measurements?</span>
+The picture below shows an execution period from CCS execution graph, overlay-ed by oscilloscope measurement. As defined in the ```gpioXintInit()``` macro, XINT1 becomes triggered on falling edge of ePWM1 signal in case of shorted GPIO0 and GPIO1. This corresponds to the Hwi thread entry point that is labeled as X1. The XINT1 Hwi thread instantiates the code section from ```XINT1_GPIO1_isr()``` which posts the statically created (app.cfg: ```Program.global.SWI_XINT1 = Swi.create("&SWI_XINT1_fxn", swi0Params);```) Swi object to the Swi manager. 
 
-<!-- 
+Since the Hwi priority layer has a higher rank order than the Swi priority layer, the Swi manager returns CPU control to the current Hwi thread after false-evaluating the _Swis-are-enabled_ flag and after pushing the posted Swi object to an (unordered) list of already posted Swis that (maybe) pending for execution. The ```XINT1_GPIO1_isr()``` Hwi thread executes until the _return-from-interrupt_ instruction has been reached at the end of XINT IRQ handler declaration. If the PIE controller has no pending hardware IRQs in the execution queue, the Swi manager takes CPU control work off the list of pending Swis (label X2). 
 
-<h4 class="sphd"><span>Non-OS setup</span></h4>
-# Interrupt latency and jitter (Non-OS) #
-## Non-OS setup running from RAM (Part 1) ##
+If Swis are not disabled via user API call, the next step for the manager is to check the priority of the posted Swi object against the priority of the thread that is currently active. If one of the following conditions are true, the Swi manager pops the posted Swi object from the list of pending Swis and passes CPU control from the running thread to start execution of the Swi function which could be reached via the Swi object handle.      
 
->Add the final code of files "ePWM1.c" and "ELT131_03_part1.c" to your report.
+- current thread is a task (priority doesn't matter),
+- is a lower priority Swi thread or
+- is the idle thread 
 
-### Non-OS setup sources ###
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">md_epwm.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.c"
-</details>
+The overall time between XINT1 ISR entry point and clearing GPIO2 (last instruction of the Swi handler) could be determined from the execution graph time markers X4-X1 an is approx. $\si{26 us}$.  
+The Swi manager is an important (and time consuming) part of the BIOS scheduler. 
 
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">main_03_p1.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_NON-OS/main_03_p1.c"
-</details>
+<a href="./pics/exec_graph_scope_2.png" target="_blank"><figure class="oszi" markdown=1> <img src="./pics/exec_graph_scope_2.png" title="Execution graph overlayed by oscilloscope measurement" class=""><figcaption>Execution graph overlay-ed by oscilloscope measurement</figcaption> </figure></a>
 
-<div style="height: 1em;"></div>
 
-### Measure Interrupt Latency and jitter 
->Add the oscilloscope screenshots for signal ePWM1 to your report. Test the signal at frequencies: 200 kHz, 20 kHz, 2 kHz, 200 Hz and 20 Hz.
+## Change SWI duration (Part 4) ##
+>Edit file "ELT131_04_01.c" and extend the duration of the SWI by extending the for - loop from 10 to 200 repetitions.
+>Repeat the measurements for the CPU-Load and the Execution graph and compare the results. 
 
-<boxed>fehlt noch</boxed>
+<span class="quest">Where becomes the additional load of 190 more loops of the for-instruction visible?</span>
+As expected, neither the Hwi duration nor the BIOS scheduler / Swi manager work off delay is affected by the higher CPU load. 
 
->Add the oscilloscope screenshots for the interrupt latency to your report.
+<span class="quest">How many for - loops will fit into the SWI?</span>
 
-<a href="./pics/non-os_ram_jitter_at_30.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_at_30.png" title="Interrupt jitter @30Hz of __non-OS__ setup running from __RAM__" class="noborder oszi"><figcaption>Interrupt jitter of __non-OS__ setup running from __RAM__ @$\;\si{30Hz}\;$</figcaption> </figure></a>
+>Increase the for - loop counter according to the following table. Measure CPU-load and make a note about the runtime of the SWI.
 
-<a href="./pics/non-os_ram_jitter_at_200.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_at_200.png" title="Interrupt jitter @200Hz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __RAM__ @$\;\si{200Hz}\;$</figcaption> </figure></a>
+|:----------:|:------------:|:-----------------:|:-----------------:|
 
-<a href="./pics/non-os_ram_jitter_at_2e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_at_2e3.png" title="Interrupt jitter @2kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __RAM__ @$\;\si{2kHz}\;$</figcaption> </figure></a>
+| loop count | CPU load [%] | HWI duration [µs] | Scheduler duration | SWI duration [µs] |
+|------------|--------------|-------------------|--------------------|-------------------|
+|         10 |            9 |            10.926 |              9.433 |             |
+|            |              |                   |                    |                   |
+|        200 |           14 |            10.926 |              9.433 |            32.887 |
+|            |              |                   |                    |                   |
+|            |           99 |                   |                    |                   |
 
-<a href="./pics/non-os_ram_jitter_at_20e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_at_20e3.png" title="Interrupt jitter @20kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __RAM__ @$\;\si{20kHz}\;$</figcaption> </figure></a>
 
-<a href="./pics/non-os_ram_jitter_at_200e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_ram_jitter_at_200e3.png" title="Interrupt jitter @200kHz of __non-OS__ setup running from __RAM__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __RAM__ @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<div style="height: 1em;"></div>
-
-### Measurement results documentation  ###
->Fill in Table 1.9. and add it to the report.
-
-Latency and jitter table running non-OS setup from RAM
-
-<center>
-
-| ePWM1A Freq     | Interrupt latency | Interrupt jitter |
-|:---------------:|:-----------------:|:----------------:|
-| $\si\{30Hz\}$   | $\si\{500 ns\}$   | $\si\{54 ns\}$   |
-| $\si\{200Hz\}$  | $\si\{500 ns\}$   | $\si\{52 ns\}$   |
-| $\si\{2kHz\}$   | $\si\{500 ns\}$   | $\si\{51 ns\}$   |
-| $\si\{20kHz\}$  | $\si\{494 ns\}$   | $\si\{49 ns\}$   |
-| $\si\{200kHz\}$ | $\si\{490 ns\}$   | $\si\{61 ns\}$   |
-
-</center>
-
-<h4 class="sphd"><span>Non-OS setup</span></h4>
-## Non-OS setup running from FLASH (Part 2) ##
-
->Add the final code of file "ELT131_03_part2.c" to your report.
-
-Please refer to source code of [Part 1](#non-os-setup-sources).
-
-### Measure Interrupt Latency and jitter ###
->Add the oscilloscope screenshots for the interrupt latency and jitter to your report.
-
-
-<a href="./pics/non-os_flash_jitter_at_30.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_flash_jitter_at_30.png" title="Interrupt jitter @30Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\;\si{30Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/non-os_flash_jitter_at_200.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_flash_jitter_at_200.png" title="Interrupt jitter @200Hz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\;\si{200Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/non-os_flash_jitter_at_2e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_flash_jitter_at_2e3.png" title="Interrupt jitter @2kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\;\si{2kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/non-os_flash_jitter_at_20e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_flash_jitter_at_20e3.png" title="Interrupt jitter @20kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/non-os_flash_jitter_at_200e3.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_flash_jitter_at_200e3.png" title="Interrupt jitter @200kHz of __non-OS__ setup running from __FLASH__" class="noborder"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<div style="height: 1em;"></div>
-
-### Measurement results documentation  ###
->Fill in Table 2.4. and add it to the report.
-
-Latency and jitter table running __non-OS__ setup from __FLASH__.
-
-<center>
-
-| ePWM1A Freq     | Interrupt latency | Interrupt jitter |
-|:---------------:|:-----------------:|:----------------:|
-| $\si\{30Hz\}$   | $\si\{890 ns\}$   | $\si\{110 ns\}$  |
-| $\si\{200Hz\}$  | $\si\{870 ns\}$   | $\si\{76 ns\}$   |
-| $\si\{2kHz\}$   | $\si\{870 ns\}$   | $\si\{76 ns\}$   |
-| $\si\{20kHz\}$  | $\si\{870 ns\}$   | $\si\{76 ns\}$   |
-| $\si\{200kHz\}$ | $\si\{870 ns\}$   | $\si\{76 ns\}$   |
-
-</center>
-
-# Interrupt latency and jitter (RTOS) #
-All TI-RTOS projects are run from FLASH.
-
-## TI-RTOS HWI setup (Part 3) ##
->Add the final code of file "ELT131_03_03.c" to your report.
-
-Some basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.
-
-The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt __latency__, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.
-
-<a href="./pics/os_irq_latency_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./pics/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_irq_latency_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./pics/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_irq_jitter_idle_is_enc.png" target="_blank"><figure class="oszi"> <img src="./pics/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_irq_jitter_idle_is_NONE.png" target="_blank"><figure class="oszi"> <img src="./pics/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.c"
-</details>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_3.h</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.h"
-</details>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">md_uart_sci.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.c"
-</details>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">md_uart_sci.h</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.h"
-</details>
-<div style="height: 1em;"></div>
-
->Copy the final version of the cfg-script "app.cfg" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">app.cfg</span></h4></summary>
-```java
-@codeimport: "./ELT131_LAB_03_RTOS_3/app.cfg"
-@codeimport_nocomments
-```
-</details>
-<div style="height: 1em;"></div>
-
->Add the oscilloscope screenshots for the interrupt latency and jitter to your report.
-
-<a href="./pics/os_jitter_100Hz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_100Hz_idle_is_NONE_100ns.png" title="Interrupt jitter @100Hz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{100Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_200Hz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_200Hz_idle_is_NONE_100ns.png" title="Interrupt jitter @200Hz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_2kHz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_2kHz_idle_is_NONE_100ns.png" title="Interrupt jitter @2kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{2kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_20kHz_idle_is_NONE_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_20kHz_idle_is_NONE_100ns.png" title="Interrupt jitter @20kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_200kHz_idle_is_NONE_200ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_200kHz_idle_is_NONE_200ns.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_100Hz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_100Hz_idle_is_enc_100ns.png" title="Interrupt jitter @100Hz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ @$\;\si{100Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_200Hz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_200Hz_idle_is_enc_100ns.png" title="Interrupt jitter @200Hz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ @$\;\si{200Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_2kHz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_2kHz_idle_is_enc_100ns.png" title="Interrupt jitter @2kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ @$\;\si{2kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_20kHz_idle_is_enc_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_20kHz_idle_is_enc_100ns.png" title="Interrupt jitter @20kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_200kHz_idle_is_enc_200ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_200kHz_idle_is_enc_200ns.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
->Fill in Table 3.8. and add it to the report.
-
-Latency and jitter table running __RTOS__ setup from FLASH __without__ any idle task.
-
-<center>
-
-| ePWM1A Freq     | Interrupt latency | Interrupt jitter |
-|:---------------:|:-----------------:|:----------------:|
-| $\si\{100Hz\}$  | $\si\{1.65 µs\}$  | $\si\{90 ns\}$   |
-| $\si\{200Hz\}$  | $\si\{1.65 µs\}$  | $\si\{130 ns\}$  |
-| $\si\{2kHz\}$   | $\si\{1.65 µs\}$  | $\si\{130 ns\}$  |
-| $\si\{20kHz\}$  | $\si\{1.65 µs\}$  | $\si\{110 ns\}$  |
-| $\si\{200kHz\}$ | $\si\{1.65 µs\}$  | $\si\{170 ns\}$  |
-
-</center>
-
-## TI-RTOS SWI setup (Part 4) ##
->Add the final code of file "ELT131_03_04.c" to your report.
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_4.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.c"
-</details>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_4.h</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.h"
-</details>
-
->Copy the final version of the cfg-script "app.cfg" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">app.cfg</span></h4></summary>
-```java
-@codeimport: "./ELT131_LAB_03_RTOS_4/app.cfg"
-@codeimport_nocomments
-```
-</details>
-
->Add the oscilloscope screenshots for the interrupt latency and jitter to your report.
-
-<a href="./pics/os_jitter_swi_100Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_swi_100Hz_100ns.png" title="SWI Interrupt jitter @100Hz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of __RTOS__ setup @$\;\si{100Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_swi_200Hz_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_swi_200Hz_100ns.png" title="SWI Interrupt jitter @200Hz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of __RTOS__ setup @$\;\si{200Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_swi_2kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_swi_2kHz_100ns.png" title="SWI Interrupt jitter @2kHz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of __RTOS__ setup @$\;\si{2kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_jitter_swi_20kHz_100ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_jitter_swi_20kHz_100ns.png" title="SWI Interrupt jitter @20kHz of __RTOS__ setup" class="noborder"><figcaption>SWI Interrupt jitter of __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-According to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\;=\;\si{200kHz}$ and TI-RTOS is configured for SWI.  
-
-<a href="./pics/os_swi_no_200kHz_100ns_v2_because.png" target="_blank"><figure class="oszi"> <img src="./pics/os_swi_no_200kHz_100ns_v2_because.png" title="Overall SWI IRQ service time @20kHz, __RTOS__ setup" class="noborder"><figcaption>Overall SWI IRQ service time of __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
->Fill in Table 4.5. and add it to the report.
-
-Latency and jitter table running __RTOS SWI__  setup from FLASH.
-
-<center>
-
-| ePWM1A Freq     | Interrupt latency | Interrupt jitter |
-|:---------------:|:-----------------:|:----------------:|
-| $\si\{100Hz\}$  | $\si\{3.92 µs\}$  | $\si\{40 ns\}$   |
-| $\si\{200Hz\}$  | $\si\{3.92 µs\}$  | $\si\{100 ns\}$  |
-| $\si\{2kHz\}$   | $\si\{3.92 µs\}$  | $\si\{130 ns\}$  |
-| $\si\{20kHz\}$  | $\si\{3.92 µs\}$  | $\si\{90 ns\}$   |
-| $\si\{200kHz\}$ | $NA$              | $NA$             |
-
-</center>
-
-## TI-RTOS zero latency interrupt (Part 5) ##
->Add the final code of file "ELT131_03_05.c" to your report.
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_5.c</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.c"
-</details>
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">ELT131_LAB_03_RTOS_5.h</span></h4></summary>
-@codeimport: "./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.h"
-</details>
-
->Copy the final version of the cfg-script "app.cfg" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.
-
-<details markdown=1>
-<summary><h4 class="sphd foldable"><span class="codehd">app.cfg</span></h4></summary>
-```java
-@codeimport: "./ELT131_LAB_03_RTOS_5/app.cfg"
-```
-</details>
-
->Add the oscilloscope screenshots for the interrupt latency and jitter to your report.
-
-<a href="./pics/os_zli_jitter_100Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_zli_jitter_100Hz_50ns.png" title="Zero latency interrupt jitter @100Hz of __RTOS__ setup" class="noborder"><figcaption>Zero latency interrupt jitter of __RTOS__ setup @$\;\si{100Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_zli_jitter_200Hz_50ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_zli_jitter_200Hz_50ns.png" title="__Zero latency__ interrupt jitter @200Hz of __RTOS__ setup" class="noborder"><figcaption>__Zero latency__ interrupt jitter of __RTOS__ setup @$\;\si{200Hz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_zli_jitter_2kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_zli_jitter_2kHz_50ns.png" title="__Zero latency__ interrupt jitter @2kHz of __RTOS__ setup" class="noborder"><figcaption>__Zero latency__ interrupt jitter of __RTOS__ setup @$\;\si{2kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_zli_jitter_20kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_zli_jitter_20kHz_50ns.png" title="__Zero latency__ interrupt jitter @20kHz of __RTOS__ setup" class="noborder"><figcaption>__Zero latency__ interrupt jitter of __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_zli_jitter_200kHz_50ns.png" target="_blank"><figure class="oszi"> <img src="./pics/os_zli_jitter_200kHz_50ns.png" title="__Zero latency__ interrupt jitter @200kHz of __RTOS__ setup" class="noborder"><figcaption>__Zero latency__ interrupt jitter of __RTOS__ setup @$\;\si{200kHz}\;$</figcaption> </figure></a>
-
->Fill in Table 5.5. and add it to the report.
-
-Latency and jitter table running RTOS __zero latency__ interrupt setup from FLASH.
-
-<center>
-
-| ePWM1A Freq     | Interrupt latency | Interrupt jitter |
-|:---------------:|:-----------------:|:----------------:|
-| $\si\{100Hz\}$  | $\si\{350 ns\}$   | $\si\{51 ns\}$   |
-| $\si\{200Hz\}$  | $\si\{350 ns\}$   | $\si\{85 ns\}$   |
-| $\si\{2kHz\}$   | $\si\{350 ns\}$   | $\si\{65 ns\}$   |
-| $\si\{20kHz\}$  | $\si\{350 ns\}$   | $\si\{44 ns\}$   |
-| $\si\{200kHz\}$ | $\si\{350 ns\}$   | $\si\{87 ns\}$   |
-
-</center>
-
-### Comparing non-os setup (RAM) vs. TI-RTOS Zero-latency (FLASH) ###
-Zero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. _minimum-latency-interrupt_. Compared to interrupt latencys in [part 3 (HWI)](#ti-rtos-hwi-setup-part-3) and [part 4 (SWI)](#ti-rtos-swi-setup-part-4), _zero latency_ configuration results in _most smallest latency_ of the TI-RTOS setups.
-Contrary to expectations, 
-From ti SYSBIOS documentation, chapter [C28x Hardware Interrupt Manager](http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask) 
-
-
-<a href="./pics/non-os_latency_20kHz_20ns.png" target="_blank"><figure class="oszi"> <img src="./pics/non-os_latency_20kHz_20ns.png" title="Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of __non-OS__ setup running from __RAM__ ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
-<a href="./pics/os_latency_zli_20kHz_50ns.png " target="_blank"><figure class="oszi"> <img src="./pics/os_latency_zli_20kHz_50ns.png" title="Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup running from __FLASH__ ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </figure></a>
-
- -->
+__doc htmls__

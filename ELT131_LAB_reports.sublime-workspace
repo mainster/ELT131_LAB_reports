@@ -4,6 +4,162 @@
 		"selected_items":
 		[
 			[
+				"app",
+				"approximately"
+			],
+			[
+				"ELT131_LAB_03_",
+				"ELT131_LAB_03_02"
+			],
+			[
+				"ELT",
+				"ELT131_LAB_03/\tDir"
+			],
+			[
+				"ram",
+				"ram_flash_overlayed_50ns.png\tFile"
+			],
+			[
+				"de",
+				"debug_context_restore_b.png\tFile"
+			],
+			[
+				"c",
+				"constant"
+			],
+			[
+				"co",
+				"comment"
+			],
+			[
+				"flash_ram_performance",
+				"flash_ram_performance.jpg\tFile"
+			],
+			[
+				"cont",
+				"control"
+			],
+			[
+				"Tim",
+				"TimeLoc"
+			],
+			[
+				"Ev",
+				"EventClass"
+			],
+			[
+				"Eve",
+				"Event"
+			],
+			[
+				"Da",
+				"Data1"
+			],
+			[
+				"in",
+				"infile"
+			],
+			[
+				"exec_graph_scope",
+				"exec_graph_scope_2.png\tFile"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"inlie",
+				"inline-block"
+			],
+			[
+				"exec_graph_",
+				"exec_graph_scope.png\tFile"
+			],
+			[
+				"sett",
+				"settingsPrjSpec〔variable〕"
+			],
+			[
+				"env",
+				"env_var〔argument〕"
+			],
+			[
+				"expa",
+				"expanded_var〔function〕"
+			],
+			[
+				"v",
+				"verify2.png\tFile"
+			],
+			[
+				"conf",
+				"configured"
+			],
+			[
+				"200",
+				"200kHz"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"os_hwi_",
+				"os_hwi_latency_100Hz_100ns.png\tFile"
+			],
+			[
+				"non-os_flash_jitter_",
+				"non-os_flash_jitter_100Hz_50ns.png\tFile"
+			],
+			[
+				"non-os_flash_",
+				"non-os_flash_jitter_100Hz_50ns.png\tFile"
+			],
+			[
+				"ELT131",
+				"ELT131_LAB_03_01.c\tFile"
+			],
+			[
+				"EL",
+				"ELT131_LAB_03_RTOS_3.c"
+			],
+			[
+				"ELT131_LAB_04",
+				"ELT131_LAB_04_01/\tDir"
+			],
+			[
+				"keyR",
+				"keyRegs"
+			],
+			[
+				"os_zl",
+				"os_zli_jitter_100Hz_50ns.png\tFile"
+			],
+			[
+				"ru",
+				"running"
+			],
+			[
+				"os_swi_no_200kHz_100ns_v2",
+				"os_swi_no_200kHz_100ns_v2_because.png\tFile"
+			],
+			[
+				"os_jitter_swi_2",
+				"os_jitter_swi_200Hz_100ns.png\tFile"
+			],
+			[
+				"cf",
+				"app.cfg\tFile"
+			],
+			[
+				"ELT131_LAB_03_RTOS",
+				"ELT131_LAB_03_RTOS_3.c\tFile"
+			],
+			[
 				"p",
 				"os_jitter_2kHz_idle_is_enc_100ns.png\tFile"
 			],
@@ -76,10 +232,6 @@
 				"headhlines\theadhlines"
 			],
 			[
-				"EL",
-				"ELT131_LAB_03_RTOSv2.h"
-			],
-			[
 				"main",
 				"main_03_p1.c\tFile"
 			],
@@ -118,10 +270,6 @@
 			[
 				"ELT131_LAB_03",
 				"ELT131_LAB_03_NON-OS/\tDir"
-			],
-			[
-				"ELT",
-				"ELT131_LAB_03"
 			],
 			[
 				"sel",
@@ -244,10 +392,6 @@
 				"defined"
 			],
 			[
-				"de",
-				"details\tTag"
-			],
-			[
 				"Dis",
 				"disassembly"
 			],
@@ -328,10 +472,6 @@
 				"vertical-align"
 			],
 			[
-				"marg",
-				"margin-right"
-			],
-			[
 				"becom",
 				"become"
 			],
@@ -374,210 +514,47 @@
 			[
 				"autoS",
 				"autoStrReg\tstatement"
-			],
-			[
-				"auto",
-				"autoStrReg\tstatement"
-			],
-			[
-				"line",
-				"lineRegs\tstatement"
-			],
-			[
-				"mo",
-				"most"
-			],
-			[
-				"tmp",
-				"tmplen"
-			],
-			[
-				"De",
-				"Deutsche_Telekom_Root_CA_2"
-			],
-			[
-				"ss",
-				"ssl/\tDir"
-			],
-			[
-				"ref",
-				"make_reference\tfunction"
-			],
-			[
-				"L",
-				"Lumpy\tclass"
-			],
-			[
-				"ins",
-				"insert\t(MarkdownPreview.py)"
-			],
-			[
-				"Arch",
-				"Architekturen"
-			],
-			[
-				"Base",
-				"BaseClassA"
-			],
-			[
-				"Architek",
-				"Architektur"
-			],
-			[
-				"Arc",
-				"Architektur"
-			],
-			[
-				"Modell",
-				"Modellierungssprache"
-			],
-			[
-				"Archite",
-				"Architektur"
-			],
-			[
-				"La",
-				"Language_"
-			],
-			[
-				"Model",
-				"Modeling"
-			],
-			[
-				"buff",
-				"buffName"
-			],
-			[
-				"alter",
-				"alterDir"
-			],
-			[
-				"ce",
-				"center\tTag"
-			],
-			[
-				"pro",
-				"produces"
-			],
-			[
-				"Th",
-				"This"
-			],
-			[
-				"specif",
-				"specified\t(MarkdownPreview.py)"
-			],
-			[
-				"MarkdownPre",
-				"MarkdownPreview.sublime-settings"
-			],
-			[
-				"se",
-				"settings"
-			],
-			[
-				"suff",
-				"suffix"
-			],
-			[
-				"diag",
-				"diagFilePath"
-			],
-			[
-				"dia",
-				"diag"
-			],
-			[
-				"date",
-				"datetime"
-			],
-			[
-				"__",
-				"__name__"
-			],
-			[
-				"gett",
-				"gettempdir"
-			],
-			[
-				"export",
-				"exportDir"
-			],
-			[
-				"img",
-				"img_tag"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"width",
-				"width: 〔property〕"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"contents": "Title:      Report ELT131 LAB 03\nAuthor:     Del Basso, Manuel\nDate:       24-03-2017\nLocation:   WHZ\nFooticon:   ./pics/whz.png\n\nELT131 - Lab 03 report\n==============================\n[TOC]\n\n## Introduction ##\n>In Part1 and Part2 of ELT131_LAB_03 __no__ TI-RTOS is used. The goal is to measure the interrupt latency time of the TMS320F28335 in a __non__-OS environment.\nIn Part1, the code will be placed in __RAM__ - memory, as this is the fastest available memory type. This setup is used to estimate the best case for the given hardware.\nIn Part2, the code will be placed in FLASH - memory, as this is the default memory type. This setup is used to compare interrupt latencys of non-OS setups, once executed from __RAM__ and once executed from FLASH.\nIn the Part3 of this exercise, TI-RTOS and it's HWI functionality is used.\n\n__Used components:__\n\n - Hardware\n     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino\n     - Oscilloscope: PC-USB Scope _PCSU1000, velleman_\n - Software\n     - Code Composer Studio Version: 7.1.0.00016 (CCS7)\n     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5\n     - SYS/BIOS\n         + Version: 6.45.02.31\n     - TI-RTOS for C2000\n         + Version: 2.16.1.14\n - Development Plattform\n     + ```lsb_release -d``` <span style=\"margin-left: 1em;\">Linux Mint 18 Sarah (LinuxMint)</span>\n     + ```uname -rpo``` <span style=\"margin-left: 1em;\">4.4.0-57-generic x86_64 GNU/Linux</span>\n\n# Interrupt latency and jitter (Non-OS) #\n## Non-OS setup running from RAM (Part 1) ##\n\n>Add the final code of files \"ePWM1.c\" and \"ELT131_03_part1.c\" to your report.\n\n### Non-OS setup sources ###\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_epwm.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_epwm.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n### Measure Interrupt Latency and jitter\n>Add the oscilloscope screenshots for signal ePWM1 to your report. Test the signal at frequencies: 200 kHz, 20 kHz, 2 kHz, 200 Hz and 20 Hz.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/epwm_rect_200Hz.png\" title=\"Square wave signal generated from ePWM1 mmodul\" class=\"noborder oszi\"><figcaption>Square wave signal generated from ePWM1 mmodul</figcaption> </figure>\n\n>Add the oscilloscope screenshots for the interrupt latency to your report.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_100Hz_20ns.png\" title=\"Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_200Hz_20ns.png\" title=\"Interrupt latency and jitter @200Hz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_2kHz_20ns.png\" title=\"Interrupt latency and jitter @2kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_20kHz_20ns.png\" title=\"Interrupt latency and jitter @20kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_200kHz_20ns.png\" title=\"Interrupt latency and jitter @200kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<div style=\"height: 1em;\"></div>\n\n### Measurement results documentation  ###\n>Fill in Table 1.9. and add it to the report.\n\nLatency and jitter table running __non-OS__ setup from __RAM__.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n\n## Non-OS setup running from FLASH (Part 2) ##\n>Add the final code of file \"ELT131_03_part2.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_02.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_02.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_02.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n### Measure Interrupt Latency and jitter (FLASH) ###\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_100Hz_50ns.png\" title=\"Interrupt latency @100Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_200Hz_50ns.png\" title=\"Interrupt latency @200Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_2kHz_50ns.png\" title=\"Interrupt latency @2kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_200kHz_50ns.png\" title=\"Interrupt latency @200kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 2.4. and add it to the report.\n\nLatency and jitter table running __non-OS__ setup from __FLASH__.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{25 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n\n# Interrupt latency and jitter (RTOS) #\nAll TI-RTOS projects are run from FLASH.\n\n## TI-RTOS - Hardware interrupt setup (HWI, Part 3) ##\n>Add the final code of file \"ELT131_03_03.c\" to your report.\n\nSome basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.\n\nThe interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt __latency__, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_latency_idle_is_enc.png\" title=\"Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_latency_idle_is_NONE.png\" title=\"Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_jitter_idle_is_enc.png\" title=\"Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs\" class=\"noborder\"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_jitter_idle_is_NONE.png\" title=\"Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task\" class=\"noborder\"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_3.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_3.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_uart_sci.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_uart_sci.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_bsp_explorer.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_bsp_explorer.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_bsp_explorer.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_bsp_explorer.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\nIn order not to miss the teaching goal, all measurements were carried out without any idle task. To quickly switch between the different PWM frequencies, the value of the hex encoder is polled during initialization. As part of a layout correction (FTDI TTL232 SCIA interface swapped Rx <=> Tx), the TMDSPREX28335 has been extended by a reset button.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_3/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_100Hz_100ns.png\" title=\"Interrupt latency @100Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_200Hz_100ns.png\" title=\"Interrupt latency @200Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_2kHz_100ns.png\" title=\"Interrupt latency @2kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_20kHz_100ns.png\" title=\"Interrupt latency @20kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_200kHz_100ns.png\" title=\"Interrupt latency @200kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 3.8. and add it to the report.\n\nLatency and jitter table running __HWI RTOS__ setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{1.64 µs\\}$  | $\\si\\{28 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{1.60 µs\\}$  | $\\si\\{85 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{1.60 µs\\}$  | $\\si\\{57 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{1.60 µs\\}$  | $\\si\\{89 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{1.60 µs\\}$  | $\\si\\{120 ns\\}$  |\n\n## TI-RTOS - Software interrupt setup (SWI, Part 4) ##\n>Add the final code of file \"ELT131_03_04.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_4.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_4.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_4/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_100Hz_500ns.png\" title=\"Interrupt latency @100Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_200Hz_500ns.png\" title=\"Interrupt latency @200Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_2kHz_500ns.png\" title=\"Interrupt latency @2kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_20kHz_500ns.png\" title=\"Interrupt latency @20kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\nAccording to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\\;=\\;\\si{200kHz}$ and TI-RTOS is configured for SWI.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png\" title=\"Overall IRQ service time @20kHz, SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_100Hz_100ns.png\" title=\"Interrupt jitter @100Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_200Hz_100ns.png\" title=\"Interrupt jitter @200Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_2kHz_100ns.png\" title=\"Interrupt jitter @2kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_20kHz_100ns.png\" title=\"Interrupt jitter @20kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 4.5. and add it to the report.\n\nLatency and jitter table running __SWI RTOS__  setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{150 ns\\}$  |\n| $\\si\\{200Hz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{130 ns\\}$  |\n| $\\si\\{2kHz\\}$   | $\\si\\{3.76 µs\\}$  | $\\si\\{130 ns\\}$  |\n| $\\si\\{20kHz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{150 ns\\}$  |\n| $\\si\\{200kHz\\}$ | $NA$              | $NA$             |\n\n## TI-RTOS - Zero latency interrupt setup (ZLI, Part 5) ##\n>Add the final code of file \"ELT131_03_05.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_5.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_5.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_5/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_100Hz_50ns.png\" title=\"Interrupt latency @100Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_200Hz_50ns.png\" title=\"Interrupt latency @200Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_2kHz_50ns.png\" title=\"Interrupt latency @2kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_200kHz_50ns.png\" title=\"Interrupt latency @200kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 5.5. and add it to the report.\n\n<center>\nLatency and jitter table running __ZLI RTOS__  setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{122 ns\\}$  |\n| $\\si\\{200Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{96 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{330 ns\\}$   | $\\si\\{84 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{20 ns !!!\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{330 ns\\}$   | $\\si\\{78 ns\\}$   |\n\n</center>\n\n# Conclusion #\nSince the latency value doesn't change much within a setup, all latency and jitter tables has been merged into a single one.\n\n<center>\nAvarage latencys and jitter values in $[\\si{ns}]$ per ePWM frequency.\n\n| setup            | avg. latency | 100 Hz | 200 Hz | 2 kHz | 20 kHz | 200 kHz |\n|:----------------:|:------------:|:------:|:------:|:-----:|:------:|:-------:|\n| non-OS (ram)     | 220          | 26     | 26     | 26    | 26     | 26      |\n| non-OS (flash)   | 330          | 26     | 25     | 24    | 24     | 24      |\n| RTOS HWI         | 1610         | 28     | 85     | 57    | 89     | 120     |\n| RTOS SWI         | 3760         | 150    | 130    | 130   | 150    | NA      |\n| RTOS ZLI         | 330          | 122    | 96     | 84    | 20     | 78      |\n\n</center>\n\n<spar>The code execution performance depends on several device parameters that needs to be considered as given (e.g. hardware induced, max. ratings). Indeed, there are various options to increase the performance in terms of \"instruction throughput\" to meet highest requirements in time-critical applications.</spar>\n<spar>The high degree of flexibility regarding code sectioning __without__ the need of a memory management unit and the automatic, efficient interrupt full context save/restore mechanism are some of the benefits when using a modern RISC processor.</spar>\n<spar>The Harvard architecture provides separate hardware pathways from instruction and data memories to the CPU. This enables the computational core, instruction and data fetches to be performed in parallel. The CPU can read instructions and data while it writes data simultaneously to provide a almost singlecycle mnemonic across the instruction pipeline. All RAM blocks offer 0-wait R/W access that is, indeed, necessary for computational cores, outlining about __85%__ single-cycle instructions.</spar>\n<spar>Due to the nature of __modified__ Harvard architectures, the C28xx provides instruction fetching in addition via its data memory bus (i.e. from RAM), rather than only be able to load instructions from program memory sections (i.e. from FLASH, ROM). Another great benefit of modified Harvard architectures is the ability to boot from almost all peripheral interfaces such as SCI/UART, SPI, McBSP or even via large controller area networks.</spar>\n<spar>According to the <lkey>F2833x Code Execution Performance</lkey> characteristics, the performance degradation between RAM and internal pipelined FLASH execution is approximately $\\si{33 \\%}$ since the instruction throughput relation is outlined to be $\\si{150 MIPS}/\\si{100 MIPS}$. The relation factor of 1.5 is perfectly reflected by the measurement results when comparing the latency values of \"_non-OS (ram)_\" and \"_non-OS (flash)_\" since $\\si{220 ns}\\cdot 1.5 \\,=\\,\\si{330 ns}$ </spar>\n\n<center>\n<figure style=\"width:90%;\"\"> <img src=\"./pics/flash_ram_performance_degrad.png\" title=\"F2833x Code Execution Performance\" class=\"noborder\"><figcaption>F2833x Code Execution Performance[^fnCodeExec]</figcaption> </figure>\n</center>\n\n<spar>As described in <lkey>TMS320C28x CPU and Instruction Set (Rev. F)</lkey>[^fnCpuInstr], section __3.4__ _Standard Operation for Maskable Interrupts_, the C28xx CPU provides automatic context save and restore mechanism for all necessary core registers. In __Table 3-4__ <lkey>Register Pairs Saved and SP Positions for Context Saves</lkey>, the automatic context save procedure is listed in detail. This could be used to determine what portion of the interrupt latency is caused by the context save.</spar>\n<spar>It should be noticed to not missunderstand the preceeding 'automatic' of the context save mechanismn. This doesn't mean that the push/pop operations of this registers are processed faster than a software implemented equivalent but only that the interrupt context related push/pop instructions are \"silicon\" programmed because they __have to__ be performed for every valid IRQ, independent of the customer application implementations. As a result of _little Endian_ memory model, 16-Bit op-code arguments needs to be swapped in the following instruction listings.\n\n<center>\nTable 3-4. Register Pairs Saved, silicon instruction listings and needed cycles\n\n| No      | Register Pairs   | silicon instruction    | cycles |\n|:-------:|:-----------------|:-----------------------|:------:|\n| 1st     | STO, T           | ```PUSH T:ST0```       | 1      |\n| 2nd     | AL, AH           | ```PUSH ACC```         | 1      |\n| 3rd     | PL, PH           | ```PUSH P```           | 1      |\n| 4th     | AR0, AR1         | ```PUSH AR1:AR0```     | 1      |\n| 5th     | ST1, DP          | ```PUSH DP:ST1```      | 1      |\n| 6th     | IER, DBGSTAT     | ```PUSH DBGSTAT:IER``` | 1      |\n| 7th     | PCL. PCH         | ```PUSH PCH:PCL```     | 1      |\n\n</center>\n\nTaking the measurements from non-OS setup RAM execution, the automatic context save induced latency could be determined by:\n\n$$\\frac{7}{\\si{150 MHz}}\\cdot \\frac{\\si{100 \\%}}{\\si{220 ns}}\\,=\\,\\si{21.2 \\%}$$\n\nDue to this result it is immediately clear why the design of F2833x does not provide a silicone __full__ context save/restore mechanism since this would increase the interrupt latency by another 8 cycles (see Table 2-1).\nThe stack layout prescribed by Table 3-4 has been verified during a CCS7 debug session (see image after Table 2-1).\n\n<center>\nTable 2-1. CPU Register Summary\n\n| Register |    Size   |       Description        | context  |\n|----------|-----------|--------------------------|----------|\n| __ACC__  | 32-bits   | __Accumulator__          | __auto__ |\n| __AH__   | 16-bits   | __High half of ACC__     | __auto__ |\n| __AL__   | 16-bits   | __Low half of ACC__      | __auto__ |\n| XAR0     | 16-bits?? | Auxiliary register 0     |          |\n| __AR0__  | 16-bits   | __Low half of XAR0__     | __auto__ |\n| XAR1     | 32-bits   | Auxiliary register 1     |          |\n| __AR1__  | 16-bits   | __Low half of XAR1__     | __auto__ |\n| XAR2     | 32-bits   | Auxiliary register 2     |          |\n| XAR3     | 32-bits   | Auxiliary register 3     |          |\n| XAR4     | 32-bits   | Auxiliary register 4     |          |\n| XAR5     | 32-bits   | Auxiliary register 5     |          |\n| XAR6     | 32-bits   | Auxiliary register 6     |          |\n| XAR7     | 32-bits   | Auxiliary register 7     |          |\n| AR2      | 16-bits   | Low half of XAR2         |          |\n| AR3      | 16-bits   | Low half of XAR3         |          |\n| AR4      | 16-bits   | Low half of XAR4         |          |\n| AR5      | 16-bits   | Low half of XAR5         |          |\n| AR6      | 16-bits   | Low half of XAR6         |          |\n| AR7      | 16-bits   | Low half of XAR7         |          |\n| __DP__   | 16-bits   | __Data-page pointer__    | __auto__ |\n| __IFR__  | 16-bits   | __Interrupt flag reg__   |          |\n| __IER__  | 16-bits   | __Interrupt enable reg__ | __auto__ |\n| DBGIER   | 16-bits   | Debug interrupt enable   |          |\n| __P__    | 32-bits   | __Product register__     | __auto__ |\n| __PH__   | 16-bits   | __High half of P__       | __auto__ |\n| __PL__   | 16-bits   | __Low half of P__        | __auto__ |\n| PC       | 22-bits   | __Program counter 0x3F__ | __auto__ |\n| RPC      | 22-bits   | Return program counter   |          |\n| SP       | 16-bits   | Stack pointer            |          |\n| __ST0__  | 16-bits   | __Status register 0__    | __auto__ |\n| __ST1__  | 16-bits   | __Status register 1__    | __auto__ |\n| XT       | 32-bits   | Multiplicand register    |          |\n| __T__    | 16-bits   | __High half of XT__      | __auto__ |\n| TL       | 16-bits   | Low half of XT           |          |\n\nIt should be noticed that additional context guarding must be provided when an application makes use of the core auxiliary registers XAR1...XAR7 from different contexts (i.e. from ISR and non-ISR contexts)!\n\n<a href=\"./pics/debug_context_restore_b.png\" target=\"_blank\"><figure style=\"margin-top: 3em;\" class=\"noborder\"> <img src=\"./pics/debug_context_restore_b.png\" title=\"Stack layout and automatic context restore verification\" class=\"noborder\"><figcaption>Stack layout and automatic context restore verification</figcaption> </figure></a>\n</center>\n\nAs mentioned above, the performance deterioration induced when fetching data and/or instructions from FLASH memory sections is quite noticeable, but can in many cases be reduced or eliminated. The modified Harward architecture behavior has also been mentioned earlyer in this chapter and the ease of memory management without the need of a MMU has been addressed, too. As a simple but powerfull example, the CCS sources of ELT131_03_02 has been extended by a single code line what eliminates the interrupt latency deterioration from non-OS FLASH setup.\n\nThe XINT1_isr() disassembly of the non-modified FLASH version shows that ISR entry point is placed at 0x3389d5 of the internal address space.\n\n```objdump\n124     void XINT1_isr(void) {\n        XINT1_isr():\n3389d5:   761B        ASP\n3389d6:   FFF0        PUSH         RB\n3389d7:   E20000BD    MOV32        *SP++, STF\n3389d9:   E6300600    SETFLG       RNDF32=1,RNDF64=1\n3389db:   FE02        ADDB         SP, #2\n3389dc:   2942        CLRC         OVM|PAGE0\n(...)\n```\n\nFrom the memory linker command file F28335.cmd it could be determined that this addresses FLASH block A. \n\n```cmd\nMEMORY\n{\nPAGE 0:    /* Program Memory */\n           /* Memory (RAM/FLASH/OTP) blocks can be moved to PAGE1 for data allocation */\n\n   ZONE0       : origin = 0x004000, length = 0x001000     /* XINTF zone 0 */\n   RAML0       : origin = 0x008000, length = 0x001000     /* on-chip RAM block L0 */\n   RAML1       : origin = 0x009000, length = 0x001000     /* on-chip RAM block L1 */\n   RAML2       : origin = 0x00A000, length = 0x001000     /* on-chip RAM block L2 */\n(...)\n   FLASHC      : origin = 0x328000, length = 0x008000     /* on-chip FLASH */\n   FLASHA      : origin = 0x338000, length = 0x007F80     /* on-chip FLASH */\n                       /* 0x3389d5  <-------- */\n   CSM_RSVD    : origin = 0x33FF80, length = 0x000076     /* Part of FLASHA.  Program with all 0x0000 when CSM is in use. */\n   BEGIN       : origin = 0x33FFF6, length = 0x000002     /* Part of FLASHA.  Used for \"boot to Flash\" bootloader mode. */\n   CSM_PWL     : origin = 0x33FFF8, length = 0x000008     /* Part of FLASHA.  CSM password locations in FLASHA */\n   OTP         : origin = 0x380400, length = 0x000400     /* on-chip OTP */\n\n(...)\n\nSECTIONS\n{\n   /* Allocate program areas: */\n   .cinit              : > FLASHA      PAGE = 0\n   .pinit              : > FLASHA,     PAGE = 0\n   .text               : > FLASHA      PAGE = 0\n   codestart           : > BEGIN       PAGE = 0\n   ramfuncs            : LOAD = FLASHD,                 /* <--------- *\n                         RUN = RAML0,                   /* <--------- */\n                         LOAD_START(_RamfuncsLoadStart),\n                         LOAD_END(_RamfuncsLoadEnd),\n                         RUN_START(_RamfuncsRunStart),\n                         LOAD_SIZE(_RamfuncsLoadSize),\n                         PAGE = 0\n(...)\n```\n\nTo overcome the dogmatic and non-modified harward architecture behavior, simply tell the compiler to be pragmatic and call the XINT1 IRQ handler from data memory section \"_ramfuncs_\"!\n\n```c\n#pragma CODE_SECTION(XINT1_isr, \"ramfuncs\");\n```\n\nThis results in an identical assembly listing with a ISR entry point placed at address 0x8000 of the internal address space. According to the linker command file line 78, this addresses the on-chip RAM block L0.\n\n```c-objdump\n124     void XINT1_isr(void) {\n        RamfuncsRunStart, XINT1_isr():\n008000:   761B        ASP\n008001:   FFF0        PUSH         RB\n008002:   E20000BD    MOV32        *SP++, STF\n008004:   E6300600    SETFLG       RNDF32=1,RNDF64=1\n008006:   FE02        ADDB         SP, #2\n008007:   2942        CLRC         OVM|PAGE0\n(...)\n```\n\nThe picture below shows the interrupt latencys of the original and the modified version of ELT131_LAB_03_02. The time cursors are placed such to show the latency difference between both versions which is approximately $\\si{110 ns}$ as expected. \n \n<figure class=\"oszi\" markdown=1> <img src=\"./pics/ram_flash_overlayed_50ns.png\" title=\"Latency comparison of non-OS setup running from FLASH, w/ and w/o linking XINT1_isr() to RAM memory\" class=\"noborder\"><figcaption>Latency comparison of non-OS setup running from __FLASH__, w/ and w/o linking __XINT1_isr()__ to __RAM__</figcaption> </figure>\n\nIndeed this technique is not restricted to be used for time critical IRQ handlers or other functions. Also data symbols with the access specifiers ```const int16_t cSineTable[] = {...``` could be linked into RAM. Granted, it appears first to be senseless since the const specifier mostly implies const-nes and is therefor used to tell the compiler to not place the symbol data into RAM section, for example: \n\n```c\nconst char* cWelcomeMsg=\"Starting device, please wait...\";\n```\n\nBut for a const declared sine table like this one below, it could increase performance (i.e. reduce time to fetch the next sample) when placing the array in the fast RAM section.    \n\n```c\nconst double cSine[] = {-0.998, -0.995, -0.988, -0.980, -0.968, -0.955};\n```\n\n# Non-OS setup (FLASH) vs. Zero latency #\n\nZero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. _minimum-latency-interrupt_. Compared to interrupt latencys in [part 3 (HWI)](#ti-rtos-hardware-interrupt-setup-hwi-part-3) and [part 4 (SWI)](#ti-rtos-software-interrupt-setup-swi-part-4), _zero latency_ configuration results in _most smallest latency_ of all TI-RTOS setups.\n\n\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_latency_20kHz_20ns.png\" title=\"Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\\si{150MHz}$)\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __RAM__ ($\\,F_{CPU}\\,=\\,\\si{150MHz}\\,$) @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_latency_zli_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\\si{150MHz}$)\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup running from __FLASH__ ($\\,F_{CPU}\\,=\\,\\si{150MHz}\\,$) @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n# Open questions #\n## Keyword __interrupt ##\nWhen to preceed ISR prototypes by the preprocessor/linker directive/keyword **__interrupt** ?\n\nFrom [_SYS/BIOS (TI-RTOS Kernel) v6.46 User's Guide_ ](http://www.ti.com/lit/ug/spruex3q/spruex3q.pdf), page 57, chapter:\n__3.4 Hardware Interrupts:__\n>(...) Assembly language ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Such ISRs must do their own context preservation. **They may use the \"interrupt\" keyword, C functions, or assembly language functions.**\n\nIn other words:\nRegardless of whether to implement an IRQ callback handler in assembler or C, __it have to be__ preceeded by the (linker-) keyword **__interrupt** in case of bypassing SYS/BIOS HWI module.\n\nShould it not rather be:\n>(...) ~~Assembly language~~ ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Assembly language ~~Such~~ ISRs must do their own context preservation. They may use the \"interrupt\" keyword, C functions, or assembly language functions.\n\n## Zero latency PIE group ##\nAccording to the [RTOS API documentation](http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask),\n\n>CPU interrupts specified in this mask (which corresponds to the 16-bit IER register) will __never be disabled__. This means that the disable, enable, and restore calls leave the zero latency CPU interrupts enabled after being called. Zero latency operation may be used to ensure __minimal interrupt-to-ISR time__ for __non-BIOS__ interrupt handlers in applications that demand low latency.\n\n>It is important to note that zero latency and non-zero latency PIE interrupts may not share a common PIE group. The entire PIE group whose bit is set in the zeroLatencyIERMask will be treated as zero latency.\n\n__doc htmls__\n__Register view searchable__\n\n[^fnCodeExec]: __F2833x Code Execution Performance__ http://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/171/6740.Capture.JPG\n\n[^fnCpuInstr]: __TMS320C28x CPU and Instruction Set (Rev. F)__",
 			"file": "ELT131_LAB_03/ELT131_LAB_03.mmd",
+			"file_size": 41543,
+			"file_write_time": 131368222747195050,
 			"settings":
 			{
-				"buffer_size": 15696,
+				"buffer_size": 41532,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.c",
+			"file": "ELT131_LAB_03/ELT131_LAB_03.html",
 			"settings":
 			{
-				"buffer_size": 8242,
+				"buffer_size": 385465,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ELT131_LAB_03/ELT131_LAB_03_RTOS_v2/ELT131_LAB_03_RTOSv2.c",
+			"contents": "Title:      Report ELT131 LAB 03\nAuthor:     Del Basso, Manuel\nDate:       24-03-2017\nLocation:   WHZ\nFooticon:   ./pics/whz.png\n\nELT131 - Lab 03 report\n==============================\n[TOC]\n\n## Introduction ##\n>In Part1 and Part2 of ELT131_LAB_03 __no__ TI-RTOS is used. The goal is to measure the interrupt latency time of the TMS320F28335 in a __non__-OS environment.\nIn Part1, the code will be placed in __RAM__ - memory, as this is the fastest available memory type. This setup is used to estimate the best case for the given hardware.\nIn Part2, the code will be placed in FLASH - memory, as this is the default memory type. This setup is used to compare interrupt latencys of non-OS setups, once executed from __RAM__ and once executed from FLASH.\nIn the Part3 of this exercise, TI-RTOS and it's HWI functionality is used.\n\n__Used components:__\n\n - Hardware\n     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino\n     - Oscilloscope: PC-USB Scope _PCSU1000, velleman_\n - Software\n     - Code Composer Studio Version: 7.1.0.00016 (CCS7)\n     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5\n     - SYS/BIOS\n         + Version: 6.45.02.31\n     - TI-RTOS for C2000\n         + Version: 2.16.1.14\n - Development Plattform\n     + ```lsb_release -d``` <span style=\"margin-left: 1em;\">Linux Mint 18 Sarah (LinuxMint)</span>\n     + ```uname -rpo``` <span style=\"margin-left: 1em;\">4.4.0-57-generic x86_64 GNU/Linux</span>\n\n# Interrupt latency and jitter (Non-OS) #\n## Non-OS setup running from RAM (Part 1) ##\n\n>Add the final code of files \"ePWM1.c\" and \"ELT131_03_part1.c\" to your report.\n\n### Non-OS setup sources ###\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_epwm.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_epwm.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/MD_F2833x_LIB/md_epwm.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n### Measure Interrupt Latency and jitter\n>Add the oscilloscope screenshots for signal ePWM1 to your report. Test the signal at frequencies: 200 kHz, 20 kHz, 2 kHz, 200 Hz and 20 Hz.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/epwm_rect_200Hz.png\" title=\"Square wave signal generated from ePWM1 mmodul\" class=\"noborder oszi\"><figcaption>Square wave signal generated from ePWM1 mmodul</figcaption> </figure>\n\n>Add the oscilloscope screenshots for the interrupt latency to your report.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_100Hz_20ns.png\" title=\"Interrupt latency and jitter @100Hz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_200Hz_20ns.png\" title=\"Interrupt latency and jitter @200Hz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_2kHz_20ns.png\" title=\"Interrupt latency and jitter @2kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_20kHz_20ns.png\" title=\"Interrupt latency and jitter @20kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_ram_jitter_200kHz_20ns.png\" title=\"Interrupt latency and jitter @200kHz of __non-OS__ setup running from __RAM__\" class=\"noborder oszi\"><figcaption>Interrupt latency and jitter of __non-OS__ setup running from __RAM__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<div style=\"height: 1em;\"></div>\n\n### Measurement results documentation  ###\n>Fill in Table 1.9. and add it to the report.\n\nLatency and jitter table running __non-OS__ setup from __RAM__.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{220 ns\\}$   | $\\si\\{26 ns\\}$   |\n\n## Non-OS setup running from FLASH (Part 2) ##\n>Add the final code of file \"ELT131_03_part2.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_02.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_02.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_01.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_NON-OS/ELT131_LAB_03_02.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n### Measure Interrupt Latency and jitter (FLASH) ###\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_100Hz_50ns.png\" title=\"Interrupt latency @100Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_200Hz_50ns.png\" title=\"Interrupt latency @200Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_2kHz_50ns.png\" title=\"Interrupt latency @2kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_latency_200kHz_50ns.png\" title=\"Interrupt latency @200kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __FLASH__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_flash_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of __non-OS__ setup running from __FLASH__\" class=\"noborder\"><figcaption>Interrupt jitter of __non-OS__ setup running from __FLASH__ @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 2.4. and add it to the report.\n\nLatency and jitter table running __non-OS__ setup from __FLASH__.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{26 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{25 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{330 ns\\}$   | $\\si\\{24 ns\\}$   |\n\n# Interrupt latency and jitter (RTOS) #\nAll TI-RTOS projects are run from FLASH.\n\n## TI-RTOS - Hardware interrupt setup (HWI, Part 3) ##\n>Add the final code of file \"ELT131_03_03.c\" to your report.\n\nSome basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.\n\nThe interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt __latency__, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_latency_idle_is_enc.png\" title=\"Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_latency_idle_is_NONE.png\" title=\"Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_jitter_idle_is_enc.png\" title=\"Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs\" class=\"noborder\"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_irq_jitter_idle_is_NONE.png\" title=\"Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task\" class=\"noborder\"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_3.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_3.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_uart_sci.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_uart_sci.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_uart_sci.h\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_bsp_explorer.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_bsp_explorer.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">md_bsp_explorer.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_bsp_explorer.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\nIn order not to miss the teaching goal, all measurements were carried out without any idle task. To quickly switch between the different PWM frequencies, the value of the hex encoder is polled during initialization. As part of a layout correction (FTDI TTL232 SCIA interface swapped Rx <=> Tx), the TMDSPREX28335 has been extended by a reset button.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_3/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_100Hz_100ns.png\" title=\"Interrupt latency @100Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_200Hz_100ns.png\" title=\"Interrupt latency @200Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_2kHz_100ns.png\" title=\"Interrupt latency @2kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_20kHz_100ns.png\" title=\"Interrupt latency @20kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_latency_200kHz_100ns.png\" title=\"Interrupt latency @200kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_hwi_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of HWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 3.8. and add it to the report.\n\nLatency and jitter table running __HWI RTOS__ setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{1.64 µs\\}$  | $\\si\\{28 ns\\}$   |\n| $\\si\\{200Hz\\}$  | $\\si\\{1.60 µs\\}$  | $\\si\\{85 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{1.60 µs\\}$  | $\\si\\{57 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{1.60 µs\\}$  | $\\si\\{89 ns\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{1.60 µs\\}$  | $\\si\\{120 ns\\}$  |\n\n## TI-RTOS - Software interrupt setup (SWI, Part 4) ##\n>Add the final code of file \"ELT131_03_04.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_4.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_4.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_4/ELT131_LAB_03_RTOS_4.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_4/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_100Hz_500ns.png\" title=\"Interrupt latency @100Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_200Hz_500ns.png\" title=\"Interrupt latency @200Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_2kHz_500ns.png\" title=\"Interrupt latency @2kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_latency_20kHz_500ns.png\" title=\"Interrupt latency @20kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt latency of __SWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\nAccording to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\\;=\\;\\si{200kHz}$ and TI-RTOS is configured for SWI.\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png\" title=\"Overall IRQ service time @20kHz, SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_100Hz_100ns.png\" title=\"Interrupt jitter @100Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_200Hz_100ns.png\" title=\"Interrupt jitter @200Hz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_2kHz_100ns.png\" title=\"Interrupt jitter @2kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_swi_jitter_20kHz_100ns.png\" title=\"Interrupt jitter @20kHz of SWI __RTOS__ setup\" class=\"noborder\"><figcaption>Interrupt jitter of __SWI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 4.5. and add it to the report.\n\nLatency and jitter table running __SWI RTOS__  setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{150 ns\\}$  |\n| $\\si\\{200Hz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{130 ns\\}$  |\n| $\\si\\{2kHz\\}$   | $\\si\\{3.76 µs\\}$  | $\\si\\{130 ns\\}$  |\n| $\\si\\{20kHz\\}$  | $\\si\\{3.76 µs\\}$  | $\\si\\{150 ns\\}$  |\n| $\\si\\{200kHz\\}$ | $NA$              | $NA$             |\n\n## TI-RTOS - Zero latency interrupt setup (ZLI, Part 5) ##\n>Add the final code of file \"ELT131_03_05.c\" to your report.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_5.c</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.c\"\n</details>\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">ELT131_LAB_03_RTOS_5.h</span></h4></summary>\n@codeimport: \"./ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.h\"\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Copy the final version of the cfg-script \"app.cfg\" to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.\n\n<details markdown=1>\n<summary><h4 class=\"sp foldable\"><span class=\"codehd\">app.cfg</span></h4></summary>\n```java\n@codeimport: \"./ELT131_LAB_03_RTOS_5/app.cfg\"\n@codeimport_nocomments\n```\n</details>\n<div style=\"height: 1em;\"></div>\n\n>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.\n\n<h4 class=\"sp\"><span>Latency measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_100Hz_50ns.png\" title=\"Interrupt latency @100Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_200Hz_50ns.png\" title=\"Interrupt latency @200Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_2kHz_50ns.png\" title=\"Interrupt latency @2kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_latency_200kHz_50ns.png\" title=\"Interrupt latency @200kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt latency of __ZLI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n<h4 class=\"sp\"><span>Jitter measurements</span></h4>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_100Hz_20ns.png\" title=\"Interrupt jitter @100Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{100Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_200Hz_20ns.png\" title=\"Interrupt jitter @200Hz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{200Hz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_2kHz_20ns.png\" title=\"Interrupt jitter @2kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{2kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_20kHz_20ns.png\" title=\"Interrupt jitter @20kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_zli_jitter_200kHz_20ns.png\" title=\"Interrupt jitter @200kHz of __ZLI__ RTOS setup\" class=\"noborder\"><figcaption>Interrupt jitter of __ZLI__ RTOS setup @$\\;\\si{200kHz}\\;$</figcaption> </figure>\n\n### Measurement results documentation  ###\n>Fill in Table 5.5. and add it to the report.\n\n<center>\nLatency and jitter table running __ZLI RTOS__  setup from FLASH.\n\n| ePWM1A Freq     | Interrupt latency | Interrupt jitter |\n|:---------------:|:-----------------:|:----------------:|\n| $\\si\\{100Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{122 ns\\}$  |\n| $\\si\\{200Hz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{96 ns\\}$   |\n| $\\si\\{2kHz\\}$   | $\\si\\{330 ns\\}$   | $\\si\\{84 ns\\}$   |\n| $\\si\\{20kHz\\}$  | $\\si\\{330 ns\\}$   | $\\si\\{20 ns !!!\\}$   |\n| $\\si\\{200kHz\\}$ | $\\si\\{330 ns\\}$   | $\\si\\{78 ns\\}$   |\n\n</center>\n\n# Conclusion #\nSince the latency value doesn't change much within a setup, all latency and jitter tables has been merged into a single one.\n\n<center>\nAvarage latencys and jitter values in $[\\si{ns}]$ per ePWM frequency.\n\n| setup            | avg. latency | 100 Hz | 200 Hz | 2 kHz | 20 kHz | 200 kHz |\n|:----------------:|:------------:|:------:|:------:|:-----:|:------:|:-------:|\n| non-OS (ram)     | 220          | 26     | 26     | 26    | 26     | 26      |\n| non-OS (flash)   | 330          | 26     | 25     | 24    | 24     | 24      |\n| RTOS HWI         | 1610         | 28     | 85     | 57    | 89     | 120     |\n| RTOS SWI         | 3760         | 150    | 130    | 130   | 150    | NA      |\n| RTOS ZLI         | 330          | 122    | 96     | 84    | 20     | 78      |\n\n</center>\n\n<spar>The code execution performance depends on several device parameters that needs to be considered as given (e.g. hardware induced, max. ratings). Indeed, there are various options to increase the performance in terms of \"instruction throughput\" to meet highest requirements in time-critical applications.</spar>\n<spar>The high degree of flexibility regarding code sectioning __without__ the need of a memory management unit and the automatic, efficient interrupt full context save/restore mechanism are some of the benefits when using a modern RISC processor.</spar>\n<spar>The Harvard architecture provides separate hardware pathways from instruction and data memories to the CPU. This enables the computational core, instruction and data fetches to be performed in parallel. The CPU can read instructions and data while it writes data simultaneously to provide a almost singlecycle mnemonic across the instruction pipeline. All RAM blocks offer 0-wait R/W access that is, indeed, necessary for computational cores, outlining about __85%__ single-cycle instructions.</spar>\n<spar>Due to the nature of __modified__ Harvard architectures, the C28xx provides instruction fetching in addition via its data memory bus (i.e. from RAM), rather than only be able to load instructions from program memory sections (i.e. from FLASH, ROM). Another great benefit of modified Harvard architectures is the ability to boot from almost all peripheral interfaces such as SCI/UART, SPI, McBSP or even via large controller area networks.</spar>\n<spar>According to the <lkey>F2833x Code Execution Performance</lkey> characteristics, the performance degradation between RAM and internal pipelined FLASH execution is approximately $\\si{33 \\%}$ since the instruction throughput relation is outlined to be $\\si{150 MIPS}/\\si{100 MIPS}$. The relation factor of 1.5 is perfectly reflected by the measurement results when comparing the latency values of \"_non-OS (ram)_\" and \"_non-OS (flash)_\" since $\\si{220 ns}\\cdot 1.5 \\,=\\,\\si{330 ns}$ </spar>\n\n<center>\n<figure style=\"width:90%;\"\"> <img src=\"./pics/flash_ram_performance_degrad.png\" title=\"F2833x Code Execution Performance\" class=\"noborder\"><figcaption>F2833x Code Execution Performance[^fnCodeExec]</figcaption> </figure>\n</center>\n\n<spar>As described in <lkey>TMS320C28x CPU and Instruction Set (Rev. F)</lkey>[^fnCpuInstr], section __3.4__ _Standard Operation for Maskable Interrupts_, the C28xx CPU provides automatic context save and restore mechanism for all necessary core registers. In __Table 3-4__ <lkey>Register Pairs Saved and SP Positions for Context Saves</lkey>, the automatic context save procedure is listed in detail. This could be used to determine what portion of the interrupt latency is caused by the context save.</spar>\n<spar>It should be noticed to not missunderstand the preceeding 'automatic' of the context save mechanismn. This doesn't mean that the push/pop operations of this registers are processed faster than a software implemented equivalent but only that the interrupt context related push/pop instructions are \"silicon\" programmed because they __have to__ be performed for every valid IRQ, independent of the customer application implementations. As a result of _little Endian_ memory model, 16-Bit op-code arguments needs to be swapped in the following instruction listings.\n\n<center>\nTable 3-4. Register Pairs Saved, silicon instruction listings and needed cycles\n\n| No      | Register Pairs   | silicon instruction    | cycles |\n|:-------:|:-----------------|:-----------------------|:------:|\n| 1st     | STO, T           | ```PUSH T:ST0```       | 1      |\n| 2nd     | AL, AH           | ```PUSH ACC```         | 1      |\n| 3rd     | PL, PH           | ```PUSH P```           | 1      |\n| 4th     | AR0, AR1         | ```PUSH AR1:AR0```     | 1      |\n| 5th     | ST1, DP          | ```PUSH DP:ST1```      | 1      |\n| 6th     | IER, DBGSTAT     | ```PUSH DBGSTAT:IER``` | 1      |\n| 7th     | PCL. PCH         | ```PUSH PCH:PCL```     | 1      |\n\n</center>\n\nTaking the measurements from non-OS setup RAM execution, the automatic context save induced latency could be determined by: \n\n$$\\frac{7}{\\si{150 MHz}}\\cdot \\frac{\\si{100 \\%}}{\\si{220 ns}}\\,=\\,\\si{21.2 \\%}$$\n\nDue to this result it is immediately clear why the design of F2833x does not provide a silicone __full__ context save/restore mechanism since this would increase the interrupt latency by another 8 cycles (see Table 2-1). \nThe stack layout prescribed by Table 3-4 has been verified during a CCS7 debug session (see image after Table 2-1). \n\n<center>\nTable 2-1. CPU Register Summary\n\n| Register |    Size   |       Description        | context  |\n|----------|-----------|--------------------------|----------|\n| __ACC__  | 32-bits   | __Accumulator__          | __auto__ |\n| __AH__   | 16-bits   | __High half of ACC__     | __auto__ |\n| __AL__   | 16-bits   | __Low half of ACC__      | __auto__ |\n| XAR0     | 16-bits?? | Auxiliary register 0     |          |\n| __AR0__  | 16-bits   | __Low half of XAR0__     | __auto__ |\n| XAR1     | 32-bits   | Auxiliary register 1     |          |\n| __AR1__  | 16-bits   | __Low half of XAR1__     | __auto__ |\n| XAR2     | 32-bits   | Auxiliary register 2     |          |\n| XAR3     | 32-bits   | Auxiliary register 3     |          |\n| XAR4     | 32-bits   | Auxiliary register 4     |          |\n| XAR5     | 32-bits   | Auxiliary register 5     |          |\n| XAR6     | 32-bits   | Auxiliary register 6     |          |\n| XAR7     | 32-bits   | Auxiliary register 7     |          |\n| AR2      | 16-bits   | Low half of XAR2         |          |\n| AR3      | 16-bits   | Low half of XAR3         |          |\n| AR4      | 16-bits   | Low half of XAR4         |          |\n| AR5      | 16-bits   | Low half of XAR5         |          |\n| AR6      | 16-bits   | Low half of XAR6         |          |\n| AR7      | 16-bits   | Low half of XAR7         |          |\n| __DP__   | 16-bits   | __Data-page pointer__    | __auto__ |\n| __IFR__  | 16-bits   | __Interrupt flag reg__   |          |\n| __IER__  | 16-bits   | __Interrupt enable reg__ | __auto__ |\n| DBGIER   | 16-bits   | Debug interrupt enable   |          |\n| __P__    | 32-bits   | __Product register__     | __auto__ |\n| __PH__   | 16-bits   | __High half of P__       | __auto__ |\n| __PL__   | 16-bits   | __Low half of P__        | __auto__ |\n| PC       | 22-bits   | __Program counter 0x3F__ | __auto__ |\n| RPC      | 22-bits   | Return program counter   |          |\n| SP       | 16-bits   | Stack pointer            |          |\n| __ST0__  | 16-bits   | __Status register 0__    | __auto__ |\n| __ST1__  | 16-bits   | __Status register 1__    | __auto__ |\n| XT       | 32-bits   | Multiplicand register    |          |\n| __T__    | 16-bits   | __High half of XT__      | __auto__ |\n| TL       | 16-bits   | Low half of XT           |          |\n\nIt should be noticed that additional context guarding must be provided when an application makes use of the core auxiliary registers XAR1...XAR7 from different contexts (i.e. from ISR and non-ISR contexts)!\n\n<a href=\"./pics/debug_context_restore_b.png\" target=\"_blank\"><figure style=\"margin-top: 3em;\" class=\"noborder\"> <img src=\"./pics/debug_context_restore_b.png\" title=\"Stack layout and automatic context restore verification\" class=\"noborder\"><figcaption>Stack layout and automatic context restore verification</figcaption> </figure></a>\n</center>\n\nAs mentioned above, the performance deterioration induced when fetching data and/or instructions from FLASH memory sections is quite noticeable, but can in many cases be reduced or eliminated. The modified Harward architecture behavior has also been mentioned earlyer in this chapter and the ease of memory management without the need of a MMU has been addressed, too. As a simple but powerfull example, the CCS sources of ELT131_03_02 has been extended by a single code line what eliminates the interrupt latency deterioration from non-OS FLASH setup.\n\n\n\n```c-objdump\n124     void XINT1_isr(void) {\n        RamfuncsRunStart, XINT1_isr():\n008000:   761B        ASP          \n008001:   FFF0        PUSH         RB\n008002:   E20000BD    MOV32        *SP++, STF\n008004:   E6300600    SETFLG       RNDF32=1,RNDF64=1\n008006:   FE02        ADDB         SP, #2\n008007:   2942        CLRC         OVM|PAGE0\n008008:   5616        CLRC         AMODE\n125         GpioDataRegs.GPASET.bit.GPIO2 = 1;          //!< Rising edge at GPIO2\n008009:   761F01BF    MOVW         DP, #0x1bf\n00800b:   1A020004    OR           @0x2, #0x0004\n126         PieCtrlRegs.PIEACK.bit.ACK4 = 1;            //!< Ack interrupt service\n00800d:   761F0033    MOVW         DP, #0x33\n00800f:   1A210008    OR           @0x21, #0x0008\n128         for(int i=0;i smaller 10;i++)\n008011:   2B41        MOV          *-SP[1], #0\n008012:   9241        MOV          AL, *-SP[1]\n008013:   520A        CMPB         AL, #0xa\n008014:   6306        SB           C$L6, GEQ\n129             asm(\" NOP\");\n        C$L5:\n008015:   7700        NOP          \n128         for(int i=0;i smaller 10;i++)\n008016:   0A41        INC          *-SP[1]\n008017:   9241        MOV          AL, *-SP[1]\n008018:   520A        CMPB         AL, #0xa\n008019:   64FC        SB           C$L5, LT\n130         GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;        //!< Falling edge at GPIO2\n        C$L6:\n00801a:   761F01BF    MOVW         DP, #0x1bf\n00801c:   1A040004    OR           @0x4, #0x0004\n131     }\n00801e:   FE82        SUBB         SP, #2\n00801f:   E28000BE    MOV32        STF, *--SP\n008021:   3B30        SETC         INTM|DBGM\n008022:   FFF1        POP          RB\n008023:   7617        NASP         \n008024:   7602        IRET  \n```\n\n```c-objdump\n124     void XINT1_isr(void) {\n        XINT1_isr():\n3389d5:   761B        ASP          \n3389d6:   FFF0        PUSH         RB\n3389d7:   E20000BD    MOV32        *SP++, STF\n3389d9:   E6300600    SETFLG       RNDF32=1,RNDF64=1\n3389db:   FE02        ADDB         SP, #2\n3389dc:   2942        CLRC         OVM|PAGE0\n3389dd:   5616        CLRC         AMODE\n125         GpioDataRegs.GPASET.bit.GPIO2 = 1;          //!< Rising edge at GPIO2\n3389de:   761F01BF    MOVW         DP, #0x1bf\n3389e0:   1A020004    OR           @0x2, #0x0004\n126         PieCtrlRegs.PIEACK.bit.ACK4 = 1;            //!< Ack interrupt service\n3389e2:   761F0033    MOVW         DP, #0x33\n3389e4:   1A210008    OR           @0x21, #0x0008\n128         for(int i=0;i smaller 10;i++)\n3389e6:   2B41        MOV          *-SP[1], #0\n3389e7:   9241        MOV          AL, *-SP[1]\n3389e8:   520A        CMPB         AL, #0xa\n3389e9:   6306        SB           C$L6, GEQ\n129             asm(\" NOP\");\n        C$L5:\n3389ea:   7700        NOP          \n128         for(int i=0;i smaller 10;i++)\n3389eb:   0A41        INC          *-SP[1]\n3389ec:   9241        MOV          AL, *-SP[1]\n3389ed:   520A        CMPB         AL, #0xa\n3389ee:   64FC        SB           C$L5, LT\n130         GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;        //!< Falling edge at GPIO2\n        C$L6:\n3389ef:   761F01BF    MOVW         DP, #0x1bf\n3389f1:   1A040004    OR           @0x4, #0x0004\n131     }\n3389f3:   FE82        SUBB         SP, #2\n3389f4:   E28000BE    MOV32        STF, *--SP\n3389f6:   3B30        SETC         INTM|DBGM\n3389f7:   FFF1        POP          RB\n3389f8:   7617        NASP         \n3389f9:   7602        IRET        \n```\n\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/ram_flash_overlayed_50ns.png\" title=\"Latency comparison of non-OS setup running from FLASH, w/ and w/o linking XINT1_isr() to RAM memory\" class=\"noborder\"><figcaption>Latency comparison of non-OS setup running from __FLASH__, w/ and w/o linking __XINT1_isr()__ to __RAM__</figcaption> </figure>\n\n\n(_\"The Power of DSP and the Simplicity of MCU\"_).\n\nAs expected, the most short and highest repeatability in service IRQs are reached when executing non-OS-charged interrupt handlers directly from the fast SA-RAM memory sections. \n\n<!-- ff -->\nbezüglich der agree Platzierung von code segmenten \nTMS320 __M__\n\n```c\nvoid InitFlash(void) {\n   EALLOW;\n   //Enable Flash Pipeline mode to improve performance\n   //of code executed from Flash.\n   FlashRegs.FOPT.bit.ENPIPE = 1;\n\n   //                CAUTION\n   //Minimum waitstates required for the flash operating\n   //at a given CPU rate must be characterized by TI.\n   //Refer to the datasheet for the latest information.\n#if CPU_FRQ_150MHZ\n   //Set the Paged Waitstate for the Flash\n   FlashRegs.FBANKWAIT.bit.PAGEWAIT = 5;\n\n   //Set the Random Waitstate for the Flash\n   FlashRegs.FBANKWAIT.bit.RANDWAIT = 5;\n\n   //Set the Waitstate for the OTP\n   FlashRegs.FOTPWAIT.bit.OTPWAIT = 8;\n#endif\n\n(...)\n}\n```\n\n## Non-OS setup (FLASH) vs. Zero latency ##\n\n\n# Non-OS setup (RAM) vs. Zero latency #\nZero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. _minimum-latency-interrupt_. Compared to interrupt latencys in [part 3 (HWI)](#ti-rtos-hwi-setup-part-3) and [part 4 (SWI)](#ti-rtos-swi-setup-part-4), _zero latency_ configuration results in _most smallest latency_ of the TI-RTOS setups.\nContrary to expectations,\nFrom ti SYSBIOS documentation, chapter [C28x Hardware Interrupt Manager](http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask)\n\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/non-os_latency_20kHz_20ns.png\" title=\"Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\\si{150MHz}$)\" class=\"noborder\"><figcaption>Interrupt latency of __non-OS__ setup running from __RAM__ ($\\,F_{CPU}\\,=\\,\\si{150MHz}\\,$) @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n<figure class=\"oszi\" markdown=1> <img src=\"./pics/os_latency_zli_20kHz_50ns.png\" title=\"Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\\si{150MHz}$)\" class=\"noborder\"><figcaption>Interrupt latency of __RTOS__ setup running from __FLASH__ ($\\,F_{CPU}\\,=\\,\\si{150MHz}\\,$) @$\\;\\si{20kHz}\\;$</figcaption> </figure>\n\n# Open questions #\n## Keyword __interrupt ##\nWhen to preceed ISR prototypes by the preprocessor/linker directive/keyword **__interrupt** ?\n\nFrom [_SYS/BIOS (TI-RTOS Kernel) v6.46 User's Guide_ ](http://www.ti.com/lit/ug/spruex3q/spruex3q.pdf), page 57, chapter:\n__3.4 Hardware Interrupts:__\n>(...) Assembly language ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Such ISRs must do their own context preservation. **They may use the \"interrupt\" keyword, C functions, or assembly language functions.**\n\nIn other words:\nRegardless of whether to implement an IRQ callback handler in assembler or C, __it have to be__ preceeded by the (linker-) keyword **__interrupt** in case of bypassing SYS/BIOS HWI module.\n\nShould it not rather be:\n>(...) ~~Assembly language~~ ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Assembly language ~~Such~~ ISRs must do their own context preservation. They may use the \"interrupt\" keyword, C functions, or assembly language functions.\n\n## Zero latency PIE group ##\nAccording to the [RTOS API documentation](http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/6_33_00_19/exports/bios_6_33_00_19/docs/cdoc/ti/sysbios/family/c28/Hwi.html#zero.Latency.I.E.R.Mask),  \n\n>CPU interrupts specified in this mask (which corresponds to the 16-bit IER register) will __never be disabled__. This means that the disable, enable, and restore calls leave the zero latency CPU interrupts enabled after being called. Zero latency operation may be used to ensure __minimal interrupt-to-ISR time__ for __non-BIOS__ interrupt handlers in applications that demand low latency. \n\n>It is important to note that zero latency and non-zero latency PIE interrupts may not share a common PIE group. The entire PIE group whose bit is set in the zeroLatencyIERMask will be treated as zero latency.\n\n__doc htmls__\n__Register view searchable__\n\n[^fnCodeExec]: __F2833x Code Execution Performance__ http://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/171/6740.Capture.JPG\n\n[^fnCpuInstr]: __TMS320C28x CPU and Instruction Set (Rev. F)__",
 			"settings":
 			{
-				"buffer_size": 6648,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 42041,
+				"line_ending": "Unix",
+				"name": "Title:      Report ELT131 LAB 03"
 			}
 		},
 		{
-			"file": "ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.h",
+			"file": "ELT131_LAB_04/ELT131_LAB_04.mmd",
 			"settings":
 			{
-				"buffer_size": 3416,
+				"buffer_size": 8976,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/mathjax.html",
-			"settings":
-			{
-				"buffer_size": 1234,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/mainster/.config/sublime-text-3/Packages/User/styleMdb.css",
-			"settings":
-			{
-				"buffer_size": 37515,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/mainster/.config/sublime-text-3/Packages/Open URL/open_url.py",
-			"settings":
-			{
-				"buffer_size": 19807,
 				"line_ending": "Unix"
 			}
 		},
@@ -585,7 +562,16 @@
 			"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
 			"settings":
 			{
-				"buffer_size": 82787,
+				"buffer_size": 83435,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/mainster/.config/sublime-text-3/Packages/User/hexmap.sublime-syntax",
+			"settings":
+			{
+				"buffer_size": 3896,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -655,20 +641,76 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "tri",
+		"last_filter": "remo",
 		"selected_items":
 		[
 			[
-				"tri",
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"trim",
 				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"set syn mult",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"colo",
+				"Color Picker"
 			],
 			[
 				"lore",
 				"Add some Lorem Gibson"
 			],
 			[
-				"colo",
+				"set syn gene",
+				"Set Syntax: Generic Config"
+			],
+			[
+				"set syn c",
+				"Set Syntax: C"
+			],
+			[
+				"trimm",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"cle",
+				"Clear Console"
+			],
+			[
+				"clear",
+				"Clear Console"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"col",
 				"Color Picker"
+			],
+			[
+				"set syn mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"set syna c",
+				"Set Syntax: C"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"tri",
+				"Trimmer: Trim trailing whitespace."
 			],
 			[
 				"disable ",
@@ -677,14 +719,6 @@
 			[
 				"prv ",
 				"PackageResourceViewer: Extract Package"
-			],
-			[
-				"enab",
-				"Package Control: Enable Package"
-			],
-			[
-				"cle",
-				"Clear Console"
 			],
 			[
 				"install",
@@ -707,10 +741,6 @@
 				"SublimeAStyleFormmatter: Format Current Selection"
 			],
 			[
-				"set syn c",
-				"Set Syntax: C"
-			],
-			[
 				"set syn latex",
 				"Set Syntax: LaTeX"
 			],
@@ -725,18 +755,6 @@
 			[
 				"anaco",
 				"Anaconda: Disable linting on this file"
-			],
-			[
-				"trim",
-				"Trimmer: Trim trailing whitespace."
-			],
-			[
-				"trimm",
-				"Trimmer: Trim trailing whitespace."
-			],
-			[
-				"prv",
-				"PackageResourceViewer: Extract Package"
 			],
 			[
 				"ana",
@@ -775,16 +793,8 @@
 				"Clear Console"
 			],
 			[
-				"clear",
-				"Clear Console"
-			],
-			[
 				"set sy ic",
 				"Set Syntax: iCalendar"
-			],
-			[
-				"remo",
-				"Package Control: Remove Package"
 			],
 			[
 				"yum",
@@ -873,10 +883,6 @@
 			[
 				"trans ",
 				"DoxyDoxygen: Translate Selection To..."
-			],
-			[
-				"col",
-				"Color Picker"
 			],
 			[
 				"syn bash",
@@ -1027,13 +1033,132 @@
 				"Markdown HTML Preview"
 			]
 		],
-		"width": 529.0
+		"width": 629.0
 	},
 	"console":
 	{
 		"height": 220.0,
 		"history":
 		[
+			"from tabulate import tabulate",
+			"import tabulate",
+			"dir(tabulate)",
+			"os.path.join('/media/data/CODES/ccs7_workspace/dvt/AnalysisSolutionsTemp/AnalysisSolution1492041736539', 'Execution#0/data.csv')",
+			"os.path.join('/media/data/CODES/ccs7_workspace/dvt/AnalysisSolutionsTemp/AnalysisSolution1492041736539/', 'Execution#0/data.csv')",
+			"os.path.join('/media/data/CODES/ccs7_workspace/dvt/AnalysisSolutionsTemp/AnalysisSolution1492041736539/', '/Execution#0/data.csv')",
+			"os",
+			"[os.path.getatime(os.path.join(dat[0],d)) for d in dirs]",
+			"[os.path.getatime(d) for d in dirs]",
+			"dirs=os.listdir(dat[0])",
+			"os.listdir(dat[0])",
+			"os.path.getatime(dat[0])",
+			"os.path(dat[0])",
+			"import os",
+			"dat = [\"/media/data/CODES/ccs7_workspace/dvt/AnalysisSolutionsTemp/\", \"/Execution#0/data.csv\"]\n",
+			"sp",
+			"import subprocess as sp",
+			"from subprocess import subprocess as sp",
+			"ss.get('settings')",
+			"ss.get('build_systems')",
+			"ss.get()",
+			"get(ss)",
+			"len(ss)",
+			"dir(ss)",
+			"ss",
+			"ss=sublime.load_settings(\"ELT131_LAB_reports.sublime-project\")",
+			"sublime.load_settings(\"ELT131_LAB_reports.sublime-project\")",
+			"sublime.load_settings('${project}..')",
+			"sublime.load_settings('${project}..').has(\"font_size\")",
+			"sublime.load_settings('${project}').has(\"font_size\")",
+			"sublime.load_settings('${project}').has(\"settings\")",
+			"dir(sublime.load_settings('${project}')).has(\"settings\")",
+			"dir(sublime.load_settings('${project}'))",
+			"dir(sublime.load_settings('${project}')",
+			"sublime.load_settings('${project}')",
+			"sublime.load_settings('${project}').get(\"specific_style.cssdd\")",
+			"sublime.load_settings('${project}').get(\"specific_style.css\")",
+			"sublime.load_settings('${project}')",
+			"sublime.load_settings('${project}'))",
+			"sublime.load_settings(expanded_var(self.view, '${project}'))",
+			"window",
+			"sublime.window",
+			"sublime.windo",
+			"sublime",
+			"sublime.expand_variables('${project_name}', window.extract_variables())",
+			"window.extract_variables()['project_name']",
+			"window.extract_variables()",
+			"sublime.extract_variables()",
+			"extract_variables()",
+			"list(filter(lambda x: 'comment.block.html' not in view.scope_name(x.begin()), keyRegs))",
+			"list(filter(lambda x: 'comment.block.html' in view.scope_name(x.begin()), keyRegs))",
+			"list(filter(lambda x: 'comment.block.html' in view.scope_name(x.begin()), x in keyRegs))",
+			"['comment.block.html' in view.scope_name(k.begin()) for k in keyRegs]",
+			"keyRegs",
+			"list(filter(lambda x: 'comment.block.html' in view.scope_name(x.begin()), x in keyRegs))",
+			"list(filter(lambda x: 'comment.block.html' in view.scope_name(x.begin()), for x in keyRegs))",
+			"list(filter(lambda x: 'comment.block.html' in view.scope_name(x.begin()), keyRegs))",
+			"list(filter(lambda x: 'comment.block.html' in self.view.scope_name(x.begin()), keyRegs))",
+			"['comment.block.html' in view.scope_name(k.begin()) for k in keyRegs]",
+			"keyRegs = [view.line(keyr) for keyr in view.find_all(ATTRPREFIXES[0])]",
+			"['comment.block.html' in view.scope_name(k.begin()) for k in keyRegs]",
+			"'comment.block.html' in view.scope_name(keyRegs[0].begin())",
+			"'comment.block.html' in view.scope_name(keyRegs[0])",
+			"keyRegs",
+			"keyRegs = [view.line(keyr) for keyr in view.find_all(ATTRPREFIXES[0])]",
+			"keyRegs",
+			"keyRegs = [view.line(keyr) for keyr in view.find_all(ATTRPREFIXES[0])]",
+			"ATTRPREFIXES=['@codeimport:', '@codeimport_nocomments']",
+			"keyRegs",
+			"keyRegs=[sublime.Region(r) for r in _keyRegs]",
+			"_keyRegs=[(2504, 2565), (2690, 2740), (10434, 10494), (10629, 10689), (10815, 10880), (11006, 11071), (11413, 11458), (16035, 16095), (16230, 16290), (16599, 16644), (19267, 19327), (19462, 19522), (19831, 19876)]",
+			"keyRegs",
+			"keyRegs[0]",
+			"keyRegs=[sublime.Region(r) for r in keyRegs]",
+			"keyRegs[0]",
+			"'comment.block.html' in view.scope_name(keyRegs[0])",
+			"'comment.block.html' in view.scope_name(keyRegs[0].begin())",
+			"'comment.block.html' in self.view.scope_name(keyRegs[0].begin())",
+			"keyRegs=[(2504, 2565), (2690, 2740), (10434, 10494), (10629, 10689), (10815, 10880), (11006, 11071), (11413, 11458), (16035, 16095), (16230, 16290), (16599, 16644), (19267, 19327), (19462, 19522), (19831, 19876)]",
+			"view.scope_name(view.sel()[0].begin())",
+			"view.scope_name(200)",
+			"view.scope_name(20)",
+			"view.scope_name(view.sel()[0].begin())",
+			"view.scope_name(view.sel()[0])",
+			"view.scope_name()",
+			"view.get_regions()",
+			"view.meta_info()",
+			"pp(dir(view))",
+			"from pprint import pprint as pp",
+			"print (view.syntax_name(view.sel()[0].b))",
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"dir(sublime)",
+			"dd(sublime)",
+			"sublime.logs_record(True)",
+			"sublime.logs_enable(True)",
+			"'var Boot = xdc.useModule('ti.catalog.c2800.init.Boot');'",
+			"re.sub('^\\/\\/.*\\n', '', code, re.MULTILINE)",
+			"re.sub('^\\/\\/.*', '', code, re.MULTILINE)",
+			"re.sub('^\\/\\/.*$', '', code)",
+			"re.sub('^\\/\\/.*$', '', code, re.MULTILINE)",
+			"re.sub('^/\\/.*$', '', code, re.MULTILINE)",
+			"re.sub('^ *\\/\\/.*$', '', code, re.MULTILINE)",
+			"re.sub('^ *\\/\\/.*\\n', '', code, re.MULTILINE)",
+			"re.sub(' *\\/\\/.*\\n', '', code, re.MULTILINE)",
+			"re.sub(' *\\/\\/.*\\n', '', code, re.ALL)",
+			"re.sub(' *\\/\\/.*\\n', '', code)",
+			"re.sub('\\s*\\/\\/.*\\n', '', code)",
+			"re.sub('^ *\\/\\/.*\\n', '', code)",
+			"re.sub('^[\\s ]*\\/\\/.*\\n', '', code)",
+			"re.sub('^\\s*\\/\\/.*\\n', '', code)",
+			"re.sub('^\\s*\\/\\/.*$', '', code)",
+			"print(re.sub('^\\s*\\/\\/', '', code))",
+			"print(re.sub('^\\s*\\/\\/', '', code)",
+			"code",
+			"re.sub('^\\s*\\/\\/', '', code)",
+			"import re",
+			"re.sub('^\\s*\\/\\/', '', code)",
+			"code='// hallocode\\n  // hallocode'",
 			"re.sub('\\n{2,}','\\n',code)",
 			"re.sub('\\n\\n','\\n',code)",
 			"import re",
@@ -1042,126 +1167,7 @@
 			"code='hallo, thisis\\nthe code\\n\\nwhich we shold\\n\\n\\nagainst multiple\\nnewlines and\\n\\nsubst'",
 			"pp(dir(re))",
 			"pp(p)",
-			"p=re.compile('\\*')",
-			"pp(re.re)",
-			"pp(re)",
-			"import re",
-			"pp(re)",
-			"from pprint import pprint as pp",
-			"[print(k) for k in arr]",
-			"arr=[]",
-			"type([3,4]).__name__",
-			"type([3,4]).name",
-			"type([3,4])",
-			"aa",
-			"aa.insert(0,'dd')",
-			"aa",
-			"aa.append('ffs')",
-			"aa.append('ff')",
-			"aa",
-			"aa=list()",
-			"aa",
-			"aa=list().insert(0,'dd')",
-			"list().insert(0,'dd')",
-			"len(p.findall('``d`c'))",
-			"p.findall('``d`c')",
-			"p.findall('```c')",
-			"p.find('```c')",
-			"p.find('```c').count",
-			"pp(dir(re))",
-			"from pprint import pprint as pp",
-			"pp(dir(re))",
-			"p.contain('```c').count",
-			"p.contains('```c').count",
-			"p.match('```c').count",
-			"p.match('```c').isempty()",
-			"p.match('```c').empty()",
-			"p.match('```c').group()",
-			"p.match('```c')[0]",
-			"p.match('```c')",
-			"p=re.compile('^\\`\\`\\`.*')",
-			"tt[1]",
-			"tt",
-			"tt(1)",
-			"tt=(5,4)",
-			"view.line(5)",
-			"view.line(sublime.Point(5))",
-			"view.line(sublime.Point(5)))",
-			"os.path.basename('/tmp/rr')",
-			"os.path.basename('/tmp/')",
-			"os.path.basename()",
-			"os.path.file_name()",
-			"import os",
-			"os.path",
-			"mdo",
-			"mdo=[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in view.lines(sublime.Region(0,127))]",
-			"mdo=[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in sublime.Region(0,127)]",
-			"mdo=[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in sublime.Region(0,127))]",
-			"mdo",
-			"mdo=[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(sublime.Region(0, 128)))",
-			"re.split('(^[a-zA-Z]+)\\: *(.*) *$', sublime.Region(0, 128))",
-			"view.find('\\n[ \\t]*\\n', 0)",
-			"view.find('\\n[ ?]*\\n', 0)",
-			"view.find('\\n', 0)",
-			"view.find(' ', 0)",
-			"view.find('', 0)",
-			"view.find(':', 0)",
-			"view.substr(sublime.Region(0,1000))",
-			"view.substr(sublime.Region(0,1000)",
-			"re.findall(r\"(^.*\\:.*\\n)+\", view.substr(sublime.Region(0,1000)))",
-			"re.findall(r\"^.*\\:.*\\n\", view.substr(sublime.Region(0,1000)))",
-			"re.find(r\"^.*\\:.*\\n\", view.substr(sublime.Region(0,1000)))",
-			"re.find(r\"^.*\\:.*\\n\", view.substr(sublime.Region(0,1000))",
-			"['Location' in m for m in mdo].index(True)",
-			"(['Location' in m for m in mdo]).index(True)",
-			"(['Title' in m for m in mdo]).index(True)",
-			"(['Title' in m for m in mdo]).index('True')",
-			"['Title' in m for m in mdo].index('True')",
-			"['Title' in m for m in mdo]",
-			"'Title' in mdo",
-			"mdo=[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\: *(.*) *$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\:\\s+(.*)\\s+$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\:\\s+(.[^ ]*)\\s+$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l)))).strip() for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l)))).lstrip() for l in view.lines(view.sel()[0])]",
-			"[list(filter(None, re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l)))) for l in view.lines(view.sel()[0])]",
-			"[filter(None, re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l))) for l in view.lines(view.sel()[0])]",
-			"[re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l)) for l in view.lines(view.sel()[0])]",
-			"[view.substr(l) for l in view.lines(view.sel()[0])]",
-			"[re.split('(^[a-zA-Z]+)\\:(.*)$', view.substr(l)) for l in view.lines(view.sel()[0])]",
-			"[view.substr(l) for l in view.lines(view.sel()[0])]",
-			"view.lines(view.sel()[0])",
-			"view.substr(view.lines(view.sel()[0]))",
-			"p.split(view.substr(view.sel()[0]))",
-			"view.substr(view.sel()[0])",
-			"view.sel()[0]",
-			"view.sel()",
-			"p.split('Footicon:   ./pics/whz.png')",
-			"p=re.compile('(^[a-zA-Z]+)\\:(.*)$')",
-			"p.split('Footicon:   ./pics/whz.png')",
-			"p=re.compile('^([a-zA-Z]+)\\:(.*)$')",
-			"re.compile('^([a-zA-Z]+)\\:(.*)$')",
-			"re.find('<title>(.*)<\\/title>', 'eesggsg')",
-			"import re",
-			"re.find('<title>(.*)<\\/title>', 'eesggsg')",
-			"view.set_viewport_position((0,512))",
-			"view.set_viewport_position((0,2))",
-			"type(view.viewport_position()[0])",
-			"type(view.viewport_position())",
-			"view.viewport_position()",
-			"view.viewport_position(",
-			"view.set_viewport_position(vr[1])",
-			"vr=[view.sel()[0], view.viewport_position()]",
-			"reg.clear()",
-			"reg[0].clear()",
-			"type(reg[0])",
-			"type(reg)",
-			"reg=view.sel()",
-			"sublime.Region",
-			"sublime.Region.clear()",
-			"region.clear()"
+			"p=re.compile('\\*')"
 		]
 	},
 	"distraction_free":
@@ -1176,18 +1182,71 @@
 	"expanded_folders":
 	[
 		"/media/data/whz/reports/ELT131",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_02",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_02/markdown",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_03",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_v2",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_03/pics"
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03"
 	],
 	"file_history":
 	[
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.h",
+		"/home/mainster/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
+		"/home/mainster/.config/sublime-text-3/Packages/User/Log.sublime-syntax",
+		"/home/mainster/.config/sublime-text-3/Packages/User/log2.sublime-syntax",
+		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/styleMdb_ELT131_LAB_04.css",
+		"/opt/ti/controlSUITE/device_support/f2833x/v141/DSP2833x_examples_ccsv5/flash_f28335/Example_2833xFlash.c",
+		"/media/data/CODES/LTspiceWorkspace/LTSpice_projects/RT/PID1.asc",
+		"/media/data/CODES/LTspiceWorkspace/ini_files/LTspiceXVII_multilibs.ini",
+		"/tmp/list",
+		"/home/mainster/.wine/drive_c/users/mainster/Application Data/LTspiceXVII.ini",
+		"/home/mainster/CODES_local/LTspiceWorkspace/README.md",
+		"/home/mainster/CODES_local/LTspiceWorkspace/ini_files/LTspiceXVII_multilibs.ini",
+		"/home/mainster/CODES_local/LTSpice_projects/ini_files/LTspiceIV_ORIG.ini",
+		"/tmp/untit.cfg",
+		"/tmp/untitled.cfg",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.h",
+		"/media/data/ti/TMS320F28335_docs/2248.gpio_lcd.h",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_3/MD_F2833x_LIB/md_bsp_explorer.h",
+		"/opt/ti/controlSUITE/libs/utilities/boot_rom/2802x/2802x_boot_rom_v2_0/source/Parallel_Boot.c",
+		"/opt/Distr_Cadence/видео установки.txt",
+		"/opt/Distr_Cadence/README",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04.mmd",
+		"/home/mainster/CODES_local/pythons/subprocess_clipboard.py",
+		"/home/mainster/CODES_local/pythons/serial_pyserial.py~",
+		"/home/mainster/CODES_local/pythons/serial_pyserial.py",
+		"/home/mainster/CODES_local/pythons/serialConfigLater.py",
+		"/home/mainster/CODES_local/pythons/serialConfig.py",
+		"/home/mainster/CODES_local/pythons/saleSys.pyc",
+		"/home/mainster/CODES_local/pythons/saleSys.py",
+		"/home/mainster/CODES_local/pythons/moveCopyWithProgressBar.py",
+		"/home/mainster/CODES_local/pythons/generateHeaderSeps.py",
+		"/home/mainster/CODES_local/pythons/customerExample.pyc",
+		"/home/mainster/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/home/mainster/CODES_local/pythons/wrapperForPrint.py",
+		"/home/mainster/CODES_local/pythons/ccsUiaAnalyzer.py",
+		"/media/data/credentials_ZW",
+		"/home/mainster/.config/sublime-text-3/Packages/User/snipsMdb/pyTemplate.sublime-snippet",
+		"/home/mainster/.config/sublime-text-3/Packages/User/snipsMdb/pyScriptTemplate.sublime-snippet",
+		"/home/mainster/.config/sublime-text-3/Packages/SideBarEnhancements/SideBarAPI.py",
+		"/home/mainster/.config/sublime-text-3/Packages/SideBarEnhancements/SideBar.py",
+		"/media/data/whz/reports/ELT131/styleMdb_ELT131_reports.css",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_reports.sublime-project",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_5/app.cfg",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04_01/ELT131_04_01.c",
+		"/tmp/nsmail-2.asc",
+		"/tmp/nsmail-1.asc",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_5/ELT131_LAB_03_RTOS_5.c",
+		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/mathjax.html",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.h",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_v2/ELT131_LAB_03_RTOSv2.c",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.c",
+		"/home/mainster/&",
+		"/tmp/README.txt",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/os_swi_no_200kHz_100ns_v2_because.svg",
+		"/home/mainster/.config/sublime-text-3/Packages/Open URL/open_url.py",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_4/app.cfg",
+		"/media/data/CODES/ccs7_workspace/MD_F2833x_LIB/documentation/PIEINT_vectTable.md",
 		"/home/mainster/.config/sublime-text-3/Packages/User/mdImage.sublime-snippet",
 		"/media/data/whz/modulunterlagen/ETechnik_tree",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/SHORTSRC.c",
-		"/home/mainster/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
 		"/home/mainster/.config/sublime-text-3/Packages/User/headhlines.sublime-snippet",
 		"/home/mainster/.config/sublime-text-3/Packages/User/snipsMdb/CfuncHead.sublime-snippet",
 		"/home/mainster/.config/sublime-text-3/Packages/User/snipsMdb/head.sublime-snippet",
@@ -1196,14 +1255,11 @@
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/non-os_flash_jitter_at_200.png",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_NON-OS/main.c",
 		"/home/mainster/.config/sublime-text-3/Packages/BufferScroll/BufferScroll.py",
-		"/home/mainster/CODES_local/pythons/saleSys.py",
 		"/home/mainster/.config/sublime-text-3/Packages/User/try.py",
 		"/home/mainster/.config/sublime-text-3/Packages/User/PythonBreakpoints.sublime-settings",
 		"/home/mainster/.config/sublime-text-3/Packages/Python Breakpoints/PythonBreakpoints.sublime-settings",
 		"/home/mainster/.config/sublime-text-3/Packages/Python Breakpoints/Default (Linux).sublime-keymap",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_NON-OS/main.h",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_reports.sublime-project",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03.mmd",
 		"/media/data/whz/reports/ELT131/MD_F2833x_LIB/md_epwm.c",
 		"/media/data/whz/reports/ELT131/MD_F2833x_LIB/md_epwm.h",
@@ -1216,7 +1272,6 @@
 		"/home/mainster/.config/sublime-text-3/Packages/Terminal/Terminal.sh",
 		"/home/mainster/.config/sublime-text-3/Packages/terminal/Terminal.py",
 		"/home/mainster/.config/sublime-text-3/Packages/User/Terminal.sublime-settings",
-		"/home/mainster/.config/sublime-text-3/Packages/Open URL/open_url.py",
 		"/home/mainster/.config/sublime-text-3/Packages/ShellCommand/VariableSubstitution.py",
 		"/home/mainster/.config/sublime-text-3/Packages/ShellCommand/SublimeHelper.py",
 		"/home/mainster/.config/sublime-text-3/Packages/ShellCommand/OsShell.py",
@@ -1231,7 +1286,6 @@
 		"/media/data/whz/reports/ELT131/makePicsRel.sh",
 		"/tmp/ee/ELT131_LAB_01/ELT131_LAB_01.html",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01/ELT131_LAB_01.mmd",
-		"/home/mainster/.config/sublime-text-3/Packages/User/snipsMdb/pyScriptTemplate.sublime-snippet",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01/ELT131_LAB_01.html",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_02/ELT131_LAB_02.mmd",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01/disasm_ram",
@@ -1259,59 +1313,7 @@
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01/ELT131_LAB_01.tex",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01.mmd",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_01/ELT131_LAB_01.pdf",
-		"/home/mainster/.config/sublime-text-3/Packages/User/pandoc-markdown-to-word.sublime-build",
-		"/home/mainster/.config/sublime-text-3/Packages/User/pandoc-markdown-to-pdf.sublime-build",
-		"/home/mainster/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
-		"/home/mainster/CODES_local/ccs6_workspaces/minirtos/Release/hellocfg.cmd",
-		"/media/data/whz/reports/ELT131/cpu_timer0_irq_handler.asm",
-		"/media/data/whz/reports/ELT131/ELT131_Lab_1.mmd",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_1/ELT131_Lab_1.html",
-		"/media/data/SMathStudioDesktop.0_98_6179.Mono/smathstudio_desktop_mono",
-		"/media/whzWebspace/adchef",
-		"/tmp/.fr-7VG3o9/TMDSPREX28335-HWDevPackage[R5]/PeripheralExplorerBaseboardHWdevPkg/USB-JTAG[R2].sch",
-		"/media/data/ti/TMS320F28335_docs/TMS320C28x_DSP_CPU_and_Instruction_Set_Rev._F_.txt",
-		"/home/mainster/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/media/data/CODES/ccs6_workspaces/ELT131_F28335_workspace/ELT131_01/main.c",
-		"/media/data/CODES/ccs7_workspace2/ELT131_01/main.c",
-		"/media/data/CODES/ccs7_workspaces/ELT131_01/main.c",
-		"/media/data/whz/modulunterlagen/ELT131_Mikroprozessor-Betriebssysteme/2017/ELT131_Praktikum.pdf.bat",
-		"/home/mainster/.config/sublime-text-3/Packages/User/example_command.py",
-		"/usr/bin/vpnWhz2.sh",
-		"/media/data/whz/zki-script.sh.py",
-		"/media/data/whz/projectGalvoDocu/trytry.py",
-		"/home/mainster/scripts/VpnWhzOpenconnect.sh",
-		"/media/data/whz/projectGalvoDocu/merged.mmd",
-		"/media/data/whz/projectGalvoDocu/pics/UML-Diagrammhierarchie_Mdb.svg",
-		"/home/mainster/CODES_local/dia_diagram_workspace/pyumltest.py",
-		"/home/mainster/.pythonrc",
-		"/media/data/whz/projectGalvoDocu/projectGalvoDocu.sublime-project",
-		"/media/data/whz/projectGalvoDocu/svgCoord.py",
-		"/media/data/whz/projectGalvoDocu/pics/gnus2/gnu_flatten.svg",
-		"/home/mainster/.config/sublime-text-3/Packages/anaconda/Context.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/Anaconda/Main.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/anaconda/Main.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/Anaconda/Context.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/DoxyDoxygen (evolution)/Context.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/DoxyDoxygen (evolution)/Main.sublime-menu",
-		"/home/mainster/.config/sublime-text-3/Packages/DoxyDoxygen (evolution)/*.menu",
-		"/opt/sublime_text/sublime_plugin.py",
-		"/opt/sublime_text/sublime.py",
-		"/media/data/CODES/dia_diagram_workspace/UML-Diagrammhierarchie_Mdb.py",
-		"/media/data/CODES/dia_diagram_workspace/UML-Diagrammhierarchie_Mdb.cxx",
-		"/media/data/CODES/pythons/lumyTest.py",
-		"/media/data/whz/projectGalvoDocu/pics/uml_diagrams_strukt.dia",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown/MultiMarkdown.sublime-syntax",
-		"/home/mainster/.config/sublime-text-3/Packages/Python/Python.sublime-syntax",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown/Markdown.sublime-syntax",
-		"/home/mainster/.config/sublime-text-3/Packages/SmartMarkdown/Default.sublime-keymap",
-		"/tmp/.fr-kokbVJ/Readme.txt",
-		"/home/mainster/compiledStuff/pyNsource-1.61-src/src/pyNsourceGui.py",
-		"/media/data/CODES/papyrus_uml_workspace/firstUml/the2model.uml",
-		"/media/data/CODES/papyrus_uml_workspace/firstUml/theModel.uml",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/README.md",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
-		"/media/data/whz/gcalcli_emv_pr"
+		"/home/mainster/.config/sublime-text-3/Packages/User/pandoc-markdown-to-word.sublime-build"
 	],
 	"find":
 	{
@@ -1329,6 +1331,97 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"part 3",
+			"(hwi)",
+			"fnCodeExec",
+			"|   |",
+			"\\|$",
+			"\");",
+			"asm(\"  ",
+			"^",
+			".[^ |]*$",
+			"^(.[^ ]* )(.[^ ]* )(.* )",
+			"([0-9]{2}) bits",
+			",",
+			"<p>",
+			"<div style=\"padding-top: 5px;\" markdown=1>",
+			"div",
+			"<div style=\"padding-top: 15px;\" markdown=1>",
+			"<div style=\"padding-top: .5em;\" markdown=1>",
+			"<div style=\"padding-top: .75em;\">",
+			"/home/mainster/CODES_local/matlab_workspace/",
+			"raw",
+			"forma",
+			"tit",
+			"\\\\\\\\",
+			"\\/tmp\\/",
+			"\\/",
+			"\\=.*",
+			"tile",
+			"Interrupt latency and jitter __non-OS__",
+			"__Zero latency__ interrupt (latency|jitter) @([0-9]+k?Hz) of ZLI __RTOS__ setup",
+			"__Zero latency__ interrupt (latency|jitter) of ZLI __RTOS__ setup",
+			"Interrupt (latency|jitter) of SWI __RTOS__ setup",
+			"Interrupt (latency|jitter) of HWI __RTOS__ setup",
+			"SWI",
+			"in order to",
+			"Uint([0-9]+)  ",
+			"Uint([0-9]+) ",
+			"Uint([0-9]+)",
+			"_tmp_",
+			"dat",
+			"__Q:__ ",
+			"\\_\\_A\\:\\_\\_ ",
+			"\\_\\_Q\\:\\_\\_ (.*)",
+			"window",
+			"sublime.expand_variables",
+			"",
+			"\\/\\/\\!< ",
+			"ns",
+			"</details>",
+			"\\$\\\\si\\\\\\{(.[^\\\\]*)\\\\\\}\\$",
+			"\\$\\\\si\\\\\\{(.*)\\\\\\}\\$",
+			"50ns",
+			"(figure class=\"oszi\")",
+			"</figure></a>",
+			"<a href=\"\\.\\/.*.png\" target=\"_blank\">",
+			"Interrupt latency and jitter",
+			"Interrupt latency and latency ",
+			"jitter",
+			"<h4 class=\"sphd",
+			"oszi",
+			"\\.\\/picsTry1",
+			"50ns",
+			"latency",
+			"jitter",
+			"of ",
+			"jitter",
+			"latency",
+			"500ns",
+			"latency",
+			"HWI",
+			"pics",
+			"main_03",
+			"lambda",
+			"”",
+			"“",
+			"_+$",
+			"",
+			"Jitter",
+			"(>.* )@([0-9]+)(k?Hz) (.[^<]*)",
+			"(>.* )@([0-9]+)(k?Hz)(.[^<]*)",
+			"(>.* @)([0-9]+)(k?Hz)(.[^<]*)",
+			"(>.*@)([0-9]+)(k?Hz)",
+			"TI\\_RTOS",
+			"Part ([0-5])\\: (.[^#]*)",
+			"^",
+			" *\\*\\/\n\n\\/\\*",
+			" *\\*\\/\n \n\\/\\*",
+			" *\\*\\/\n\\/\\*",
+			" *\\*\\/\n ",
+			" *\\*\\/",
+			"ELT131_LAB_03_RTOSv2",
+			"ELT131_LAB_03_RTOS_v2",
 			"hasAttrs",
 			"</boxed>",
 			"<boxed>",
@@ -1365,98 +1458,7 @@
 			"ATTPREFIX",
 			"ATTRS_PREFIX",
 			"UmlBlock",
-			"self.view",
-			"extract_attrs",
-			"extract_code_blocks",
-			"ModifyBody",
-			" non-OS ",
-			"non-OS",
-			"Non-OS version",
-			"figure style=\"\"",
-			"--figure-to-img-padding",
-			"noborder",
-			" RAM",
-			" flash",
-			"RAM",
-			"flash",
-			"”",
-			"“",
-			" (.*)",
-			"<!",
-			"\\* +–",
-			"\\* +•",
-			"subprocess",
-			"^",
-			" ",
-			"pics",
-			"50us_irq2irq",
-			"pics",
-			"^\\n",
-			"^(\\/\\*)|( \\*.+)\n",
-			"border-sty",
-			"footer",
-			"footIcon",
-			"header",
-			"details",
-			"location",
-			"Title",
-			"Del Bass",
-			"meta",
-			"0035",
-			"indent",
-			"\\\"true\\\"",
-			"(.*)",
-			"(.*)\\=(.*)",
-			"o",
-			"%",
-			"\\\\(begin|end)\\{shaded\\}",
-			"font",
-			"src=\"./",
-			"C:\\TI\\controlSUITE\\device_support\\f2833x\\v141\\DSP2833x_headers",
-			"jitters",
-			"   |",
-			"RB",
-			"ABORTI",
-			"Regio",
-			"self",
-			"asm",
-			"“",
-			"\\.+.*$",
-			"\\.+",
-			"\\\\",
-			"C:\\TI\\",
-			"\\/source\\/",
-			"\\\\",
-			"C:\\TI\\controlSUITE\\device_support\\f2833x\\v141\\DSP2833x_common",
-			"C\\:\\\\.*",
-			"codecs",
-			"\\\\",
-			"\\\\(.[^ \\(\\)]*)",
-			"    ",
-			" \\\\",
-			"entry",
-			",",
-			"\\n",
-			"#-",
-			"##",
-			"sett",
-			"\\s",
-			"import",
-			"WINDOW_SIZE",
-			"@startuml",
-			"get_replace_reg",
-			"create_temporary_copy",
-			"digram_file",
-			"os.path.splitext",
-			"splitext",
-			"osd",
-			"block",
-			"defaultAttrsDict",
-			"defAttrsDict",
-			"extract_diagram_attrs",
-			"gen_image_tag",
-			"attrsDict",
-			"imgStyle"
+			"self.view"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1464,6 +1466,66 @@
 		"regex": false,
 		"replace_history":
 		[
+			"|",
+			"|\\1|\\2|\\3|",
+			"\\1-bits",
+			"\nPUSH ",
+			"<p markdown=1>",
+			"",
+			"<div style=\"padding-top: 15px;\" markdown=1>",
+			"<div style=\"padding-top: .25em;\" markdown=1>",
+			"<div style=\"padding-top: .5em;\" markdown=1>",
+			"",
+			"\\",
+			"",
+			"\\",
+			"",
+			"Interrupt latency and jitter of __non-OS__",
+			"Interrupt \\1 @\\2 of __ZLI__ RTOS setup",
+			"Interrupt \\1 of __ZLI__ RTOS setup",
+			"Interrupt \\1 of __SWI__ RTOS setup",
+			"Interrupt \\1 of __HWI__ RTOS setup",
+			"Swi",
+			"uint\\1_t",
+			"__tmp",
+			"datdir",
+			"",
+			"__Q:__ <span class=\"quest\">\\1</span>",
+			"__Q:__",
+			"",
+			"\\1",
+			"20ns",
+			"\\1 markdown=1",
+			"</figure>",
+			"",
+			"Interrupt jitter",
+			"Interrupt latency ",
+			"latency",
+			"<h4 class=\"sp",
+			"./pics/picsTry1",
+			"20ns",
+			"jitter",
+			"latency",
+			"of ZLI ",
+			"latency",
+			"jitter",
+			"100ns",
+			"jitter",
+			"SWI",
+			"picsTry1",
+			"\"",
+			"",
+			"__Q:__",
+			"jitter",
+			"\\1\\4 @$\\\\;\\\\si{\\2\\3}\\\\;$",
+			"\\1\\4$\\\\;\\\\si{\\2\\3}\\\\;$",
+			"\\1$\\\\;\\\\si{\\2\\3}\\\\;$",
+			"\\1$\\;\\si{\\2\\3}\\;$",
+			"TI-RTOS",
+			"\\2(Part \\1) ##",
+			"//!< ",
+			" *",
+			"ELT131_LAB_03_RTOS_3",
 			"attrStrs",
 			"",
 			">",
@@ -1531,67 +1593,7 @@
 			"# ",
 			"#",
 			", ",
-			"",
-			"splitext",
-			"uml_block",
-			"defaultDict",
-			"defaultAttrsDict",
-			"attrsObj",
-			"imgStyleStr",
-			"imgAttrsStr",
-			"attrsDict",
-			"next_line",
-			"__attr_reg",
-			"self.blk_reg",
-			"get_attr_dict",
-			"",
-			"\\1 UHRZEIT?",
-			"13:30",
-			"",
-			"imgAttrs",
-			"imgTag",
-			"pair[0]",
-			"inlas",
-			"defas",
-			"defa",
-			"defaultAttrs",
-			"inlineAttrs",
-			"img_tag",
-			"defTag",
-			"gen_image_tag",
-			"img_attrs",
-			"img_tag",
-			"dprint",
-			",\\t'",
-			"",
-			"print(\\1)",
-			"print",
-			"",
-			"print",
-			"d.print",
-			"extract_diagram_attr",
-			"undo_inline_subst",
-			"attr_reg",
-			"self.attrs_dict",
-			"extract_inline_block_attr",
-			"default_style",
-			"blocks",
-			"self.view",
-			"preserve_ext",
-			"_FILE_",
-			"self.file",
-			"locate_code_blocks",
-			"dfile",
-			"srcFile",
-			" -->",
-			"diags",
-			"inline_diagram",
-			"regsEnd",
-			"regsStart",
-			"cRegs",
-			"uml",
-			"Regs",
-			"endCharNums"
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1611,15 +1613,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15696,
+						"buffer_size": 41532,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14983,
-								14983
+								38710,
+								38710
 							]
 						],
 						"settings":
@@ -1628,14 +1630,15 @@
 							"bs_sintax": "multimarkdown",
 							"buffer_scroll_name": "6e4844d9",
 							"parser": "markdown",
+							"spell_check": false,
 							"syntax": "Packages/MarkdownEditing/MultiMarkdown.tmLanguage",
 							"tab_size": 4,
-							"target": "save",
+							"target": "browser",
 							"translate_tabs_to_spaces": true,
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4218.0,
+						"translation.y": 12077.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1643,111 +1646,164 @@
 				},
 				{
 					"buffer": 1,
-					"file": "ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.c",
-					"semi_transient": false,
+					"file": "ELT131_LAB_03/ELT131_LAB_03.html",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 8242,
+						"buffer_size": 385465,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1667,
-								1667
+								385465,
+								385465
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 234.0,
+						"translation.y": 86834.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 42041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42041,
+								42041
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Title:      Report ELT131 LAB 03",
+							"default_dir": "/media/data/whz/reports/ELT131",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7728.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "ELT131_LAB_03/ELT131_LAB_03_RTOS_v2/ELT131_LAB_03_RTOSv2.c",
+					"buffer": 3,
+					"file": "ELT131_LAB_04/ELT131_LAB_04.mmd",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6648,
+						"buffer_size": 8976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3857,
-								3857
+								2913,
+								2913
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"parser": "markdown",
+							"spell_check": true,
+							"syntax": "Packages/MarkdownEditing/MultiMarkdown.tmLanguage",
+							"tab_size": 4,
+							"target": "save",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1326.0,
+						"translation.y": 491.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 3,
-					"file": "ELT131_LAB_03/MD_F2833x_LIB/md_uart_sci.h",
+					"buffer": 4,
+					"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3416,
+						"buffer_size": 83435,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1813,
-								1813
+								46954,
+								46954
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C.sublime-syntax",
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 2058.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/mathjax.html",
+					"buffer": 5,
+					"file": "/home/mainster/.config/sublime-text-3/Packages/User/hexmap.sublime-syntax",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1234,
+						"buffer_size": 3896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1095,
-								1095
+								1679,
+								1679
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"default_extension": "sublime-syntax",
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1755,137 +1811,15 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 3,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "/home/mainster/.config/sublime-text-3/Packages/User/styleMdb.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 37515,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8089,
-								8089
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "b02cf06c",
-							"parser": "markdown",
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"target": "save",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 234.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/mainster/.config/sublime-text-3/Packages/Open URL/open_url.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19807,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12333,
-								12333
-							]
-						],
-						"settings":
-						{
-							"buffer_scroll_name": "9ce7f58d",
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 82787,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								44997,
-								44997
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"auto_complete_triggers":
-							[
-								{
-									"characters": "<",
-									"selector": "text.html"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"bs_sintax": "python",
-							"buffer_scroll_name": "75a80460",
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1626.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"file": "ELT131_LAB_03/pics/os_jitter_200kHz_idle_is_NONE_200ns.png",
-					"semi_transient": true,
-					"stack_index": 1,
-					"type": "image"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -1911,7 +1845,7 @@
 		"cols":
 		[
 			0.0,
-			0.607295872948,
+			0.609354277989,
 			1.0
 		],
 		"rows":
@@ -1923,7 +1857,7 @@
 	"menu_visible": true,
 	"output.ShellCommand":
 	{
-		"height": 173.0
+		"height": 120.0
 	},
 	"output.anaconda_documentation":
 	{
@@ -1987,7 +1921,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 292.0,
+	"side_bar_width": 222.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
