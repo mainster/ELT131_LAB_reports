@@ -1,7 +1,7 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="author" content="Del Basso, Manuel">
-<meta name="date" content="24-03-2017">
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="location" content="WHZ">
 <meta name="footicon" content="./pics/whz.png">
-<meta name="location" content="WHZ"><style>body {
+<meta name="date" content="24-03-2017">
+<meta name="author" content="Del Basso, Manuel"><style>body {
 	border: 1px solid #ddd;
 	margin: 16px auto;
 	outline: 1300px solid #fff;
@@ -63,15 +63,25 @@ body .markdown-body
 summary::-webkit-details-marker {
   display: none;
 }
-
+/****************************************
+ * Not-shure-about section
+ ***************************************/
+/*.markdown-body realy {
+    display: inline-block;
+    color: #9B9B9B;
+    border: 1px solid red;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
+    -moz-box-shadow:    6px 7px 5px 0px rgba(56,56,56,0.38);
+    box-shadow:         6px 7px 5px 0px rgba(56,56,56,0.38);
+    text-align:         center;
+    padding:            2px .3em 2px .3em;
+    margin:             1.5em 0 1.5em 0;
+}*/
 .markdown-body h4.foldable {
 	margin:			0 0 1em 0 !important;
 	/*padding: 		0 !important;*/
 	vertical-align: top !important;
 	text-align: 	center;
-}
-.markdown-body h4.foldable[open] {
-	background-color: red;
 }
  /****************************************
  * Declaring variables
@@ -104,65 +114,6 @@ summary::-webkit-details-marker {
 	font-style: italic;
 	color: #404040;
 }
-/*title, meta {
-	display: block !important;
-}
-*/
-
-/*.header{
-    width: 950px;
-    font-family:Helvetica, Arial, sans-serif;
-}
-.logo {
-    float: left;
-    height: 55px;
-    padding: 10px 20px;
-    background: #004B35;
-    width: 700px;
-}
-.logoClient {
-    float: right;
-    height: 55px;
-    line-height: 55px;
-    padding: 10px 0px;
-    margin:0px -10px 0px 0px;
-    font-size: 30px;
-    color: #004B35;
-    overflow:hidden;
-    font-weight: bold;
-    width: 200px;
-    text-align: right;
-}
-.logoClient img {
-    max-height: 40px;
-    max-width:200px;
-    margin: 0px;
-}
-.clear {
-    clear: both;
-}*/
-
-/*footer {
-	display: inline-block;
-	font-size: 8;
-	color: red;
-}
-head, title, link[href][rel], meta {
-	display: block;
-}
-link[href][rel]::after {
-	content: attr(rel);
-	text-transform: capitalize;
-}
-
-meta[charset]::after {
-	content: 'Charset: ' attr(charset);
-}
-
-meta[name][content]::after {
-	content: attr(name) ': ' attr(content);
-	text-transform: capitalize;
-}*/
 /****************************************
  * Spec sheet headers
  ***************************************/
@@ -199,7 +150,7 @@ meta[name][content]::after {
  */
 .markdown-body h4.sphd,
 .markdown-body h4.sp {
-	margin:			44px 0 22px 0;
+	margin:			22px 0 22px 0;
 	vertical-align: middle;
 	text-align: 	center;
 }
@@ -226,7 +177,7 @@ meta[name][content]::after {
     background: 	linear-gradient(left, white, #E6E6E6, white); 			/* Standard syntax */
 	line-height: 	1px;
 	font-size: 		100%;
-	text-align: 		left;
+	text-align: 	left;
 
 	/*margin-right: 	50%*/
 }
@@ -238,17 +189,17 @@ meta[name][content]::after {
 .markdown-body h4.sp span.codehd {
     box-shadow: 		8px 8px 5px #B3B3B3;
     margin-top: 		6em !important;
+    padding-left: 		10px;
 }
 .markdown-body h4.sphd span {
-    background-color: 	#FCFCFC;
-	border:				1px solid #d8d8d8;
-    padding-left: 		10px;
+    background-color:   #FCFCFC;
+    border:             1px solid #d8d8d8;
 	/*margin-left: 		0px; */
 }
 .markdown-body h4.sp span {
     background-color: 	white;
 	border:				none;
-	padding-left: 		2em;
+	margin-left: 		10px;
 }
 .markdown-body span.quest {
 	display: 		inline-block;
@@ -1585,8 +1536,12 @@ MathJax.Hub.Config({
 </li>
 </ul>
 </li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#non-os-setup-flash-vs-zero-latency">Non-OS setup (FLASH) vs. Zero latency</a></li>
+<li><a href="#conclusion">Conclusion</a><ul>
+<li><a href="#code-execution-performance">Code execution performance</a></li>
+<li><a href="#possible-improvements-regarding-memory-sections">Possible improvements regarding memory sections</a></li>
+<li><a href="#non-os-flash-setup-vs-zero-latency">Non-OS FLASH setup vs. Zero latency</a></li>
+</ul>
+</li>
 <li><a href="#open-questions">Open questions</a><ul>
 <li><a href="#keyword-__interrupt">Keyword __interrupt</a></li>
 <li><a href="#zero-latency-pie-group">Zero latency PIE group</a></li>
@@ -2200,7 +2155,7 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <p>Add the oscilloscope screenshots for signal ePWM1 to your report. Test the signal at frequencies: 200 kHz, 20 kHz, 2 kHz, 200 Hz and 20 Hz.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/epwm_rect_200Hz.png" title="Square wave signal generated from ePWM1 mmodul" class="noborder oszi"><figcaption>Square wave signal generated from ePWM1 mmodul</figcaption> </p>
+<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/epwm_rect_200Hz.png" title="Square wave signal generated from ePWM1 modul" class="noborder oszi"><figcaption>Square wave signal generated from ePWM1 modul</figcaption> </p>
 </figure>
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency to your report.</p>
@@ -2626,7 +2581,7 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <p>Add the final code of file &ldquo;ELT131_03_03.c&rdquo; to your report.</p>
 </blockquote>
 <p>Some basic UART/SCI and encoder read-in functions has been added to the project. The ePWM1 frequencies are selectable via on-board hex encoder switch.</p>
-<p>The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt <strong>latency</strong>, the next oscilloscope screenshots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measureable influence can be pointed out.</p>
+<p>The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt <strong>latency</strong>, the next oscilloscope screen shots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measurable influence can be pointed out.</p>
 <figure class="oszi">
 <p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/picsTry1/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup including an <strong>idle task</strong> to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </p>
 </figure>
@@ -3903,27 +3858,27 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <tbody>
 <tr>
 <td align="center">$\si{100Hz}$</td>
-<td align="center">$\si{1.64 µs}$</td>
+<td align="center">$\si{1.64 us}$</td>
 <td align="center">$\si{28 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{1.60 us}$</td>
 <td align="center">$\si{85 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{1.60 us}$</td>
 <td align="center">$\si{57 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{1.60 us}$</td>
 <td align="center">$\si{89 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200kHz}$</td>
-<td align="center">$\si{1.60 µs}$</td>
+<td align="center">$\si{1.60 us}$</td>
 <td align="center">$\si{120 ns}$</td>
 </tr>
 </tbody>
@@ -4406,22 +4361,22 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 <tbody>
 <tr>
 <td align="center">$\si{100Hz}$</td>
-<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{3.76 us}$</td>
 <td align="center">$\si{150 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{200Hz}$</td>
-<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{3.76 us}$</td>
 <td align="center">$\si{130 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{2kHz}$</td>
-<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{3.76 us}$</td>
 <td align="center">$\si{130 ns}$</td>
 </tr>
 <tr>
 <td align="center">$\si{20kHz}$</td>
-<td align="center">$\si{3.76 µs}$</td>
+<td align="center">$\si{3.76 us}$</td>
 <td align="center">$\si{150 ns}$</td>
 </tr>
 <tr>
@@ -4883,7 +4838,7 @@ In the Part3 of this exercise, TI-RTOS and it&rsquo;s HWI functionality is used.
 </pre></div>
 <br />
 </details><br />
-<div style="height: 1em;"></div></p>
+<!-- <div style="height: 1em;"></div> --></p>
 <blockquote>
 <p>Add the oscilloscope screenshots for the interrupt latency and jitter to your report.</p>
 </blockquote>
@@ -4967,7 +4922,7 @@ Latency and jitter table running <strong>ZLI RTOS</strong>  setup from FLASH.</p
 <h1 id="conclusion"><a name="user-content-conclusion" href="#conclusion" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Conclusion</h1>
 <p>Since the latency value doesn&rsquo;t change much within a setup, all latency and jitter tables has been merged into a single one.</p>
 <p><center><br />
-Avarage latencys and jitter values in $[\si{ns}]$ per ePWM frequency.</p>
+Average latency and jitter values in $[\si{ns}]$ per ePWM frequency.</p>
 <table>
 <thead>
 <tr>
@@ -5000,6 +4955,15 @@ Avarage latencys and jitter values in $[\si{ns}]$ per ePWM frequency.</p>
 <td align="center">24</td>
 </tr>
 <tr>
+<td align="center">RTOS ZLI</td>
+<td align="center">330</td>
+<td align="center">122</td>
+<td align="center">96</td>
+<td align="center">84</td>
+<td align="center">20</td>
+<td align="center">78</td>
+</tr>
+<tr>
 <td align="center">RTOS HWI</td>
 <td align="center">1610</td>
 <td align="center">28</td>
@@ -5017,28 +4981,20 @@ Avarage latencys and jitter values in $[\si{ns}]$ per ePWM frequency.</p>
 <td align="center">150</td>
 <td align="center">NA</td>
 </tr>
-<tr>
-<td align="center">RTOS ZLI</td>
-<td align="center">330</td>
-<td align="center">122</td>
-<td align="center">96</td>
-<td align="center">84</td>
-<td align="center">20</td>
-<td align="center">78</td>
-</tr>
 </tbody>
 </table>
 <p></center></p>
+<h2 id="code-execution-performance"><a name="user-content-code-execution-performance" href="#code-execution-performance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Code execution performance</h2>
 <p><spar>The code execution performance depends on several device parameters that needs to be considered as given (e.g. hardware induced, max. ratings). Indeed, there are various options to increase the performance in terms of &ldquo;instruction throughput&rdquo; to meet highest requirements in time-critical applications.</spar><br />
 <spar>The high degree of flexibility regarding code sectioning <strong>without</strong> the need of a memory management unit and the automatic, efficient interrupt full context save/restore mechanism are some of the benefits when using a modern RISC processor.</spar><br />
-<spar>The Harvard architecture provides separate hardware pathways from instruction and data memories to the CPU. This enables the computational core, instruction and data fetches to be performed in parallel. The CPU can read instructions and data while it writes data simultaneously to provide a almost singlecycle mnemonic across the instruction pipeline. All RAM blocks offer 0-wait R/W access that is, indeed, necessary for computational cores, outlining about <strong>85%</strong> single-cycle instructions.</spar><br />
+<spar>The Harvard architecture provides separate hardware pathways from instruction and data memories to the CPU. This enables the computational core, instruction and data fetches to be performed in parallel. The CPU can read instructions and data while it writes data simultaneously to provide a almost single cycle mnemonic across the instruction pipeline. All RAM blocks offer 0-wait R/W access that is, indeed, necessary for computational cores, outlining about <strong>85%</strong> single-cycle instructions.</spar><br />
 <spar>Due to the nature of <strong>modified</strong> Harvard architectures, the C28xx provides instruction fetching in addition via its data memory bus (i.e. from RAM), rather than only be able to load instructions from program memory sections (i.e. from FLASH, ROM). Another great benefit of modified Harvard architectures is the ability to boot from almost all peripheral interfaces such as SCI/UART, SPI, McBSP or even via large controller area networks.</spar><br />
 <spar>According to the <lkey>F2833x Code Execution Performance</lkey> characteristics, the performance degradation between RAM and internal pipelined FLASH execution is approximately $\si{33 \%}$ since the instruction throughput relation is outlined to be $\si{150 MIPS}/\si{100 MIPS}$. The relation factor of 1.5 is perfectly reflected by the measurement results when comparing the latency values of &ldquo;<em>non-OS (ram)</em>&rdquo; and &ldquo;<em>non-OS (flash)</em>&rdquo; since $\si{220 ns}\cdot 1.5 \,=\,\si{330 ns}$ </spar></p>
 <p><center><br />
 <figure style="width:90%;""> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/flash_ram_performance_degrad.png" title="F2833x Code Execution Performance" class="noborder"><figcaption>F2833x Code Execution Performance<sup id="fnref:fnCodeExec"><a class="footnote-ref" href="#fn:fnCodeExec" rel="footnote">1</a></sup></figcaption> </figure><br />
 </center></p>
 <p><spar>As described in <lkey>TMS320C28x CPU and Instruction Set (Rev. F)</lkey><sup id="fnref:fnCpuInstr"><a class="footnote-ref" href="#fn:fnCpuInstr" rel="footnote">2</a></sup>, section <strong>3.4</strong> <em>Standard Operation for Maskable Interrupts</em>, the C28xx CPU provides automatic context save and restore mechanism for all necessary core registers. In <strong>Table 3-4</strong> <lkey>Register Pairs Saved and SP Positions for Context Saves</lkey>, the automatic context save procedure is listed in detail. This could be used to determine what portion of the interrupt latency is caused by the context save.</spar><br />
-<spar>It should be noticed to not missunderstand the preceeding &lsquo;automatic&rsquo; of the context save mechanismn. This doesn&rsquo;t mean that the push/pop operations of this registers are processed faster than a software implemented equivalent but only that the interrupt context related push/pop instructions are &ldquo;silicon&rdquo; programmed because they <strong>have to</strong> be performed for every valid IRQ, independent of the customer application implementations. As a result of <em>little Endian</em> memory model, 16-Bit op-code arguments needs to be swapped in the following instruction listings.</p>
+<spar>It should be noticed to not misunderstand the preceding &lsquo;automatic&rsquo; of the context save mechanism. This doesn&rsquo;t mean that the push/pop operations of this registers are processed faster than a software implemented equivalent but only that the interrupt context related push/pop instructions are &ldquo;silicon&rdquo; programmed because they <strong>have to</strong> be performed for every valid IRQ, independent of the customer application implementations. As a result of <em>Little-Endian</em> memory model, 16-Bit op-code arguments needs to be swapped in the following instruction listings.</p>
 <p><center><br />
 Table 3-4. Register Pairs Saved, silicon instruction listings and needed cycles</p>
 <table>
@@ -5321,8 +5277,9 @@ Table 2-1. CPU Register Summary</p>
 <p>It should be noticed that additional context guarding must be provided when an application makes use of the core auxiliary registers XAR1&hellip;XAR7 from different contexts (i.e. from ISR and non-ISR contexts)!</p>
 <p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/debug_context_restore_b.png" target="_blank"><figure style="margin-top: 3em;" class="noborder"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/debug_context_restore_b.png" title="Stack layout and automatic context restore verification" class="noborder"><figcaption>Stack layout and automatic context restore verification</figcaption> </figure></a><br />
 </center></p>
-<p>As mentioned above, the performance deterioration induced when fetching data and/or instructions from FLASH memory sections is quite noticeable, but can in many cases be reduced or eliminated. The modified Harward architecture behavior has also been mentioned earlyer in this chapter and the ease of memory management without the need of a MMU has been addressed, too. As a simple but powerfull example, the CCS sources of ELT131_03_02 has been extended by a single code line what eliminates the interrupt latency deterioration from non-OS FLASH setup.</p>
-<p>The XINT1_isr() disassembly of the non-modified FLASH version shows that ISR entry point is placed at 0x3389d5 of the internal address space.</p>
+<h2 id="possible-improvements-regarding-memory-sections"><a name="user-content-possible-improvements-regarding-memory-sections" href="#possible-improvements-regarding-memory-sections" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Possible improvements regarding memory sections</h2>
+<p>As mentioned above, the performance deterioration induced when fetching data and/or instructions from FLASH memory sections is quite noticeable, but can in many cases be reduced or eliminated. The modified Harvard architecture behavior has also been mentioned earlier in this chapter and the ease of memory management without the need of a MMU has been addressed too. As a simple but powerful example, the CCS sources of ELT131_03_02 has been extended by a single code line what eliminates the interrupt latency deterioration from non-OS FLASH setup.</p>
+<p>The XINT1_isr() disassembly of the non-modified FLASH version shows that the ISR entry point is placed at 0x3389d5 of the internal address space.</p>
 <div class="codehilite"><pre><span class="x">124     void XINT1_isr(void) {</span>
 <span class="x">        XINT1_isr():</span>
 <span class="x">3389d5:   761B        ASP</span>
@@ -5374,12 +5331,12 @@ SECTIONS
 </pre></div>
 
 
-<p>To overcome the dogmatic and non-modified harward architecture behavior, simply tell the compiler to be pragmatic and call the XINT1 IRQ handler from data memory section &ldquo;<em>ramfuncs</em>&rdquo;!</p>
+<p>To overcome the dogmatic and non-modified Harvard architecture behavior, simply tell the compiler to be pragmatic and call the XINT1 IRQ handler from data memory section &ldquo;<em>ramfuncs</em>&rdquo;!</p>
 <div class="codehilite"><pre><span class="cp">#pragma CODE_SECTION(XINT1_isr, &quot;ramfuncs&quot;);</span>
 </pre></div>
 
 
-<p>This results in an identical assembly listing with a ISR entry point placed at address 0x8000 of the internal address space. According to the linker command file line 78, this addresses the on-chip RAM block L0.</p>
+<p>This results in an identical assembly listing with the ISR entry point placed at address 0x8000 of the internal address space. According to the linker command file line 78, this addresses the on-chip RAM block L0.</p>
 <div class="codehilite"><pre><span class="mi">124</span>     <span class="kt">void</span> <span class="nf">XINT1_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">RamfuncsRunStart</span><span class="p">,</span> <span class="n">XINT1_isr</span><span class="p">()</span><span class="o">:</span>
 <span class="mo">00</span><span class="mi">8000</span><span class="o">:</span>   <span class="mi">761</span><span class="n">B</span>        <span class="n">ASP</span>
@@ -5392,38 +5349,73 @@ SECTIONS
 </pre></div>
 
 
-<p>The picture below shows the interrupt latencys of the original and the modified version of ELT131_LAB_03_02. The time cursors are placed such to show the latency difference between both versions which is approximately $\si{110 ns}$ as expected. </p>
+<p>The picture below shows the interrupt latency of the original and the modified version of ELT131_LAB_03_02. The time cursors are placed such to show the latency delta between both versions which is approximately $\si{110 ns}$ as expected. </p>
 <figure class="oszi">
 <p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_03/pics/ram_flash_overlayed_50ns.png" title="Latency comparison of non-OS setup running from FLASH, w/ and w/o linking XINT1_isr() to RAM memory" class="noborder"><figcaption>Latency comparison of non-OS setup running from <strong>FLASH</strong>, w/ and w/o linking <strong>XINT1_isr()</strong> to <strong>RAM</strong></figcaption> </p>
 </figure>
-<p>Indeed this technique is not restricted to be used for time critical IRQ handlers or other functions. Also data symbols with the access specifiers <code>const int16_t cSineTable[] = {...</code> could be linked into RAM. Granted, it appears first to be senseless since the const specifier mostly implies const-nes and is therefor used to tell the compiler to not place the symbol data into RAM section, for example: </p>
-<div class="codehilite"><pre><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">cWelcomeMsg</span><span class="o">=</span><span class="s">&quot;Starting device, please wait...&quot;</span><span class="p">;</span>
+<p>It&rsquo;s important to know that this technique is neither restricted to be used for time critical IRQ handlers nor for functions in general. Also <em>const</em> type modified data symbols and structures (e.g. constants and <code>const int16_t cSine[] = {...</code>) could be declared such that they were <em>load_from</em> FLASH but <em>run_from</em> RAM memory. Granted, it appears first to be senseless since the <em>const</em> specifier mostly implies const-nes by the meaning of &ldquo;this data structure doesn&rsquo;t need write access&rdquo; and is therefor used to tell the compiler/linker to <strong>not</strong> place the symbol into RAM section e.g.: </p>
+<div class="codehilite"><pre><span class="cm">/* Welcome message doesn&#39;t need to be modified at runtime --&gt; RO access */</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">cWelcomeMsg</span> <span class="o">=</span> <span class="s">&quot;Starting device, please wait...&quot;</span><span class="p">;</span>
 </pre></div>
 
 
-<p>But for a const declared sine table like this one below, it could increase performance (i.e. reduce time to fetch the next sample) when placing the array in the fast RAM section.    </p>
-<div class="codehilite"><pre><span class="k">const</span> <span class="kt">double</span> <span class="n">cSine</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="o">-</span><span class="mf">0.998</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.995</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.988</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.980</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.968</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.955</span><span class="p">};</span>
+<p>But for <em>const</em> declared structures like a sine table array for example, it definitely could increase performance (i.e. reduce time to fetch the next DAC sample) when accessed (<em>runstart</em>) from within RAM section.  </p>
+<div class="codehilite"><pre><span class="cm">/* Normalized sine table doesn&#39;t need to be modified at runtime --&gt; RO access */</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">cSine</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mf">0.998</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.995</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.988</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.980</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.968</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.955</span><span class="p">,</span> <span class="p">...</span> <span class="p">};</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="o">*</span><span class="n">pSine</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cSine</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="cm">/** </span>
+<span class="cm"> * This application needs zero-wait read access since table scalars are fetched during</span>
+<span class="cm"> * time-critical IRQ service. </span>
+<span class="cm"> */</span>
+<span class="cp">#pragma DATA_SECTION(cSine, &quot;myRamconsts&quot;);</span>
+
+<span class="cm">/** </span>
+<span class="cm"> * Don&#39;t miss to also modify the DATA_SECTION for (may be used) read access pointers </span>
+<span class="cm"> * since the compiler doesn&#39;t &quot;feel&quot; your intention that a pointers storage location</span>
+<span class="cm"> * should be equal to it&#39;s dereferenced target symbol.    </span>
+<span class="cm"> */</span>
+<span class="cp">#pragma DATA_SECTION(pSine, &quot;myRamconsts&quot;);</span>
 </pre></div>
 
 
-<h1 id="non-os-setup-flash-vs-zero-latency"><a name="user-content-non-os-setup-flash-vs-zero-latency" href="#non-os-setup-flash-vs-zero-latency" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Non-OS setup (FLASH) vs. Zero latency</h1>
-<p>Zero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays, i. e. <em>minimum-latency-interrupt</em>. Compared to interrupt latencys in <a href="#ti-rtos-hardware-interrupt-setup-hwi-part-3">part 3 (HWI)</a> and <a href="#ti-rtos-software-interrupt-setup-swi-part-4">part 4 (SWI)</a>, <em>zero latency</em> configuration results in <em>most smallest latency</em> of all TI-RTOS setups.</p>
-<figure class="oszi">
-<p><img src="./pics/non-os_latency_20kHz_20ns.png" title="Interrupt latency @20kHz of __non-OS__ setup running from __RAM__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>non-OS</strong> setup running from <strong>RAM</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </p>
-</figure>
-<figure class="oszi">
-<p><img src="./pics/os_latency_zli_20kHz_50ns.png" title="Interrupt latency @20kHz of __RTOS__ setup running from __FLASH__ (SYSCLKOUT=$\si{150MHz}$)" class="noborder"><figcaption>Interrupt latency of <strong>RTOS</strong> setup running from <strong>FLASH</strong> ($\,F_{CPU}\,=\,\si{150MHz}\,$) @$\;\si{20kHz}\;$</figcaption> </p>
-</figure>
+<p>In addition, the linker must be informed about allocating the <em>myRamconsts</em> section from RAML block x (0&hellip;7). </p>
+<div class="codehilite"><pre>Sections 
+{
+   /* Allocate program areas: */
+   .cinit              : &gt; FLASHA      PAGE = 0
+   .pinit              : &gt; FLASHA,     PAGE = 0
+   (...)
+
+    /* User Defined, DMA controller accessible Sections */
+    myRamconsts        : LOAD = FLASHA, PAGE = 0
+                         RUN = RAML4, PAGE = 1
+                         LOAD_START(_ramconsts_loadstart),
+                         LOAD_SIZE(_ramconsts_loadsize),
+                         RUN_START(_ramconsts_runstart)
+    (...)
+}
+</pre></div>
+
+
+<h4 class="sphd"><span>Untested</span></h4>
+
+<p>Another application specific algorithm optimization could be implemented by using the high performance DMA subsystem of the C28xx. To do so, configure the DMA controller peripheral for loading the next sine table value from dedicated RAM location when the &ldquo;update-DAC-value&rdquo; IRQ occurs. Since the DMA bus structure is only interconnected to the upper-half of on-chip RAM blocks, the linker must be advised to allocate section <code>myRamconst</code> from RAM block L4&hellip;L7 (<code>RUN = RAML4</code>).</p>
+<h2 id="non-os-flash-setup-vs-zero-latency"><a name="user-content-non-os-flash-setup-vs-zero-latency" href="#non-os-flash-setup-vs-zero-latency" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Non-OS FLASH setup vs. Zero latency</h2>
+<p>Zero latency operation may be used to ensure minimal interrupt-to-IRQ-handler delays for TI-RTOS/SYS-BIOS application in general (i.e. <em>minimum-latency-interrupt</em>). Compared to interrupt latency in <a href="#ti-rtos-hardware-interrupt-setup-hwi-part-3">part 3 (HWI)</a> and <a href="#ti-rtos-software-interrupt-setup-swi-part-4">part 4 (SWI)</a>, <em>zero latency</em> configuration results in <em>most smallest latency</em> of all TI-RTOS setups. ZLI servicing is completely bypassed from the RTOS interrupt management by masking the according IRQ flag from being validated as managed IRQ. The major difference between a HWI and a ZLI is that the interrupt enable bit was never cleared from within any TI-RTOS subsystem. From the OS point of view, implementing the ZLI feature is quite simple but enormously increases the usage area of the RTOS. Therefore, it should be a primary key on a software architectures requirements sheet when planing to develop a new real time operating system.</p>
+<h4 class="sp" style="margin-top: 1em;"><span>Not shure about...</span></h4>
+
+<p>However, as an RTOS end user, one should be aware that bypassing the software interrupt subsystem can have a major impact on the jitter behavior of all other RTOS interrupts and it is hardly possible to overcome it in a later design step. This is due to the fact that the already stochastic nature of CPU interruption is even more pronounced on the overall system since the ZLI preempts almost all (except atomics and higher priority ZLIs) other threads.</p>
 <h1 id="open-questions"><a name="user-content-open-questions" href="#open-questions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Open questions</h1>
 <h2 id="keyword-__interrupt"><a name="user-content-keyword-__interrupt" href="#keyword-__interrupt" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Keyword __interrupt</h2>
-<p>When to preceed ISR prototypes by the preprocessor/linker directive/keyword <strong>__interrupt</strong> ?</p>
+<p>When to precede ISR prototypes by the preprocessor/linker directive/keyword <strong>__interrupt</strong> ?</p>
 <p>From <a href="http://www.ti.com/lit/ug/spruex3q/spruex3q.pdf"><em>SYS/BIOS (TI-RTOS Kernel) v6.46 User&rsquo;s Guide</em> </a>, page 57, chapter:<br />
 <strong>3.4 Hardware Interrupts:</strong></p>
 <blockquote>
 <p>(&hellip;) Assembly language ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Such ISRs must do their own context preservation. <strong>They may use the &ldquo;interrupt&rdquo; keyword, C functions, or assembly language functions.</strong></p>
 </blockquote>
 <p>In other words:<br />
-Regardless of whether to implement an IRQ callback handler in assembler or C, <strong>it have to be</strong> preceeded by the (linker-) keyword <strong>__interrupt</strong> in case of bypassing SYS/BIOS HWI module.</p>
+Regardless of whether to implement an IRQ callback handler in assembler or C, <strong>it have to be</strong> preceded by the (linker-) keyword <strong>__interrupt</strong> in case of bypassing SYS/BIOS HWI module.</p>
 <p>Should it not rather be:</p>
 <blockquote>
 <p>(&hellip;) <del>Assembly language</del> ISRs that do not interact with SYS/BIOS can be specified with Hwi_plug(). Assembly language <del>Such</del> ISRs must do their own context preservation. They may use the &ldquo;interrupt&rdquo; keyword, C functions, or assembly language functions.</p>

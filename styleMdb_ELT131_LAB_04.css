@@ -60,15 +60,25 @@ body .markdown-body
 summary::-webkit-details-marker {
   display: none;
 }
-
+/****************************************
+ * Not-shure-about section
+ ***************************************/
+/*.markdown-body realy {
+    display: inline-block;
+    color: #9B9B9B;
+    border: 1px solid red;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
+    -moz-box-shadow:    6px 7px 5px 0px rgba(56,56,56,0.38);
+    box-shadow:         6px 7px 5px 0px rgba(56,56,56,0.38);
+    text-align:         center;
+    padding:            2px .3em 2px .3em;
+    margin:             1.5em 0 1.5em 0;
+}*/
 .markdown-body h4.foldable {
 	margin:			0 0 1em 0 !important;
 	/*padding: 		0 !important;*/
 	vertical-align: top !important;
 	text-align: 	center;
-}
-.markdown-body h4.foldable[open] {
-	background-color: red;
 }
  /****************************************
  * Declaring variables
@@ -101,65 +111,6 @@ summary::-webkit-details-marker {
 	font-style: italic;
 	color: #404040;
 }
-/*title, meta {
-	display: block !important;
-}
-*/
-
-/*.header{
-    width: 950px;
-    font-family:Helvetica, Arial, sans-serif;
-}
-.logo {
-    float: left;
-    height: 55px;
-    padding: 10px 20px;
-    background: #004B35;
-    width: 700px;
-}
-.logoClient {
-    float: right;
-    height: 55px;
-    line-height: 55px;
-    padding: 10px 0px;
-    margin:0px -10px 0px 0px;
-    font-size: 30px;
-    color: #004B35;
-    overflow:hidden;
-    font-weight: bold;
-    width: 200px;
-    text-align: right;
-}
-.logoClient img {
-    max-height: 40px;
-    max-width:200px;
-    margin: 0px;
-}
-.clear {
-    clear: both;
-}*/
-
-/*footer {
-	display: inline-block;
-	font-size: 8;
-	color: red;
-}
-head, title, link[href][rel], meta {
-	display: block;
-}
-link[href][rel]::after {
-	content: attr(rel);
-	text-transform: capitalize;
-}
-
-meta[charset]::after {
-	content: 'Charset: ' attr(charset);
-}
-
-meta[name][content]::after {
-	content: attr(name) ': ' attr(content);
-	text-transform: capitalize;
-}*/
 /****************************************
  * Spec sheet headers
  ***************************************/
@@ -196,7 +147,7 @@ meta[name][content]::after {
  */
 .markdown-body h4.sphd,
 .markdown-body h4.sp {
-	margin:			44px 0 22px 0;
+	margin:			22px 0 22px 0;
 	vertical-align: middle;
 	text-align: 	center;
 }
@@ -223,7 +174,7 @@ meta[name][content]::after {
     background: 	linear-gradient(left, white, #E6E6E6, white); 			/* Standard syntax */
 	line-height: 	1px;
 	font-size: 		100%;
-	text-align: 		left;
+	text-align: 	left;
 
 	/*margin-right: 	50%*/
 }
@@ -235,17 +186,17 @@ meta[name][content]::after {
 .markdown-body h4.sp span.codehd {
     box-shadow: 		8px 8px 5px #B3B3B3;
     margin-top: 		6em !important;
+    padding-left: 		10px;
 }
 .markdown-body h4.sphd span {
-    background-color: 	#FCFCFC;
-	border:				1px solid #d8d8d8;
-    padding-left: 		10px;
+    background-color:   #FCFCFC;
+    border:             1px solid #d8d8d8;
 	/*margin-left: 		0px; */
 }
 .markdown-body h4.sp span {
     background-color: 	white;
 	border:				none;
-	padding-left: 		2em;
+	margin-left: 		10px;
 }
 .markdown-body span.quest {
 	display: 		inline-block;
