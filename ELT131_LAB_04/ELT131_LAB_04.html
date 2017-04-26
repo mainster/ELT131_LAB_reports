@@ -1,86 +1,95 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="location" content="WHZ">
-<meta name="author" content="Del Basso, Manuel">
+<meta name="footicon" content="./pics/whz.png">
 <meta name="date" content="02-04-2017">
-<meta name="footicon" content="./pics/whz.png"><style>body {
-	border: 1px solid #ddd;
-	margin: 16px auto;
-	outline: 1300px solid #fff;
-	width: 55em;
+<meta name="author" content="Del Basso, Manuel"><style>body {
+    border: 1px solid #ddd;
+    margin: 16px auto;
+    outline: 1300px solid #fff;
+    width: 55em;
 }
 body .markdown-body
 {
-	/*max-width: 1900px*/		/*Defines the html page width*/
-	padding: 30px;
+    /*max-width: 1900px*/       /*Defines the html page width*/
+    padding: 30px;
 }
 @font-face {
-	font-family: fontawesome-mini;
-	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+    font-family: fontawesome-mini;
+    src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 @font-face {
-	font-family: octicons-anchor;
-	src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+    font-family: octicons-anchor;
+    src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 .markdown-body {
-	-ms-text-size-adjust: 		100%;
-	-webkit-text-size-adjust: 	100%;
-	color: 			#333333;
-	overflow: 		hidden;
-	font-family: 	"Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-	font-size: 		16px;
-	line-height: 	1.4em;
-	overflow: 		hidden;
-	text-align: 	justify;	/*Force text-align attribute to justify text blocks*/
-	padding-top: 	1.3em;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
-	/*word-wrap: 		break-word;*/
+    -ms-text-size-adjust:       100%;
+    -webkit-text-size-adjust:   100%;
+    color:          #333333;
+    overflow:       hidden;
+    font-family:    "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    font-size:      16px;
+    line-height:    1.4em;
+    overflow:       hidden;
+    text-align:     justify;    /*Force text-align attribute to justify text blocks*/
+    padding-top:    1.3em;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    /*word-wrap:        break-word;*/
 }
 .markdown-body b,
 .markdown-body strong {
-	font-weight: bold;
+    font-weight: bold;
 }
 .markdown-body mark {
-	background: #ff0;
-	color: #000;
-	font-style: italic;
-	font-weight: bold;
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
 }
 .markdown-body sub,
 .markdown-body sup {
-	/*background-color: yellow;*/
-	/*font-weight: bold;*/
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-	font-style: italic;
+    /*background-color: yellow;*/
+    /*font-weight: bold;*/
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    font-style: italic;
 }
 /****************************************
  * Collapsible
  ***************************************/
-summary::-webkit-details-marker {
+/*summary:-webkit-details-marker {
   display: none;
-}
-
-.markdown-body h4.foldable {
-	margin:			0 0 1em 0 !important;
-	/*padding: 		0 !important;*/
-	vertical-align: top !important;
-	text-align: 	center;
-}
-.markdown-body h4.foldable[open] {
-	background-color: red;
-}
+}*/
+/****************************************
+ * Not-shure-about section
+ ***************************************/
+/*.markdown-body realy {
+    display: inline-block;
+    color: #9B9B9B;
+    border: 1px solid red;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
+    -moz-box-shadow:    6px 7px 5px 0px rgba(56,56,56,0.38);
+    box-shadow:         6px 7px 5px 0px rgba(56,56,56,0.38);
+    text-align:         center;
+    padding:            2px .3em 2px .3em;
+    margin:             1.5em 0 1.5em 0;
+}*/
+/*.markdown-body h4.foldable {
+    margin:         0 0 1em 0 !important;
+    vertical-align: top !important;
+    text-align:     center;
+}*/
  /****************************************
  * Declaring variables
  ***************************************/
 :root {
-  --figure-to-img-margin-top: 	1em;
-  --figure-to-img-padding: 		1em;
-  --figure-to-img-padding-oszi:	1.5em 0 1em 0;
-  --floatbox-text-margin: 		1.5em;
+  --figure-to-img-margin-top:   1em;
+  --figure-to-img-padding:      1em;
+  --figure-to-img-padding-oszi: 1.5em 0 1em 0;
+  --floatbox-text-margin:       1.5em;
 }
 .titleHeader {
     width: 1300px;
@@ -97,221 +106,181 @@ summary::-webkit-details-marker {
 }
 .logoWhz {
     height:100px;
-    width: 100px;	
+    width: 100px;   
 }
 .footer {
-	font-size: 7;
-	font-style: italic;
-	color: #404040;
+    font-size: 7;
+    font-style: italic;
+    color: #404040;
 }
-/*title, meta {
-	display: block !important;
-}
-*/
-
-/*.header{
-    width: 950px;
-    font-family:Helvetica, Arial, sans-serif;
-}
-.logo {
-    float: left;
-    height: 55px;
-    padding: 10px 20px;
-    background: #004B35;
-    width: 700px;
-}
-.logoClient {
-    float: right;
-    height: 55px;
-    line-height: 55px;
-    padding: 10px 0px;
-    margin:0px -10px 0px 0px;
-    font-size: 30px;
-    color: #004B35;
-    overflow:hidden;
-    font-weight: bold;
-    width: 200px;
-    text-align: right;
-}
-.logoClient img {
-    max-height: 40px;
-    max-width:200px;
-    margin: 0px;
-}
-.clear {
-    clear: both;
-}*/
-
-/*footer {
-	display: inline-block;
-	font-size: 8;
-	color: red;
-}
-head, title, link[href][rel], meta {
-	display: block;
-}
-link[href][rel]::after {
-	content: attr(rel);
-	text-transform: capitalize;
-}
-
-meta[charset]::after {
-	content: 'Charset: ' attr(charset);
-}
-
-meta[name][content]::after {
-	content: attr(name) ': ' attr(content);
-	text-transform: capitalize;
-}*/
 /****************************************
  * Spec sheet headers
  ***************************************/
 .markdown-body boxed {
-	display: 			block;
-	border: 			2px solid red;
-	-webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
-	-moz-box-shadow: 	6px 7px 5px 0px rgba(56,56,56,0.38);
-	box-shadow: 		6px 7px 5px 0px rgba(56,56,56,0.38);
-	text-align: 		center;
-	padding: 			2px .3em 2px .3em;
-	margin: 			1.5em 0 1.5em 0;
-	/*padding-top: 		10em;*/
+    display:            block;
+    border:             2px solid red;
+    -webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);
+    -moz-box-shadow:    6px 7px 5px 0px rgba(56,56,56,0.38);
+    box-shadow:         6px 7px 5px 0px rgba(56,56,56,0.38);
+    text-align:         center;
+    padding:            2px .3em 2px .3em;
+    margin:             1.5em 0 1.5em 0;
+    /*padding-top:      10em;*/
 }
 .markdown-body mBox {
-	display: 			inline-block;
-	font-size: 			95%;
-	background-color: 	#DBDBDB;
-	font-family: monospace, monospace;
-	border: 			0px solid #C8C8C8;
-	-webkit-box-shadow: 2px 3px 2px 0px rgba(56,56,56,0.38);
-	-moz-box-shadow: 	2px 3px 2px 0px rgba(56,56,56,0.38);
-	box-shadow: 		2px 3px 2px 0px rgba(56,56,56,0.38);
-	text-align: 		center;
-	padding: 			2px 5px 2px 5px;
-	margin: 			.5em .2em .5em .2em;
-	border-radius: 		5px;
+    display:            inline-block;
+    font-size:          95%;
+    background-color:   #DBDBDB;
+    font-family: monospace, monospace;
+    border:             0px solid #C8C8C8;
+    -webkit-box-shadow: 2px 3px 2px 0px rgba(56,56,56,0.38);
+    -moz-box-shadow:    2px 3px 2px 0px rgba(56,56,56,0.38);
+    box-shadow:         2px 3px 2px 0px rgba(56,56,56,0.38);
+    text-align:         center;
+    padding:            2px 5px 2px 5px;
+    margin:             .5em .2em .5em .2em;
+    border-radius:      5px;
 }
 .markdown-body mBox.l {
-	margin-left: 2.5em;
+    margin-left: 2.5em;
+}
+.markdown-body blockquote>:last-child {
+    margin-bottom: 1em !important;
 }
 /*
  * Horizontal centered line in header texts
  */
-.markdown-body h4.sphd,
+/*.markdown-body h4.sphd,
 .markdown-body h4.sp {
-	margin:			44px 0 22px 0;
-	vertical-align: middle;
-	text-align: 	center;
+    margin:         22px 0 22px 0;
+    vertical-align: middle;
+    text-anchor:    middle;
+}*/
+.markdown-body details summary h4.sphd,
+.markdown-body details summary h4.sp {
+    margin:         0 0 .25em 0;
+    /*padding:      0 !important;*/
+    vertical-align: middle !important;
+    /*padding-bottom: 3px;*/
 }
 /*
  * Spec sheet header
  */
 .markdown-body h4.sphd {
-	background: 	#d8d8d8; 	/* For browsers that do not support gradients */
-    background:		-webkit-linear-gradient(left, white, #d8d8d8, white); 	/* For Safari 5.1 to 6.0 */
-    background:		-o-linear-gradient(left, white, #d8d8d8, white); 		/* For Opera 11.1 to 12.0 */
-    background:	 	-moz-linear-gradient(left, white, #d8d8d8, white); 		/* For Firefox 3.6 to 15 */
-    background: 	linear-gradient(left, white, #d8d8d8, white); 			/* Standard syntax */
-	line-height: 	1px;
-	font-size: 		120%;
+    background:     #d8d8d8;    /* For browsers that do not support gradients */
+    background:     -webkit-linear-gradient(left, white, #d8d8d8, white);   /* For Safari 5.1 to 6.0 */
+    background:     -o-linear-gradient(left, white, #d8d8d8, white);        /* For Opera 11.1 to 12.0 */
+    background:     -moz-linear-gradient(left, white, #d8d8d8, white);      /* For Firefox 3.6 to 15 */
+    background:     linear-gradient(left, white, #d8d8d8, white);           /* Standard syntax */
+    line-height:    1px;
+    font-size:      120%;
+    text-align:     center;
 }
 /*
  * Spec sheet subheader
  */
-.markdown-body h4.sp 	{
-	background: 	#E6E6E6; 	/* For browsers that do not support gradients */
-    background:		-webkit-linear-gradient(left, white, #E6E6E6, white); 	/* For Safari 5.1 to 6.0 */
-    background:		-o-linear-gradient(left, white, #E6E6E6, white); 		/* For Opera 11.1 to 12.0 */
-    background:	 	-moz-linear-gradient(left, white, #E6E6E6, white); 		/* For Firefox 3.6 to 15 */
-    background: 	linear-gradient(left, white, #E6E6E6, white); 			/* Standard syntax */
-	line-height: 	1px;
-	font-size: 		100%;
-	text-align: 		left;
+.markdown-body h4.sp    {
+    background:     #E6E6E6;    /* For browsers that do not support gradients */
+    background:     -webkit-linear-gradient(left, white, #E6E6E6, white);   /* For Safari 5.1 to 6.0 */
+    background:     -o-linear-gradient(left, white, #E6E6E6, white);        /* For Opera 11.1 to 12.0 */
+    background:     -moz-linear-gradient(left, white, #E6E6E6, white);      /* For Firefox 3.6 to 15 */
+    background:     linear-gradient(left, white, #E6E6E6, white);           /* Standard syntax */
+    line-height:    1px;
+    font-size:      100%;
+    text-align:     left;
 
-	/*margin-right: 	50%*/
+    /*margin-right:     50%*/
 }
 .markdown-body h4.sphd span,
 .markdown-body h4.sp span {
-    padding-right: 		10px;
+    padding-right:      10px;
 }
 .markdown-body h4.sphd span.codehd,
 .markdown-body h4.sp span.codehd {
-    box-shadow: 		8px 8px 5px #B3B3B3;
-    margin-top: 		6em !important;
+    -webkit-box-shadow: 6px 7px 5px 0px #B3B3B3;
+    -moz-box-shadow:    6px 7px 5px 0px #B3B3B3;
+    box-shadow:         6px 7px 5px 0px #B3B3B3;
+    background-color:   #fcfcfc;
+    padding-left:       10px;
+    /*margin-top:         .6em !important;*/
 }
 .markdown-body h4.sphd span {
-    background-color: 	#FCFCFC;
-	border:				1px solid #d8d8d8;
-    padding-left: 		10px;
-	/*margin-left: 		0px; */
+    background-color:   #FCFCFC;
+    border:             1px solid #d8d8d8;
+    padding-left:      10px;
 }
 .markdown-body h4.sp span {
-    background-color: 	white;
-	border:				none;
-	padding-left: 		2em;
+    background-color:   white;
+    border:             none;
+    margin-left:        10px;
 }
+
 .markdown-body span.quest {
-	display: 		inline-block;
-	font-style: 	italic;
-	color: 			#808080;
-	margin-left: 	.0em;
-	margin-bottom:  .4em;
-	padding:		.1em .4em .1em .2em;
-	border:			1px solid #999999;
+    display:        inline-block;
+    font-style:     italic;
+    color:          #808080;
+    margin-left:    .0em;
+    margin-bottom:  .4em;
+    padding:        .1em .4em .1em .2em;
+    border:         1px solid #999999;
+}
+spar {
+    display: inline-block;
+    margin-top: 0.70em;
 }
 /****************************************
  * For all images and figures
  ***************************************/
 /*.markdown-body figure {
-	background: 	white;
-	border: 		1px solid gainsboro;
-	margin: 		0;
-	padding:		0;
-	position: 		relative;
+    background:     white;
+    border:         1px solid gainsboro;
+    margin:         0;
+    padding:        0;
+    position:       relative;
 }
 .markdown-body img {
-	-moz-box-sizing: border-box;
-	border: 		3px solid #e6e6e6;
-	box-shadow: 	0px 0px 10px #d3d3d3;
-	box-sizing: 	border-box;
-	margin-bottom: 	1.5em;
-	margin-top: 	1em;
-	max-width: 		100% !important;
-	padding: 		1em;
+    -moz-box-sizing: border-box;
+    border:         3px solid #e6e6e6;
+    box-shadow:     0px 0px 10px #d3d3d3;
+    box-sizing:     border-box;
+    margin-bottom:  1.5em;
+    margin-top:     1em;
+    max-width:      100% !important;
+    padding:        1em;
 }
 .markdown-body figcaption {
-  padding: 			10px;
-  text-align: 		center;
+  padding:          10px;
+  text-align:       center;
 }*/
 
 /****************************************
  * For pictures of class f1
  ***************************************/
 /*.markdown-body figure.f1 {
-	-moz-box-sizing: border-box;
-	border: 		3px solid #e6e6e6;
-	box-shadow: 	0px 0px 10px #d3d3d3;
-	box-sizing: 	border-box;
-	margin-bottom: 	1.5em;
-	margin-top: 	1em;
-	max-width: 		100% !important;
-	padding: 		0em;
-	position: 		relative;
+    -moz-box-sizing: border-box;
+    border:         3px solid #e6e6e6;
+    box-shadow:     0px 0px 10px #d3d3d3;
+    box-sizing:     border-box;
+    margin-bottom:  1.5em;
+    margin-top:     1em;
+    max-width:      100% !important;
+    padding:        0em;
+    position:       relative;
 }
 .markdown-body img.f1 {
-	-moz-box-sizing: border-box;
-	width:			inherit;
-	border: 		none;
-	box-shadow: 	none;
-	box-sizing: 	border-box;
-	margin: 		0;
-	padding: 		1em 1em 0 1em;
+    -moz-box-sizing: border-box;
+    width:          inherit;
+    border:         none;
+    box-shadow:     none;
+    box-sizing:     border-box;
+    margin:         0;
+    padding:        1em 1em 0 1em;
 }
 .markdown-body figcaption.f1 {
-	border-top: 	1px solid #DEDEDE;
-	padding: 		20px;
-	text-align: 	center;
-	width:			inherit;
+    border-top:     1px solid #DEDEDE;
+    padding:        20px;
+    text-align:     center;
+    width:          inherit;
 }*/
 /****************************************
  * Include paragraph numbering:
@@ -329,94 +298,91 @@ meta[name][content]::after {
     position: absolute;
     margin-left: -30px;
     color: #A4A4FF;
-    font-size:	8pt;
+    font-size:  8pt;
     content: counter(paragraph);
     counter-increment: paragraph;
 }
 .paragraphNum p:before:hover {
-    color:		red;
+    color:      red;
 }
 /****************************************
  * Different styles/layouts for images:
  ****************************************
- 	+ Simple image
- 		- no border, no caption, may float
-	+ Simple boxed image
-		- Border box and shadow, may float
-	+ Figure including a caption
-		- Image with border box and shadow
-	+ Boxed Figure including a caption
-		- Image, no border
+    + Simple image
+        - no border, no caption, may float
+    + Simple boxed image
+        - Border box and shadow, may float
+    + Figure including a caption
+        - Image with border box and shadow
+    + Boxed Figure including a caption
+        - Image, no border
  ***************************************/
 .markdown-body img {
-	max-width: 		100%;
-	margin-bottom: 	1.5em;
-	margin-top: 	1em;
-	padding: 		0em;
-	border: 		none !important;
+    max-width:      100%;
+    margin-bottom:  1.5em;
+    margin-top:     1em;
+    padding:        0em;
+    border:         none !important;
 }
 .markdown-body img.box {
-	-moz-box-sizing: border-box;
-	box-sizing: 	border-box;
-	border: 		3px solid #e6e6e6;
-	box-shadow: 	0px 0px 10px #d3d3d3;
+    -moz-box-sizing: border-box;
+    box-sizing:     border-box;
+    border:         3px solid #e6e6e6;
+    box-shadow:     0px 0px 10px #d3d3d3;
 }
-
 .markdown-body div.fig {
-    text-align: 	center;
-    font-style: 	italic;
-    font-size: 		90%;
-    /*line-height: 	90%;*/
+    text-align:     center;
+    font-style:     italic;
+    font-size:      90%;
+    /*line-height:  90%;*/
 }
 .markdown-body div.fig,
 .markdown-body figure {
-	/*position: 		relative;*/
-	max-width: 		100%;
-	margin-bottom: 	1.5 * var(--figure-to-img-margin-top);
-	margin-top: 	var(--figure-to-img-margin-top);
+    /*position:         relative;*/
+    max-width:      100%;
+    margin-bottom:  1.5 * var(--figure-to-img-margin-top);
+    margin-top:     var(--figure-to-img-margin-top);
 }
 .markdown-body div.fig.box,
 .markdown-body figure.box {
-	-moz-box-sizing: border-box;
-	box-sizing: 	border-box;
-	border: 		3px solid #e6e6e6;
-	box-shadow: 	0px 0px 10px #d3d3d3;
-	padding: 		var(--figure-to-img-padding);
+    -moz-box-sizing: border-box;
+    box-sizing:     border-box;
+    border:         3px solid #e6e6e6;
+    box-shadow:     0px 0px 10px #d3d3d3;
+    padding:        var(--figure-to-img-padding);
 }
 .markdown-body figure.oszi {
-	padding: 		var(--figure-to-img-padding-oszi) !important;
-	width: 			100% !important;
-	margin-left: 	0 !important;
+    padding:        var(--figure-to-img-padding-oszi) !important;
+    width:          100% !important;
+    margin-left:    0 !important;
 }
-
 img.topal, div.topal, figure.topal { margin-top: 0 !important; }
 img.botal, div.botal, figure.botal { margin-bottom: 0 !important; }
-
 img.floatr, div.floatr, figure.floatr {
-	float: 			right;
-	margin: 		0.2em 0 0 var(--floatbox-text-margin);
+    float:          right;
+    margin:         0.2em 0 0 var(--floatbox-text-margin);
 }
-img.floatl, div.floatl,	figure.floatl {
-	float: 			left;
-	margin: 		0.2em var(--floatbox-text-margin) 0 0;
+img.floatl, div.floatl, figure.floatl {
+    float:          left;
+    margin:         0.2em var(--floatbox-text-margin) 0 0;
 }
 .markdown-body div.fig img,
 .markdown-body figure img {
-	/*background-color: #FFFFCA;*/
-	-moz-box-sizing: border-box;
-	width:			inherit !important;
-	height: 		inherit !important;
-	box-sizing: 	border-box;
-	border: 		3px solid #e6e6e6;
-	box-shadow: 	0px 0px 10px #d3d3d3;
-	margin-bottom: 	0em;
-	margin-top: 	0em;
+    /*background-color: #FFFFCA;*/
+    -moz-box-sizing: border-box;
+    width:          inherit !important;
+    height:         inherit !important;
+    box-sizing:     border-box;
+    border:         3px solid #e6e6e6;
+    box-shadow:     0px 0px 10px #d3d3d3;
+    margin-bottom:  0em;
+    margin-top:     0em;
 }
 
 /*.markdown-body div.fig.nobox img,
 .markdown-body figure.nobox img {
-	border: 		none !important;
-	box-shadow: 	none !important;
+    border:         none !important;
+    box-shadow:     none !important;
 }*/
 
 /*
@@ -425,348 +391,344 @@ img.floatl, div.floatl,	figure.floatl {
  */
 .markdown-body div.fig.box img,
 .markdown-body figure.box img {
-	/*background-color: yellow;*/
-	border:			none !important;
-	box-shadow: 	none !important;
-	padding: 		0em;
+    /*background-color: yellow;*/
+    border:         none !important;
+    box-shadow:     none !important;
+    padding:        0em;
 }
-
-
 .markdown-body div.fig figcaption,
 .markdown-body figure figcaption {
-	/*background-color: #E7FFE7;*/
-	width:			inherit - 2*var(--figure-to-img-margin-top);
-	color: 			#595959;
-	text-align: 	center;
-	font-style: 	italic;
-    font-size: 		95%;
-	margin:			3px;
-	border: 		none;
+    /*background-color: #E7FFE7;*/
+    width:          inherit - 2*var(--figure-to-img-margin-top);
+    color:          #595959;
+    text-align:     center;
+    font-style:     italic;
+    font-size:      95%;
+    margin:         3px;
+    border:         none;
 }
-
 .markdown-body div.fig figcaption.la,
 .markdown-body figure figcaption.la {
-	/*color:				red !important; */
-	text-align: 		left;
+    /*color:                red !important; */
+    text-align:         left;
 }
 .markdown-body div.fig figcaption.just,
 .markdown-body figure figcaption.just {
-	/*color:				red !important; */
-	text-align: 		justify;
+    /*color:                red !important; */
+    text-align:         justify;
 }
-
 .markdown-body div.fig.box figcaption,
 .markdown-body figure.box figcaption {
-	border-top: 	1px solid #DEDEDE !important;
-	padding-top: 	5px;
+    border-top:     1px solid #DEDEDE !important;
+    padding-top:    5px;
 }
 .markdown-body table.noborder th,
 .markdown-body table.noborder tr,
 .markdown-body table.noborder td {
-	border-width: 0 !important;
+    border-width: 0 !important;
 }
 li {
     /* Abstand zu Aufzählungszeichen/Nummer */
     padding-left: .4em !important;    
 }
 /* View spaced lists:
-	<div class="spaced" markdown=1>
-	1. jjj
-	2. spaced from jjj
-	</div>*/
+    <div class="spaced" markdown=1>
+    1. jjj
+    2. spaced from jjj
+    </div>*/
 .spaced li {
-	/* Abstand nach Aufzälungs/Listenzeile */
-	padding-bottom: .75em;
+    /* Abstand nach Aufzälungs/Listenzeile */
+    padding-bottom: .75em;
 }
 /* Linked Keywords */
 .markdown-body lkey {
-	display: 			inline;
-	font-size: 			100%;
-	/*color: 				#000;*/
-	font-weight: 		bold;
-	/*font-style:		italic;*/
-	line-height: 		font-size;
-    background-color: 	#FCFCFC;
-	border-bottom: 		1px solid #D4D4D4;
-	margin-left:		1px;
-	margin-right:		1px;
+    display:            inline;
+    font-size:          100%;
+    /*color:                #000;*/
+    font-weight:        bold;
+    /*font-style:       italic;*/
+    line-height:        font-size;
+    background-color:   #FCFCFC;
+    border-bottom:      1px solid #D4D4D4;
+    margin-left:        1px;
+    margin-right:       1px;
 }
 /* Left aligned mathjax paragraph */
 .markdown-body lmjx {
-	padding-left: 6em;
+    padding-left: 6em;
 }
 /* A href inside custom class lkey */
 .markdown-body lkey a {
-	padding-left: 		3px;
-	padding-right: 		3px;
-	color: 				#2E70B1;
-	text-decoration: 	none;
+    padding-left:       3px;
+    padding-right:      3px;
+    color:              #2E70B1;
+    text-decoration:    none;
 }
 .markdown-body lkey:hover,
 .markdown-body lkey:focus,
 .markdown-body lkey:active {
-	/*padding-left: 		2px;*/
-	/*padding-right: 		2px;*/
-	margin-left:		0px;
-	margin-right:		0px;
-	border: 			1px solid red;
+    /*padding-left:         2px;*/
+    /*padding-right:        2px;*/
+    margin-left:        0px;
+    margin-right:       0px;
+    border:             1px solid red;
 }
 .markdown-body lkey a:hover,
 .markdown-body lkey a:focus,
 .markdown-body lkey a:active {
-	text-decoration: 	none !important;
-	border:				none !important;
+    text-decoration:    none !important;
+    border:             none !important;
 }
 .markdown-body yelBg {
-	background-color: yellow;
-	color: red !important;
-	padding-left: 6px;
-	padding-right: 6px;
-	border: 0px solid #C2C2C2;
+    background-color: yellow;
+    color: red !important;
+    padding-left: 6px;
+    padding-right: 6px;
+    border: 0px solid #C2C2C2;
 }
 .markdown-body yelBg:hover {
-	font-weight: bold;
+    font-weight: bold;
 }
 .markdown-body yelBg:hover.scale {
-	font-size: 150% !important;
+    font-size: 150% !important;
 }
 div.centered {
-	text-align: center;
+    text-align: center;
 }
 div.centered table {
-	margin: 0 auto;
-	text-align: left;
+    margin: 0 auto;
+    text-align: left;
 }
 .markdown-body sup {
-	background-color: yellow;
-	font-weight: bold;
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-	font-style: italic;
+    background-color: yellow;
+    font-weight: bold;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    font-style: italic;
 }
 .markdown-body sup {
-	top: -0.5em;
+    top: -0.5em;
 }
 .markdown-body sub {
-	bottom: -0.25em;
+    bottom: -0.25em;
 }
 .scale75 {
-	width: 75%;
+    width: 75%;
 }
 .noborder {
-	/*border-color: none !important; */
-	box-shadow: none !important;
-	border-width: 0px !important;
+    /*border-color: none !important; */
+    box-shadow: none !important;
+    border-width: 0px !important;
 }
 .markdown-body hr {
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-	height: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
 }
 .markdown-body pre {
-	overflow: auto;
+    overflow: auto;
 }
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre,
 .markdown-body samp {
-	font-family: monospace, monospace;
-	font-size: 1em;
+    font-family: monospace, monospace;
+    font-size: 1em;
 }
 .markdown-body input {
-	color: inherit;
-	font: inherit;
-	margin: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
 }
 .markdown-body html input[disabled] {
-	cursor: default;
+    cursor: default;
 }
 .markdown-body input[type="checkbox"] {
-	box-sizing: border-box;
-	padding: 0;
+    box-sizing: border-box;
+    padding: 0;
 }
 .markdown-body table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	padding-top: 1em;
-	padding-bottom: 1em;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 .markdown-body table[class=caption] {
-	padding-bottom: 0em;
+    padding-bottom: 0em;
 }
 .markdown-body td,
 .markdown-body th {
-	padding: 0;
+    padding: 0;
 }
 .markdown-body .codehilitetable {
-	border: 0;
-	border-spacing: 0;
+    border: 0;
+    border-spacing: 0;
 
-	background-color: red;
+    background-color: red;
 
 }
 .markdown-body .codehilitetable tr {
-	border: 0;
+    border: 0;
 }
 .markdown-body .codehilitetable pre,
 .markdown-body .codehilitetable div.codehilite {
-	margin: 0;
+    margin: 0;
 }
 .markdown-body .linenos,
 .markdown-body .code,
 .markdown-body .codehilitetable td {
-	border: 0;
-	padding: 0;
+    border: 0;
+    padding: 0;
 }
 .markdown-body td:not(.linenos) .linenodiv {
-	padding: 0 !important;
+    padding: 0 !important;
 }
 .markdown-body .code {
-	width: 100%;
+    width: 100%;
 }
 .markdown-body .linenos div pre,
 .markdown-body .linenodiv pre,
 .markdown-body .linenodiv {
-	border: 0;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-	-webkit-border-top-left-radius: 3px;
-	-webkit-border-bottom-left-radius: 3px;
-	-moz-border-radius-topleft: 3px;
-	-moz-border-radius-bottomleft: 3px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 .markdown-body .code div pre,
 .markdown-body .code div {
-	border: 0;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-	-webkit-border-top-right-radius: 3px;
-	-webkit-border-bottom-right-radius: 3px;
-	-moz-border-radius-topright: 3px;
-	-moz-border-radius-bottomright: 3px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-	/*-webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);*/	/*@@@MDB 01.04.2017*/
-	/*-moz-box-shadow: 	6px 7px 5px 0px rgba(56,56,56,0.38);*/	/*@@@MDB 01.04.2017*/
-	/*box-shadow: 		6px 7px 5px 0px rgba(56,56,56,0.38);*/	/*@@@MDB 01.04.2017*/
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    /*-webkit-box-shadow: 6px 7px 5px 0px rgba(56,56,56,0.38);*/    /*@@@MDB 01.04.2017*/
+    /*-moz-box-shadow:  6px 7px 5px 0px rgba(56,56,56,0.38);*/  /*@@@MDB 01.04.2017*/
+    /*box-shadow:       6px 7px 5px 0px rgba(56,56,56,0.38);*/  /*@@@MDB 01.04.2017*/
 
 }
 .markdown-body * {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .markdown-body input {
-	font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-	line-height: normal;
+    font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: normal;
 }
 .markdown-body a {
-	color: #4183c4;
-	text-decoration: none;
+    color: #4183c4;
+    text-decoration: none;
 }
 .markdown-body a:hover,
 .markdown-body a:focus,
 .markdown-body a:active {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .markdown-body hr {
-	height: 0;
-	margin: 15px 0;
-	overflow: hidden;
-	background: transparent;
-	border: 0;
-	border-bottom: 1px solid #ddd;
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ddd;
 }
 .markdown-body hr:before,
 .markdown-body hr:after {
-	display: table;
-	content: " ";
+    display: table;
+    content: " ";
 }
 .markdown-body hr:after {
-	clear: both;
+    clear: both;
 }
 .markdown-body blockquote {
-	padding: 0px 15px;
-	margin-left: 0.1em;
-	margin-right: 1.5em;
-	color: #777;
-	border-left: 4px solid #ddd;
-	font-style: italic;
-	/*margin: 1.25em;*/
+    padding: 0px 15px;
+    margin-left: 0.1em;
+    margin-right: 1.5em;
+    color: #777;
+    border-left: 4px solid #ddd;
+    font-style: italic;
+    /*margin: 1.25em;*/
 }
 .markdown-body blockquote>:first-child {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 .markdown-body blockquote>:last-child {
-	margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 .markdown-body ul,
 .markdown-body ol {
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: 0;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .markdown-body ol ol,
 .markdown-body ul ol {
-	list-style-type: lower-roman;
+    list-style-type: lower-roman;
 }
 .markdown-body ul ul ol,
 .markdown-body ul ol ol,
 .markdown-body ol ul ol,
 .markdown-body ol ol ol {
-	list-style-type: lower-alpha;
+    list-style-type: lower-alpha;
 }
 .markdown-body dd {
-	margin-left: 0;
+    margin-left: 0;
 }
 .markdown-body code,
 .markdown-body pre,
 .markdown-body samp {
-	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-	font-size: 12px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
 }
 .markdown-body pre {
-	margin-top: 0;
-	margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .markdown-body kbd {
-	background-color: #e7e7e7;
-	background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
-	background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
-	background-image: linear-gradient(#fefefe, #e7e7e7);
-	background-repeat: repeat-x;
-	border-radius: 2px;
-	border: 1px solid #cfcfcf;
-	color: #000;
-	padding: 1px 4px; 
+    background-color: #e7e7e7;
+    background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+    background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+    background-image: linear-gradient(#fefefe, #e7e7e7);
+    background-repeat: repeat-x;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf;
+    color: #000;
+    padding: 1px 4px; 
     margin: 0px 2px;        /*@@@MDB 31-03-2017*/
-	line-height: 10px;
-	font: 13px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-	display: inline-block;
+    line-height: 10px;
+    font: 13px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    display: inline-block;
 }
 .markdown-body>*:first-child {
-	margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 .markdown-body>*:last-child {
-	margin-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 .markdown-body .headeranchor-link {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	display: block;
-	padding-right: 6px;
-	padding-left: 30px;
-	margin-left: -30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding-right: 6px;
+    padding-left: 30px;
+    margin-left: -30px;
 }
 .markdown-body .headeranchor-link:focus {
-	outline: none;
+    outline: none;
 }
 /* ------- Headers ------- */
 /* ----------------------- */
@@ -776,15 +738,15 @@ div.centered table {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-	/*background-color: #fcfcfc;*/
-	/*border-top: 		1px solid #d8d8d8;*/
-	/*border-bottom: 	1px solid #f0f0f0;*/
-	font-size: 			2em;
-	font-weight: 		bold;
-	line-height: 		100%;
-	position: 			relative;
-	text-anchor: 		middle;
-	margin-bottom: 		.6em;
+    /*background-color: #fcfcfc;*/
+    /*border-top:       1px solid #d8d8d8;*/
+    /*border-bottom:    1px solid #f0f0f0;*/
+    font-size:          2em;
+    font-weight:        bold;
+    line-height:        100%;
+    position:           relative;
+    text-anchor:        middle;
+    margin-bottom:      .6em;
 }
 .markdown-body h1 .headeranchor,
 .markdown-body h2 .headeranchor,
@@ -792,9 +754,9 @@ div.centered table {
 .markdown-body h4 .headeranchor,
 .markdown-body h5 .headeranchor,
 .markdown-body h6 .headeranchor {
-	display: none;
-	color: #000;
-	vertical-align: left;
+    display: none;
+    color: #000;
+    vertical-align: left;
 }
 .markdown-body h1:hover .headeranchor-link,
 .markdown-body h2:hover .headeranchor-link,
@@ -802,11 +764,11 @@ div.centered table {
 .markdown-body h4:hover .headeranchor-link,
 .markdown-body h5:hover .headeranchor-link,
 .markdown-body h6:hover .headeranchor-link {
-	height: 1em;
-	padding-left: 8px;
-	margin-left: -30px;
-	line-height: 1;
-	text-decoration: none;
+    height: 1em;
+    padding-left: 8px;
+    margin-left: -30px;
+    line-height: 1;
+    text-decoration: none;
 }
 .markdown-body h1:hover .headeranchor-link .headeranchor,
 .markdown-body h2:hover .headeranchor-link .headeranchor,
@@ -814,63 +776,63 @@ div.centered table {
 .markdown-body h4:hover .headeranchor-link .headeranchor,
 .markdown-body h5:hover .headeranchor-link .headeranchor,
 .markdown-body h6:hover .headeranchor-link .headeranchor {
-	display: inline-block;
+    display: inline-block;
 }
 .markdown-body h1 {
-	background-color: 	#fcfcfc;
-	border-bottom: 		1px solid #d8d8d8;
-	border-top: 		1px solid #d8d8d8;
-	font-size: 			200%;
-	line-height: 		140%;
-	/*margin-bottom: 		.6em;*/
-	margin-top: 		1.4em;
-	/*padding-bottom: 	0.1em;*/
+    background-color:   #fcfcfc;
+    border-bottom:      1px solid #d8d8d8;
+    border-top:         1px solid #d8d8d8;
+    font-size:          200%;
+    line-height:        140%;
+    /*margin-bottom:        .6em;*/
+    margin-top:         1.4em;
+    /*padding-bottom:   0.1em;*/
 }
 .markdown-body h2 {
-	/*background-color: 	#fcfcfc;*/
-	/*border-top: 		1px solid #d8d8d8;*/
-	border-bottom: 		1px solid #d8d8d8;
-	font-size: 			175%;
-	line-height: 		140%;
-	/*margin-bottom: 		.5em;*/
-	margin-top: 		1em;
-	/*padding-bottom: 	0.1em;*/
+    /*background-color:     #fcfcfc;*/
+    /*border-top:       1px solid #d8d8d8;*/
+    border-bottom:      1px solid #d8d8d8;
+    font-size:          175%;
+    line-height:        140%;
+    /*margin-bottom:        .5em;*/
+    margin-top:         1em;
+    /*padding-bottom:   0.1em;*/
 }
 .markdown-body h3 {
-	/*background-color: 	#fcfcfc;*/
-	/*border-top: 		1px solid #d8d8d8;*/
-	border-bottom: 		1px solid #f0f0f0;
-	font-size: 			150%;
-	line-height: 		font-size;
-	margin-bottom: 		.5em;
-	margin-top: 		1em;
-	/*padding-bottom: 	0.1em;*/
+    /*background-color:     #fcfcfc;*/
+    /*border-top:       1px solid #d8d8d8;*/
+    border-bottom:      1px solid #f0f0f0;
+    font-size:          150%;
+    line-height:        font-size;
+    margin-bottom:      .5em;
+    margin-top:         1em;
+    /*padding-bottom:   0.1em;*/
 }
 .markdown-body h4 {
-	/*background-color: #fcfcfc;*/
-	/*border-top: 		1px solid #d8d8d8;*/
-	/*border-bottom: 	1px solid #f0f0f0;*/
-	font-size: 			125%;
-	line-height: 		font-size;
-	padding-bottom: 	0.1em;
-	margin-top: 		1.5em;
-	/*margin-bottom: 		.4em;*/
-	/*padding-bottom: 	0.1em;*/
+    /*background-color: #fcfcfc;*/
+    /*border-top:       1px solid #d8d8d8;*/
+    /*border-bottom:    1px solid #f0f0f0;*/
+    font-size:          125%;
+    line-height:        font-size;
+    padding-bottom:     0.1em;
+    margin-top:         1.5em;
+    /*margin-bottom:        .4em;*/
+    /*padding-bottom:   0.1em;*/
 }
 .markdown-body h5 {
-	/*background-color: #fcfcfc;*/
-	/*border-top: 		1px solid #d8d8d8;*/
-	/*border-bottom: 	1px solid #f0f0f0;*/
-	font-size: 			110%;
-	line-height: 		font-size;
-	padding-bottom: 	0.1em;*/
-	margin-top: 		.8em;
-	/*margin-bottom: 		.4em;*/
-	/*padding-bottom: 	0.1em;*/
+    /*background-color: #fcfcfc;*/
+    /*border-top:       1px solid #d8d8d8;*/
+    /*border-bottom:    1px solid #f0f0f0;*/
+    font-size:          110%;
+    line-height:        font-size;
+    padding-bottom:     0.1em;*/
+    margin-top:         .8em;
+    /*margin-bottom:        .4em;*/
+    /*padding-bottom:   0.1em;*/
 }
 .markdown-body h6 {
-	font-size: .8em;
-	color: #777;
+    font-size: .8em;
+    color: #777;
 }
 .markdown-body p,
 .markdown-body blockquote,
@@ -880,181 +842,181 @@ div.centered table {
 .markdown-body table,
 .markdown-body pre,
 .markdown-body .admonition {
-	margin-top: 0;
-	margin-bottom: 18px;
-	/*background-color: purple;*/
+    margin-top: 0;
+    margin-bottom: 18px;
+    /*background-color: purple;*/
 }
 .markdown-body hr {
-	height: 4px;
-	padding: 0;
-	margin: 16px 0;
-	background-color: #e7e7e7;
-	border: 0 none;
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
 }
 .markdown-body ul,
 .markdown-body ol {
-	/* Absatzformat listen */
-	padding-left: 2em;
-	/*margin-bottom: 2em;*/
-	color: #555;
-	font-style: italic;
-	background-color: #fefefe;
-	/*line-height: 1.8em*/
-	/*background-color: green;*/
+    /* Absatzformat listen */
+    padding-left: 2em;
+    /*margin-bottom: 2em;*/
+    color: #555;
+    font-style: italic;
+    background-color: #fefefe;
+    /*line-height: 1.8em*/
+    /*background-color: green;*/
 }
 .markdown-body ul ul,
 .markdown-body ul ol,
 .markdown-body ol ol,
 .markdown-body ol ul {
-	margin-top: 0;
-	margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .markdown-body li>p {
-	/*margin-top: 16px;*/
-	margin-top: 2em;
+    /*margin-top: 16px;*/
+    margin-top: 2em;
 
-	/* Absatzformat Fußnoten */
-	/*background-color: red;*/
+    /* Absatzformat Fußnoten */
+    /*background-color: red;*/
 }
 .markdown-body dl {
-	padding: 0;
+    padding: 0;
 }
 .markdown-body dl dt {
-	padding: 0;
-	margin-top: 16px;
-	font-size: 1em;
-	font-style: italic;
-	font-weight: bold;
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
 }
 .markdown-body dl dd {
-	padding: 0 16px;
-	margin-bottom: 16px;
+    padding: 0 16px;
+    margin-bottom: 16px;
 }
 .markdown-body table {
-	display: block;
-	width: 100%;
-	overflow: auto;
-	word-break: normal;
-	word-break: keep-all;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
 }
 .markdown-body table th {
-	font-weight: bold;
-	background-color: #E6E6E6;
-	border: 1px solid #8F8F8F;
+    font-weight: bold;
+    background-color: #E6E6E6;
+    border: 1px solid #8F8F8F;
 }
 .markdown-body table th,
 .markdown-body table td {
-	padding: 6px 13px;
-	border: 1px solid #ddd;
+    padding: 6px 13px;
+    border: 1px solid #ddd;
 }
 .markdown-body table tr {
-	background-color: #fff;
-	border-top: 1px solid #ccc;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
 }
 .markdown-body table tr:nth-child(2n) {
-	background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 .markdown-body table.noalter tr:nth-child(2n) {
-	background-color: #fff !important;
+    background-color: #fff !important;
 }
 .markdown-body code,
 .markdown-body samp {
-	padding: 0;
-	padding-top: 0.2em;
-	padding-bottom: 0.2em;
-	margin: 0;
-	font-size: 85%;
-	background-color: rgba(0,0,0,0.04);
-	border-radius: 3px;
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
 }
 .markdown-body code:before,
 .markdown-body code:after {
-	letter-spacing: -0.2em;
-	content: "\00a0";
+    letter-spacing: -0.2em;
+    content: "\00a0";
 }
 .markdown-body pre>code {
-	padding: 0;
-	margin: 0;
-	font-size: 100%;
-	word-break: normal;
-	white-space: pre;
-	background: transparent;
-	border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
 }
 .markdown-body .codehilite {
-	margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 .markdown-body .codehilite pre,
 .markdown-body pre {
-	padding: 16px;
-	overflow: auto;
-	font-size: 85%;
-	line-height: 1.45;
-	background-color: #f7f7f7;
-	border-radius: 3px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
 }
 .markdown-body .codehilite pre {
-	margin-bottom: 0;
-	word-break: normal;
+    margin-bottom: 0;
+    word-break: normal;
 }
 .markdown-body pre {
-	word-wrap: normal;
+    word-wrap: normal;
 }
 .markdown-body pre code {
-	display: inline;
-	max-width: initial;
-	padding: 0;
-	margin: 0;
-	overflow: initial;
-	line-height: inherit;
-	word-wrap: normal;
-	background-color: transparent;
-	border: 0;
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
 }
 .markdown-body pre code:before,
 .markdown-body pre code:after {
-	content: normal;
+    content: normal;
 }
 /* Ermahnung */
 .markdown-body .admonition {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	position: relative;
-	border-radius: 3px;
-	border: 1px solid #e0e0e0;
-	border-left: 6px solid #333;
-	padding: 10px 10px 10px 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid #333;
+    padding: 10px 10px 10px 30px;
 }
 .markdown-body .admonition table {
-	color: #333;
+    color: #333;
 }
 .markdown-body .admonition p {
-	padding: 0;
+    padding: 0;
 }
 .markdown-body .admonition-title {
-	font-weight: bold;
-	margin: 0;
+    font-weight: bold;
+    margin: 0;
 }
 .markdown-body .admonition>.admonition-title {
-	color: #333;
+    color: #333;
 }
 .markdown-body .attention>.admonition-title {
-	color: #a6d796;
+    color: #a6d796;
 }
 .markdown-body .caution>.admonition-title {
-	color: #d7a796;
+    color: #d7a796;
 }
 .markdown-body .hint>.admonition-title {
-	color: #96c6d7;
+    color: #96c6d7;
 }
 .markdown-body .danger>.admonition-title {
-	color: #c25f77;
+    color: #c25f77;
 }
 .markdown-body .question>.admonition-title {
-	color: #96a6d7;
+    color: #96a6d7;
 }
 .markdown-body .note>.admonition-title {
-	color: #d7c896;
+    color: #d7c896;
 }
 .markdown-body .admonition:before,
 .markdown-body .attention:before,
@@ -1063,319 +1025,319 @@ div.centered table {
 .markdown-body .danger:before,
 .markdown-body .question:before,
 .markdown-body .note:before {
-	font: normal normal 16px fontawesome-mini;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	line-height: 1.5;
-	color: #333;
-	position: absolute;
-	left: 0;
-	top: 0;
-	padding-top: 10px;
-	padding-left: 10px;
+    font: normal normal 16px fontawesome-mini;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 1.5;
+    color: #333;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 .markdown-body .admonition:before {
-	content: "\f056\00a0";
-	color: 333;
+    content: "\f056\00a0";
+    color: 333;
 }
 .markdown-body .attention:before {
-	content: "\f058\00a0";
-	color: #a6d796;
+    content: "\f058\00a0";
+    color: #a6d796;
 }
 .markdown-body .caution:before {
-	content: "\f06a\00a0";
-	color: #d7a796;
+    content: "\f06a\00a0";
+    color: #d7a796;
 }
 .markdown-body .hint:before {
-	content: "\f05a\00a0";
-	color: #96c6d7;
+    content: "\f05a\00a0";
+    color: #96c6d7;
 }
 .markdown-body .danger:before {
-	content: "\f057\00a0";
-	color: #c25f77;
+    content: "\f057\00a0";
+    color: #c25f77;
 }
 .markdown-body .question:before {
-	content: "\f059\00a0";
-	color: #96a6d7;
+    content: "\f059\00a0";
+    color: #96a6d7;
 }
 .markdown-body .note:before {
-	content: "\f040\00a0";
-	color: #d7c896;
+    content: "\f040\00a0";
+    color: #d7c896;
 }
 .markdown-body .admonition::after {
-	content: normal;
+    content: normal;
 }
 .markdown-body .attention {
-	border-left: 6px solid #a6d796;
+    border-left: 6px solid #a6d796;
 }
 .markdown-body .caution {
-	border-left: 6px solid #d7a796;
+    border-left: 6px solid #d7a796;
 }
 .markdown-body .hint {
-	border-left: 6px solid #96c6d7;
+    border-left: 6px solid #96c6d7;
 }
 .markdown-body .danger {
-	border-left: 6px solid #c25f77;
+    border-left: 6px solid #c25f77;
 }
 .markdown-body .question {
-	border-left: 6px solid #96a6d7;
+    border-left: 6px solid #96a6d7;
 }
 .markdown-body .note {
-	border-left: 6px solid #d7c896;
+    border-left: 6px solid #d7c896;
 }
 .markdown-body .admonition>*:first-child {
-	margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 .markdown-body .admonition>*:last-child {
-	margin-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 /* progress bar*/
 .markdown-body .progress {
-	display: block;
-	width: 300px;
-	margin: 10px 0;
-	height: 24px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background-color: #ededed;
-	position: relative;
-	box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+    display: block;
+    width: 300px;
+    margin: 10px 0;
+    height: 24px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #ededed;
+    position: relative;
+    box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
 }
 .markdown-body .progress-label {
-	position: absolute;
-	text-align: center;
-	font-weight: bold;
-	width: 100%; margin: 0;
-	line-height: 24px;
-	color: #333;
-	text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
-	-webkit-font-smoothing: antialiased !important;
-	white-space: nowrap;
-	overflow: hidden;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    width: 100%; margin: 0;
+    line-height: 24px;
+    color: #333;
+    text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+    -webkit-font-smoothing: antialiased !important;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .markdown-body .progress-bar {
-	height: 24px;
-	float: left;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background-color: #96c6d7;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
-	background-size: 30px 30px;
-	background-image: -webkit-linear-gradient(
-		135deg, rgba(255, 255, 255, .4) 27%,
-		transparent 27%,
-		transparent 52%, rgba(255, 255, 255, .4) 52%,
-		rgba(255, 255, 255, .4) 77%,
-		transparent 77%, transparent
-		);
-	background-image: -moz-linear-gradient(
-		135deg,
-		rgba(255, 255, 255, .4) 27%, transparent 27%,
-		transparent 52%, rgba(255, 255, 255, .4) 52%,
-		rgba(255, 255, 255, .4) 77%, transparent 77%,
-		transparent
-		);
-	background-image: -ms-linear-gradient(
-		135deg,
-		rgba(255, 255, 255, .4) 27%, transparent 27%,
-		transparent 52%, rgba(255, 255, 255, .4) 52%,
-		rgba(255, 255, 255, .4) 77%, transparent 77%,
-		transparent
-		);
-	background-image: -o-linear-gradient(
-		135deg,
-		rgba(255, 255, 255, .4) 27%, transparent 27%,
-		transparent 52%, rgba(255, 255, 255, .4) 52%,
-		rgba(255, 255, 255, .4) 77%, transparent 77%,
-		transparent
-		);
-	background-image: linear-gradient(
-		135deg,
-		rgba(255, 255, 255, .4) 27%, transparent 27%,
-		transparent 52%, rgba(255, 255, 255, .4) 52%,
-		rgba(255, 255, 255, .4) 77%, transparent 77%,
-		transparent
-		);
+    height: 24px;
+    float: left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #96c6d7;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+    background-size: 30px 30px;
+    background-image: -webkit-linear-gradient(
+        135deg, rgba(255, 255, 255, .4) 27%,
+        transparent 27%,
+        transparent 52%, rgba(255, 255, 255, .4) 52%,
+        rgba(255, 255, 255, .4) 77%,
+        transparent 77%, transparent
+        );
+    background-image: -moz-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .4) 27%, transparent 27%,
+        transparent 52%, rgba(255, 255, 255, .4) 52%,
+        rgba(255, 255, 255, .4) 77%, transparent 77%,
+        transparent
+        );
+    background-image: -ms-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .4) 27%, transparent 27%,
+        transparent 52%, rgba(255, 255, 255, .4) 52%,
+        rgba(255, 255, 255, .4) 77%, transparent 77%,
+        transparent
+        );
+    background-image: -o-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .4) 27%, transparent 27%,
+        transparent 52%, rgba(255, 255, 255, .4) 52%,
+        rgba(255, 255, 255, .4) 77%, transparent 77%,
+        transparent
+        );
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .4) 27%, transparent 27%,
+        transparent 52%, rgba(255, 255, 255, .4) 52%,
+        rgba(255, 255, 255, .4) 77%, transparent 77%,
+        transparent
+        );
 }
 .markdown-body .progress-100plus .progress-bar {
-	background-color: #a6d796;
+    background-color: #a6d796;
 }
 .markdown-body .progress-80plus .progress-bar {
-	background-color: #c6d796;
+    background-color: #c6d796;
 }
 .markdown-body .progress-60plus .progress-bar {
-	background-color: #d7c896;
+    background-color: #d7c896;
 }
 .markdown-body .progress-40plus .progress-bar {
-	background-color: #d7a796;
+    background-color: #d7a796;
 }
 .markdown-body .progress-20plus .progress-bar {
-	background-color: #d796a6;
+    background-color: #d796a6;
 }
 .markdown-body .progress-0plus .progress-bar {
-	background-color: #c25f77;
+    background-color: #c25f77;
 }
 .markdown-body .candystripe-animate .progress-bar{
-	-webkit-animation: animate-stripes 3s linear infinite;
-	-moz-animation: animate-stripes 3s linear infinite;
-	animation: animate-stripes 3s linear infinite;
+    -webkit-animation: animate-stripes 3s linear infinite;
+    -moz-animation: animate-stripes 3s linear infinite;
+    animation: animate-stripes 3s linear infinite;
 }
 @-webkit-keyframes animate-stripes {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 60px 0;
-	}
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 0;
+    }
 }
 @-moz-keyframes animate-stripes {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 60px 0;
-	}
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 0;
+    }
 }
 @keyframes animate-stripes {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 60px 0;
-	}
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 0;
+    }
 }
 .markdown-body .gloss .progress-bar {
-	box-shadow:
-	inset 0 4px 12px rgba(255, 255, 255, .7),
-	inset 0 -12px 0 rgba(0, 0, 0, .05);
+    box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
 }
 /* Multimarkdown Critic Blocks */
 .markdown-body .critic_mark {
-	background: #ff0;
+    background: #ff0;
 }
 .markdown-body .critic_delete {
-	color: #c82829;
-	text-decoration: line-through;
+    color: #c82829;
+    text-decoration: line-through;
 }
 .markdown-body .critic_insert {
-	color: #718c00 ;
-	text-decoration: underline;
+    color: #718c00 ;
+    text-decoration: underline;
 }
 .markdown-body .critic_comment {
-	color: #8e908c;
-	font-style: italic;
+    color: #8e908c;
+    font-style: italic;
 }
 .markdown-body .headeranchor {
-	font: normal normal 16px octicons-anchor;
-	line-height: 1;
-	display: inline-block;
-	text-decoration: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    font: normal normal 16px octicons-anchor;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .headeranchor:before {
-	content: '\f05c';
+    content: '\f05c';
 }
 .markdown-body .task-list-item {
-	list-style-type: none;
+    list-style-type: none;
 }
 .markdown-body .task-list-item+.task-list-item {
-	margin-top: 3px;
+    margin-top: 3px;
 }
 .markdown-body .task-list-item input {
-	margin: 0 4px 0.25em -20px;
-	vertical-align: middle;
+    margin: 0 4px 0.25em -20px;
+    vertical-align: middle;
 }
 /* Media */
 @media only screen and (min-width: 480px) {
-	.markdown-body {
-		font-size:14px;
-	}
+    .markdown-body {
+        font-size:14px;
+    }
 }
 @media only screen and (min-width: 768px) {
-	.markdown-body {
-		font-size:16px;
-	}
+    .markdown-body {
+        font-size:16px;
+    }
 }
 @media print {
-	.markdown-body * {
-		background: transparent !important;
-		color: black !important;
-		filter:none !important;
-		-ms-filter: none !important;
-	}
-	.markdown-body {
-		font-size:12pt;
-		max-width:100%;
-		outline:none;
-		border: 0;
-	}
-	.markdown-body a,
-	.markdown-body a:visited {
-		text-decoration: underline;
-	}
-	.markdown-body .headeranchor-link {
-		display: none;
-	}
-	.markdown-body a[href]:after {
-		content: " (" attr(href) ")";
-	}
-	.markdown-body abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-	.markdown-body .ir a:after,
-	.markdown-body a[href^="javascript:"]:after,
-	.markdown-body a[href^="#"]:after {
-		content: "";
-	}
-	.markdown-body pre {
-		white-space: pre;
-		white-space: pre-wrap;
-		word-wrap: break-word;
-	}
-	.markdown-body pre,
-/*	.markdown-body blockquote {
-		border: 1px solid #999;
-		padding-right: 1em;
-		page-break-inside: avoid;
-		}*/
-		.markdown-body .progress,
-		.markdown-body .progress-bar {
-			-moz-box-shadow: none;
-			-webkit-box-shadow: none;
-			box-shadow: none;
-		}
-		.markdown-body .progress {
-			border: 1px solid #ddd;
-		}
-		.markdown-body .progress-bar {
-			height: 22px;
-			border-right: 1px solid #ddd;
-		}
-		.markdown-body tr,
-		.markdown-body img {
-			page-break-inside: avoid;
-		}
-		.markdown-body p,
-		.markdown-body h2,
-		.markdown-body h3 {
-			orphans: 3;
-			widows: 3;
-		}
-		.markdown-body h2,
-		.markdown-body h3 {
-			page-break-after: avoid;
-		}
-	}
+    .markdown-body * {
+        background: transparent !important;
+        color: black !important;
+        filter:none !important;
+        -ms-filter: none !important;
+    }
+    .markdown-body {
+        font-size:12pt;
+        max-width:100%;
+        outline:none;
+        border: 0;
+    }
+    .markdown-body a,
+    .markdown-body a:visited {
+        text-decoration: underline;
+    }
+    .markdown-body .headeranchor-link {
+        display: none;
+    }
+    .markdown-body a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    .markdown-body abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    .markdown-body .ir a:after,
+    .markdown-body a[href^="javascript:"]:after,
+    .markdown-body a[href^="#"]:after {
+        content: "";
+    }
+    .markdown-body pre {
+        white-space: pre;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    .markdown-body pre,
+/*  .markdown-body blockquote {
+        border: 1px solid #999;
+        padding-right: 1em;
+        page-break-inside: avoid;
+        }*/
+        .markdown-body .progress,
+        .markdown-body .progress-bar {
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .markdown-body .progress {
+            border: 1px solid #ddd;
+        }
+        .markdown-body .progress-bar {
+            height: 22px;
+            border-right: 1px solid #ddd;
+        }
+        .markdown-body tr,
+        .markdown-body img {
+            page-break-inside: avoid;
+        }
+        .markdown-body p,
+        .markdown-body h2,
+        .markdown-body h3 {
+            orphans: 3;
+            widows: 3;
+        }
+        .markdown-body h2,
+        .markdown-body h3 {
+            page-break-after: avoid;
+        }
+    }
 </style><style>/*github*/
 .codehilite {background-color:#fff;color:#333333;}
 .codehilite .hll {background-color:#ffffcc;}
@@ -1540,7 +1502,12 @@ MathJax.Hub.Config({
   onReady(function(){convertUML('uml-sequence-diagram', Diagram, {theme: 'simple'});});
 })(window, document)
 </script>
-<title>Report ELT131 LAB 04</title></head><body><article class="markdown-body"><h1 id="elt131-lab-04-report"><a name="user-content-elt131-lab-04-report" href="#elt131-lab-04-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 04 report</h1>
+<title>Report ELT131 LAB 04</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 04</td>
+<td style="text-align: center;">Del Basso, Manuel</td>
+<td style="text-align: center;">02-04-2017</td>
+<td style="text-align: center;">WHZ</td>
+<td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
+</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-04-report"><a name="user-content-elt131-lab-04-report" href="#elt131-lab-04-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 04 report</h1>
 <div class="toc">
 <ul>
 <li><a href="#elt131-lab-04-report">ELT131 - Lab 04 report</a><ul>
@@ -1643,6 +1610,7 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <span class="n">var</span> <span class="n">ti_sysbios_hal_Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">hal</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Swi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Swi</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
 
@@ -1676,7 +1644,7 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">taskEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">rtsGateType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">NoLocking</span><span class="o">;</span>
 
 <span class="n">var</span> <span class="n">hwi0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hwi</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
@@ -1698,6 +1666,15 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadLoggerSize</span> <span class="o">=</span> <span class="mi">4096</span><span class="o">;</span>
 <span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosLoggerSize</span> <span class="o">=</span> <span class="mi">4096</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">runtimeCreatesEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">clockParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clockParams</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;CLK_SINGLE&quot;</span><span class="o">;</span>
+<span class="n">clockParams</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="n">clockParams</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">clockParams</span><span class="o">.</span><span class="na">arg</span> <span class="o">=</span> <span class="mh">0x5555</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">CLK_SINGLE</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;onEncLsb_changed&quot;</span><span class="o">,</span> <span class="mi">30000000</span><span class="o">,</span> <span class="n">clockParams</span><span class="o">);</span>
 </pre></div>
 <br />
 </details><br />
@@ -1744,50 +1721,64 @@ The Swi manager is an important (and time consuming) part of the BIOS scheduler.
 <p>Edit file &ldquo;ELT131_04_01.c&rdquo; and extend the duration of the SWI by extending the for - loop from 10 to 200 repetitions.<br />
 Repeat the measurements for the CPU-Load and the Execution graph and compare the results. </p>
 </blockquote>
-<p><span class="quest">Where becomes the additional load of 190 more loops of the for-instruction visible?</span></p>
+<p><span class="quest">Where becomes the additional load of 190 more loops of the for-instruction visible?</span><br />
+As expected, neither the Hwi duration nor the BIOS scheduler / Swi manager work off delay is affected by the higher CPU load. </p>
 <p><span class="quest">How many for - loops will fit into the SWI?</span></p>
 <blockquote>
 <p>Increase the for - loop counter according to the following table. Measure CPU-load and make a note about the runtime of the SWI.</p>
 </blockquote>
+<p>|:----------:|:------------:|:-----------------:|:-----------------:|</p>
 <table>
 <thead>
 <tr>
-<th align="center">loop count</th>
-<th align="center">CPU load (%)</th>
-<th align="center">HWI duration [µs]</th>
-<th align="center">SWI duration [µs]</th>
+<th>loop count</th>
+<th>CPU load [%]</th>
+<th>HWI duration [µs]</th>
+<th>Scheduler duration</th>
+<th>SWI duration [µs]</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">10</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td>10</td>
+<td>9</td>
+<td>10.926</td>
+<td>9.433</td>
+<td></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td>200</td>
+<td>14</td>
+<td>10.926</td>
+<td>9.433</td>
+<td>32.887</td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center">99</td>
-<td align="center"></td>
-<td align="center"></td>
+<td></td>
+<td>99</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
-</table></article></body></html>
+</table>
+<p><strong>doc htmls</strong></p></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 04</td>
+<td style="text-align: center;">Del Basso, Manuel</td>
+<td style="text-align: center;">02-04-2017</td>
+<td style="text-align: center;">WHZ</td>
+<td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
+</tr></table></div></center></body></html>

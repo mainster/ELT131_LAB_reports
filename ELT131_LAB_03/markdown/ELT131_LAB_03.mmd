@@ -157,13 +157,13 @@ Some basic UART/SCI and encoder read-in functions has been added to the project.
 The interrupt latency and jitter measurements have been performed several times in order to assess any deviations introduced by the additional idle task (query encoder GPIOs). According to the interrupt __latency__, the next oscilloscope screen shots shows that there are no relevant changes. After taking a look at the resulting interrupt jitter, a measurable influence can be pointed out.
 
 <details markdown=1><summary><h4 class="sp"><span class="codehd">Latency and jitter measurements</span></h4></summary>
-<figure class="oszi" markdown=1> <img src="./pics/picsTry1/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_irq_latency_idle_is_enc.png" title="Interrupt latency @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure>
 
-<figure class="oszi" markdown=1> <img src="./pics/picsTry1/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_irq_latency_idle_is_NONE.png" title="Interrupt latency @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt latency of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure>
 
-<figure class="oszi" markdown=1> <img src="./pics/picsTry1/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_irq_jitter_idle_is_enc.png" title="Interrupt jitter @200kHz of __RTOS__ setup including an __idle task__ to query encoder GPIOs" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup including an __idle task__ to query encoder GPIOs @$\;\si{200kHz}\;$</figcaption> </figure>
 
-<figure class="oszi" markdown=1> <img src="./pics/picsTry1/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_irq_jitter_idle_is_NONE.png" title="Interrupt jitter @200kHz of __RTOS__ setup __without__ any idle task" class="noborder"><figcaption>Interrupt jitter of __RTOS__ setup __without__ any idle task @$\;\si{200kHz}\;$</figcaption> </figure>
 </details>
 <div></div>
 
@@ -209,6 +209,7 @@ In order not to miss the teaching goal, all measurements were carried out withou
 @codeimport_nocomments
 ```
 </details>
+<div></div>
 
 ### Oscilloscope screenshots ###
 >Add the oscilloscope screenshots for the interrupt latency and jitter to your report.
@@ -289,7 +290,7 @@ Latency and jitter table running __HWI RTOS__ setup from FLASH.
 
 According to the next oscilloscope picture we are not able to service IRQs fast enough when the ePWM1 module operates at $f_{ePWM}\;=\;\si{200kHz}$ and TI-RTOS is configured for SWI.
 
-<figure class="oszi" markdown=1> <img src="./pics/picsTry1/os_swi_no_200kHz_100ns_v2_because.png" title="Overall IRQ service time @20kHz, SWI __RTOS__ setup" class="noborder"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_swi_no_200kHz_100ns_v2_because.png" title="Overall IRQ service time @20kHz, SWI __RTOS__ setup" class="noborder"><figcaption>Overall IRQ service time of SWI __RTOS__ setup @$\;\si{20kHz}\;$</figcaption> </figure>
 </details>
 
 <details markdown=1><summary><h4 class="sp"><span class="codehd">Jitter measurements</span></h4></summary>
@@ -652,8 +653,6 @@ Should it not rather be:
     + run HWI handler from on-chip RAM ```#pragma CODE_SECTION(HWI_XINT1_isr, "ramfuncs");```
     + run SWI handler from on-chip RAM ```#pragma CODE_SECTION(SWI_XINT1_isr, "ramfuncs");```
 
-__doc htmls__
-__Register view searchable__
 
 [^fnCodeExec]: __F2833x Code Execution Performance__ 
 http://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/171/6740.Capture.JPG
