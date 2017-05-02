@@ -520,66 +520,43 @@
 	"buffers":
 	[
 		{
-			"file": "ELT131_LAB_04/ELT131_LAB_04.mmd",
+			"file": "ELT131_LAB_03/markdown/ELT131_LAB_03.mmd",
 			"settings":
 			{
-				"buffer_size": 8976,
+				"buffer_size": 45278,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Package Control Messages\n========================\n\nDoxyDoxygen (evolution)\n-----------------------\n\n  DoxyDoxygen 0.59.0\n  ------------------\n  \n     - Add \"word_expansions\" settings\n     - Add: \"find_nearest_entity\" now detected \"enum\" and \"union\" if grammar support them (https://github.com/20Tauri/DoxyDoxygen/issues/78)\n     - Remove: contextual menu (on right click)\n     - Fix: JavaScript parser now support \"async\" in dictionary.\n",
+			"file": "ELT131_LAB_04/MD_F2833x_LIB/md_spi.c",
 			"settings":
 			{
-				"buffer_size": 437,
-				"line_ending": "Unix",
-				"name": "Package Control Messages",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "ELT131_LAB_01/ELT131_LAB_01.html",
-			"settings":
-			{
-				"buffer_size": 108672,
-				"encoding": "UTF-8",
+				"buffer_size": 5863,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ELT131_LAB_04/ELT131_LAB_04.html",
+			"file": "ELT131_LAB_04/MD_F2833x_LIB/md_spi.h",
 			"settings":
 			{
-				"buffer_size": 97340,
-				"encoding": "UTF-8",
+				"buffer_size": 2319,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "styleMdb_ELT131_LAB_04.css",
+			"contents": "${filecomment}\n/* -------------------------------  Includes  ------------------------------ */\n#include \"${file_base}.h\"\n\n/* ----------------------------  Private macros  --------------------------- */\n/* ---------------------------  Private typedefs  -------------------------- */\n/* --------------------------  Private function implementation  -------------------------- */\n/* --------------------------  Private variables  -------------------------- */\n\n/* ----------------------------  Private defines  -------------------------- */\n\n/* ---------------------  Private function prototypes  --------------------- */\n/* ---------------------  Private function prototypes  --------------------- */\n/* --------------  Must be defined in the implementation file  ------------- */\n\n",
 			"settings":
 			{
-				"buffer_size": 41250,
-				"encoding": "UTF-8",
+				"buffer_size": 779,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "/*\n * Horizontal centered line in header texts\n */\n.markdown-body h4.sphd,\n.markdown-body h4.sp {\n    margin:         22px 0 22px 0;\n    vertical-align: middle;\n    text-align:     center;\n}\n.markdown-body details summary h4.sphd,\n.markdown-body details summary h4.sp {\n    margin:         0 0 .25em 0;\n    /*padding:      0 !important;*/\n    vertical-align: top !important;\n    /*padding-bottom: 3px;*/\n}\n/*\n * Spec sheet header\n */\n.markdown-body h4.sphd {\n    background:     #d8d8d8;    /* For browsers that do not support gradients */\n    background:     -webkit-linear-gradient(left, white, #d8d8d8, white);   /* For Safari 5.1 to 6.0 */\n    background:     -o-linear-gradient(left, white, #d8d8d8, white);        /* For Opera 11.1 to 12.0 */\n    background:     -moz-linear-gradient(left, white, #d8d8d8, white);      /* For Firefox 3.6 to 15 */\n    background:     linear-gradient(left, white, #d8d8d8, white);           /* Standard syntax */\n    line-height:    1px;\n    font-size:      120%;\n}\n/*\n * Spec sheet subheader\n */\n.markdown-body h4.sp    {\n    background:     #E6E6E6;    /* For browsers that do not support gradients */\n    background:     -webkit-linear-gradient(left, white, #E6E6E6, white);   /* For Safari 5.1 to 6.0 */\n    background:     -o-linear-gradient(left, white, #E6E6E6, white);        /* For Opera 11.1 to 12.0 */\n    background:     -moz-linear-gradient(left, white, #E6E6E6, white);      /* For Firefox 3.6 to 15 */\n    background:     linear-gradient(left, white, #E6E6E6, white);           /* Standard syntax */\n    line-height:    1px;\n    font-size:      100%;\n    text-align:     left;\n\n    /*margin-right:     50%*/\n}\n.markdown-body h4.sphd span,\n.markdown-body h4.sp span {\n    padding-right:      10px;\n}\n.markdown-body h4.sphd span.codehd,\n.markdown-body h4.sp span.codehd {\n    /*box-shadow:         8px 8px 5px #B3B3B3;*/\n    background-color: yellow;\n    margin-top:         .6em !important;\n    padding-left:       10px;\n}\n.markdown-body h4.sphd span {\n    background-color:   #FCFCFC;\n    border:             1px solid #d8d8d8;\n    /*margin-left:      0px; */\n}\n.markdown-body h4.sp span {\n    background-color:   white;\n    border:             none;\n    margin-left:        10px;\n}",
+			"file": "ELT131_LAB_03/ELT131_LAB_03.html",
 			"settings":
 			{
-				"buffer_size": 2235,
-				"line_ending": "Unix",
-				"name": "/*"
-			}
-		},
-		{
-			"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
-			"settings":
-			{
-				"buffer_size": 83442,
+				"buffer_size": 393932,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -648,10 +625,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "lore",
+		"height": 292.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"set syn c",
+				"Set Syntax: C"
+			],
 			[
 				"lore",
 				"Add some Lorem Gibson"
@@ -675,10 +656,6 @@
 			[
 				"set syn gene",
 				"Set Syntax: Generic Config"
-			],
-			[
-				"set syn c",
-				"Set Syntax: C"
 			],
 			[
 				"trimm",
@@ -1190,11 +1167,23 @@
 	"expanded_folders":
 	[
 		"/media/data/whz/reports/ELT131",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_01",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_01/markdown"
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/markdown",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04_01",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/MD_F2833x_LIB"
 	],
 	"file_history":
 	[
+		"/usr/local/share/multisystem/gui_multi_sel.sh",
+		"/usr/local/bin/multisystem",
+		"/usr/local/share/multisystem/gui_multisystem.sh",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03.html",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_03/DIMM100_pinout.html",
+		"/media/data/whz/reports/ELT131/styleMdb_ELT131_LAB_04.css",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04.html",
+		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04.mmd",
+		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
 		"/media/data/CODES/ccs7_workspace/ILI9341/tm_stm32f4_ili9341/tm_stm32f4_ili9341.c",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_3/ELT131_LAB_03_RTOS_3.c",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_RTOS_4/app.cfg",
@@ -1202,13 +1191,11 @@
 		"/media/mainster/EC31-210E/unbetitelt.txt",
 		"/media/mainster/EC31-210E/Datei",
 		"/media/data/operatingsystems/WINDOWS.7.ULTIMATE.x64.64BIT.RETAIL.GERMAN.BY.SERKAN-PREDATOR/readme.nfo",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03.html",
 		"/home/mainster/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
 		"/home/mainster/.config/sublime-text-3/Packages/User/hexmap.sublime-syntax",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_03/ELT131_LAB_03_NON-OS/ELT131_LAB_03_01.h",
 		"/home/mainster/.config/sublime-text-3/Packages/User/Log.sublime-syntax",
 		"/home/mainster/.config/sublime-text-3/Packages/User/log2.sublime-syntax",
-		"/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
 		"/media/data/whz/reports/ELT131/ELT131_LAB_04/styleMdb_ELT131_LAB_04.css",
 		"/opt/ti/controlSUITE/device_support/f2833x/v141/DSP2833x_examples_ccsv5/flash_f28335/Example_2833xFlash.c",
 		"/media/data/CODES/LTspiceWorkspace/LTSpice_projects/RT/PID1.asc",
@@ -1226,7 +1213,6 @@
 		"/opt/ti/controlSUITE/libs/utilities/boot_rom/2802x/2802x_boot_rom_v2_0/source/Parallel_Boot.c",
 		"/opt/Distr_Cadence/видео установки.txt",
 		"/opt/Distr_Cadence/README",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_04/ELT131_LAB_04.mmd",
 		"/home/mainster/CODES_local/pythons/subprocess_clipboard.py",
 		"/home/mainster/CODES_local/pythons/serial_pyserial.py~",
 		"/home/mainster/CODES_local/pythons/serial_pyserial.py",
@@ -1316,13 +1302,7 @@
 		"/media/data/o2_Box_6431_Arcadyan_VGV7510KW22_zwickau/o2Box6431_bins/o2Box6431_python_try1_DECRYPTED.txt",
 		"/media/data/o2_Box_6431_Arcadyan_VGV7510KW22_zwickau/o2Box6431_bins/o2Box6431_delta_webuicfg_python_try1_DECRIPTED.diff",
 		"/media/data/o2_Box_6431_Arcadyan_VGV7510KW22_zwickau/decrypted.credentials.txt",
-		"/home/mainster/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings",
-		"/home/mainster/.config/sublime-text-3/Packages/User/asmComment.py",
-		"/home/mainster/.config/sublime-text-3/Packages/User/styleMdb.css",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_01/markdown/ELT131_LAB_01.mmd",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_01/mathjax.html",
-		"/media/data/whz/reports/ELT131/ELT131_LAB_01.sublime-project",
-		"/home/mainster/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings"
+		"/home/mainster/.config/sublime-text-3/Packages/User/SublimeAStyleFormatter.sublime-settings"
 	],
 	"find":
 	{
@@ -1340,6 +1320,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/gui-detect.sh",
 			"context_res",
 			"picsTry1/",
 			"fn",
@@ -1466,8 +1447,7 @@
 			"\\si",
 			"adjacentRows",
 			"doesn't ",
-			"#F7F7F7",
-			"box-shadow"
+			"#F7F7F7"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1618,103 +1598,11 @@
 			[
 				{
 					"buffer": 0,
-					"file": "ELT131_LAB_04/ELT131_LAB_04.mmd",
+					"file": "ELT131_LAB_03/markdown/ELT131_LAB_03.mmd",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8976,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7033,
-								7033
-							]
-						],
-						"settings":
-						{
-							"parser": "markdown",
-							"spell_check": true,
-							"syntax": "Packages/MarkdownEditing/MultiMarkdown.tmLanguage",
-							"tab_size": 4,
-							"target": "save",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2142.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								437,
-								437
-							]
-						],
-						"settings":
-						{
-							"auto_indent": false,
-							"default_dir": "/media/data/whz/reports/ELT131",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_width": 2,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ELT131_LAB_01/ELT131_LAB_01.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 108672,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								421,
-								421
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ELT131_LAB_04/ELT131_LAB_04.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 97340,
+						"buffer_size": 45278,
 						"regions":
 						{
 						},
@@ -1727,6 +1615,123 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/MarkdownEditing/MultiMarkdown.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10914.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ELT131_LAB_04/MD_F2833x_LIB/md_spi.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1833,
+								1833
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ELT131_LAB_04/MD_F2833x_LIB/md_spi.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1256,
+								1256
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								456,
+								456
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/media/data/whz/reports/ELT131",
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "ELT131_LAB_03/ELT131_LAB_03.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 393932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								622
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1735,151 +1740,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "styleMdb_ELT131_LAB_04.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 41250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10886,
-								10886
-							]
-						],
-						"settings":
-						{
-							"parser": "markdown",
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"target": "save",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 1974.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "styleMdb_ELT131_LAB_04.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 41250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12742,
-								12742
-							]
-						],
-						"settings":
-						{
-							"parser": "markdown",
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"target": "save"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1404.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2235,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2235,
-								2235
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*",
-							"default_dir": "/media/data/whz/reports/ELT131",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/mainster/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 83442,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								55868,
-								55868
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1733.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1887,7 +1748,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1902,18 +1763,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.609354277989,
 			1.0
 		],
 		"rows":
@@ -1951,7 +1805,7 @@
 	"project": "ELT131_LAB_reports.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 42.0
 	},
 	"save_all_on_build": false,
 	"select_file":
@@ -1989,7 +1843,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 290.0,
+	"side_bar_width": 207.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
