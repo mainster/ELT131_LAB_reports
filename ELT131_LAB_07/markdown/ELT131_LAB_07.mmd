@@ -1,0 +1,154 @@
+Title:      Report ELT131 LAB 07
+Author:     Del Basso, Manuel
+Date:       19-05-2017
+Location:   WHZ
+Footicon:   ./pics/whz.png
+
+ELT131 - Lab 07 report
+==============================
+[TOC]
+
+## Introduction ##
+
+__Used components:__
+
+ - Hardware
+     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino
+     - Oscilloscope: PC-USB Scope _PCSU1000, velleman_
+ - Software
+     - Code Composer Studio Version: 7.1.0.00015 (CCS7)
+     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
+     - SYS/BIOS
+         + Version: 6.33.4.39
+     - TI-RTOS for C2000
+         + Version: 2.16.1.14
+ - Development Plattform
+     + ```lsb_release -d``` <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span>
+     + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
+
+## Part 1 (HWI->Semaphore->Task) ##
+>Add the code of file "ELT131_07_01.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_07_01.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_07/ELT131_07_01.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the script-code of file "app.cfg" without comments to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app1.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_07/app1.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Add the oscilloscope screenshots for the HWI - delay of GPIO2 to GPIO0 to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/os_hwi_latency_2kHz_100ns.png" title="Interrupt latency @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\;\si{2kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_hwi_jitter_2kHz_20ns.png" title="Interrupt jitter @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\;\si{2kHz}\;$</figcaption> </figure>
+
+## Part 2 (HWI-Semaphore-Task1-Mailbox-Task2) ##
+>Add the modified code of file "ELT131_07_01.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_07_02.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_07/ELT131_07_02.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the new script-code of file "app.cfg" after adding semaphore and task to your report. 
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app2.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_07/app2.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Add the oscilloscope screenshots for the delay of GPIO02 to GPIO0 and the jitter – screenshot of GPIO2 to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/latency_2.png" title="Interrupt latency" class="noborder"><figcaption>Interrupt latency</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/jitter_2.png" title="Interrupt jitter" class="noborder"><figcaption>Interrupt jitter</figcaption> </figure>
+
+>Add the exection graph, task load and CPU-load to your report.
+
+<figure><img src="./pics/exec_cpu_tsk_load_02.png" title="Execution graph, CPU- and task load" class="noborder"><figcaption>Execution graph, CPU- and task load</figcaption> </figure>
+
+>Answer all questions in this paragraph.
+
+► What is the time distance between the starts of the HWI, in the picture above marked as X2-X1?
+(940-440)us = 500us
+
+► How long is the execution time of HWI, in the picture marked as X3-X1?
+<figure class="" markdown=1 style="width: 80%;"> <img src="./pics/x3x1.png" title="X2-X1" class="noborder"><figcaption>X3-X1</figcaption> </figure>
+
+► Can you explain the time diagram between the markers X1 and X5?
+► What happens at X1?
+► Which code function posts a semaphore (which?) after X1?
+► After the end of the HWI-INT (X3), what happens next?
+► When Task1 starts running, on which semaphore is it pending?
+► It looks like Task1 is also posting a semaphore (see green flag). Which Semaphore?
+► Why is Task2 doing a post (green flag), followed by a pend (red flag)?
+
+1. HWI occures @ X1 as configured ```XIntruptRegs.XINT1CR.bit.POLARITY = 0;```.
+2. OS enters HWI handler as configured ```Program.global.hwi2_xint = Hwi.create(35, "&XINT1_GPIO1_isr", hwi2Params);```.
+3. OS posts GPIO1 semaphore (```Semaphore_post(sem_GPIO01);```) marked by the green flag symbol.
+4. OS leaves HWI handler; CPU enters the scheduler process.
+5. Scheduler __RETURNS__ to Task1 since Task1 is locked in an endless loop.
+6. Inside the endless loop of Task1, program flow is locked until ```sem_GPIO01``` has reached (because of the RTOS function argument ```... BIOS_WAIT_FOREVER);```).
+7. After ```Semaphore_pend(sem_GPIO01...)``` call has been executed (orange flag symbol)...
+8. ... OS invokes the mailbox call as configured by ```Mailbox_post(GPIO2_Mbx, &msg, ...);``` (green flag symbol).
+9. OS leaves Task1 __AFTER__ message object ```msg``` has been modified (... for the next call to ```Mailbox_post```).
+10. Since Task2 has higher priority than Task1, Task1 is preempted by Task2.
+11. Inside Task2, the Semaphore post (green flag symbol) has been generated by a successful invocation of ```Mailbox_pend(...)```?! If so, every acknowledged mailbox query results in a sequence of a green flag, followed by the orange flag?! 
+12. After Task2 has been cycled once??!, execution of Task1 resumes...
+
+<div style="height: 2em;"></div>
+
+In this picture, within the first blue bar, ```GpioDataRegs.GPADAT.bit.GPIO2 = (msg.val & 0x01);``` is executed. Within the second range, the message object is modified ```msg.val ^= 1;```
+
+<center><figure style="width: 70%;"><img src="./pics/gpioMsgManipulation.png" title="Range of write access to GPIO data register and message object member val" class="noborder"><figcaption>Range of write access to GPIO data register and message object member val</figcaption> </figure></center>
+
+<div style="height: 1em;"></div>
+
+► Why is Task 1 shortly later preempted by Task2?
+???
+
+► With this setup for priorities for Task1 and Task2, what is the total response time for Task1?
+► What is the total response time for Task2?
+
+<center><figure style="width: 80%;"><img src="./pics/responseTime.png" title="Response time of Task1 and Task2" class="noborder"><figcaption>Response time of Task1 and Task2</figcaption> </figure></center>
+
+>Change Task Priorities: Add the modified execution graph to your protocol
+
+<figure class="oszi" markdown=1 style="width: 95%;> <img src="./pics/exec_cpu_tsk_load_02_prioSwapped.png" title="Execution graph, CPU- and task load - Swapped priorities" class="noborder"><figcaption>Execution graph, CPU- and task load - Swapped priorities</figcaption> </figure>
+
+
+## Part 3 (HWI-Semaphore.Task1-Queue-Task2) ##
+>Add the modified code of file "ELT131_07_03.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_07_03.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_07_03/ELT131_07_03.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the new script-code of file "app.cfg" after adding logging and instrumentation commands to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app3.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_07_03/app3.cfg"
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Add the execution graph results to your written report.
+
+<figure class="oszi" markdown=1> <img src="./pics/exec_cpu_tsk_load_03_queue.png" title="Execution graph, CPU- and task load - Mailbox replaced by queue" class="noborder"><figcaption>Execution graph, CPU- and task load - Mailbox replaced by queue</figcaption> </figure>

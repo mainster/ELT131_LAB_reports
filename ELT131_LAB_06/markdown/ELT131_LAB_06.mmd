@@ -1,0 +1,158 @@
+Title:      Report ELT131 LAB 06
+Author:     Del Basso, Manuel
+Date:       28-04-2017
+Location:   WHZ
+Footicon:   ./pics/whz.png
+
+ELT131 - Lab 06 report
+==============================
+[TOC]
+
+## Introduction ##
+
+__Used components:__
+
+ - Hardware
+     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino
+     - Oscilloscope: PC-USB Scope _PCSU1000, velleman_
+ - Software
+     - Code Composer Studio Version: 7.1.0.00015 (CCS7)
+     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
+     - SYS/BIOS
+         + Version: 6.33.4.39
+     - TI-RTOS for C2000
+         + Version: 2.16.1.14
+ - Development Plattform
+     + ```lsb_release -d``` <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span>
+     + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
+
+## Part 1 (HWI) ##
+>Add the code of file "ELT131_06_01.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_06_01.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/ELT131_06_01.c"
+</details>
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">md_epwm.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/md_epwm.c"
+</details>
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">md_epwm.h</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/md_epwm.h"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the script-code of file "app.cfg" without comments to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app1.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_06/app1.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Add the oscilloscope screenshots for signal GPIO0 (page 6-3) to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/epwm_rect_200Hz.png" title="Square wave signal generated from ePWM1 modul" class="noborder oszi"><figcaption>Square wave signal generated from ePWM1 modul</figcaption> </figure>
+
+>Add the oscilloscope screenshots for the HWI - delay (page 6-3) of GPIO2 to GPIO0 and the jitter – screenshot of GPIO2 to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/os_hwi_latency_2kHz_100ns.png" title="Interrupt latency @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of __HWI__ RTOS setup @$\;\si{2kHz}\;$</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/os_hwi_jitter_2kHz_20ns.png" title="Interrupt jitter @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of __HWI__ RTOS setup @$\;\si{2kHz}\;$</figcaption> </figure>
+
+## Part 2 (TASK) ##
+>Add the modified code of file "ELT131_06_02.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_06_02.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/ELT131_06_02.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the new script-code of file "app.cfg" after adding semaphore and task to your report. 
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app2.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_06/app2.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Add the oscilloscope screenshots for the Task - delay (page 6-5) of GPIO2 to GPIO0 and the jitter
+
+<figure class="oszi" markdown=1> <img src="./pics/lab06_latency.png" title="Interrupt latency (page 6-5)" class="noborder oszi"><figcaption>Interrupt latency (page 6-5)</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/lab06_2_jitter.png" title="Interrupt jitter (page 6-5)" class="noborder oszi"><figcaption>Interrupt jitter (page 6-5)</figcaption> </figure>
+
+## Part 3 (Instrumentation) ##
+>Add the modified code of file "ELT131_06_03.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_06_03.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/ELT131_06_03.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the new script-code of file "app.cfg" after adding logging and instrumentation commands to your report. 
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app3.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_06/app3.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+<figure class="oszi" markdown=1> <img src="./pics/lab06_3_latency.png" title="Interrupt latency (page 6-8)" class="noborder oszi"><figcaption>Interrupt latency (page 6-8)</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/lab06_3_jitter.png" title="Interrupt jitter (page 6-8)" class="noborder oszi"><figcaption>Interrupt jitter (page 6-8)</figcaption> </figure>
+
+>Add the two ROV result (page 6-8) to your report.
+
+<figure class="oszi" markdown=1> <img src="./pics/rov_03.png" title="ROV result (page 6-8)" class="noborder oszi"><figcaption>ROV result (page 6-8)</figcaption> </figure>
+
+>Add the execution graph results (page 6-9) to your written report.
+
+<figure class="oszi" markdown=1> <img src="./pics/postPend_03.png" title="Execution graph results (page 6-9)" class="noborder oszi"><figcaption>Execution graph results (page 6-9)</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/delta_t_03.png" title="Semaphore post delay (page 6-9)" class="noborder oszi"><figcaption>Semaphore post delay (page 6-9)</figcaption> </figure>
+
+>Add the Logging results and the CPU Load results (page 6-10).
+
+<figure class="oszi" markdown=1> <img src="./pics/messages_03.png" title="Filtered messages view" class="noborder oszi"><figcaption>Filtered messages view</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/cpuLoad_03.png" title="CPU load graph" class="noborder oszi"><figcaption>CPU load graph</figcaption> </figure>
+
+>Add the Task Load Summary and Task Load Graph (page 6-12).
+
+<figure class="oszi" markdown=1> <img src="./pics/taskLoad.png" title="Task load summary" class="noborder oszi"><figcaption>Task load summary</figcaption> </figure>
+
+
+## Part 4 (Dynamic Creation) ##
+
+>Add the modified code of file "ELT131_06_04.c" to your report.
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_06_04.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_06/ELT131_06_04.c"
+</details>
+<div style="height: 1em;"></div>
+
+>Add the new script-code of file "app.cfg" after removing the static task and semaphore to your report. 
+
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app4.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_06/app4.cfg"
+```
+</details>
+<div style="height: 1em;"></div>
+
+>Answer the questions to ROV – Semaphore (page 6-15)
+
+The available heap memory size before creating the semaphore object is displayed to be 0x100. After the call, totalFreeSize cell views 0xf0. Since we work on a 32-Bit architecture (4 bytes to store ljmp target addresses) and the TI-RTOS block align corresponds to 4, the heap memory has been reduced by 16 bytes (0x100-0xf0 = 0x10 = 16).
+

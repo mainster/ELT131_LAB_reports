@@ -1,0 +1,76 @@
+Title:      Report ELT131 LAB 05
+Author:     Del Basso, Manuel
+Date:       21-04-2017
+Location:   WHZ
+Footicon:   ./pics/whz.png
+
+ELT131 - Lab 05 report
+==============================
+[TOC]
+
+## Introduction ##
+
+__Used components:__
+
+ - Hardware
+     - TI TMS320F28335 Explorer Kit for TI C2000™ F28x family of microprocessors, controller card Delfino
+     - Oscilloscope: PC-USB Scope _PCSU1000, velleman_
+ - Software
+     - Code Composer Studio Version: 7.1.0.00015 (CCS7)
+     - Board support via ti's [__controlSUITE__](http://www.ti.com/tool/controlsuite?DCMP=mcu_controlsuite&HQS=controlsuite) v3.4.5
+     - SYS/BIOS
+         + Version: 6.33.4.39
+     - TI-RTOS for C2000
+         + Version: 2.16.1.14
+ - Development Plattform
+     + ```lsb_release -d``` <span style="margin-left: 1em;">Linux Mint 18 Sarah (LinuxMint)</span>
+     + ```uname -rpo``` <span style="margin-left: 1em;">4.4.0-57-generic x86_64 GNU/Linux</span>
+
+## Part 1: Setup a TI-RTOS Clock project ##
+<span class="quest">Add the code of file "ELT131_05_01.c" to your report.</span>
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_01.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_05_01/ELT131_05_01.c"
+</details>
+<div style="height: 1em;"></div>
+
+<span class="quest">Add the script-code of file "app.cfg" without comments to your report.</span>
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app1.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_05_01/app1.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+<span class="quest">Add the oscilloscope screenshots for signal GPIO0 (page 5-11) to your report.</span>
+<figure class="oszi" markdown=1> <img src="./pics/lab05_01_5Hz.png" title="RTOS clock at 5Hz" class="noborder"><figcaption>RTOS clock at 5Hz</figcaption> </figure>
+
+<span class="quest">Add the jitter – screenshot at 2 kHz to your report.</span>
+<figure class="oszi" markdown=1> <img src="./pics/lab05_01_jitter_HDelay.png" title="RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us" class="noborder"><figcaption>RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us</figcaption> </figure>
+
+## Part 2: Using TimeStamp (Benchmarking) ##
+<span class="quest">Add the code of file "ELT131_05_02.c" to your report.</span>
+According to "ELT131_LAB05 5-12":
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_02.c</span></h4></summary>
+@codeimport: "./ELT131_LAB_05_01/ELT131_05_02.c"
+</details>
+<div style="height: 1em;"></div>
+
+<span class="quest">Add the script-code of file "app.cfg" without comments to your report.</span>
+<details markdown=1>
+<summary><h4 class="sp foldable"><span class="codehd">app2.cfg</span></h4></summary>
+```java
+@codeimport: "./ELT131_LAB_05_01/app2.cfg"
+@codeimport_nocomments
+```
+</details>
+<div style="height: 1em;"></div>
+
+<span class="quest">Add your screenshots and/or measurement results for procedure steps 6 and 7 (page 5-16 to 5-18) to the report.</span>
+<figure class="oszi" markdown=1> <img src="./pics/benchmark_5-13.png" title="Benchmark according to 5-13" class="noborder"><figcaption>Benchmark according to 5-13</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/benchmark_5-15.png" title="Benchmark according to 5-15" class="noborder"><figcaption>Benchmark according to 5-15</figcaption> </figure>
+<figure class="oszi" markdown=1> <img src="./pics/pov_measure.png" title="RTOS object viewer" class="noborder"><figcaption>RTOS object viewer</figcaption> </figure>
+

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="author" content="Del Basso, Manuel">
 <meta name="footicon" content="./pics/whz.png">
-<meta name="date" content="02-04-2017">
+<meta name="date" content="21-04-2017">
 <meta name="location" content="WHZ"><style>body {
     border: 1px solid #ddd;
     margin: 16px auto;
@@ -1502,20 +1502,18 @@ MathJax.Hub.Config({
   onReady(function(){convertUML('uml-sequence-diagram', Diagram, {theme: 'simple'});});
 })(window, document)
 </script>
-<title>Report ELT131 LAB 04</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 04</td>
+<title>Report ELT131 LAB 05</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 05</td>
 <td style="text-align: center;">Del Basso, Manuel</td>
-<td style="text-align: center;">02-04-2017</td>
+<td style="text-align: center;">21-04-2017</td>
 <td style="text-align: center;">WHZ</td>
 <td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
-</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-04-report"><a name="user-content-elt131-lab-04-report" href="#elt131-lab-04-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 04 report</h1>
+</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-05-report"><a name="user-content-elt131-lab-05-report" href="#elt131-lab-05-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 05 report</h1>
 <div class="toc">
 <ul>
-<li><a href="#elt131-lab-04-report">ELT131 - Lab 04 report</a><ul>
+<li><a href="#elt131-lab-05-report">ELT131 - Lab 05 report</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#explore-the-rtos-object-viewer-rov-part-1">Explore the RTOS Object Viewer (ROV) (Part 1)</a></li>
-<li><a href="#logging-setup-part-2">Logging setup (Part 2)</a></li>
-<li><a href="#uia-results-part-3">UIA Results (Part 3)</a></li>
-<li><a href="#change-swi-duration-part-4">Change SWI duration (Part 4)</a></li>
+<li><a href="#part-1-setup-a-ti-rtos-clock-project">Part 1: Setup a TI-RTOS Clock project</a></li>
+<li><a href="#part-2-using-timestamp-benchmarking">Part 2: Using TimeStamp (Benchmarking)</a></li>
 </ul>
 </li>
 </ul>
@@ -1547,50 +1545,81 @@ MathJax.Hub.Config({
 </ul>
 </li>
 </ul>
-<h2 id="explore-the-rtos-object-viewer-rov-part-1"><a name="user-content-explore-the-rtos-object-viewer-rov-part-1" href="#explore-the-rtos-object-viewer-rov-part-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Explore the RTOS Object Viewer (ROV) (Part 1)</h2>
-<blockquote>
-<p>Answer the questions from procedure step 2.</p>
-</blockquote>
-<h4 class="sp"><span>ROV-Hwi (Module/Basic tabs)</span></h4>
+<h2 id="part-1-setup-a-ti-rtos-clock-project"><a name="user-content-part-1-setup-a-ti-rtos-clock-project" href="#part-1-setup-a-ti-rtos-clock-project" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 1: Setup a TI-RTOS Clock project</h2>
+<p><span class="quest">Add the code of file &ldquo;ELT131_05_01.c&rdquo; to your report.</span><br />
+<details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_01.c</span></h4></summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        ELT131_05_01.c</span>
+<span class="cm"> * @project     ELT131_LAB_05_01</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        26 May 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
 
-<p><span class="quest">What is the current size of the stack? What was the peak used?</span><br />
-The overall available stack size for TI-RTOS (soft-) IRQ-handlers can be configured via the app.cfg. As configured, the stack memory allocated is 1 kByte.</p>
-<p><span class="quest">What is the current size of the stack? What was the peak used?</span><br />
-The overall available stack size for TI-RTOS (soft-) IRQ-handlers can be configured via the app.cfg. As configured, the stack memory allocated is 1 kByte.</p>
-<div class="codehilite"><pre><span class="cm">/*</span>
-<span class="cm"> * The BIOS module will create the default heap for the system.</span>
-<span class="cm"> * Specify the size of this default heap.</span>
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2017  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
 <span class="cm"> */</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
-<span class="cm">/* System stack size (used by ISRs and Swis) */</span>
-<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
-<span class="cm">/* Circular buffer size for System_printf() */</span>
-<span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
+<span class="cp">#include &lt;xdc/std.h&gt;</span>
+<span class="cp">#include &lt;xdc/runtime/System.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/BIOS.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/knl/Task.h&gt;</span>
+
+<span class="cp">#include &quot;DSP28x_Project.h&quot;</span>
+
+<span class="k">extern</span> <span class="kt">uint16_t</span> <span class="n">RamfuncsLoadSize</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cp">#define GPIO_INIT   EALLOW; \</span>
+<span class="cp">    GpioCtrlRegs.GPADIR.bit.GPIO0 = 1; \</span>
+<span class="cp">    GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0x00; \</span>
+<span class="cp">    EDIS;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * ===================== main of ELT131_LAB_05_01 =====================</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">InitSysCtrl</span><span class="p">();</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">RamfuncsRunStart</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">RamfuncsLoadStart</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">RamfuncsLoadSize</span><span class="p">));</span>
+    <span class="n">GPIO_INIT</span><span class="p">;</span>
+
+    <span class="n">BIOS_start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPATOGGLE</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
-
-
-<p>The stack <strong>peak</strong> (or max. stack depth) is showed to be only 72 Bytes from the 1024 Bytes available. Since the stack (program stack) is only used to handle (soft-) IRQs (the OS-heap memory is BIOS.heapSize = 256;), the 72 Bytes are mostly charged for context save operations when the interrupt callback handlers (hwi and swi) are invoked.</p>
-<p>In the ROV under module <em>HeapMemory</em>, the configured <code>BIOS.heapSize = 256;</code> could be inspected and is viewed to be 0x100 = 0xff + 1.</p>
-<p><span class="quest">How many Hwi’s are configured in your system?</span><br />
-Only 1 Hwi object is explicitly configured in the actual app.cfg.</p>
-<p><span class="quest">What is the name of your own HWI? Which interrupt number is associated with it?</span><br />
-It&rsquo;s handle is Hwi2_XINT and the registered callback handler is &amp;XINT1_GPIO1_isr. The unique interrupt identifier is 35 since the XINTx IRQs are in PIE group 1 (INT1.y) and the XINT1 IRQ is mapped to CPU interrupt number 4 (INTx.4). The equation to calculate an unique interrupt ID (<strong>UIID</strong>) can be pointed out as:</p>
-<p><lmjx>$\begin{aligned}<br />
-UIID(x, y) \,&amp;=\, 8\cdot(x-1) + 31 + y \nonumber \\<br />
-x\,&amp;=\,PIEGROUP \nonumber \\<br />
-y\,&amp;=\,CPUINT \nonumber<br />
-\end{aligned}$</lmjx></p>
-<p>A second Hwi instance is viewed in ROV Hwi basic tab. An OS-built-in function is registered as it&rsquo;s callback handler (<strong>ti_sysbios_family_c28_TimestampProvider_rolloverFunc__E</strong>).</p>
-<p><span class="quest">How many Swi’s are configured in your system?</span><br />
-Only 1 Swi object is configured in the app.cfg.</p>
-<p><span class="quest">What is the Swi’s function name? What is the priority of your Swi?</span><br />
-It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_fxn. The priority level is viewed to be 3 as pointed out in ELT131_LAB_03_RTOS_4.</p>
-<h2 id="logging-setup-part-2"><a name="user-content-logging-setup-part-2" href="#logging-setup-part-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Logging setup (Part 2)</h2>
-<blockquote>
-<p>Copy the final version of the cfg-script &ldquo;app.cfg&rdquo; to your report. To reduce the size of the file, remove all comment lines and copy the rest into you report file for inspection.</p>
-</blockquote>
-<p><details markdown=1><br />
-<summary><h4 class="sp foldable"><span class="codehd">app.cfg</span></h4></summary><br />
+</p>
+<p></details><br />
+<div style="height: 1em;"></div></p>
+<p><span class="quest">Add the script-code of file &ldquo;app.cfg&rdquo; without comments to your report.</span><br />
+<details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">app1.cfg</span></h4></summary><br />
 <div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Error</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Error</span><span class="err">&#39;</span><span class="o">);</span>
@@ -1603,13 +1632,11 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <span class="n">var</span> <span class="n">Text</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Text</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">var</span> <span class="n">BIOS</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">BIOS</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Task</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">var</span> <span class="n">Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">family</span><span class="o">.</span><span class="na">c28</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">ti_sysbios_hal_Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">hal</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">Swi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Swi</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
 
@@ -1621,9 +1648,164 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 
 <span class="n">SysMin</span><span class="o">.</span><span class="na">flushAtExit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 
-<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
 
-<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mh">0x100</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
+
+<span class="n">var</span> <span class="n">loggerBufParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">loggerBufParams</span><span class="o">.</span><span class="na">numEntries</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">logger0</span> <span class="o">=</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">loggerBufParams</span><span class="o">);</span>
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger0</span><span class="o">;</span>
+<span class="n">Main</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">diags_INFO</span> <span class="o">=</span> <span class="n">Diags</span><span class="o">.</span><span class="na">ALWAYS_ON</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">SupportProxy</span> <span class="o">=</span> <span class="n">SysMin</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">libType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">LibType_Custom</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">logsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;GPIOToggleClk&quot;</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">GPIOToggleClk</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;GPIOToggleClk_fxn&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">bootFromFlash</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+</pre></div>
+<br />
+</details><br />
+<div style="height: 1em;"></div></p>
+<p><span class="quest">Add the oscilloscope screenshots for signal GPIO0 (page 5-11) to your report.</span><br />
+<figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_05/pics/lab05_01_5Hz.png" title="RTOS clock at 5Hz" class="noborder"><figcaption>RTOS clock at 5Hz</figcaption> </figure></p>
+<p><span class="quest">Add the jitter – screenshot at 2 kHz to your report.</span><br />
+<figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_05/pics/lab05_01_jitter_HDelay.png" title="RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us" class="noborder"><figcaption>RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us</figcaption> </figure></p>
+<h2 id="part-2-using-timestamp-benchmarking"><a name="user-content-part-2-using-timestamp-benchmarking" href="#part-2-using-timestamp-benchmarking" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 2: Using TimeStamp (Benchmarking)</h2>
+<p><span class="quest">Add the code of file &ldquo;ELT131_05_02.c&rdquo; to your report.</span><br />
+According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
+<details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_02.c</span></h4></summary><br />
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * @file        ELT131_05_02.c</span>
+<span class="cm"> * @project     ELT131_LAB_05_01</span>
+<span class="cm"> *</span>
+<span class="cm"> * @date        26 May 2017</span>
+<span class="cm"> * @author      Manuel Del Basso (mainster)</span>
+<span class="cm"> * @email       manuel.delbasso@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * @ide         Code Composer Studio Version: 7.1.0.00015</span>
+<span class="cm"> * @license     GNU GPL v3</span>
+<span class="cm"> *</span>
+<span class="cm">   @verbatim</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">    Copyright (C) 2017  Manuel Del Basso</span>
+
+<span class="cm">    This program is free software: you can redistribute it and/or modify</span>
+<span class="cm">    it under the terms of the GNU General Public License as published by</span>
+<span class="cm">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="cm">    (at your option) any later version.</span>
+
+<span class="cm">    This program is distributed in the hope that it will be useful,</span>
+<span class="cm">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="cm">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="cm">    GNU General Public License for more details.</span>
+<span class="cm">    You should have received a copy of the GNU General Public License</span>
+<span class="cm">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="cm">    ------------------------------------------------------------------------</span>
+
+<span class="cm">   @endverbatim</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="cp">#include &lt;xdc/std.h&gt;</span>
+<span class="cp">#include &lt;xdc/runtime/System.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/BIOS.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/knl/Task.h&gt;</span>
+<span class="cp">#include &lt;xdc/runtime/Timestamp.h&gt;</span>
+<span class="cp">#include &lt;xdc/runtime/Log.h&gt;</span>
+
+<span class="cp">#include &quot;DSP28x_Project.h&quot;</span>
+
+<span class="k">extern</span> <span class="kt">uint16_t</span> <span class="n">RamfuncsLoadSize</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cp">#define GPIO_INIT   EALLOW; \</span>
+<span class="cp">    GpioCtrlRegs.GPADIR.bit.GPIO0 = 1; \</span>
+<span class="cp">    GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0x00; \</span>
+<span class="cp">    EDIS;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * ===================== main of ELT131_LAB_05_01 =====================</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">InitSysCtrl</span><span class="p">();</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">RamfuncsRunStart</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">RamfuncsLoadStart</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">RamfuncsLoadSize</span><span class="p">));</span>
+    <span class="n">GPIO_INIT</span><span class="p">;</span>
+
+    <span class="n">BIOS_start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">tglCtr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">delta</span><span class="p">;</span>
+
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">;</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
+    <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPATOGGLE</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">stop</span> <span class="o">-</span> <span class="n">start</span> <span class="o">-</span><span class="n">t2</span><span class="p">;</span>
+
+    <span class="n">Log_info1</span><span class="p">(</span><span class="s">&quot;GPIO toggled [%u] times&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">tglCtr</span><span class="p">);</span>
+    <span class="n">Log_info1</span><span class="p">(</span><span class="s">&quot;GPIO BENCHMARK: [%u] cycles&quot;</span><span class="p">,</span> <span class="n">delta</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+<p></details><br />
+<div style="height: 1em;"></div></p>
+<p><span class="quest">Add the script-code of file &ldquo;app.cfg&rdquo; without comments to your report.</span><br />
+<details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">app2.cfg</span></h4></summary><br />
+<div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Error</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Error</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Log</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Log</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggerBuf</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">LoggerBuf</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Main</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Main</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Memory</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Memory</span><span class="err">&#39;</span><span class="o">)</span>
+<span class="n">var</span> <span class="n">SysMin</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">SysMin</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">System</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">System</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Text</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Text</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">BIOS</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">BIOS</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Task</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">family</span><span class="o">.</span><span class="na">c28</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Timestamp</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Timestamp</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
+
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">namedModule</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">maxAtexitHandlers</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>       
+
+<span class="n">Text</span><span class="o">.</span><span class="na">isLoaded</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">flushAtExit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mh">0x100</span><span class="o">;</span>
 
 <span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
 
@@ -1638,144 +1820,26 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <span class="n">BIOS</span><span class="o">.</span><span class="na">libType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">LibType_Custom</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">logsEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
+<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;GPIOToggleClk&quot;</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">GPIOToggleClk</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;GPIOToggleClk_fxn&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
 <span class="n">Boot</span><span class="o">.</span><span class="na">bootFromFlash</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">taskEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">rtsGateType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">NoLocking</span><span class="o">;</span>
-
-<span class="n">var</span> <span class="n">hwi0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hwi</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
-<span class="n">hwi0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;HWI_XINT1&quot;</span><span class="o">;</span>
-<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">HWI_XINT1</span> <span class="o">=</span> <span class="n">Hwi</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">35</span><span class="o">,</span> <span class="s">&quot;&amp;XINT1_GPIO1_isr&quot;</span><span class="o">,</span> <span class="n">hwi0Params</span><span class="o">);</span>
-<span class="n">Hwi</span><span class="o">.</span><span class="na">dispatcherAutoNestingSupport</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-<span class="n">Hwi</span><span class="o">.</span><span class="na">dispatcherIrpTrackingSupport</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
-<span class="n">var</span> <span class="n">swi0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Swi</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
-<span class="n">swi0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;SWI_XINT1&quot;</span><span class="o">;</span>
-<span class="n">swi0Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">SWI_XINT1</span> <span class="o">=</span> <span class="n">Swi</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;SWI_XINT1_fxn&quot;</span><span class="o">,</span> <span class="n">swi0Params</span><span class="o">);</span>
-
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
 <span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosHwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadSwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadHwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSemaphoreLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadLoggerSize</span> <span class="o">=</span> <span class="mi">4096</span><span class="o">;</span>
-<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosLoggerSize</span> <span class="o">=</span> <span class="mi">4096</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">runtimeCreatesEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
-<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
-
-<span class="n">var</span> <span class="n">clockParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
-<span class="n">clockParams</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;CLK_SINGLE&quot;</span><span class="o">;</span>
-<span class="n">clockParams</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-<span class="n">clockParams</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-<span class="n">clockParams</span><span class="o">.</span><span class="na">arg</span> <span class="o">=</span> <span class="mh">0x5555</span><span class="o">;</span>
-<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">CLK_SINGLE</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;onEncLsb_changed&quot;</span><span class="o">,</span> <span class="mi">30000000</span><span class="o">,</span> <span class="n">clockParams</span><span class="o">);</span>
 </pre></div>
 <br />
 </details><br />
 <div style="height: 1em;"></div></p>
-<h2 id="uia-results-part-3"><a name="user-content-uia-results-part-3" href="#uia-results-part-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>UIA Results (Part 3)</h2>
-<blockquote>
-<p>Add the oscilloscope screen shots for the interrupt latency and jitter (see page 4-5) to your report.</p>
-</blockquote>
-<figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/after_uia_api.png" title="Interrupt latency influence of the UIA setup" class="noborder"><figcaption>Interrupt latency influence of the UIA setup</figcaption> </p>
-</figure>
-<blockquote>
-<p>Add a screen shot of the execution graph and the CPU – load (see page 4-6) to your report.</p>
-</blockquote>
-<figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_times.png" title="Execution graph and CPU load screenshot" class=""><figcaption>Screen shot of execution graph and CPU load monitor</figcaption> </p>
-</figure>
-<blockquote>
-<p>Answer the questions in procedure step 3.4. at page 4-6.</p>
-</blockquote>
-<p><strong>&ldquo;Read&rdquo; the graph results</strong></p>
-<p><span class="quest">How big is your CPU - load?</span><br />
-$\si{9\%}$</p>
-<p><span class="quest">What is the time interval of your HWI&rsquo;s?</span><br />
-$X2 - X1 \,=\,\si{11 us}$</p>
-<p><span class="quest">What is the time interval of your SWI&rsquo;s?</span><br />
-$X4 - X3 \,=\,\si{6 us}$</p>
-<p><span class="quest">How long is the delay between the HWI and the SWI? </span><br />
-$X3 - X2 \,=\,\si{9 us}$</p>
-<p><span class="quest">How does it correspond to the Oscilloscope measurements?</span><br />
-The picture below shows an execution period from CCS execution graph, overlay-ed by oscilloscope measurement. As defined in the <code>gpioXintInit()</code> macro, XINT1 becomes triggered on falling edge of ePWM1 signal in case of shorted GPIO0 and GPIO1. This corresponds to the Hwi thread entry point that is labeled as X1. The XINT1 Hwi thread instantiates the code section from <code>XINT1_GPIO1_isr()</code> which posts the statically created (app.cfg: <code>Program.global.SWI_XINT1 = Swi.create("&amp;SWI_XINT1_fxn", swi0Params);</code>) Swi object to the Swi manager. </p>
-<p>Since the Hwi priority layer has a higher rank order than the Swi priority layer, the Swi manager returns CPU control to the current Hwi thread after false-evaluating the <em>Swis-are-enabled</em> flag and after pushing the posted Swi object to an (unordered) list of already posted Swis that (maybe) pending for execution. The <code>XINT1_GPIO1_isr()</code> Hwi thread executes until the <em>return-from-interrupt</em> instruction has been reached at the end of XINT IRQ handler declaration. If the PIE controller has no pending hardware IRQs in the execution queue, the Swi manager takes CPU control work off the list of pending Swis (label X2). </p>
-<p>If Swis are not disabled via user API call, the next step for the manager is to check the priority of the posted Swi object against the priority of the thread that is currently active. If one of the following conditions are true, the Swi manager pops the posted Swi object from the list of pending Swis and passes CPU control from the running thread to start execution of the Swi function which could be reached via the Swi object handle.      </p>
-<ul>
-<li>current thread is a task (priority doesn&rsquo;t matter),</li>
-<li>is a lower priority Swi thread or</li>
-<li>is the idle thread </li>
-</ul>
-<p>The overall time between XINT1 ISR entry point and clearing GPIO2 (last instruction of the Swi handler) could be determined from the execution graph time markers X4-X1 an is approx. $\si{26 us}$.<br />
-The Swi manager is an important (and time consuming) part of the BIOS scheduler. </p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_scope_2.png" target="_blank"><figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_scope_2.png" title="Execution graph overlayed by oscilloscope measurement" class=""><figcaption>Execution graph overlay-ed by oscilloscope measurement</figcaption> </figure></a></p>
-<h2 id="change-swi-duration-part-4"><a name="user-content-change-swi-duration-part-4" href="#change-swi-duration-part-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Change SWI duration (Part 4)</h2>
-<blockquote>
-<p>Edit file &ldquo;ELT131_04_01.c&rdquo; and extend the duration of the SWI by extending the for - loop from 10 to 200 repetitions.<br />
-Repeat the measurements for the CPU-Load and the Execution graph and compare the results. </p>
-</blockquote>
-<p><span class="quest">Where becomes the additional load of 190 more loops of the for-instruction visible?</span><br />
-As expected, neither the Hwi duration nor the BIOS scheduler / Swi manager work off delay is affected by the higher CPU load. </p>
-<p><span class="quest">How many for - loops will fit into the SWI?</span></p>
-<blockquote>
-<p>Increase the for - loop counter according to the following table. Measure CPU-load and make a note about the runtime of the SWI.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>loop count</th>
-<th>CPU load [%]</th>
-<th>HWI duration [µs]</th>
-<th>Scheduler duration</th>
-<th>SWI duration [µs]</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10</td>
-<td>9</td>
-<td>10.926</td>
-<td>9.433</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>200</td>
-<td>14</td>
-<td>10.926</td>
-<td>9.433</td>
-<td>32.887</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>99</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 04</td>
+<p><span class="quest">Add your screenshots and/or measurement results for procedure steps 6 and 7 (page 5-16 to 5-18) to the report.</span><br />
+<figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_05/pics/benchmark_5-13.png" title="Benchmark according to 5-13" class="noborder"><figcaption>Benchmark according to 5-13</figcaption> </figure><br />
+<figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_05/pics/benchmark_5-15.png" title="Benchmark according to 5-15" class="noborder"><figcaption>Benchmark according to 5-15</figcaption> </figure><br />
+<figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_05/pics/pov_measure.png" title="RTOS object viewer" class="noborder"><figcaption>RTOS object viewer</figcaption> </figure></p></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 05</td>
 <td style="text-align: center;">Del Basso, Manuel</td>
-<td style="text-align: center;">02-04-2017</td>
+<td style="text-align: center;">21-04-2017</td>
 <td style="text-align: center;">WHZ</td>
 <td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
 </tr></table></div></center></body></html>
