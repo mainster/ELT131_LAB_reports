@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="author" content="Del Basso, Manuel">
 <meta name="footicon" content="./pics/whz.png">
-<meta name="date" content="21-04-2017">
+<meta name="date" content="28-06-2017">
 <meta name="location" content="WHZ"><style>body {
     border: 1px solid #ddd;
     margin: 16px auto;
@@ -1502,18 +1502,20 @@ MathJax.Hub.Config({
   onReady(function(){convertUML('uml-sequence-diagram', Diagram, {theme: 'simple'});});
 })(window, document)
 </script>
-<title>Report ELT131 LAB 05</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 05</td>
+<title>Report ELT131 LAB 08</title></head><body><center><div style="width: 95%"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 08</td>
 <td style="text-align: center;">Del Basso, Manuel</td>
-<td style="text-align: center;">21-04-2017</td>
+<td style="text-align: center;">28-06-2017</td>
 <td style="text-align: center;">WHZ</td>
 <td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
-</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-05-report"><a name="user-content-elt131-lab-05-report" href="#elt131-lab-05-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 05 report</h1>
+</tr></table><hr id="hr_header"></div></center><article class="markdown-body"><h1 id="elt131-lab-08-report"><a name="user-content-elt131-lab-08-report" href="#elt131-lab-08-report" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ELT131 - Lab 08 report</h1>
 <div class="toc">
 <ul>
-<li><a href="#elt131-lab-05-report">ELT131 - Lab 05 report</a><ul>
+<li><a href="#elt131-lab-08-report">ELT131 - Lab 08 report</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#part-1-setup-a-ti-rtos-clock-project">Part 1: Setup a TI-RTOS Clock project</a></li>
-<li><a href="#part-2-using-timestamp-benchmarking">Part 2: Using TimeStamp (Benchmarking)</a></li>
+<li><a href="#part-1-ti-rtos-project">Part 1 (TI-RTOS project)</a></li>
+<li><a href="#part-2-2-tasks-mailbox-semaphore">Part 2 (2 Tasks, Mailbox, Semaphore)</a></li>
+<li><a href="#part-3-priority-swap">Part 3 (Priority swap)</a></li>
+<li><a href="#part-4-execution-graph">Part 4 (Execution Graph)</a></li>
 </ul>
 </li>
 </ul>
@@ -1545,15 +1547,17 @@ MathJax.Hub.Config({
 </ul>
 </li>
 </ul>
-<h2 id="part-1-setup-a-ti-rtos-clock-project"><a name="user-content-part-1-setup-a-ti-rtos-clock-project" href="#part-1-setup-a-ti-rtos-clock-project" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 1: Setup a TI-RTOS Clock project</h2>
-<p><span class="quest">Add the code of file &ldquo;ELT131_05_01.c&rdquo; to your report.</span><br />
-<details markdown=1><br />
-<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_01.c</span></h4></summary><br />
+<h2 id="part-1-ti-rtos-project"><a name="user-content-part-1-ti-rtos-project" href="#part-1-ti-rtos-project" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 1 (TI-RTOS project)</h2>
+<blockquote>
+<p>Add the code of file &ldquo;ELT131_08_01.c&rdquo; to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_08_01.c</span></h4></summary><br />
 <div class="codehilite"><pre><span class="cm">/**</span>
-<span class="cm"> * @file        ELT131_05_01.c</span>
-<span class="cm"> * @project     ELT131_LAB_05_01</span>
+<span class="cm"> * @file        ELT131_08_01.c</span>
+<span class="cm"> * @project     ELT131_LAB_08</span>
 <span class="cm"> *</span>
-<span class="cm"> * @date        26 May 2017</span>
+<span class="cm"> * @date        28 May 2017</span>
 <span class="cm"> * @author      Manuel Del Basso (mainster)</span>
 <span class="cm"> * @email       manuel.delbasso@gmail.com</span>
 <span class="cm"> *</span>
@@ -1583,7 +1587,7 @@ MathJax.Hub.Config({
 <span class="cm">   @endverbatim</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
-<span class="cp">#include &lt;xdc/std.h&gt;</span>
+<span class="cp">#include &lt;xdc/st.h&gt;</span>
 <span class="cp">#include &lt;xdc/runtime/System.h&gt;</span>
 <span class="cp">#include &lt;ti/sysbios/BIOS.h&gt;</span>
 <span class="cp">#include &lt;ti/sysbios/knl/Task.h&gt;</span>
@@ -1600,7 +1604,7 @@ MathJax.Hub.Config({
 <span class="cp">    EDIS;</span>
 
 <span class="cm">/*</span>
-<span class="cm"> * ===================== main of ELT131_LAB_05_01 =====================</span>
+<span class="cm"> * ===================== main of ELT131_LAB_08 =====================</span>
 <span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">InitSysCtrl</span><span class="p">();</span>
@@ -1617,8 +1621,10 @@ MathJax.Hub.Config({
 </p>
 <p></details><br />
 <div style="height: 1em;"></div></p>
-<p><span class="quest">Add the script-code of file &ldquo;app.cfg&rdquo; without comments to your report.</span><br />
-<details markdown=1><br />
+<blockquote>
+<p>Add the script-code of file &ldquo;app.cfg&rdquo; without comments to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
 <summary><h4 class="sp foldable"><span class="codehd">app1.cfg</span></h4></summary><br />
 <div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
@@ -1678,20 +1684,23 @@ MathJax.Hub.Config({
 <br />
 </details><br />
 <div style="height: 1em;"></div></p>
-<p><span class="quest">Add the oscilloscope screenshots for signal GPIO0 (page 5-11) to your report.</span><br />
-<figure class="oszi" markdown=1> <img src="pics/lab05_01_5Hz.png" title="RTOS clock at 5Hz" class="noborder"><figcaption>RTOS clock at 5Hz</figcaption> </figure></p>
-<p><span class="quest">Add the jitter – screenshot at 2 kHz to your report.</span><br />
-<figure class="oszi" markdown=1> <img src="pics/lab05_01_jitter_HDelay.png" title="RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us" class="noborder"><figcaption>RTOS clock jitter - DSO configured for horizontal trigger delay: 1000us</figcaption> </figure></p>
-<h2 id="part-2-using-timestamp-benchmarking"><a name="user-content-part-2-using-timestamp-benchmarking" href="#part-2-using-timestamp-benchmarking" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 2: Using TimeStamp (Benchmarking)</h2>
-<p><span class="quest">Add the code of file &ldquo;ELT131_05_02.c&rdquo; to your report.</span><br />
-According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
-<details markdown=1><br />
-<summary><h4 class="sp foldable"><span class="codehd">ELT131_05_02.c</span></h4></summary><br />
+<blockquote>
+<p>Add the oscilloscope screenshot for GPIO0 to your report.</p>
+</blockquote>
+<figure class="oszi">
+<p><img src="pics/lab08_01_05Hz.png" title="RTOS clock_500ms task on GPIO0" class="noborder"><figcaption>RTOS clock_500ms task on GPIO0</figcaption> </p>
+</figure>
+<h2 id="part-2-2-tasks-mailbox-semaphore"><a name="user-content-part-2-2-tasks-mailbox-semaphore" href="#part-2-2-tasks-mailbox-semaphore" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 2 (2 Tasks, Mailbox, Semaphore)</h2>
+<blockquote>
+<p>Add the modified code of file &ldquo;ELT131_08_01.c&rdquo; to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">ELT131_08_02.c</span></h4></summary><br />
 <div class="codehilite"><pre><span class="cm">/**</span>
-<span class="cm"> * @file        ELT131_05_02.c</span>
-<span class="cm"> * @project     ELT131_LAB_05_01</span>
+<span class="cm"> * @file        ELT131_08_02.c</span>
+<span class="cm"> * @project     ELT131_LAB_08</span>
 <span class="cm"> *</span>
-<span class="cm"> * @date        26 May 2017</span>
+<span class="cm"> * @date        28 May 2017</span>
 <span class="cm"> * @author      Manuel Del Basso (mainster)</span>
 <span class="cm"> * @email       manuel.delbasso@gmail.com</span>
 <span class="cm"> *</span>
@@ -1723,24 +1732,26 @@ According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
 <span class="cm"> */</span>
 <span class="cp">#include &lt;xdc/std.h&gt;</span>
 <span class="cp">#include &lt;xdc/runtime/System.h&gt;</span>
-<span class="cp">#include &lt;ti/sysbios/BIOS.h&gt;</span>
-<span class="cp">#include &lt;ti/sysbios/knl/Task.h&gt;</span>
+<span class="cp">#include &lt;xdc/cfg/global.h&gt;         </span><span class="c1">//!&lt; header for statically defined objects/handles</span>
 <span class="cp">#include &lt;xdc/runtime/Timestamp.h&gt;</span>
 <span class="cp">#include &lt;xdc/runtime/Log.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/BIOS.h&gt;</span>
+<span class="cp">#include &lt;ti/sysbios/knl/Task.h&gt;</span>
 
 <span class="cp">#include &quot;DSP28x_Project.h&quot;</span>
 
 <span class="k">extern</span> <span class="kt">uint16_t</span> <span class="n">RamfuncsLoadSize</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">clock_500ms_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
 <span class="cp">#define GPIO_INIT   EALLOW; \</span>
 <span class="cp">    GpioCtrlRegs.GPADIR.bit.GPIO0 = 1; \</span>
 <span class="cp">    GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0x00; \</span>
 <span class="cp">    EDIS;</span>
 
+
 <span class="cm">/*</span>
-<span class="cm"> * ===================== main of ELT131_LAB_05_01 =====================</span>
+<span class="cm"> * ===================== main of ELT131_LAB_08 =====================</span>
 <span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">InitSysCtrl</span><span class="p">();</span>
@@ -1750,28 +1761,39 @@ According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
     <span class="n">BIOS_start</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">GPIOToggleClk_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="kt">int</span> <span class="n">tglCtr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">delta</span><span class="p">;</span>
-
-    <span class="n">t0</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
-    <span class="n">t1</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
-    <span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">;</span>
-
-    <span class="n">start</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">clock_500ms_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">GpioDataRegs</span><span class="p">.</span><span class="n">GPATOGGLE</span><span class="p">.</span><span class="n">bit</span><span class="p">.</span><span class="n">GPIO0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">stop</span> <span class="o">=</span> <span class="n">Timestamp_get32</span><span class="p">();</span>
-    <span class="n">delta</span> <span class="o">=</span> <span class="n">stop</span> <span class="o">-</span> <span class="n">start</span> <span class="o">-</span><span class="n">t2</span><span class="p">;</span>
+    <span class="n">Semaphore_post</span><span class="p">(</span><span class="n">time_500ms</span><span class="p">);</span>
+<span class="p">}</span>
 
-    <span class="n">Log_info1</span><span class="p">(</span><span class="s">&quot;GPIO toggled [%u] times&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">tglCtr</span><span class="p">);</span>
-    <span class="n">Log_info1</span><span class="p">(</span><span class="s">&quot;GPIO BENCHMARK: [%u] cycles&quot;</span><span class="p">,</span> <span class="n">delta</span><span class="p">);</span>
+<span class="c1">//!&lt; Priority: 3</span>
+<span class="kt">void</span> <span class="nf">Consumer_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">uint16_t</span> <span class="n">rx_data</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Mailbox_pend</span><span class="p">(</span><span class="n">LED_mbx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rx_data</span><span class="p">,</span> <span class="n">BIOS_WAIT_FOREVER</span><span class="p">);</span>
+        <span class="c1">//!&lt; Invoke I2C_write8(&amp;I2CA_BASE_ADDRESS, rx_data);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//!&lt; Priority: 1</span>
+<span class="kt">void</span> <span class="nf">Producer_fxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">uint16_t</span> <span class="n">LED_data</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Semaphore_pend</span><span class="p">(</span><span class="n">time_500ms</span><span class="p">,</span> <span class="n">BIOS_WAIT_FOREVER</span><span class="p">);</span>
+        <span class="n">Mailbox_post</span><span class="p">(</span><span class="n">LED_mbx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">LED_data</span><span class="p">,</span> <span class="n">BIOS_WAIT_FOREVER</span><span class="p">);</span>
+        <span class="n">LED_data</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </p>
 <p></details><br />
 <div style="height: 1em;"></div></p>
-<p><span class="quest">Add the script-code of file &ldquo;app.cfg&rdquo; without comments to your report.</span><br />
-<details markdown=1><br />
+<blockquote>
+<p>Add the new script-code of file &ldquo;app.cfg&rdquo; after adding semaphore, mailbox and 2 tasks to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
 <summary><h4 class="sp foldable"><span class="codehd">app2.cfg</span></h4></summary><br />
 <div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
@@ -1788,9 +1810,10 @@ According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
 <span class="n">var</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Task</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">var</span> <span class="n">Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">family</span><span class="o">.</span><span class="na">c28</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
-<span class="n">var</span> <span class="n">Timestamp</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Timestamp</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Semaphore</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Semaphore</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Mailbox</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Mailbox</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
 <span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
 
 <span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
@@ -1803,9 +1826,231 @@ According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
 
 <span class="n">SysMin</span><span class="o">.</span><span class="na">flushAtExit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 
-<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
 
-<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mh">0x100</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
+
+<span class="n">var</span> <span class="n">loggerBufParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">loggerBufParams</span><span class="o">.</span><span class="na">numEntries</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">logger0</span> <span class="o">=</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">loggerBufParams</span><span class="o">);</span>
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger0</span><span class="o">;</span>
+<span class="n">Main</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">diags_INFO</span> <span class="o">=</span> <span class="n">Diags</span><span class="o">.</span><span class="na">ALWAYS_ON</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">SupportProxy</span> <span class="o">=</span> <span class="n">SysMin</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">libType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">LibType_Custom</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">logsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">bootFromFlash</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">semaphore0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;time_500ms&quot;</span><span class="o">;</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">mode</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Mode_BINARY</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">time_500ms</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">semaphore0Params</span><span class="o">);</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">swiEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">task0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Producer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Producer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Producer_fxn&quot;</span><span class="o">,</span> <span class="n">task0Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">task1Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Consumer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Consumer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Consumer_fxn&quot;</span><span class="o">,</span> <span class="n">task1Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">mailbox0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">mailbox0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;LED_mbx&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">LED_mbx</span> <span class="o">=</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="n">mailbox0Params</span><span class="o">);</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">500000</span><span class="o">;</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickSource</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">TickSource_TIMER</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;clock_500ms&quot;</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">clock_500ms</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;clock_500ms_fxn&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSemaphoreLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadTaskLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</pre></div>
+<br />
+</details><br />
+<div style="height: 1em;"></div></p>
+<blockquote>
+<p>Add the screenshots for the Mailbox and Task states (Procedure steps 11 and 12) and answer the questions at page 8-7.</p>
+</blockquote>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_02.png" title="Breakpoint @ Mailbox_post - ROV" class="noborder"><figcaption>Breakpoint @ Mailbox_post - ROV</figcaption> </p>
+</figure>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_02_pend.png" title="Breakpoint @ Mailbox_pend - ROV" class="noborder"><figcaption>Breakpoint @ Mailbox_pend - ROV</figcaption> </p>
+</figure>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_02_tasks.png" title="Breakpoint @ Mailbox_pend - ROV viewing tasks" class="noborder"><figcaption>Breakpoint @ Mailbox_pend - ROV viewing tasks</figcaption> </p>
+</figure>
+<blockquote>
+<p>(&hellip;) Which task is running, which is ready? Are there any blocked tasks?</p>
+</blockquote>
+<p>Consumer_tsk.<br />
+Producer_tsk and BIOS idle task.<br />
+No.</p>
+<h2 id="part-3-priority-swap"><a name="user-content-part-3-priority-swap" href="#part-3-priority-swap" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 3 (Priority swap)</h2>
+<blockquote>
+<p>Add the new script-code of file &ldquo;app.cfg&rdquo; after changing the priorities of Consumer and Producer to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">app3.cfg</span></h4></summary><br />
+<div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Error</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Error</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Log</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Log</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggerBuf</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">LoggerBuf</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Main</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Main</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Memory</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Memory</span><span class="err">&#39;</span><span class="o">)</span>
+<span class="n">var</span> <span class="n">SysMin</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">SysMin</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">System</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">System</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Text</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Text</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">BIOS</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">BIOS</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Task</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">family</span><span class="o">.</span><span class="na">c28</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Semaphore</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Semaphore</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Mailbox</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Mailbox</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
+
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">namedModule</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">maxAtexitHandlers</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>       
+
+<span class="n">Text</span><span class="o">.</span><span class="na">isLoaded</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">flushAtExit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
+
+<span class="n">var</span> <span class="n">loggerBufParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">loggerBufParams</span><span class="o">.</span><span class="na">numEntries</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">logger0</span> <span class="o">=</span> <span class="n">LoggerBuf</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">loggerBufParams</span><span class="o">);</span>
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger0</span><span class="o">;</span>
+<span class="n">Main</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">diags_INFO</span> <span class="o">=</span> <span class="n">Diags</span><span class="o">.</span><span class="na">ALWAYS_ON</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">SupportProxy</span> <span class="o">=</span> <span class="n">SysMin</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">libType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">LibType_Custom</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">logsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">bootFromFlash</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">semaphore0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;time_500ms&quot;</span><span class="o">;</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">mode</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Mode_BINARY</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">time_500ms</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">semaphore0Params</span><span class="o">);</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">swiEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">task0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Producer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Producer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Producer_fxn&quot;</span><span class="o">,</span> <span class="n">task0Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">task1Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Consumer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Consumer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Consumer_fxn&quot;</span><span class="o">,</span> <span class="n">task1Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">mailbox0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">mailbox0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;LED_mbx&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">LED_mbx</span> <span class="o">=</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="n">mailbox0Params</span><span class="o">);</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">500000</span><span class="o">;</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickSource</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">TickSource_TIMER</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;clock_500ms&quot;</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">clock_500ms</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;clock_500ms_fxn&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSemaphoreLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadTaskLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</pre></div>
+<br />
+</details><br />
+<div style="height: 1em;"></div></p>
+<blockquote>
+<p>Add the screenshots for the Mailbox and Task states (Procedure steps 11 and 12) and answer the questions at page 8-8.</p>
+</blockquote>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_03.png" title="Breakpoint @ Mailbox_post - ROV" class="noborder"><figcaption>Breakpoint @ Mailbox_post - ROV</figcaption> </p>
+</figure>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_03_pend.png" title="Breakpoint @ Mailbox_pend - ROV" class="noborder"><figcaption>Breakpoint @ Mailbox_pend - ROV</figcaption> </p>
+</figure>
+<figure class="oszi">
+<p><img src="pics/rov_mailbox_03_tasks.png" title="Breakpoint @ Mailbox_pend - ROV viewing tasks" class="noborder"><figcaption>Breakpoint @ Mailbox_pend - ROV viewing tasks</figcaption> </p>
+</figure>
+<blockquote>
+<p>Does the filling status of the mailbox change? Why is it still empty?</p>
+</blockquote>
+<p>No because the message object has allready been flushed from message buffer as pointed out in section 11.</p>
+<blockquote>
+<p>Why is “Producer_tsk” blocked?</p>
+</blockquote>
+<p>Not sure about that. The yellow rendered Swi (clock_500ms_fxn) is definitely not Taks-preemtible (hierarchic priority structure: Hwi-&gt;Swi-&gt;Task-&gt;Idle). The Semaphore post <code>Semaphore_post(time_500ms);</code> at the center of the yellow Swi has the <code>Producer_tsk</code> as pending task (last column). Since Producer_tsk has higher priority (in part 3), the result of the <code>Semaphore_post(time_500ms);</code> is, that Producer_tsk and Consumer_tsk are not stackable, i.e. Consumer cannot preempt Producer. But why is Producer_tsk marked as blocked in this case? </p>
+<p><a href="pics/analyze_03_via_04_execGraph.png" style="width: 150%" target="_blank"><figure class="oszi" markdown=1> <img src="pics/analyze_03_via_04_execGraph.png" title="Execution graph of part 3 - Consumer_tsk:1, Producer_tsk:3" class="noborder"><figcaption>Execution graph of part 3 - Consumer_tsk:1, Producer_tsk:3</figcaption> </figure></a></p>
+<h2 id="part-4-execution-graph"><a name="user-content-part-4-execution-graph" href="#part-4-execution-graph" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 4 (Execution Graph)</h2>
+<blockquote>
+<p>Add the new script-code of file &ldquo;app.cfg&rdquo; after adding logging and instrumentation commands to your report.</p>
+</blockquote>
+<p><details markdown=1><br />
+<summary><h4 class="sp foldable"><span class="codehd">app4.cfg</span></h4></summary><br />
+<div class="codehilite"><pre><span class="n">var</span> <span class="n">Defaults</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Defaults</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Diags</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Diags</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Error</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Error</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Log</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Log</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggerBuf</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">LoggerBuf</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Main</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Main</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Memory</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Memory</span><span class="err">&#39;</span><span class="o">)</span>
+<span class="n">var</span> <span class="n">SysMin</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">SysMin</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">System</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">System</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Text</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">xdc</span><span class="o">.</span><span class="na">runtime</span><span class="o">.</span><span class="na">Text</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">BIOS</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">BIOS</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Task</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">var</span> <span class="n">Hwi</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">family</span><span class="o">.</span><span class="na">c28</span><span class="o">.</span><span class="na">Hwi</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Boot</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">catalog</span><span class="o">.</span><span class="na">c2800</span><span class="o">.</span><span class="na">init</span><span class="o">.</span><span class="na">Boot</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Semaphore</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Semaphore</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Mailbox</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Mailbox</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Clock</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">knl</span><span class="o">.</span><span class="na">Clock</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">LoggingSetup</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">uia</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">LoggingSetup</span><span class="err">&#39;</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">Load</span> <span class="o">=</span> <span class="n">xdc</span><span class="o">.</span><span class="na">useModule</span><span class="o">(</span><span class="err">&#39;</span><span class="n">ti</span><span class="o">.</span><span class="na">sysbios</span><span class="o">.</span><span class="na">utils</span><span class="o">.</span><span class="na">Load</span><span class="err">&#39;</span><span class="o">);</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">argSize</span> <span class="o">=</span> <span class="mh">0x0</span><span class="o">;</span>
+
+<span class="n">Defaults</span><span class="o">.</span><span class="na">common$</span><span class="o">.</span><span class="na">namedModule</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">maxAtexitHandlers</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>       
+
+<span class="n">Text</span><span class="o">.</span><span class="na">isLoaded</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">SysMin</span><span class="o">.</span><span class="na">flushAtExit</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="n">BIOS</span><span class="o">.</span><span class="na">heapSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+
+<span class="n">Program</span><span class="o">.</span><span class="na">stack</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">;</span>
 
 <span class="n">SysMin</span><span class="o">.</span><span class="na">bufSize</span> <span class="o">=</span> <span class="mi">128</span><span class="o">;</span>
 
@@ -1819,27 +2064,61 @@ According to &ldquo;ELT131_LAB05 5-12&rdquo;:<br />
 
 <span class="n">BIOS</span><span class="o">.</span><span class="na">libType</span> <span class="o">=</span> <span class="n">BIOS</span><span class="o">.</span><span class="na">LibType_Custom</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">logsEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
-<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;GPIOToggleClk&quot;</span><span class="o">;</span>
-<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">GPIOToggleClk</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;GPIOToggleClk_fxn&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">assertsEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">Boot</span><span class="o">.</span><span class="na">bootFromFlash</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">Boot</span><span class="o">.</span><span class="na">pllOSCCLK</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
 <span class="n">BIOS</span><span class="o">.</span><span class="na">cpuFreq</span><span class="o">.</span><span class="na">lo</span> <span class="o">=</span> <span class="mi">150000000</span><span class="o">;</span>
-<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">semaphore0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;time_500ms&quot;</span><span class="o">;</span>
+<span class="n">semaphore0Params</span><span class="o">.</span><span class="na">mode</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">Mode_BINARY</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">time_500ms</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">semaphore0Params</span><span class="o">);</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">swiEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">BIOS</span><span class="o">.</span><span class="na">clockEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">task0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Producer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">task0Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Producer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Producer_fxn&quot;</span><span class="o">,</span> <span class="n">task0Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">task1Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Task</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;Consumer_tsk&quot;</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSize</span> <span class="o">=</span> <span class="mi">256</span><span class="o">;</span>
+<span class="n">task1Params</span><span class="o">.</span><span class="na">stackSection</span> <span class="o">=</span> <span class="s">&quot;.ebss:taskStackSection&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">Consumer_tsk</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;Consumer_fxn&quot;</span><span class="o">,</span> <span class="n">task1Params</span><span class="o">);</span>
+<span class="n">var</span> <span class="n">mailbox0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">mailbox0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;LED_mbx&quot;</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">LED_mbx</span> <span class="o">=</span> <span class="n">Mailbox</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">16</span><span class="o">,</span> <span class="n">mailbox0Params</span><span class="o">);</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickPeriod</span> <span class="o">=</span> <span class="mi">500000</span><span class="o">;</span>
+<span class="n">Clock</span><span class="o">.</span><span class="na">tickSource</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">TickSource_TIMER</span><span class="o">;</span>
+<span class="n">var</span> <span class="n">clock0Params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Clock</span><span class="o">.</span><span class="na">Params</span><span class="o">();</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">instance</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;clock_500ms&quot;</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">period</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">clock0Params</span><span class="o">.</span><span class="na">startFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">Program</span><span class="o">.</span><span class="na">global</span><span class="o">.</span><span class="na">clock_500ms</span> <span class="o">=</span> <span class="n">Clock</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;&amp;clock_500ms_fxn&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">clock0Params</span><span class="o">);</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSemaphoreLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadTaskLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">enableTaskProfiler</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
 <span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosSwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">sysbiosHwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadSwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">loadHwiLogging</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">LoggingSetup</span><span class="o">.</span><span class="na">mainLoggingRuntimeControl</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 </pre></div>
 <br />
 </details><br />
 <div style="height: 1em;"></div></p>
-<p><span class="quest">Add your screenshots and/or measurement results for procedure steps 6 and 7 (page 5-16 to 5-18) to the report.</span><br />
-<figure class="oszi" markdown=1> <img src="pics/benchmark_5-13.png" title="Benchmark according to 5-13" class="noborder"><figcaption>Benchmark according to 5-13</figcaption> </figure><br />
-<figure class="oszi" markdown=1> <img src="pics/benchmark_5-15.png" title="Benchmark according to 5-15" class="noborder"><figcaption>Benchmark according to 5-15</figcaption> </figure><br />
-<figure class="oszi" markdown=1> <img src="pics/pov_measure.png" title="RTOS object viewer" class="noborder"><figcaption>RTOS object viewer</figcaption> </figure></p></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 05</td>
+<blockquote>
+<p>Add the execution graph and the Task Load summary to your report.</p>
+</blockquote>
+<figure class="oszi">
+<p><img src="pics/execGraph_04.png" title="Execution graph and task load summary" class="noborder"><figcaption>Execution graph and task load summary</figcaption> </p>
+</figure>
+<blockquote>
+<p>Answer all questiona at page 8-9 and 10.</p>
+</blockquote></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 08</td>
 <td style="text-align: center;">Del Basso, Manuel</td>
-<td style="text-align: center;">21-04-2017</td>
+<td style="text-align: center;">28-06-2017</td>
 <td style="text-align: center;">WHZ</td>
 <td width="55px"><img style="display: inline; height: 55px; float: right;" src="./pics/whz.png"/></td>
 </tr></table></div></center></body></html>

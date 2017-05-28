@@ -1759,10 +1759,10 @@ MathJax.Hub.Config({
 <p>Add the oscilloscope screenshots for the HWI - delay of GPIO2 to GPIO0 to your report.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/os_hwi_latency_2kHz_100ns.png" title="Interrupt latency @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of <strong>HWI</strong> RTOS setup @$\;\si{2kHz}\;$</figcaption> </p>
+<p><img src="pics/os_hwi_latency_2kHz_100ns.png" title="Interrupt latency @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt latency of <strong>HWI</strong> RTOS setup @$\;\si{2kHz}\;$</figcaption> </p>
 </figure>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/os_hwi_jitter_2kHz_20ns.png" title="Interrupt jitter @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of <strong>HWI</strong> RTOS setup @$\;\si{2kHz}\;$</figcaption> </p>
+<p><img src="pics/os_hwi_jitter_2kHz_20ns.png" title="Interrupt jitter @2kHz of HWI __RTOS__ setup" class="noborder"><figcaption>Interrupt jitter of <strong>HWI</strong> RTOS setup @$\;\si{2kHz}\;$</figcaption> </p>
 </figure>
 <h2 id="part-2-hwi-semaphore-task1-mailbox-task2"><a name="user-content-part-2-hwi-semaphore-task1-mailbox-task2" href="#part-2-hwi-semaphore-task1-mailbox-task2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Part 2 (HWI-Semaphore-Task1-Mailbox-Task2)</h2>
 <blockquote>
@@ -2021,15 +2021,15 @@ MathJax.Hub.Config({
 <p>Add the oscilloscope screenshots for the delay of GPIO02 to GPIO0 and the jitter – screenshot of GPIO2 to your report.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/latency_2.png" title="Interrupt latency" class="noborder"><figcaption>Interrupt latency</figcaption> </p>
+<p><img src="pics/latency_2.png" title="Interrupt latency" class="noborder"><figcaption>Interrupt latency</figcaption> </p>
 </figure>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/jitter_2.png" title="Interrupt jitter" class="noborder"><figcaption>Interrupt jitter</figcaption> </p>
+<p><img src="pics/jitter_2.png" title="Interrupt jitter" class="noborder"><figcaption>Interrupt jitter</figcaption> </p>
 </figure>
 <blockquote>
 <p>Add the exection graph, task load and CPU-load to your report.</p>
 </blockquote>
-<figure><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/exec_cpu_tsk_load_02.png" title="Execution graph, CPU- and task load" class="noborder"><figcaption>Execution graph, CPU- and task load</figcaption> </figure>
+<figure><img src="pics/exec_cpu_tsk_load_02.png" title="Execution graph, CPU- and task load" class="noborder"><figcaption>Execution graph, CPU- and task load</figcaption> </figure>
 
 <blockquote>
 <p>Answer all questions in this paragraph.</p>
@@ -2037,7 +2037,7 @@ MathJax.Hub.Config({
 <p>► What is the time distance between the starts of the HWI, in the picture above marked as X2-X1?<br />
 (940-440)us = 500us</p>
 <p>► How long is the execution time of HWI, in the picture marked as X3-X1?<br />
-<figure class="" markdown=1 style="width: 80%;"> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/x3x1.png" title="X2-X1" class="noborder"><figcaption>X3-X1</figcaption> </figure></p>
+<figure class="" markdown=1 style="width: 80%;"> <img src="pics/x3x1.png" title="X2-X1" class="noborder"><figcaption>X3-X1</figcaption> </figure></p>
 <p>► Can you explain the time diagram between the markers X1 and X5?<br />
 ► What happens at X1?<br />
 ► Which code function posts a semaphore (which?) after X1?<br />
@@ -2062,14 +2062,14 @@ MathJax.Hub.Config({
 <div style="height: 2em;"></div>
 
 <p>In this picture, within the first blue bar, <code>GpioDataRegs.GPADAT.bit.GPIO2 = (msg.val &amp; 0x01);</code> is executed. Within the second range, the message object is modified <code>msg.val ^= 1;</code></p>
-<p><center><figure style="width: 70%;"><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/gpioMsgManipulation.png" title="Range of write access to GPIO data register and message object member val" class="noborder"><figcaption>Range of write access to GPIO data register and message object member val</figcaption> </figure></center></p>
+<p><center><figure style="width: 70%;"><img src="pics/gpioMsgManipulation.png" title="Range of write access to GPIO data register and message object member val" class="noborder"><figcaption>Range of write access to GPIO data register and message object member val</figcaption> </figure></center></p>
 <div style="height: 1em;"></div>
 
 <p>► Why is Task 1 shortly later preempted by Task2?<br />
 ???</p>
 <p>► With this setup for priorities for Task1 and Task2, what is the total response time for Task1?<br />
 ► What is the total response time for Task2?</p>
-<p><center><figure style="width: 80%;"><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/responseTime.png" title="Response time of Task1 and Task2" class="noborder"><figcaption>Response time of Task1 and Task2</figcaption> </figure></center></p>
+<p><center><figure style="width: 80%;"><img src="pics/responseTime.png" title="Response time of Task1 and Task2" class="noborder"><figcaption>Response time of Task1 and Task2</figcaption> </figure></center></p>
 <blockquote>
 <p>Change Task Priorities: Add the modified execution graph to your protocol</p>
 </blockquote>
@@ -2426,7 +2426,7 @@ MathJax.Hub.Config({
 <p>Add the execution graph results to your written report.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_07/pics/exec_cpu_tsk_load_03_queue.png" title="Execution graph, CPU- and task load - Mailbox replaced by queue" class="noborder"><figcaption>Execution graph, CPU- and task load - Mailbox replaced by queue</figcaption> </p>
+<p><img src="pics/exec_cpu_tsk_load_03_queue.png" title="Execution graph, CPU- and task load - Mailbox replaced by queue" class="noborder"><figcaption>Execution graph, CPU- and task load - Mailbox replaced by queue</figcaption> </p>
 </figure></article><center><div style="width: 95%"><hr id="hr_footer"><table style="width: 100%"><tr><td style="text-align: left;">Report ELT131 LAB 07</td>
 <td style="text-align: center;">Del Basso, Manuel</td>
 <td style="text-align: center;">19-05-2017</td>

@@ -1683,13 +1683,13 @@ It&rsquo;s handle is SWI_XINT1 and the registered callback handler is SWI_XINT1_
 <p>Add the oscilloscope screen shots for the interrupt latency and jitter (see page 4-5) to your report.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/after_uia_api.png" title="Interrupt latency influence of the UIA setup" class="noborder"><figcaption>Interrupt latency influence of the UIA setup</figcaption> </p>
+<p><img src="pics/after_uia_api.png" title="Interrupt latency influence of the UIA setup" class="noborder"><figcaption>Interrupt latency influence of the UIA setup</figcaption> </p>
 </figure>
 <blockquote>
 <p>Add a screen shot of the execution graph and the CPU – load (see page 4-6) to your report.</p>
 </blockquote>
 <figure class="oszi">
-<p><img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_times.png" title="Execution graph and CPU load screenshot" class=""><figcaption>Screen shot of execution graph and CPU load monitor</figcaption> </p>
+<p><img src="pics/exec_graph_times.png" title="Execution graph and CPU load screenshot" class=""><figcaption>Screen shot of execution graph and CPU load monitor</figcaption> </p>
 </figure>
 <blockquote>
 <p>Answer the questions in procedure step 3.4. at page 4-6.</p>
@@ -1714,7 +1714,7 @@ The picture below shows an execution period from CCS execution graph, overlay-ed
 </ul>
 <p>The overall time between XINT1 ISR entry point and clearing GPIO2 (last instruction of the Swi handler) could be determined from the execution graph time markers X4-X1 an is approx. $\si{26 us}$.<br />
 The Swi manager is an important (and time consuming) part of the BIOS scheduler. </p>
-<p><a href="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_scope_2.png" target="_blank"><figure class="oszi" markdown=1> <img src="/media/data/whz/reports/ELT131/ELT131_LAB_04/pics/exec_graph_scope_2.png" title="Execution graph overlayed by oscilloscope measurement" class=""><figcaption>Execution graph overlay-ed by oscilloscope measurement</figcaption> </figure></a></p>
+<p><a href="pics/exec_graph_scope_2.png" target="_blank"><figure class="oszi" markdown=1> <img src="pics/exec_graph_scope_2.png" title="Execution graph overlayed by oscilloscope measurement" class=""><figcaption>Execution graph overlay-ed by oscilloscope measurement</figcaption> </figure></a></p>
 <h2 id="change-swi-duration-part-4"><a name="user-content-change-swi-duration-part-4" href="#change-swi-duration-part-4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Change SWI duration (Part 4)</h2>
 <blockquote>
 <p>Edit file &ldquo;ELT131_04_01.c&rdquo; and extend the duration of the SWI by extending the for - loop from 10 to 200 repetitions.<br />
